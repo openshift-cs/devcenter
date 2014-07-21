@@ -1,19 +1,13 @@
 # Dev Center for OpenShift
-
 Uses http://awestruct.org/ and http://getbootstrap.com/
 
-Templates are in the _layouts folder
-
-English language content is in the /en folder
-
 ## Directory Info
-
-_config:      site config .yml file
-_ext:         awestruct extensions
-_layouts:     page templates
-en:           English content (.adoc)
-images:       image assets
-javascripts:  JS assets
-stylesheets:  css files
-Gemfile:      manage required gems
-Rakefile:     rake build file
+_config:      site config .yml file<br>
+_ext:         awestruct extensions<br>
+_layouts:     page templates<br>
+en:           English content (.adoc)<br>
+images:       image assets<br>
+javascripts:  JS assets<br>
+stylesheets:  css files<br>
+Gemfile:      manage required gems<br>
+Rakefile:     rake build file<br>
