@@ -1,0 +1,32 @@
+Main Header
+===========
+:Author:    Shawn Purtell
+:Email:     spurtell@redhat.com
+:Date:      2014-07-19
+:Revision:  1.0
+:source-highlighter: coderay
+:awestruct-layout: base
+
+Content last updated {date}
+
+include::test.adoc[]
+
+Main Java Header
+----------------
+Main Java Content.
+
+=== Java Subheader
+Introduction.
+
+==== Paragraph Header
+Example content for p1
+
+NOTE: This is an example NOTE.
+
+[source, ruby]
+--
+puts "Hello, World!"
+
+[1, [2, 3], 4].flatten.size == 4
+--
+
