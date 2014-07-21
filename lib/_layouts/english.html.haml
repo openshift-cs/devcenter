@@ -9,29 +9,58 @@
         padding-top: 60px;
       }
     %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/bootstrap.css" }
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/dashboard.css" }
     /[if lt IE 9]
       %script{ :type=>'text/javascript', :src=>'//html5shim.googlecode.com/svn/trunk/html5.js' }
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.brand{ :href=>"#{site.base_url}" } Dev Center
-          %ul.nav
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "#"} OpenShift Developer Center
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav.navbar-right
             %li
-              %a{ :href=>"#{site.base_url}" } Home
+              %a{href: "#"} Documentation
             %li
-              %a{ :href=>"#{site.base_url}" } Documentation
-            %li
-              %a{ :href=>"#{site.base_url}" } Support
-            %li
-              %a{ :href=>"#{site.base_url}/en" } English
-    .container
+              %a{href: "#"} Support
+          %form.navbar-form.navbar-right
+            %input.form-control{placeholder: "Search...", type: "text"}/
+            / /.nav-collapse
+    .container-fluid
       .row
-        .span3
-          = partial( 'left-navigation.html.haml' )
-        .span8
-          .page-header
-            %h1 Welcome to the Developer Center
+        .col-sm-3.col-md-2.sidebar
+          %ul.nav.nav-sidebar
+            %li.active
+              %a{href: "#"} Introduction to PaaS
+            %li
+              %a{href: "#"} Getting Started
+            %li
+              %a{href: "#"} Platform Features
+          %ul.nav.nav-sidebar
+            %li
+              %a{href: "/en/java"} Java
+            %li
+              %a{href: ""} PHP
+            %li
+              %a{href: ""} Node.js
+            %li
+              %a{href: ""} Python
+            %li
+              %a{href: ""} Ruby
+            %li
+              %a{href: ""} Perl
+            %li
+              %a{href: ""} More Languages
+          %ul.nav.nav-sidebar
+            %li
+              %a{href: ""} Jenkins
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          %h1.page-header Welcome to the Developer Center
           ~ content
       %hr
       %footer
