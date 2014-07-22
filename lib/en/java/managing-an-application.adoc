@@ -7,7 +7,7 @@ Main Header
 :source-highlighter: coderay
 :awestruct-layout: java
 
-== Java Managing and Application
+== Java Managing an Application
 
 Content goes here.
 

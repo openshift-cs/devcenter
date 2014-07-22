@@ -53,6 +53,8 @@ _italic phrase_ +
 Do werewolves believe in [small]#small print#? +
 
 === Lists
+
+==== Unordered List
 * Edgar Allen Poe
 * Sheri S. Tepper
 * Bill Bryson
@@ -85,15 +87,22 @@ https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
 
 video::rbFIHgHDRgo[youtube, width=640, height=480]
 
+=== Content/Code Blocks
+
+==== Inline
+
 Reference code like +types+ or +methods+ inline.
 
-=== Content/Code Blocks
+==== Block
 
 ....
 error: The requested operation returned error: 1954 Forbidden search for defensive operations manual
 absolutely fatal: operation initiation lost in the dodecahedron of doom
 would you like to die again? y/n
 ....
+
+
+==== Standard Code Block
 
 .Gemfile.lock
 ----
@@ -109,6 +118,8 @@ DEPENDENCIES
   asciidoctor (~> 0.1.4)
 ----
 
+==== Block w/Coloring
+
 [source,ruby]
 .app.rb
 ----
@@ -118,6 +129,8 @@ get '/hi' do
   "Hello World!"
 end
 ----
+
+==== Block w/Notes
 
 [source,ruby]
 ----

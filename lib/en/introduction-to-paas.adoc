@@ -7,8 +7,6 @@ Main Header
 :source-highlighter: coderay
 :awestruct-layout: base
 
-Content last updated {date}
-
 == Introduction to PaaS
 This is the intro to paas content.
 
