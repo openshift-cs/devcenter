@@ -1,0 +1,25 @@
+Main Header
+===========
+:Author:    Shawn Purtell
+:Email:     spurtell@redhat.com
+:Date:      2014-07-21
+:Revision:  1.0
+:source-highlighter: coderay
+:awestruct-layout: base
+
+Getting Started
+---------------
+This is the getting started content.
+
+=== Sample Code
+
+[source, php]
+--
+<?php
+$test = "String";
+?>
+--
+
+'''
+
+Content last updated {date}

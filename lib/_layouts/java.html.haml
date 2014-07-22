@@ -40,11 +40,11 @@
             %li
               %a{href: "/en/platform-features.html"} Platform Features
           %ul.nav.nav-sidebar
-            %li.nav-header
+            %li.nav-header.active
               %a{"data-target" => "#javaMenu", "data-toggle" => "collapse", href: "#"}
                 Java
                 %i.icon-angle-right
-              %ul#javaMenu.collapse{style: "list-style: none;"}
+              %ul#javaMenu.collapse.in{style: "list-style: none;"}
                 %li
                   %a{href: "/en/java"} Java Home
                 %li
@@ -87,6 +87,11 @@
                 %li
                   %a{href: "#"} Tooling
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          %ol.breadcrumb
+            %li
+              %a{href: "/en"} Home
+            %li
+              %a{href: "/en/java"} Java
           ~ content
       %hr
       %footer

@@ -1,0 +1,15 @@
+Main Header
+===========
+:Author:    Shawn Purtell
+:Email:     spurtell@redhat.com
+:Date:      2014-07-19
+:Revision:  1.0
+:source-highlighter: coderay
+:awestruct-layout: java
+
+== Java Tooling
+
+Content goes here.
+
+'''
+Content last updated {date}

@@ -1,3 +1,0 @@
-== This is included content from another .adoc file
-
-This is included sample content from test.adoc

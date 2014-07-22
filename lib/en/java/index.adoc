@@ -5,28 +5,43 @@ Main Header
 :Date:      2014-07-19
 :Revision:  1.0
 :source-highlighter: coderay
-:awestruct-layout: base
+:awestruct-layout: java
 
+== Main Java Header
+
+Choose your environment: +
+link:jboss.html[JBoss] +
+link:spring.html[Spring] +
+link:tomcat.html[Tomcat] +
+
+=== Example Java Code Block
+
+[source, java]
+--
+/* CallingMethodsInSameClass.java
+ *
+ * illustrates how to call static methods a class
+ * from a method in the same class
+ */
+
+public class CallingMethodsInSameClass
+{
+  public static void main(String[] args) {
+    printOne();
+    printOne();
+    printTwo();
+  }
+
+  public static void printOne() {
+    System.out.println("Hello World");
+  }
+
+  public static void printTwo() {
+    printOne();
+    printOne();
+  }
+}
+--
+
+'''
 Content last updated {date}
-
-include::test.adoc[]
-
-Main Java Header
-----------------
-Main Java Content.
-
-=== Java Subheader
-Introduction.
-
-==== Paragraph Header
-Example content for p1
-
-NOTE: This is an example NOTE.
-
-[source, ruby]
---
-puts "Hello, World!"
-
-[1, [2, 3], 4].flatten.size == 4
---
-
