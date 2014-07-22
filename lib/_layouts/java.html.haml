@@ -26,6 +26,22 @@
               %a{href: "#"} Documentation
             %li
               %a{href: "#"} Support
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Content
+                %span.caret
+              %ul.dropdown-menu{role: "menu"}
+                %li
+                  %a{href: "/en/introduction-to-paas.html"} Intro to PaaS
+                %li
+                  %a{href: "/en/getting-started.html"} Getting Started
+                %li
+                  %a{href: "/en/platform-features.html"} Platform Features
+                %li.divider
+                %li
+                  %a{href: "/en/java"} Java
+                %li
+                  %a{href: "#"} PHP
           %form.navbar-form.navbar-right
             %input.form-control{placeholder: "Search...", type: "text"}/
             / /.nav-collapse
@@ -39,11 +55,12 @@
               %a{href: "/en/getting-started.html"} Getting Started
             %li
               %a{href: "/en/platform-features.html"} Platform Features
+            %li.divider
           %ul.nav.nav-sidebar
             %li.nav-header.active
               %a{"data-target" => "#javaMenu", "data-toggle" => "collapse", href: "#"}
                 Java
-                %i.icon-angle-right
+                %span.glyphicon.glyphicon-chevron-down
               %ul#javaMenu.collapse.in{style: "list-style: none;"}
                 %li
                   %a{href: "/en/java"} Java Home
@@ -66,7 +83,7 @@
             %li.nav-header
               %a{"data-target" => "#phpMenu", "data-toggle" => "collapse", href: "#"}
                 PHP
-                %i.icon-angle-right
+                %span.glyphicon.glyphicon-chevron-right
               %ul#phpMenu.collapse{style: "list-style: none;"}
                 %li
                   %a{href: "#"} PHP Home
@@ -101,7 +118,7 @@
       :javascript
         $('[data-toggle=collapse]').click(function(){
           // toggle icon
-          $(this).find("i").toggleClass("icon-angle-right icon-angle-down");
+          $(this).find("span").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
         });
         $('.collapse').on('show', function (e) {
             // hide open menus

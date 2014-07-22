@@ -7,8 +7,7 @@ Main Header
 :source-highlighter: coderay
 :awestruct-layout: base
 
-Getting Started
----------------
+== Getting Started
 This is the getting started content.
 
 === Sample Code
