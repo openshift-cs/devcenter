@@ -1,0 +1,15 @@
+%script{ :type=>'text/javascript', :src=>"//code.jquery.com/jquery-1.11.0.min.js" }
+%script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/bootstrap.js" }
+:javascript
+  $('[data-toggle=collapse]').click(function(){
+    // toggle icon
+    $(this).find("span").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
+  });
+  $('.collapse').on('show', function (e) {
+      // hide open menus
+      $('.collapse').each(function(){
+        if ($(this).hasClass('in')) {
+            $(this).collapse('toggle');
+        }
+      });
+  });

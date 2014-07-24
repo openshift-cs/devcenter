@@ -10,6 +10,8 @@ Main Header
 == Developer Center
 This is the dev center content (in English).
 
+include::fragments/sample.adoc[]
+
 === Paragraphs
 
 [.lead]
