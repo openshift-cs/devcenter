@@ -1,0 +1,3 @@
+lib/.awestruct/*
+lib/_site/*
+lib/Gemfile.lock
