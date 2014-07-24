@@ -4,12 +4,7 @@
     %meta{ :charset=>'utf-8' }
     %title Developer Center
     %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/asciidoc.css" }
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/bootstrap.css" }
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/bootstrap-theme.css" }
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/dashboard.css" }
-    /[if lt IE 9]
-      %script{ :type=>'text/javascript', :src=>'//html5shim.googlecode.com/svn/trunk/html5.js' }
+    =partial( 'styles.html.haml' );
   %body
     .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container-fluid
@@ -32,14 +27,14 @@
                 %span.caret
               %ul.dropdown-menu{role: "menu"}
                 %li
-                  %a{href: "/en/introduction-to-paas.html"} Intro to PaaS
+                  %a{href: "/en/main-introduction-to-paas.html"} Intro to PaaS
                 %li
-                  %a{href: "/en/getting-started.html"} Getting Started
+                  %a{href: "/en/main-getting-started.html"} Getting Started
                 %li
-                  %a{href: "/en/platform-features.html"} Platform Features
+                  %a{href: "/en/main-platform-features.html"} Platform Features
                 %li.divider
                 %li
-                  %a{href: "/en/java"} Java
+                  %a{href: "/en/java-overview.html"} Java
                 %li
                   %a{href: "#"} PHP
           %form.navbar-form.navbar-right
@@ -50,11 +45,11 @@
         .col-sm-3.col-md-2.sidebar
           %ul.nav.nav-sidebar
             %li
-              %a{href: "/en/introduction-to-paas.html"} Introduction to PaaS
+              %a{href: "/en/main-introduction-to-paas.html"} Introduction to PaaS
             %li
-              %a{href: "/en/getting-started.html"} Getting Started
+              %a{href: "/en/main-getting-started.html"} Getting Started
             %li
-              %a{href: "/en/platform-features.html"} Platform Features
+              %a{href: "/en/main-platform-features.html"} Platform Features
             %li.divider
           %ul.nav.nav-sidebar
             %li.nav-header.active
@@ -63,23 +58,23 @@
                 %span.glyphicon.glyphicon-chevron-down
               %ul#javaMenu.collapse.in{style: "list-style: none;"}
                 %li
-                  %a{href: "/en/java"} Java Home
+                  %a{href: "/en/java-overview.html"} Java Home
                 %li
-                  %a{href: "/en/java/migrating-an-existing-application.html"} Migrating an Existing App
+                  %a{href: "/en/java-migrating-an-existing-application.html"} Migrating an Existing App
                 %li
-                  %a{href: "/en/java/storing-data.html"} Storing Data
+                  %a{href: "/en/java-storing-data.html"} Storing Data
                 %li
-                  %a{href: "/en/java/services.html"} Services
+                  %a{href: "/en/java-services.html"} Services
                 %li
-                  %a{href: "/en/java/advanced-use-cases.html"} Advanced Use Cases
+                  %a{href: "/en/java-advanced-use-cases.html"} Advanced Use Cases
                 %li
-                  %a{href: "/en/java/managing-an-application.html"} Managing an Application
+                  %a{href: "/en/java-managing-an-application.html"} Managing an Application
                 %li
-                  %a{href: "/en/java/featured-java-apps.html"} Featured Java Apps
+                  %a{href: "/en/java-featured-java-apps.html"} Featured Java Apps
                 %li
-                  %a{href: "/en/java/tutorials-and-examples.html"} Tutorials and Examples
+                  %a{href: "/en/java-tutorials-and-examples.html"} Tutorials and Examples
                 %li
-                  %a{href: "/en/java/tooling.html"} Tooling
+                  %a{href: "/en/java-tooling.html"} Tooling
             %li.nav-header
               %a{"data-target" => "#phpMenu", "data-toggle" => "collapse", href: "#"}
                 PHP
@@ -110,23 +105,7 @@
             %li
               %a{href: "/en/java"} Java
           ~ content
-      %hr
-      %footer
-        %p &copy; Shawn Purtell #{Date.today.year}
-      %script{ :type=>'text/javascript', :src=>"//code.jquery.com/jquery-1.11.0.min.js" }
-      %script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/bootstrap.js" }
-      :javascript
-        $('[data-toggle=collapse]').click(function(){
-          // toggle icon
-          $(this).find("span").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
-        });
-        $('.collapse').on('show', function (e) {
-            // hide open menus
-            $('.collapse').each(function(){
-              if ($(this).hasClass('in')) {
-                  $(this).collapse('toggle');
-              }
-            });
-        });
-    -# Uncomment script tags (remove leading -#) when you're ready to use behaviors
-    -# %script{ :type=>'text/javascript', :src=>'//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js' }
+      .row
+        %hr
+        %footer
+    = partial( 'scripts.html.haml' )

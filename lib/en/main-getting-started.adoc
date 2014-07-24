@@ -1,0 +1,51 @@
+Main Header
+===========
+:Author:    Shawn Purtell
+:Email:     spurtell@redhat.com
+:Date:      2014-07-22
+:Revision:  1.0
+:source-highlighter: coderay
+:awestruct-layout: base
+
+== Getting Started
+This is the getting started content.
+
+== Setting up Your Environment
+
+=== Web Console
+
+=== RHC (Command Line Tool)
+
+==== Windows
+
+==== OS X
+
+==== Linux
+
+=== Using an IDE
+
+== Git (Version Control System)
+
+=== Windows
+
+=== OS X
+
+=== Linux
+
+== Using SSH
+
+=== Windows
+
+=== OS X
+
+=== Linux
+
+== Creating a Sample Application
+
+== Making Your First Code Change
+
+== What's Next?
+
+'''
+
+Content last updated {date}
