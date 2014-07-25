@@ -1,0 +1,27 @@
+Main Header
+===========
+:Author:    Shawn Purtell
+:Email:     spurtell@redhat.com
+:Date:      2014-07-19
+:Revision:  1.0
+:source-highlighter: coderay
+:awestruct-layout: php
+
+== Main PHP Header
+
+Choose your environment: +
+link:jboss.html[JBoss] +
+link:spring.html[Spring] +
+link:tomcat.html[Tomcat] +
+
+=== Example PHP Code Block
+
+[source, php]
+--
+<?php
+    phpinfo();
+?>
+--
+
+'''
+Content last updated {date}
