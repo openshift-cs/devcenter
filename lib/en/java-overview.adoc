@@ -1,11 +1,12 @@
-Main Header
-===========
-:Author:    Shawn Purtell
-:Email:     spurtell@redhat.com
-:Date:      2014-07-19
-:Revision:  1.0
+---
+layout: base
+category: 2_Java
+breadcrumb: Java
+parent_url: java-overview.html
+nav_title: Overview
+---
+= Java Overview
 :source-highlighter: coderay
-:awestruct-layout: java
 
 == Main Java Header
 
@@ -42,6 +43,3 @@ public class CallingMethodsInSameClass
   }
 }
 --
-
-'''
-Content last updated {date}

@@ -1,16 +1,12 @@
-Main Header
-===========
-:Author:    Shawn Purtell
-:Email:     spurtell@redhat.com
-:Date:      2014-07-21
-:Revision:  1.0
-:source-highlighter: coderay
-:awestruct-layout: base
+---
+layout: home
+---
+= OpenShift Online Developer Center
 
 == Developer Center
 This is the dev center content (in English).
 
-include::fragments/sample.adoc[]
+include::_fragments/sample.adoc[]
 
 === Paragraphs
 

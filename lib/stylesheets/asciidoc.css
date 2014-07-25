@@ -523,4 +523,5 @@ ol.CodeRay li { white-space: pre }
 
 /* custom .css */
 
-#javaMenu a, #phpMenu a { padding-left: 20px; }
+#overviewMenu a, #javaMenu a, #phpMenu a { padding-left: 20px; font-size: 14px;}
+.nav-header {font-size: 16px;}
