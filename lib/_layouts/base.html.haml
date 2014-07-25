@@ -33,7 +33,7 @@
               - site.pages.reject{|p| p.category.nil?}.group_by(&:category).sort.each do |category, pages|
                 %a{"data-target" => "##{category[2, 10].downcase}Menu", "data-toggle" => "collapse", href: "#"}
                   = category[2, 10]
-                  %span.glyphicon.glyphicon-chevron-down
+                  %span.glyphicon.glyphicon-chevron-right
                 %ul.collapse{"id" => "#{category[2, 10].downcase}Menu", "style" => "list-style: none;"}
                   - pages.each do |page|
                     %li
