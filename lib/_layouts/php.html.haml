@@ -36,7 +36,7 @@
                 %li
                   %a{href: "/en/java-overview.html"} Java
                 %li
-                  %a{href: "#"} PHP
+                  %a{href: "/en/php-overview.html"} PHP
           %form.navbar-form.navbar-right
             %input.form-control{placeholder: "Search...", type: "text"}/
             / /.nav-collapse
@@ -52,11 +52,11 @@
               %a{href: "/en/main-platform-features.html"} Platform Features
             %li.divider
           %ul.nav.nav-sidebar
-            %li.nav-header.active
+            %li.nav-header
               %a{"data-target" => "#javaMenu", "data-toggle" => "collapse", href: "#"}
                 Java
-                %span.glyphicon.glyphicon-chevron-down
-              %ul#javaMenu.collapse.in{style: "list-style: none;"}
+                %span.glyphicon.glyphicon-chevron-right
+              %ul#javaMenu.collapse{style: "list-style: none;"}
                 %li
                   %a{href: "/en/java-overview.html"} Java Home
                 %li
@@ -75,11 +75,11 @@
                   %a{href: "/en/java-tutorials-and-examples.html"} Tutorials and Examples
                 %li
                   %a{href: "/en/java-tooling.html"} Tooling
-            %li.nav-header
+            %li.nav-header.active
               %a{"data-target" => "#phpMenu", "data-toggle" => "collapse", href: "#"}
                 PHP
-                %span.glyphicon.glyphicon-chevron-right
-              %ul#phpMenu.collapse{style: "list-style: none;"}
+                %span.glyphicon.glyphicon-chevron-down
+              %ul#phpMenu.collapse.in{style: "list-style: none;"}
                 %li
                   %a{href: "/en/php-overview.html"} PHP Home
                 %li
@@ -103,7 +103,7 @@
             %li
               %a{href: "/en"} Home
             %li
-              %a{href: "/en/java"} Java
+              %a{href: "/en/php"} PHP
           ~ content
       .row
         %hr
