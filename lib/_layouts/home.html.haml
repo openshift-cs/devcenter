@@ -39,13 +39,6 @@
                     %li
                       %a{ :href => page.url } #{page.nav_title}
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-          %ol.breadcrumb
-            %li
-              %a{href: "/en"} Home
-            %li
-              %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
-            %li
-              #{page.nav_title}
           ~ content
       .row
         %hr

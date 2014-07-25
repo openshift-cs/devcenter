@@ -1,15 +1,13 @@
-Main Header
-===========
-:Author:    Shawn Purtell
-:Email:     spurtell@redhat.com
-:Date:      2014-07-19
-:Revision:  1.0
+---
+layout: base
+category: 3_PHP
+breadcrumb: PHP
+parent_url: php-overview.html
+nav_title: Tutorials and Examples
+---
+= PHP Tutorials and Examples
 :source-highlighter: coderay
-:awestruct-layout: php
 
 == PHP Tutorials and Examples
 
 Content goes here.
-
-'''
-Content last updated {date}

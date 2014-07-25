@@ -1,15 +1,13 @@
-Main Header
-===========
-:Author:    Shawn Purtell
-:Email:     spurtell@redhat.com
-:Date:      2014-07-19
-:Revision:  1.0
+---
+layout: base
+category: 2_Java
+breadcrumb: Java
+parent_url: java-overview.html
+nav_title: Migrating an Existing App
+---
+= Migrating an Existing Java Application
 :source-highlighter: coderay
-:awestruct-layout: java
 
-== Java Migrating an Existing App
+== Java Migrating an Existing Application
 
 Content goes here.
-
-'''
-Content last updated {date}

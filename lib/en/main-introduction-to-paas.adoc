@@ -1,15 +1,11 @@
-Main Header
-===========
-:Author:    Shawn Purtell
-:Email:     spurtell@redhat.com
-:Date:      2014-07-21
-:Revision:  1.0
-:source-highlighter: coderay
-:awestruct-layout: base
+---
+layout: base
+category: 1_Overview
+breadcrumb: Overview
+parent_url:
+nav_title: Introduction to PaaS
+---
+= Introduction to PaaS
 
 == Introduction to PaaS
 This is the intro to paas content.
-
-'''
-
-Content last updated {date}
