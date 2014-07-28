@@ -525,3 +525,5 @@ ol.CodeRay li { white-space: pre }
 
 #overviewMenu a, #javaMenu a, #phpMenu a { padding-left: 20px; font-size: 14px;}
 .nav-header {font-size: 16px;}
+.collapse {list-style: none;}
+.collapse a.active {color: #666; text-decoration: underline;}
