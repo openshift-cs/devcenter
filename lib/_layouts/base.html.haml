@@ -34,7 +34,7 @@
                 %a{"data-target" => "##{category[2, 10].downcase}Menu", "data-toggle" => "collapse", href: "#"}
                   = category[2, 10]
                   %span.glyphicon.glyphicon-chevron-right
-                %ul.collapse{"id" => "#{category[2, 10].downcase}Menu", "style" => "list-style: none;"}
+                %ul.collapse.list-unstyled{"id" => "#{category[2, 10].downcase}Menu"}
                   - pages.each do |page|
                     %li
                       %a{ :href => page.url } #{page.nav_title}
