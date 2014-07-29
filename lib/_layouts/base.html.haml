@@ -31,11 +31,11 @@
           %ul.nav.nav-sidebar
             - site.pages.reject{|p| p.category.nil?}.group_by(&:category).sort.each do |category, pages|
               %li.nav-header{ :class=>page.category =~ /#{category}/i ? 'active' : nil }
-                %a{"data-target" => "##{category[2, 10].downcase}Menu", "data-toggle" => "collapse", href: "#"}
-                  = category[2, 10]
+                %a{"data-target" => "##{category.gsub(/[^A-Z]/i, '').downcase}Menu", "data-toggle" => "collapse", href: "#"}
+                  = category.gsub(/[^A-Z\. ]/i, '')
                   %span{ :class=>page.category=~ /#{category}/i ? 'glyphicon glyphicon-chevron-down' : 'glyphicon glyphicon-chevron-right' }
-                %ul.collapse.list-unstyled{:class=>page.category =~ /#{category}/i ? 'in' : nil, "id" => "#{category[2, 10].downcase}Menu"}
-                  - pages.each do |p|
+                %ul.collapse.list-unstyled{:class=>page.category =~ /#{category}/i ? 'in' : nil, "id" => "#{category.gsub(/[^A-Z]/i, '').downcase}Menu"}
+                  - pages.sort_by{ |a| a.nav_priority }.each do |p|
                     %li
                       %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url } #{p.nav_title}
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main

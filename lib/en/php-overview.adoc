@@ -1,9 +1,10 @@
 ---
 layout: base
-category: 3_PHP
+category: 10_PHP
 breadcrumb: PHP
 parent_url: php-overview.html
 nav_title: Overview
+nav_priority: 1
 ---
 = PHP Overview
 :source-highlighter: coderay

@@ -1,9 +1,10 @@
 ---
 layout: base
-category: 2_Java
+category: 05_Java
 breadcrumb: Java
 parent_url: java-overview.html
 nav_title: Overview
+nav_priority: 1
 ---
 = Java Overview
 :source-highlighter: coderay
