@@ -523,6 +523,6 @@ ol.CodeRay li { white-space: pre }
 
 /* custom .css */
 
-#overviewMenu a, #javaMenu a, #phpMenu a { padding-left: 20px; font-size: 14px;}
 .nav-header {font-size: 16px;}
+.nav-header ul { padding-left: 20px; font-size: 14px;}
 .collapse a.active {color: #666; text-decoration: underline;}

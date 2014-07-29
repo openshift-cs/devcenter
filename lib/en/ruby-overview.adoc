@@ -1,0 +1,12 @@
+---
+layout: base
+category: 25_Ruby
+breadcrumb: Ruby
+parent_url: ruby-overview.html
+nav_title: Overview
+nav_priority: 1
+---
+= Ruby Overview
+:source-highlighter: coderay
+
+== Main Ruby Header
