@@ -135,7 +135,7 @@ link:#supported-cartridges[Supported Cartridges] +
 === Creating a Scalable Application
 You must specify whether or not an application can scale when you create the application. By default, applications created on OpenShift Online are not scalable.
 
-If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[the OpenShift Online User Guide], “Cloning an Existing Application” for more information.
+If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[the OpenShift Online User Guide], "Cloning an Existing Application" for more information.
 
 ==== Web Console
 
