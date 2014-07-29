@@ -1,0 +1,84 @@
+[[fedora]]
+Fedora
+~~~~~~
+
+RHC client tools are available as an RPM and can be installed with the
+YUM package manager on Fedora. Keep in mind that this version is not
+updated as frequently as the the Ruby gem version.
+
+To install using yum on Fedora:
+
+------------------------------
+$ sudo yum install rubygem-rhc
+------------------------------
+
+This installs Ruby, Git, and the other dependencies required to run the
+OpenShift client tools..
+
+After the rhc client tools are installed, run:
+
+-----------
+$ rhc setup
+-----------
+
+The OpenShift interactive setup wizard displays and prompts you to
+complete the rest of the process. If you cannot run the OpenShift client
+tools at this point, please contact us on
+http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
+link:/forums/openshift[our forums] for more assistance.
+
+To update the OpenShift client tools to the latest version provided by
+the OpenShift team outside of yum, run:
+
+---------------------
+$ sudo gem update rhc
+---------------------
+
+The most recent version is downloaded and updated.
+
+[[red-hat-enterprise-linux-6]]
+Red Hat Enterprise Linux 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We recommend using the Ruby gem on RHEL. You need to install rubygems
+and git first with:
+
+-------------------------------
+$ sudo yum install rubygems git
+-------------------------------
+
+In order to install the rubygems package the RHEL Optional channel must
+be enabled. There are two ways of doing this from the command line:
+
+-----------------------------------------------------------------
+# If you are using the Certificate-Based RHN tooling
+$ sudo yum-config-manager --enable rhel-6-server-optional-rpms   
+
+# If you are using RHN-Classic
+$ sudo rhn-channel --add --channel=rhel-x86_64-server-optional-6
+-----------------------------------------------------------------
+
+With the repository in place, you can now install the OpenShift client
+tools. Run:
+
+----------------------
+$ sudo gem install rhc
+----------------------
+
+To update the OpenShift client tools to the latest version run:
+
+---------------------
+$ sudo gem update rhc
+---------------------
+
+After OpenShift client tools are installed, run:
+
+-----------
+$ rhc setup
+-----------
+
+The OpenShift interactive setup wizard displays and prompts you to
+complete the rest of the process. If you cannot run the OpenShift client
+tools at this point, please contact us on
+http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
+link:/forums/openshift[our forums] for more assistance.

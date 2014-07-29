@@ -1,0 +1,49 @@
+[[mac-os-x]]
+Mac OS X
+~~~~~~~~~
+
+From OS X Lion onwards, Ruby 1.8.7 is installed by default. On older Mac
+systems, Ruby is shipped as part of the
+http://developer.apple.com/xcode[Xcode development suite] and can be
+installed from your installation CD. If you are familiar with Mac
+development, you can also use http://macruby.org/[MacRuby] or see the
+http://www.ruby-lang.org/en/downloads/[Ruby installation page for help
+installing with homebrew].
+
+To verify that Ruby is correctly installed run:
+
+----------------------------------
+$ ruby -e 'puts "Welcome to Ruby"'
+Welcome to Ruby
+----------------------------------
+
+There are a number of options on Mac OS X for Git. We recommend the
+http://code.google.com/p/git-osx-installer/[Git for OS X installer] -
+download and run the latest version of the dmg file on your system. To
+verify the Git for OS X installation, run:
+
+--------------------
+$ git --version
+git version 1.7.11.1
+--------------------
+
+With Ruby and Git installed, use the RubyGems library system to install
+and run the OpenShift gem. Run:
+
+----------------------
+$ sudo gem install rhc
+----------------------
+
+After the installation is complete, run:
+
+-----------
+$ rhc setup
+-----------
+
+The OpenShift interactive setup wizard displays and prompts you to
+complete the rest of the process. If you cannot run the OpenShift Client
+tools at this point, please contact us on
+http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
+link:/forums/openshift[our forums] for more assistance.
+
+video::MoGpT1AW3MA[youtube, width=640, height=480]

@@ -1,0 +1,59 @@
+[[ubuntu]]
+Ubuntu
+~~~~~~~
+
+Use the apt-get command line package manager to install Ruby and Git
+before you install the OpenShift command line tools. Run:
+
+--------------------------------------------------
+$ sudo apt-get install ruby-full rubygems git-core
+--------------------------------------------------
+
+After you install both Ruby and Git, verify they can be accessed via the
+command line:
+
+----------------------------------
+$ ruby -e 'puts "Welcome to Ruby"'
+Welcome to Ruby
+$ git --version
+git version 1.7.11.1
+----------------------------------
+
+If either program is not available from the command line, please add
+them to your PATH.
+
+With Ruby and Git correctly installed, you can now use the RubyGems
+package manager to install the OpenShift client tools. From a command
+line, run:
+
+----------------------
+$ sudo gem install rhc
+----------------------
+
+If you are using an Ubuntu 11.10 or older (and derivates such as Mint)
+and are using the system Ruby, you may see errors related to invalid
+date formats when installing the OpenShift client tools gem. You may
+need to run the following commands before doing the gem install rhc
+command:
+
+-----------------------------------
+$ sudo gem install rubygems-update 
+$ sudo update_rubygems
+-----------------------------------
+
+Read more about https://github.com/rubygems/rubygems/pull/57[this
+problem and its symptoms].
+
+After the OpenShift client tools are installed, run:
+
+-----------
+$ rhc setup
+-----------
+
+The OpenShift interactive setup wizard displays and prompts you to
+complete the rest of the process. If you cannot run the OpenShift client
+tools at this point, please contact us on
+http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
+link:/forums/openshift[our forums] for more assistance.
+
+video::WZug3f-Ld34[youtube, width=640, height=480]
