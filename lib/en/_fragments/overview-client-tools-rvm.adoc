@@ -1,6 +1,5 @@
 [[ruby-version-manager]]
-Ruby Version Manager
-~~~~~~~~~~~~~~~~~~~~~
+=== Ruby Version Manager
 
 Ruby Version Manager allows you to install and run multiple versions of
 Ruby. When installing the OpenShift client tools gem onto a system with

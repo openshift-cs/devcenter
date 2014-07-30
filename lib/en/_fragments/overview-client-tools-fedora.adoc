@@ -1,6 +1,5 @@
 [[fedora]]
-Fedora
-~~~~~~
+=== Fedora
 
 RHC client tools are available as an RPM and can be installed with the
 YUM package manager on Fedora. Keep in mind that this version is not

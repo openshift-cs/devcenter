@@ -1,13 +1,12 @@
 [[windows]]
-Windows
-~~~~~~~~
+=== Windows
 
 http://rubyinstaller.org[RubyInstaller 1.9] provides the best experience
 for installing Ruby on Windows XP, Vista, and Windows 7. Download the
 newest version from http://rubyinstaller.org/downloads/[the download
 page] and launch the installer.
 
-*Important*: During the installation you can accept all of the defaults,
+IMPORTANT: During the installation you can accept all of the defaults,
 but it is mandatory that you select the "Add Ruby executables to your
 PATH" check box in order to run Ruby from the command line.
 
@@ -22,8 +21,7 @@ process and ensure the "Add Ruby executables to your PATH" check box is
 selected.
 
 [[installing-git]]
-Installing Git
-^^^^^^^^^^^^^^
+==== Installing Git
 
 The next step is to install http://msysgit.github.com/[Git for Windows]
 so that you can synchronise your local application source and your
@@ -42,8 +40,7 @@ C:Files> git --version git version 1.7.11.msysgit.1
 ----
 
 [[installing-the-openshift-gem]]
-Installing the OpenShift gem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==== Installing the OpenShift gem
 
 After Ruby and Git are correctly installed, use the RubyGems package
 manager (included in Ruby) to install the OpenShift client tools. Run:

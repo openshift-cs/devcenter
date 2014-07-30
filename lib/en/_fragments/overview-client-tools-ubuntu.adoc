@@ -1,6 +1,5 @@
 [[ubuntu]]
-Ubuntu
-~~~~~~~
+=== Ubuntu
 
 Use the apt-get command line package manager to install Ruby and Git
 before you install the OpenShift command line tools. Run:

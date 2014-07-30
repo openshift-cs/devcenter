@@ -24,8 +24,7 @@ include::_fragments/overview-client-tools-ubuntu.adoc[]
 include::_fragments/overview-client-tools-rvm.adoc[]
 
 [[staying-current]]
-Staying Current
-~~~~~~~~~~~~~~~~
+=== Staying Current
 
 Once you've installed the rhc gem, it's very easy to update. Ruby
 includes a built in mechanism for updating libraries. Just run:
@@ -44,8 +43,7 @@ and you'll get the latest version of the tools. Be sure to check your
 specific Operating System instructions above if you have any problems.
 
 [[other-sources-of-reference-material]]
-Other sources of reference material
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=== Other sources of reference material
 
 For more help see our link:/developers/get-help[Get Help] page.
 
