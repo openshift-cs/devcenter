@@ -1,0 +1,63 @@
+---
+layout: base
+category: 01_Overview
+breadcrumb: Overview
+parent_url:
+nav_title: Extend OpenShift
+nav_priority: 50
+---
+= Extend OpenShift
+
+== Extend OpenShift
+
+Bring your favorite technologies to OpenShift as a QuickStart or make
+your code reusable in a Cartridge. Or get the source and extend the
+platform.
+[[adding-quickstarts]]
+=== Adding QuickStarts
+A QuickStart is just a Git source repository paired with one or more
+cartridges that makes it easy for someone to start from your foundation.
+You won't get automatic updates, but they're a great way to help someone
+understand a framework or try out an integration.
+
+To get started, read the
+link:overview-extend-openshift.html#create-a-quickstart[QuickStart
+Developer's Guide], which outlines the process for creating a new
+QuickStart as well as keeping it up-to-date and secure.
+
+link:https://www.openshift.com/node/add/quickstart[Add your own QuickStart now]
+[[build-a-cartridge]]
+=== Build a Cartridge
+It's easy to add your own frameworks and backends to OpenShift. Through
+our open Cartridge API you can add your own binaries and logic to
+OpenShift - anything that can run in Linux can run in your app.
+
+To start, follow this guided tour of building cartridges, using a simple
+Apache web server as an example.
+
+* link:http://www.openshift.com/blogs/new-openshift-cartridge-format-part-1[Part 1: Introduction
+and a simple web server]
+* link:http://www.openshift.com/blogs/new-openshift-cartridge-format-part-2[Part 2: Packaging
+the example as a cartridge]
+
+Then read the
+http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge
+Developer's Guide], which breaks down the Cartridge API and is the
+primary reference for building a cartridge.
+
+To make it easy to try your cartridge, learn how to
+link:/developers/download-cartridges[make your new cartridge
+downloadable] so you can install it to OpenShift Online.
+
+link:https://www.openshift.com/developers/download-cartridges#examples[Examples of custom cartridges from around the web]
+
+[[get-involved-upstream]]
+=== Get Involved Upstream
+The OpenShift platform is a pluggable Rails application that allows
+direct extension. If you're looking to integrate OpenShift with your own
+backend systems for authentication, add new security layers, expose
+custom platform logic, or go a step beyond a cartridge, you'll want to
+check out the http://openshift.github.io[Origin source and community].
+
+include::_fragments/overview-extend-downloadable-cartridges.adoc[]
+include::_fragments/overview-extend-create-quickstart.adoc[]

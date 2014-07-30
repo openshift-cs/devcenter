@@ -1,0 +1,465 @@
+[[create-a-quickstart]]
+=== OpenShift QuickStart Developer's Guide
+In this guide, we will outline the process for creating a new QuickStart as well as keeping it up-to-date and secure.
+link:https://github.com/search?q=username%3Aopenshift+%22-example%22+OR+%22-quickstart%22&type=Repositories[This
+GitHub search] will lead you to the official OpenShift QuickStarts,
+which you can then filter by language. This are a good place to look
+for ideas if you are writing your first QuickStart (or having problems
+getting it working just right).
+
+Read on for more info an authoring QuickStarts for the OpenShift
+system... 
+
+==== QuickStart Creation
+Building a QuickStart consists of the following tasks:
+
+* Create a base application using the OpenShift website or command-line
+tools.
+* Replace the default OpenShift example pages with your QuickStart code.
+* Modify the QuickStart code to leverage OpenShift environment variables
+and security libraries.
+* Test the QuickStart on your own and with the community.
+* Submit it for adoption as an official QuickStart.
+
+[[create-a-base-application]]
+===== 1. Create a Base Application
+
+First, create a base application using one of the supported OpenShift
+application types:
+
+--------------------------------
+rhc app create APP_NAME APP_TYPE
+--------------------------------
+
+Next, embed any cartridges (like a database) that your QuickStart will
+require:
+
+--------------------------------------------
+rhc cartridge add CARTRIDGE_TYPE -a APP_NAME
+--------------------------------------------
+
+Remove the OpenShift example pages (like index.php); these files will be
+replaced by your application.
+
+[[replace-openshift-example-pages-with-quickstart-code]]
+===== 2. Replace OpenShift Example Pages with QuickStart Code
+
+
+Follow these steps carefully to ensure the integrity and security of
+your QuickStart. At the end of this step, you should have a working
+application.
+
+IMPORTANT: If this process is not followed, the QuickStart will not be
+approved
+
+[[installing-quickstart-code-from-an-installer-script]]
+====== Installing QuickStart Code from an Installer Script
+
+If your project needs to be installed (like a Rails application),
+install your application and jump to the section titled
+link:#capture-the-addition-of-the-quickstart-code-as-a-single-commit[Capture the Addition of the
+QuickStart Code as a Single Commit].
+
+[[installing-from-an-archive-based-code-distro]]
+====== Installing from an Archive-Based Code Distro
+
+If your QuickStart code is distributed as a an archive (like a tarball),
+you will need unpack the files before you add them to your git
+repository. Do not include the original archive as part of the
+QuickStart, but before you delete it, note the archive's original name
+and hash keyfootnote:[Either SHA or MD5 are fine.].
+
+Depending on your base application type, you may need to rename your
+directories to match expected app settings. Quick-starts built on our
+PHP base application, for instance, must be rooted in the `php` folder
+of the local git repo. If your app has a differently named root folder,
+here is a safe way to lay out your new files over any files that were
+part of the base app. Note that we are working with a PHP-based
+QuickStart in this example:
+
+Untar your code into a temporary directory and rename the root folder of
+the code to match the OpenShift application type that you are working
+with:
+
+------------------------
+tar xzf <tarball>.tar.gz
+mv <tardirectory> php   
+------------------------
+
+Create a new tar file with the renamed directory:
+
+-------------------------
+tar czf temporary.tgz php
+-------------------------
+
+In your local git repo, untar the file over the one that already exists:
+
+---------------------
+cd <git_repo_dir>
+tar xzf temporary.tgz
+---------------------
+
+[[capture-the-addition-of-the-quickstart-code-as-a-single-commit]]
+===== 3. Capture the Addition of the QuickStart Code as a Single Commit
+
+Now you can do a `git add .` to pull in all of the new and changed files
+introduced by the QuickStart code.
+
+Regardless of what method you used to add your QuickStart app code to
+the base application, you should now check in this initial update as a
+single commit. Do not remove any files during this step; the only
+exceptions are unused or temporary files that take up a significant
+amount of space (over 10M). If you do have to remove such files, make
+sure to thoroughly document what files are removed in the commit
+message.
+
+In your commit message, be sure to include the exact version of the
+QuickStart code that you've added, and the information that you recorded
+about the QuickStart source tarball (name and hash sum) if appropriate.
+
+IMPORTANT: Keep in mind, the more specific and clear commit messages are,
+the easier it will be for OpenShift developers to validate the process
+(and find potential issues)._
+
+[[clean-up-the-installation]]
+===== 4. Clean up the installation
+
+The installation process may have left some files in your application
+that are no longer needed. This process isn't necessary, but may help
+save space if there are a lot of files. For instance:
+
+[[sampleexample-files]]
+====== Sample/example files
+
+The configuration process will mostly be handled by you, the QuickStart
+author, so these files may not be needed by the user (and they can
+always look at the git repository or find them online).
+
+[[log-files]]
+====== Log files
+
+Some installers might include log files, these should be removed. In
+addition to taking up unnecessary space, these log files might have
+information about your personal machine or OpenShift instance.
+
+[[configure-your-quickstart-for-openshift]]
+===== 5. Configure Your QuickStart for OpenShift
+
+Configure `.openshift/action_hooks` to enable your application to run on
+OpenShift. This may include either initializing or updating a database
+when your application is deployed. Have a look at our
+link:https://github.com/openshift/wordpress-example/tree/master/.openshift/action_hooks[WordPress
+QuickStart] for examples of how this is done.
+
+Configure your application to use OpenShift environment variables. This
+may include setting your database information or local/temporary file
+paths. For instance, this
+link:https://github.com/openshift/cakephp-example/blob/master/php/app/Config/database.php#L86[CakePHP
+QuickStart] overrides its default database settings by reading in
+OpenShift variables at run time. More information about the available
+environment variables can be found
+link:/page/openshift-environment-variables[here].
+
+[[secure-your-quickstart]]
+===== 6. Secure Your QuickStart
+
+Open-source projects often ship with publicly visible default security
+settings. These include secret keys, salts, and easy-to-find default
+passwords. In order to develop QuickStarts that may eventually become
+fully developed OpenShift application templates, you must review your
+QuickStart code and modify it as necessary to replace these static
+security values with values that are established on a per-instance basis
+and are therefore much harder to guess at.
+
+Here are two examples of security libraries that you can copy into your
+QuickStarts:
+
+*
+link:https://github.com/openshift/cakephp-example/blob/master/libs/openshift.inc[A
+PHP-based version]
+*
+link:https://github.com/openshift/django-example/blob/master/wsgi/openshift/openshiftlibs.py[A
+Python-based version]
+*
+link:https://github.com/fotioslindiakos/crankcase/blob/secure_functions/cartridges/ruby-1.8/template/libs/openshift_secret_generator.rb[A
+Ruby-based version]
+
+See link:#security-best-practices[Security Best Practices] below for a
+more complete discussion of how to secure your QuickStart.
+
+[[test-test-test-...]]
+===== 7. Test, Test, Test, ...
+
+Deploy your application from scratch using your own directions (or have
+a friend try it) If your application has automated tests, use them! You
+can also try to run tests by SSHing directly into your application and
+executing them Use your application Most problems can be found by simply
+using your application and trying to touch as many different areas as
+you can Can you perform operations that need to write to a database or
+files? Can you run an update or install themes/extensions/etc? Can you
+restart the application from its interface Does it work properly if you
+restart it through OpenShift?
+
+[[publicize-your-quickstart]]
+===== 8. Publicize Your QuickStart
+
+When you think your QuickStart is complete, publicize it!
+
+* Post to the OpenShift forums
+* Mention it on IRC
+* Tweet it
+
+Try to involve the community for your application. They may have
+suggestions or be able to help with testing; other QuickStart developers
+may have suggestions as well.
+
+[[submit-your-quickstart-for-publication]]
+===== 9. Submit Your QuickStart for Publication!
+
+link:http://www.openshift.com/node/add/quickstart[Go here] and follow the directions for
+submitting a new QuickStart.
+
+'''''
+
+[[security-best-practices]]
+==== Security Best Practices
+
+Here are some steps QuickStart authors and OpenShift developers should
+follow to ensure that user applications created from this QuickStart are
+as secure as possible.
+
+[[for-quickstart-authors]]
+===== For QuickStart Authors
+
+Quick-start authors should review their git repos for hard-coded
+security values and other vulnerabilities.
+
+[[replacing-defaults-with-secure-variables]]
+===== Replacing Defaults with Secure Variables
+
+Many installation processes will randomly generate static strings for
+"security" variables, like seed values for your cookies or salts for
+your password hashes. Unfortunately, these static versions will be
+checked into your repository, and anybody who deploys an application
+from your QuickStart will have this same value. Consequently, it is
+important to modify your code so that after your QuickStart is deployed,
+any statically defined security variables are regenerated.
+
+This concept is probably best understood through example and can be seen
+in our
+link:https://github.com/openshift/wordpress-example/blob/master/php/wp-config.php[WordPress
+QuickStart]:
+
+First, a hash of default keys is created based on the hard-coded values
+from the application:
+
+--------------------------------------------------------------------------------------------
+// Set the default keys to use
+$_default_keys = array(
+  'AUTH_KEY'          => ' w*lE&r=t-;!|rhdx5}vlF+b=+D>a)R:nTY1Kdrw[~1,xDQS]L&PA%uyZ2:w6#ec',
+  'SECURE_AUTH_KEY'   => '}Sd%ePgS5R[KwDxdBt56(DM:0m1^4)-k6_p8}|C:[-ei:&qA)j!X`:7d-krLZM*5',
+  'LOGGED_IN_KEY'     => '$l^J?o)!zhp6s[-x^ckF}|BjU4d+(g1as)n/Q^s+k|,ZZc@E^h%Rx@VTm|0|?]6R',
+  'NONCE_KEY'         => '#f^JM8d^!sVsq]~|4flCZHdaTy.-I.f+1tc[!h?%-+]U}|_8qc K=k;]mXePl-4v',
+  'AUTH_SALT'         => 'I_wL2t!|mSw_z_ zyIY:q6{IHw:R1yTPAO^%!5,*bF5^VX`5aO4]D=mtu~6]d}K?',
+  'SECURE_AUTH_SALT'  => '&%j?6!d<3IR%L[@iz=^OH!oHRXs4W|D,VCD7w%TC.uUa`NpOH_XXpGtL$A]{+pv9',
+  'LOGGED_IN_SALT'    => 'N<mft[~OZp0&Sn#t(IK2px0{KloRcjvIJ1+]:,Ye]>tb*_aM8P&2-bU~_Z>L/n(k',
+  'NONCE_SALT'        => 'u E-DQw%[k7l8SX=fsAVT@|_U/~_CUZesq{v(=y2}#X&lTRL{uOVzw6b!]`frTQ|'
+);
+--------------------------------------------------------------------------------------------
+
+Next, this function is defined to generate a new random key base on the
+length of the original:
+
+----------------------------------------------------------------------------
+// This function gets called by openshift_secure and passes an array
+function make_secure_key($args) {
+  $hash = $args['hash'];
+  $key  = $args['variable'];
+  $original = $args['original'];
+
+  $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  $chars .= '!@#$%^&*()';
+  $chars .= '-_ []{}<>~`+=,.;:/?|';
+
+  // Convert the hash to an int to seed the RNG
+  srand(hexdec(substr($hash,0,8)));
+  // Create a random string the same length as the default
+  $val = '';
+  for($i = 1; $i <= strlen($original); $i++){
+    $val .= substr( $chars, rand(0,strlen($chars))-1, 1);
+  }
+  // Reset the RNG
+  srand();
+  // Set the value
+  return $val;
+}
+----------------------------------------------------------------------------
+
+Finally, a new array is created by applying the function to the default
+values to generate new keys:
+
+--------------------------------------------------------------------------
+// Generate OpenShift secure keys (or return defaults if not on OpenShift)
+$array = openshift_secure($_default_keys,'make_secure_key');
+--------------------------------------------------------------------------
+
+Notice that this last line actually invokes a function called
+`openshift_secure()`. The OpenShift team provides security functions for
+various languages. The location of these scripts varies between
+cartridge types, but can generally be found in
+`$OPENSHIFT_REPO_DIR/libs`footnote:[These are not included in any
+cartridges by default.]. You should include it directly from this
+directory if possible, or move it if you need to. You may need to
+explicitly include the security library's filepath in order to call it
+within the QuickStart code.
+
+IMPORTANT: As a performance consideration, try to include this somewhere
+that will only be executed at deploy time or can be cached.
+
+[[why-use-the-openshift-security-libraries]]
+===== Why use the OpenShift Security Libraries?
+
+These libraries leverage a secret token that exists only in your
+deployed OpenShift application. This variable doesn't exist anywhere in
+your repository, so there is no risk of accidentally exposing it to the
+public. When implemented correctly (see the code example above), the
+values will always be correct across deployments of your application
+(even scaled apps).
+
+Additionally, the application will continue to work on non-OpenShift
+installations; but note that the generated values will be different in
+these environments. This should be acceptable for development purposes
+provided you are not mixing OpenShift-based deployments with
+non-OpenShift-base deployments.
+
+[[capturing-security-changes-to-simplify-maintenance]]
+===== Capturing Security Changes to Simplify Maintenance
+
+Ideally, your security changes should be included in such a way that an
+update to the underlying OpenShift code should not necessitate changes
+to the configuration file. However, these changes could still be lost if
+you upgrade your QuickStart from a newer version of the application's
+source code.
+
+To protect against this, record your changes for future reuse with a
+patch file and a README document that will live in the `.openshift`
+directory of your QuickStart:
+
+1.  Once you've successfully applied your security changes, use a
+`git rebase -i <base commit>` to squash those security changes into a
+single commit.
+2.  Then use
+`git format-patch <prior commit>..<security commit> --stdout > ~/template.patch`
+to capture your changes in a patch file.
+3.  Visually review the patch file to ensure that it _only_ contains
+changes related to applying security code to the QuickStart source code.
+Revise as necessary.
+4.  Add the patch file to the `.openshift` directory along with a README
+explaining how to apply it (see the
+https://github.com/nhr/django-example/tree/master/.openshift[Django
+example] for reference).
+
+[[general-warnings-about-changes-to-security-codes]]
+===== General Warnings About Changes to Security Codes
+
+Make sure you understand and document the repercussions of modifying
+these variables. For some applications, this may have varying levels of
+impact, such as:
+
+* Invalidating current user sessions
+* Invalidating outstanding single-use URLs (like password reset emails)
+* Rendering hashed passwords unusable (if a password is stored salted,
+and the salt is changed, it may be impossible to validate a user's login
+attempt)
+
+Sometimes these changes may not be planned -
+
+* A user may have a need to reset their token at some point (like if
+they feel it is compromised)
+* There is a possibility that the process the OpenShift functions
+utilize will change
+
+[[patching-from-quickstart-source-updates]]
+===== Patching from QuickStart Source Updates
+
+Monitor your project for vulnerability disclosures. There are lists such
+as http://cve.mitre.org/[CVE] that you can watch for vulnerabilities for
+specific versions of software. When there are vulnerabilities, take care
+to do the following:
+
+1.  Update a file in your QuickStart (such as your README) to identify
+the vulnerabilty
+2.  If there _is_ a solution to the vulnerability, apply the fix and
+document the changes (and what bug/vulnerability it was for) in a single
+commit. This may also require you to re-apply or update your security
+patch file (see link:#CapturingSecurityChanges[Capturing Security
+Changes to Simplify Maintenance]).
+3.  If there is no solution, document any sort of workarounds or links
+to ongoing research in your README. Monitor the progress and impement a
+solution as soon as one becomes available.
+
+Submit these as a pull-request against the official OpenShift repository
+for the QuickStart. Monitor the progress of the pull-request, other
+people may suggest additional solutions.
+
+[[security-best-practices-from-the-source-application-authors]]
+====+ Security Best Practices from the Source Application Authors
+
+Try to implement any security "best practices" for your application.
+Some of these may be very simple to implement in the master
+configuration files and will benefit many users. Otherwse, if there is
+something an invidual user can do after their application is configured,
+make sure to make a note of it in your README
+
+[[for-openshift-developers]]
+==== For OpenShift Developers
+
+If you have been asked to review a QuickStart for inclusion in our
+QuickStart library, please do the following security audit. Note that
+you do not have to be an expert in any specific language to perform the
+audit.
+
+[[validate-initial-code]]
+===== Validate Initial Code
+
+Read the commit messages and ensure that you can replicate their initial
+state. Validate the initial source archive by ensuring that:
+
+* It comes from a reputable source
+* It matches the hash provided
+
+Using git, ensure that the initial files match the ones in the archive:
+
+* Branch your git repository at the commit that first included the files
+* Add the files you extracted from the archive
+* Use git to see the changes between the files
+
+Investigate any differences. Communicate with the QuickStart author;
+it's possible that they accidentally modified files before committing
+them.
+
+[[analyze-any-code-changes]]
+===== Analyze any code changes
+
+This may be a long process, but it is vital to staying secure. If we can
+get master branches and commits validated, it may expedite any branches
+that fork from there
+
+Ensure that there is nothing 'odd' being added to the repository.
+Related changes should be grouped into single commits, and any additions
+should only affect:
+
+* OpenShift specific configuration
+** Replacing database configuration variables
+** Adding OpenShift security functions
+* Specific configuration changes/enhancements (like adding caching or
+pre-compiling assets to serve)
+* Fixes for specific vulnerabilities/security issues (comments on these
+should clearly indicate what issue they are resolving)
+
+[[fork-the-repository-into-an-official-openshift-quickstart]]
+===== Fork the Repository into an Official OpenShift QuickStart
+
+Once you are satisfied that the QuickStart is well-secured, you can fork
+the author's repository. This will enable us to create an app template
+based on the QuickStart.
