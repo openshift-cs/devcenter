@@ -4,9 +4,103 @@ category: 01_Overview
 breadcrumb: Overview
 parent_url:
 nav_title: Environment Variables
-nav_priority: 30
+nav_priority: 50
 ---
 = Environment Variables
 
 == Environment Variables
-ENV for the win
+
+OpenShift has a few environment variables to make it easy for your to configure your application to run properly. The following tables show the variables,
+some examples of what the value would be, and what you might use them
+for. Depending on what extra cartridges you have enabled in your
+application, you may have more or less available variables. Also, values
+may be slightly different for similar types of cartridges (for instance,
+if you have a PostgreSQL database as opposed to MySQL).
+
+If you'd like to see the exact values for your application, there are
+two ways you can see your available variables. 
+
+1. Add `export` to your +.openshift/action_hooks/build+ file and push a new commit. You will beable to see the variables in your git output (they will all start with"remote: declare -x"). 
+
+2. SSH into your application and run `env`
+
+=== Informational 
+These variables provide some information about your
+application.
+
+|===
+|Variable Name|Example|Purpose
+
+|OPENSHIFT_APP_DNS|appname-namespace.rhcloud.com|The fully-qualified domain name for your application
+|OPENSHIFT_APP_NAME|appname|Your application's name
+|OPENSHIFT_APP_UUID|0123456789abcdef0123456789abcdef|The UUID your application runs as (32 hex characters)
+|OPENSHIFT__IP|127.0.250.1|The IP address your application will listen on
+|OPENSHIFT__PORT|8080|The port your application will receive requests from
+
+|===
+
+=== Directories
+These directories are where your application lives on
+OpenShift. Please remember that the only directory that is guaranteed to
+never be deleted is your `OPENSHIFT_DATA_DIR`.
+
+|===
+|Variable Name|Example|Purpose
+
+|OPENSHIFT_DATA_DIR|$OPENSHIFT_HOMEDIR/app-root/data/|A persistent directory for your data
+|OPENSHIFT__LOG_DIR|$OPENSHIFT_HOMEDIR//logs/|Where your cartridge-specific logs are stored.
+|OPENSHIFT__DB_LOG_DIR|$OPENSHIFT_HOMEDIR//log/|Where your database-specific logs are stored.
+|OPENSHIFT_REPO_DIR|$OPENSHIFT_HOMEDIR/app-root/runtime/repo/|Repository containing the currently deployed version (of the application)
+|OPENSHIFT_TMP_DIR|/tmp/|A temporary directory you can use.  Even though the path is just `/tmp`, the magic of SELinux protects your data from other users
+
+|===
+
+== Database == These variables pertain to your database (if you have
+one) and are used to connect your application to your database[[#Notes |
+1]]. The exact variable names depend upon the database type; the value
+of <database> will be MONGODB, MYSQL, or POSTGRESQL as
+appropriate[[#Notes | 2]].
+
+\{| class="table table-striped table-bordered table-condensed" |- !
+Variable Name !! Example !! Purpose |- | OPENSHIFT_<database>_DB_HOST ||
+127.0.250.1 || The hostname or IP address to use to connect to your
+database |- | OPENSHIFT_<database>_DB_PORT || 3306 || The port your
+database server is listening on +
+|- | OPENSHIFT_<database>_DB_USERNAME || admin || Your database
+administrative username +
+|- | OPENSHIFT_<database>_DB_PASSWORD || 8ddTnst22X3Y || Your database
+administrative user's password +
+|- | OPENSHIFT_<database>_DB_SOCKET ||
+$OPENSHIFT_HOMEDIR/mysql-5.1/socket/mysql.sock || A AF socket you can
+use to connect to your database [[#Notes | 3]] |- |
+OPENSHIFT_<database>_DB_URL ||
+mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/ || Database connection URL
+you can use to connect to your database |- |}
+
+== Jenkins == If your application includes Jenkins, you will have access
+to these variables as well.
+
+\{| class="table table-striped table-bordered table-condensed" |- !
+Variable Name !! Example !! Purpose |- | JENKINS_USERNAME ||
+system_builder || System builder account on the jenkins server |- |
+JENKINS_PASSWORD || RnmXQlavsb4f || Password for the system builder
+account on the jenkins server |- | JENKINS_URL ||
+https://jenkins-namespace.rhcloud.com/ || DNS name for the associated
+jenkins server (where builds get done) |- |}
+
+== Gear Information == These variables will be used if you have a
+scaling application.
+
+\{| class="table table-striped table-bordered table-condensed" |- !
+Variable Name !! Example !! Purpose |- | OPENSHIFT_GEAR_DNS ||
+gearname-namespace.rhcloud.com || The fully-qualified domain name for
+this gear +
+|- | OPENSHIFT_GEAR_NAME || gearname || This gear's name +
+|- | OPENSHIFT_GEAR_UUID || 0123456789abcdef0123456789abcdef || The UUID
+for this gear +
+|- |}
+
+==== Notes ==== # These connections are only available to your
+application internally, so you cannot connect from the outside. # With
+the exception of SOCKET, since Mongo only uses AF_INET sockets # Not
+available on scaled applications
