@@ -1,0 +1,46 @@
+[[red-hat-enterprise-linux-6]]
+Red Hat Enterprise Linux 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We recommend using the Ruby gem on RHEL. You need to install rubygems
+and git first with:
+
+-------------------------------
+$ sudo yum install rubygems git
+-------------------------------
+
+In order to install the rubygems package the RHEL Optional channel must
+be enabled. There are two ways of doing this from the command line:
+
+-----------------------------------------------------------------
+# If you are using the Certificate-Based RHN tooling
+$ sudo yum-config-manager --enable rhel-6-server-optional-rpms   
+
+# If you are using RHN-Classic
+$ sudo rhn-channel --add --channel=rhel-x86_64-server-optional-6
+-----------------------------------------------------------------
+
+With the repository in place, you can now install the OpenShift client
+tools. Run:
+
+----------------------
+$ sudo gem install rhc
+----------------------
+
+To update the OpenShift client tools to the latest version run:
+
+---------------------
+$ sudo gem update rhc
+---------------------
+
+After OpenShift client tools are installed, run:
+
+-----------
+$ rhc setup
+-----------
+
+The OpenShift interactive setup wizard displays and prompts you to
+complete the rest of the process. If you cannot run the OpenShift client
+tools at this point, please contact us on
+http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
+link:/forums/openshift[our forums] for more assistance.
