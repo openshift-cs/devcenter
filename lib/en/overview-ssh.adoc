@@ -4,9 +4,217 @@ category: 01_Overview
 breadcrumb: Overview
 parent_url:
 nav_title: SSH
-nav_priority: 30
+nav_priority: 50
 ---
 = SSH
 
 == SSH
-Woohooo... put SSH content here
+
+OpenShift allows remote access to your application via the Secure Shell
+protocol (SSH). SSH provides direct access to the command line of your
+application or gear on the remote server. After you are logged in on the
+remote server you can use the command line to directly manage the
+server, check logs and test quick changes.
+
+SSH is recommended for advanced users who need to debug their
+applications - for more routine tasks use the
+link:overview-client-tools.html[OpenShift client tools (rhc)].
+
+To remotely access your application you need to:
+
+* Set up your identity keys
+* Install SSH on platforms which do not already have an SSH client
+* Connect to a remote application
+
+Some useful SSH commands are also described on this page.
+
+[[setting-up-ssh-keys]]
+=== Setting up SSH Keys
+
+Each SSH key is a pair - a public key that you share with others, and a
+private key that you keep secret. The client encrypts some data using
+both the private key and the public key and sends that to the server -
+the server can then verify that the data is valid because it has a copy
+of the public key. SSH is how both remote access and the Git version
+control system are able to prevent tampering and ensure security.
+
+If you already have an SSH key locally, you can log into the management
+console and upload the contents of the public key. Any machine which is
+properly configured with that key will then be able to use SSH and Git
+to access applications belonging to your account.
+
+If you're less familiar with SSH keys and you aren't sure whether you
+have generated keys yet, the OpenShift client tools can generate and
+upload a key for you through an easy to use wizard.
+
+* Install the link:overview-client-tools.html[OpenShift client tools], if you
+haven't already done so.
+* From a command line terminal type
++
+---------
+rhc setup
+---------
+
+This will launch the the setup wizard to configure your OpenShift
+account. Enter your user name and password. 
+
+* Type *yes* when the wizard
+asks if you want to upload your public key. Your public key will be
+uploaded and stored on the server.
+
+You can now log into your applications remotely from your computer, or
+connect and download the application source code via Git. If you have
+multiple computers, repeat the above procedure so that each computer has
+access to the application.
+
+[[installing-an-ssh-client]]
+=== Installing an SSH Client
+
+
+Most UNIX like platforms like Mac OS X and Linux have SSH installed by
+default. However, Windows does not. Many third party SSH clients for
+windows are available, however we prefer PuTTY, which is free to use.
+
+* Install and Configure PuTTY for
+link:overview-ssh.html#using-ssh-on-windows[SSH on
+Windows]
+
+[[connecting-to-your-application-from-windows]]
+=== Connecting to Your Application from Windows
+
+Once you have an application up and running and your keys are uploaded
+to the server you can now SSH into the remote server from your computer.
+The link:/page/install-and-setup-putty-ssh-client-for-windows[Windows
+SSH page] has instructions on creating a profile for your application
+which makes it easy to connect to with a simple mouse click. Create your
+profile as described, and connect with a single click to connect, as in
+Step Three below.
+
+[[connecting-to-your-application-from-other-platforms]]
+=== Connecting to Your Application from Other Platforms
+
+Once you have an application up and running and your keys are uploaded
+to the server you can now SSH into the remote server from your computer.
+For all platforms, the easiest way to find the specific SSH command that
+you will need to connect to your application is to go to the
+https://openshift.redhat.com/app/console/applications[applications list
+page] in the web console and click on your application to go to the
+Details page.
+
+image::/en/images/overview-ssh-web-console.png[]
+
+To connect to your application:
+
+1. On the Details page click on the *Want to log in to your application?*
+link to expand the text. This is the command that you need to connect to
+your application.
+2. Copy and paste that command to a command line terminal.
+3. If you have setup and uploaded your keys correctly a prompt similar to
+this displays:
++
+----
+Welcome to OpenShift shell
+
+This shell will assist you in managing OpenShift applications.
+
+!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+Shell access is quite powerful and it is possible for you to
+accidentally damage your application.  Proceed with care!
+If worse comes to worst, destroy your application with 'rhc app destroy'
+and recreate it
+!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+
+Type "help" for more info.
+----
+
+You are now connected to your application and can start debugging or
+monitoring it. SSH access is only recommended for advanced users.
+
+[[common-commands]]
+=== Common Commands
+
+|===
+|help |tail_all
+
+|This section describes a list of common commands that can help you to manage and debug your applications.
+|Displays the last entries in your log files as they are written to
+
+You can hit <ctrl>-c to exit this command
+
+|===
+
+|===
+|ctl_app z|ls
+
+|control your application
+
++ctl_app start+
+
++ctl_app stop+
+
++ctl_app restart+
+
++ctl_app status+
+
+|List files and directories
+|===
+|===
+|ctl_all|ps
+
+|Similar to ctl_app but controls application and dependencies like mysql one command
+
++ctl_all start+
+
++ctl_all stop+
+
++ctl_all restart+
+
++ctl_ll status+
+
+|List running proccess
+|===
+
+|===
+|export|kill
+
+|Prints out all available environment variables and their current values which you may use in your application
+|Kill running applications using the process id found by calling +ps+
+
+Be careful when using this command as it should only be used to kill runaway processes, otherwise it is preferable to stop them using the appropriate command such as +ctl_app stop+
+|===
+
+
+|===
+|rm|mysql
+
+|Removes a file or directory
+
+*Use this with care*
+
+Remove a file:
+
++rm file+
+
+Remove a directory and all files and directories under it:
+
++rm -rf <dir>+
+|Opens an interactive MySQL shell
+
+|===
+
+|===
+|mongo|quota
+
+|Opens an interactive MongoDB shell
+|Lists your application's current disk usage
+|===
+[[troubleshooting]]
+=== Troubleshooting
+
+* How to resolve
+https://www.openshift.com/kb/kb-e1015-how-to-resolve-permission-denied-errors-permission-denied-publickeygssapi-keyexgssapi-wi[permission
+denied errors (Permission denied
+(publickey,gssapi-keyex,gssapi-with-mic)]
+
+include::_fragments/overview-ssh-putty.adoc[]
+
