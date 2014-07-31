@@ -1,4 +1,12 @@
+encoding: UTF-8
+interpolate: false
+
 name: Developer Center
 title: OpenShift Online Developer Center
 org: Red Hat
 base_url: ''
+
+asciidoctor:
+  :safe: safe
+  :attributes:
+    imagesdir: /en/images@
