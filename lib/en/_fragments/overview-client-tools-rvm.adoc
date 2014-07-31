@@ -5,7 +5,7 @@ Ruby Version Manager allows you to install and run multiple versions of
 Ruby. When installing the OpenShift client tools gem onto a system with
 RVM, you need to install the gem to the global gemset, making it
 available to all versions of Ruby.
-
+[source]
 -----------------------
 $ rvm gemset use global
 $ gem install rhc

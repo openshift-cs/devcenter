@@ -1,0 +1,12 @@
+---
+layout: base
+category: 02_Getting Started
+breadcrumb: Getting Started
+parent_url:
+nav_title: IDE
+nav_priority: 150
+---
+= Getting Started
+:icons:
+
+=== Using an IDE to Manage OpenShift Applications
