@@ -34,6 +34,19 @@ These two commands create your "server" and install and configure PHP, MySQL, an
 http://MyApp-MyDomain.rhcloud.com/
 --
 
+As MySQL was deployed for you by the platform, you can connect to it by using connection parameters exposed in the environment variables
+
+|===
+|Variable Name|Example|Purpose
+
+|OPENSHIFT_MYSQL_DB_HOST|127.0.250.1|The hostname or IP address to use to connect to your database
+|OPENSHIFT_MYSQL_DB_PORT|3306|The port your database server is listening on
+|OPENSHIFT_MYSQL_DB_USERNAME|admin|Your database administrative username
+|OPENSHIFT_MYSQL_DB_PASSWORD|8ddTnst22X3Y|Your database administrative user's password
+|OPENSHIFT_MYSQL_DB_SOCKET|$OPENSHIFT_HOMEDIR/mysql-5.1/socket/mysql.sock|A AF socket you can use to connect to your database
+|OPENSHIFT_MYSQL_DB_URL|mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/|Database connection URL you can use to connect to your database
+|===
+
 === End-to-End PHP Support
 
 Looking to scale your PHP application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
