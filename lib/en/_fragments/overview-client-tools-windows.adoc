@@ -1,6 +1,8 @@
 [[windows]]
-=== Windows
+=== Setting up the OpenShift Environment on Windows
+The command line environment requires three things to be installed on Windows: [red]*Ruby*, [red]*Git*, and [red]*the rhc gem* (OpenShift command line tools gem)
 
+==== Step 1 - Install Ruby
 http://rubyinstaller.org[RubyInstaller 1.9] provides the best experience
 for installing Ruby on Windows XP, Vista, and Windows 7. Download the
 newest version from http://rubyinstaller.org/downloads/[the download
@@ -12,16 +14,17 @@ PATH" check box in order to run Ruby from the command line.
 
 After the installation is completed, to verify that the installation is
 working run:
+[source]
 ----
 C:Files> ruby -e 'puts "Welcome to Ruby"' Welcome to Ruby
 ----
-If the 'Welcome to Ruby' message does not display, the Ruby
+If the +Welcome to Ruby+ message does not display, the Ruby
 executable may not have been added to the path. Restart the installation
-process and ensure the "Add Ruby executables to your PATH" check box is
+process and ensure the *Add Ruby executables to your PATH* check box is
 selected.
 
 [[installing-git]]
-==== Installing Git
+==== Step 2 - Install Git
 
 The next step is to install http://msysgit.github.com/[Git for Windows]
 so that you can synchronise your local application source and your
@@ -31,20 +34,21 @@ use another version of Git please ensure it can be executed from the
 command line and continue to the next section.
 
 Download and install the
-http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git[latest
+http://msysgit.github.io/[latest
 version of Git for Windows]. Ensure that Git is added to your PATH so
 that it can be run from the command line. After the installation is
 completed, to verify that Git is correctly configured run:
+[source]
 ----
 C:Files> git --version git version 1.7.11.msysgit.1
 ----
 
 [[installing-the-openshift-gem]]
-==== Installing the OpenShift gem
+==== Step 3: Installing the OpenShift gem
 
 After Ruby and Git are correctly installed, use the RubyGems package
 manager (included in Ruby) to install the OpenShift client tools. Run:
-
+[source]
 ------------------------
 C:Files> gem install rhc
 ------------------------
@@ -53,14 +57,16 @@ RubyGems downloads and installs the rhc gem from
 http://rubygems.org/gems/rhc[www.rubygems.org/gems/rhc]. The
 installation typically proceeds without errors. After installation is
 complete, run:
-
+[source]
 ------------------------
 C:Files> rhc setup
 ------------------------
 The OpenShift interactive setup wizard displays and prompts you to complete the rest
 of the process. If you cannot run OpenShift client tools at this point,
 please contact us on
-http://webchat.freenode.net/?channels=openshift&uio=d4[IRC] or post in
-link:/forums/openshift[our forums] for more assistance.
+https://www.openshift.com/irc[IRC] or visit the
+https://help.openshift.com[Help Center] for more assistance.
+
+=== Video Walkthrough
 
 video::cgNWp7SlS3A[youtube, width=640, height=480]

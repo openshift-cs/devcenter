@@ -11,7 +11,7 @@ nav_priority: 50
 == Client Tools
 The OpenShift Client tools, known as rhc, are built and packaged using the Ruby programming language. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
 
-OpenShift rhc can be run on any operating system with Ruby 1.8.7 or higher assuming you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below. It is assumed that you are running the commands from a command line window, such as Command Prompt, or Terminal. 
+OpenShift rhc can be run on any operating system with Ruby 1.8.7 or higher assuming you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below. It is assumed that you are running the commands from a command line window, such as Command Prompt, or Terminal.
 
 If you are using link:#rvm[Ruby
 Version Manager (rvm) see the instructions below].
@@ -28,13 +28,13 @@ include::_fragments/overview-client-tools-rvm.adoc[]
 
 Once you've installed the rhc gem, it's very easy to update. Ruby
 includes a built in mechanism for updating libraries. Just run:
-
+[source]
 ----------------
 $ gem update rhc
 ----------------
 
 or
-
+[source]
 ---------------------
 $ sudo gem update rhc
 ---------------------
@@ -47,5 +47,5 @@ specific Operating System instructions above if you have any problems.
 
 For more help see our link:/developers/get-help[Get Help] page.
 
-Check out the link:/docs-client-tools[detailed installation guide for
+Check out the https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/index.html[detailed installation guide for
 RHC client tools].
