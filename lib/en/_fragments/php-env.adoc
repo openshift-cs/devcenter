@@ -1,0 +1,16 @@
+To make your applications more portable, OpenShift shields it from the need to hard-code configuration into the source code. 
+
+IMPORTANT: OpenShift provides environment variables that the application is supposed to consume as a way to configure itself -> link:overview-environment-variables.html[Environment variables]
+
+As mentioned, in the previous example MySQL was deployed for the application. OpenShift publicizes the environment variables as part of the (in this case MySQL) service deployment.
+
+|===
+|Variable Name|Example|Purpose
+
+|OPENSHIFT_MYSQL_DB_HOST|127.0.250.1|The hostname or IP address to use to connect to your database
+|OPENSHIFT_MYSQL_DB_PORT|3306|The port your database server is listening on
+|OPENSHIFT_MYSQL_DB_USERNAME|admin|Your database administrative username
+|OPENSHIFT_MYSQL_DB_PASSWORD|8ddTnst22X3Y|Your database administrative user's password
+|OPENSHIFT_MYSQL_DB_SOCKET|$OPENSHIFT_HOMEDIR/mysql-5.1/socket/mysql.sock|A AF socket you can use to connect to your database
+|OPENSHIFT_MYSQL_DB_URL|mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/|Database connection URL you can use to connect to your database
+|===
