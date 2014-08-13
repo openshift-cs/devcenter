@@ -8,16 +8,26 @@ nav_priority: 1
 ---
 = PHP Overview
 :source-highlighter: coderay
+:icons:
 
+[[top]]
+[[php-application-hosting]]
 == PHP Application Hosting
-
-PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages.
-
-=== Overview
 
 With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. Want a Zend server backed by MySQL? Or maybe you're looking for CodeIgniter and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-=== Simplify the Lifecycle
+NOTE: PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
+
+link:#simplify-your-php-deployments[Simplify your PHP deployments] +
+link:#go-enterprise-with-zend[Go Enterprise with Zend] +
+link:#environment-variables[Environment variables] +
+link:#end-to-end-php-support[End-to-End PHP Support] +
+link:#rapid-development-with-ide[Rapid Development with an IDE] +
+link:#build-test-deploy[Build -> Test -> Deploy] +
+link:#scale-to-meet-your-needs[Scale to Meet Your Needs] +
+
+[[simplify-your-php-deployments]]
+== Simplify your PHP deployments
 
 Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -36,62 +46,40 @@ http://MyApp-MyDomain.rhcloud.com/
 
 As MySQL was deployed for you by the platform, you can connect to it by using connection parameters exposed in the environment variables.
 
-=== Go Enterprise with Zend
+link:#top[Back to Top]
 
-Zend Server is a professional-grade PHP runtime environment. It’s a tested and certified version of the open source PHP engine you already know, plus application deployment and rollback, application monitoring and root cause analysis, advanced debugging, and caching tools. Using Zend Server is a no-brainer if you want to build and run high-quality PHP apps!
+[[go-enterprise-with-zend]]
+== Go Enterprise with Zend
 
-The process is similar to deploying general PHP application
+include::_fragments/php-zend-overview.adoc[]
 
-[source]
---
-$ rhc app create MyApp zend-6.1
-$ rhc cartridge add mysql-5.5 -a MyApp
---
+include::_fragments/php-zend-deploy.adoc[]
 
-These two commands create your "server" and install and configure PHP, MySQL, and a git repository on the server. You can now visit your application on the web at:
+IMPORTANT: link:php-zend.html[Learn More about Zend Server]
 
-[source]
---
-http://MyApp-MyDomain.rhcloud.com/
---
+link:#top[Back to Top]
 
-Or in the Zend Server Console here:
+[[environment-variables]]
+== Environment variables
 
-[source]
---
-http://MyApp-MyDomain.rhcloud.com/ZendServer
---
+include::_fragments/php-env.adoc[]
 
-As MySQL was deployed for you by the platform, you can connect to it by using connection parameters exposed in the environment variables.
+link:#top[Back to Top]
 
-=== Environment variables
-
-To make your applications more portable, OpenShift shields it from the need to hard-code configuration into the source code. OpenShift provides deployment specific environment variables that the application is supposed to use to configure itself to connect to the correct services. As mentioned, in the previous deployments we deployed MySQL for the application, so these environment variables are automatically available - provided by the platform, the there is no need to configure anything by the user.
-
-|===
-|Variable Name|Example|Purpose
-
-|OPENSHIFT_MYSQL_DB_HOST|127.0.250.1|The hostname or IP address to use to connect to your database
-|OPENSHIFT_MYSQL_DB_PORT|3306|The port your database server is listening on
-|OPENSHIFT_MYSQL_DB_USERNAME|admin|Your database administrative username
-|OPENSHIFT_MYSQL_DB_PASSWORD|8ddTnst22X3Y|Your database administrative user's password
-|OPENSHIFT_MYSQL_DB_SOCKET|$OPENSHIFT_HOMEDIR/mysql-5.1/socket/mysql.sock|A AF socket you can use to connect to your database
-|OPENSHIFT_MYSQL_DB_URL|mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/|Database connection URL you can use to connect to your database
-|===
-
-=== End-to-End PHP Support
+[[end-to-end-php-support]]
+== End-to-End PHP Support
 
 Looking to scale your PHP application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
 
-==== Stacks
+=== Stacks
 
 * link:php-zend.html[Zend Server]
 
-==== Tools
+=== Tools
 
 * link:php-composer.html[Composer]
 
-==== Frameworks
+=== Frameworks
 
 * link:php-cakephp.html[CakePHP]
 * link:php-codeigniter.html[CodeIgniter]
@@ -99,13 +87,16 @@ Looking to scale your PHP application for heavy traffic, or want to automaticall
 * link:php-yii.html[Yii]
 * link:php-zend.html[Zend Framework]
 
-==== Applications
+=== Applications
 
 * link:php-drupal.html[Drupal]
 * link:php-magento.html[Magento]
 * link:php-wordpress.html[Wordpress]
 
-=== Rapid Development with an IDE
+link:#top[Back to Top]
+
+[[rapid-development-with-ide]]
+== Rapid Development with an IDE
 
 How you develop your PHP application is up to you. Use your favorite IDE and track and push your changes with Git. But you dislike command line?
 
@@ -113,20 +104,28 @@ For a seamless development experience on OpenShift, use the link:php-jboss.html[
 
 Don't like the command line? No problem! Use the  to create and work with your applications.
 
-=> link:php-jboss.html[Install the JBoss Tools]
+-> link:php-jboss.html[Install the JBoss Tools]
 
-=== Build -> Test -> Deploy
+link:#top[Back to Top]
+
+[[build-test-deploy]]
+== Build -> Test -> Deploy
 
 Want to make sure your PHP application is stable before your latest changes go live?
 
 link:https://wiki.jenkins-ci.org[Jenkins] is a full featured continuous integration (CI) server that can run builds, tests, and other scheduled tasks and integrate with your OpenShift applications.
 
-=> link:php-jenkins.html[Build with Jenkins]
+-> link:php-jenkins.html[Build with Jenkins]
 
-=== Scale to Meet Your Needs
+link:#top[Back to Top]
+
+[[scale-to-meet-your-needs]]
+== Scale to Meet Your Needs
 
 Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand.
 
 The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your web cartridge on-line to handle requests.
 
-=> link:php-scaling.html[Scale your application]
+-> link:php-scaling.html[Scale your application]
+
+link:#top[Back to Top]
