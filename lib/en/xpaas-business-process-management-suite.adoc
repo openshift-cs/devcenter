@@ -1,0 +1,190 @@
+---
+layout: base
+category: 50_JBoss xPaaS
+breadcrumb: JBoss xPaaS
+parent_url: xpaas.html
+nav_title: BPM Suite
+nav_priority: 3
+---
+= JBoss Business Process Management Suite
+
+[[top]]
+[float]
+= JBoss Business Process Management Suite
+[.lead]
+JBoss BPM Suite provides business users and developers with powerful and intuitive tools to capture business processes, policies and rules and configure advanced business reporting, to obtain process-based applications that can be modified with agility in response to the business needs.
+
+link:#getting-started[Getting Started] +
+link:#video-walkthrough[Video Walkthrough] +
+link:#support[Support] +
+link:#faq[BPMS FAQ]
+
+== Overview
+Business Process Management (BPM) and Business Rules Management (BRM) technologies provide an environment in which business and IT users can collaborate effectively to manage business logic and quickly modify procedures and policies as business conditions demand. By automating business logic, organizations can operate consistently, with repeatable and auditable processes and decisions. Additionally, monitoring business activity provides a pathway for business optimization, increasing effectiveness and reducing cost.
+JBoss BPM Suite
+
+JBoss BPM Suite provides standards-based modeling, automation, simulation, and monitoring of business processes. It incorporates all the capabilities of JBoss BRMS, a powerful, easy-to-use business rules management system, with extensions for complex event processing that let businesses recognize and respond to events in real-time from social networks, blogs, and more.
+
+Red Hat JBoss BPM Suite enables process management and orchestration with a number of advantages:
+
+*Analytics:* Dashboards deliver real-time business activity monitoring (BAM) and reporting with key indicators to track process performance.
+
+*Intelligence:* Automatic rules-based decision support with real-time situational knowledge and contextualized events.
+
+*Collaboration:* Collaboration during the entire process life cycle through a personalized and unified interface for both business and IT teams.
+
+*Cloud-ready:* Compatible with OpenShift by Red Hat for greater scalability, rapid deployment and predictable costs.
+
+*Open:* Open source technology delivers high quality and performance while reducing costs.
+
+With OpenShift you can easily deploy and run JBoss BPM Suite to model, document, simulate and automate your business processes directly in the cloud. You can also configure advances business activity dashboards from your web browser to provide support to all types of business needs.
+
+JBoss BPM Suite on OpenShift is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift. This preview is based on the JBoss BPM Suite 6 supported release but as a preview it does not come with guaranteed support.
+
+It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha release. There will be fixes and updates frequently over the short term followed by a Beta release and then a supported release.
+
+We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms, which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
+
+=== Model driven
+
+JBoss BPM Suite has been designed to empower business and technical users to define and automate business processes, without compromising flexibility, or scalability. This vision has led Red Hat to a fully model-driven approach to creating process models, data models and forms, and for creating advanced dashboards for Business Activity Monitoring (BAM).
+
+=== Process design
+
+It all starts with processes. JBoss BPM Suite is based in BPMN2, a standard notation easy to understand so you can easily see all the different paths and options the process can follow depending on the decisions made across the execution of the process.
+
+=== Simulation
+
+The simulation functionality built into JBoss BPM suite puts you in control. Enter key information about the execution of the process in the real world. BPM Suite will inform you about the expected results of that scenario so you can fine tune the process or add or reduce resources assigned to it.
+
+=== Data and forms
+
+The paramount importance of data in processes led us to completely redesign and incorporate an innovative data and forms management component. From a web interface users can decide what type of information the process needs to manage, its structure and what forms will be needed to use it along the process.
+
+=== Dashboards
+
+JBoss BPM Suite provides an advanced and powerful web-based component to create sophisticated dashboards with drill-down capabilities by dragging and dropping graphics. These dashboards can contain indicators that are connected to data sources in disparate systems. Business users can easily customize these to have their own vision of Key Performance Indicators (KPIs) needed for agile decision making.
+
+=== Business rules
+
+Red Hat JBoss BPM Suite includes JBoss BRMS, a full business rules management system integrated with the design environment. Automated decisions can be configured based on the information a process carries or has access to. This tight integration is important since rules and processes are living entities, and as such they change along the way. Modifying a rule allows the behavior of a process to be changed without needing to tap into IT resources or restarting the process application.
+
+=== Connecting to the outside world: orchestration
+
+In many cases processes need to interact with other systems. To enable this, JBoss BPM Suite offers a number of ways of interacting with these external systems and sources of data and information. It not only exposes its own API and REST services, but you can customize any connection at any point of the process to enable information exchange.
+
+== Simplify the lifecycle
+Getting the JBoss BPM Suite process management capabilities deployed onto OpenShift is as easy as clicking “Deploy Now” or executing the following command:
+
+[source]
+--
+$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml
+--
+
+This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications.
+
+For important information on setting up your JBoss BPM Suite cartridge, check out our link:#getting-started[Getting Started] page.
+
+link:#top[Back to Top]
+
+[[support]]
+== Support
+For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
+
+You can provide feedback, requests or contributions for the JBoss BPM Suite cartridge on jboss.org at: https://community.jboss.org/en/bpms.
+
+link:#top[Back to Top]
+
+[[getting-started]]
+== Getting Started with JBoss BPM Suite on OpenShift
+There are two ways to install the BPM Suite cartridge on OpenShift and you can choose the option that best suits your workflow - either through the OpenShift Online web console or through the Command Line Tools (rhc).
+
+=== Installation Option 1: Using the QuickStart / OpenShift Web Console
+Start by logging into your OpenShift account (don’t have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
+
+* The link:https://www.openshift.com/quickstarts/jboss-business-process-management-suite[BPMS QuickStart page] and then on the “Deploy now” button;
+* link:https://openshift.redhat.com/app/console/application_type/quickstart!17804[Deploy Now] (will take you to the web console)
+* The OpenShift console by clicking “Login” (if this is your first time) or “My Apps” (if you already have some) in the upper right corner of your browser:
+
+image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
+
+If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “BPM” or you can scroll down to the list of quick links and click “JBoss BPM Suite 6” under “xPaaS”. This will bring you to the “Configure Application” step (see below.)
+
+image::xpaas/xpaas-bpms-2.png[JBoss BPMS Cartridge Description]
+
+If you use the QuickStart, click on the “Deploy Now” button. This will bring you directly to the “Configure Application” step.
+
+To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. “BPM”, “BPMtest” or whatever you like.) You don’t need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it. You can upgrade to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears link:https://openshift.redhat.com/app/account/plans/bronze/upgrade[here]. (you can visit the link:https://help.openshift.com[OpenShift Help Center] if you need further assistance)
+
+Make your Gear selection to “Medium”, and for scaling select – “No scaling”, which will work just fine; then hit “Create Application” and OpenShift will build the application for you. When that is complete you will see the “Next Steps” page and you can decide whether you want to change the code of the application. For now select “Not now”. The next page will have some important information for you so don’t go speeding past it.
+
+In the first line you will see the URL for your BPM cartridge. A bit further down you’ll see the auto generated login credentials. Save these because you will need them to login to BPM Suite Business Central. Once you have this information recorded click on the “Continue to the application overview page” link.
+
+image::xpaas/xpaas-bpms-3.png[JBoss BPMS Cartridge Sucess]
+
+Clicking that link will bring you to the Applications view in OpenShift where you will see your new BPM Suite application listed. Click on the application and you will see the URL for the running application and details about the cartridge. Click on the URL. On the welcome page, click the "Business Central" link and that will take you to the login screen for BPM Suite Business Central. Enter the bpm-admin user name and password you recorded and click log in. You will then see the BPM Suite Business Central welcome page.
+
+image::xpaas/xpaas-bpms-4.png[JBoss BPMS Console]
+
+A process example is automatically imported and made available under the organization 'demo'. You can use it to learn and create your own processes and rules. For more information on navigating these screens see this readme.
+
+image::xpaas/xpaas-bpms-5.png[JBoss BPMS Console]
+
+And that’s it. You are now running BPM Suite on OpenShift. Congratulations!
+
+=== Installation Option 2: Using the Command Line Tools (rhc)
+If you want to use the rhc command line type:
+
+[source]
+--
+$ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-bpms/master/metadata/manifest.yml
+--
+
+Please note that we advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it.
+
+You can use other name instead of “bpmsuite” in this command.
+
+This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications..
+
+If you prefer to specify your own password please check the link:https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_BPM_Suite[product documentation].
+
+For an additional guide, please see this getting started video which will guide you through the steps needed to create your BPM Suite alpha cartridge.
+
+link:#top[Back to Top]
+
+[[video-walkthrough]]
+== Video Walkthrough
+
+video::uYBSZnHEfCg[youtube, width=640, height=400]
+
+link:#top[Back to Top]
+
+[[faq]]
+== BPM Suite FAQ
+[qanda]
+How do I load the cartridge on OpenShift?::
+  Just like any downloadable cartridge on OpenShift there are two ways to install the BPM Suite Alpha cartridge. You can either use the OpenShift console or the command line. You can check out our link:#getting-started[Getting Started] section for further instructions.
+Where do I go for support?::
+  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/jbpm[BPM Suite community boards]. We would love to have your input so go where you’re most comfortable and we will see it.
+What does it mean that this is an “Alpha” cartridge?::
+  BPM Suite on OpenShift is based on a candidate release version of JBoss BPM Suite 6.0.2 and like any pre-release software it is undergoing testing and improvements on its way to general availability. There are also unique requirements to running BPM Suite on a cloud platform like OpenShift and some of those are in development. For example, we strongly advise it is run at least on a medium gear. We feel the term “Alpha” is an industry wide term that conveys the right sense of where this technology is – it is targeted at production use cases but not production supported at this time.
+Why do you recommend it is run at least on a medium gear? Will it run on a small gear?::
+  The previous version of BPM Suite (6.0.1) didn’t run at an acceptable performance on a small gear so we advised to run it only in a medium gear. For 6.0.2 we have improved this and are happy to confirm it will run on a small gear. However, BPM Suite is a feature-rich, state-of-the-art product. You can easily manage it from the user or programming interfaces, since these abstract you from that complexity. Among other things it includes the full BRMS product and advanced functionality that requires a bigger environment to run at a good performance than what a small gear provides. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will also contrain what you can effectively do with it. So we recommend it is run at least on a medium gear.
+Will you create a BRMS Cartridge?::
+  The BPM Suite includes the whole BRMS product. This means that if you are only interested in rules management and automation, for the time being, you can use the BRMS capabilities that BPM Suite cartridge contains.
+What is the cartridge lifecyle?::
+  JBoss Middleware cartridges will advance through several stages on OpenShift. Many will begin life as cartridges based on their community projects (like WildFly). Others will start out based on pre-release versions of our supported projects as part of the JBoss Developer program, which provides developer access to pre-release products under the JBoss Developer Program Terms and Conditions.
++
+Community cartridges will reflect their community projects and will change with as their communities update them. If you wish to use the updates, you will have to re-install the cartridge.
++
+Alpha cartridges are pre-release versions of supported products. They are released under the JBoss Developer Program terms and conditions and are intended only for development use and not for production use or to access updates to products without a Red Hat subscription. Alpha cartridges will be updated as the cartridge progresses to beta. As with any pre-release software, there will be sharp edges and unfinished pieces but those are a worthwhile tradeoff for early access to the direction of future products.
++
+Beta cartridges are also pre-release software and covered by the JBoss Developer Program terms and conditions. As beta code, these cartridges will naturally be closer to finished products than alpha cartridges are, and our current plan is that beta cartridges will be introduced and updated as the product proceeds to general release.
++
+Please note that either alpha or beta cartridges may not correspond to alpha or beta releases of the underlying product.
+Does this mean BPM Suite cartridges will be made generally available and supported?::
+  The release of community, alpha or beta cartridges should not be viewed as a commitment to release a supported cartridge. However the release of alpha/beta cartridges can rightly be viewed as an expression of intent absent specific timing. These may not correspond to alpha or beta releases of the underlying product.
+Where do I go to learn more about BPM Suite?::
+  For more information about JBoss BPM Suite you can visit http://www.jboss.org/products/bpmsuite or http://www.redhat.com.
+
+link:#top[Back to Top]
