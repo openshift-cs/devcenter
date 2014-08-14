@@ -8,39 +8,115 @@ nav_priority: 1
 ---
 = Java Overview
 :source-highlighter: coderay
+:icons:
 
-== Main Java Header
+[[top]]
+[[java]]
+== Java Application Hosting
 
-Choose your environment: +
-link:jboss.html[JBoss] +
-link:spring.html[Spring] +
-link:tomcat.html[Tomcat] +
+With OpenShift you can easily deploy and run Java applications using your favorite application servers and frameworks. Want a JBoss server running Spring backed by MySQL? Or maybe you're looking for GlassFish with Scala and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-=== Example Java Code Block
+TIP: Java is a general-purpose, concurrent, class-based, object-oriented computer programming language that is specifically designed to have as few implementation dependencies as possible. + 
+Follow the official documentation to link:https://java.com[learn more].
 
-[source, java]
---
-/* CallingMethodsInSameClass.java
- *
- * illustrates how to call static methods a class
- * from a method in the same class
- */
+OpenShift provides several ways to deploy Java application, please choose your environment (if you are not sure, JBoss is a safe choice): +
+link:#jboss[JBoss] +
+link:#tomcat[Apache Tomcat] +
+link:java-spring.html[Spring] +
+link:#end-to-end[Other environments]
+[[jboss]]
+== JBoss
 
-public class CallingMethodsInSameClass
-{
-  public static void main(String[] args) {
-    printOne();
-    printOne();
-    printTwo();
-  }
+image::jboss-logo.png[JBoss logo]
 
-  public static void printOne() {
-    System.out.println("Hello World");
-  }
+With OpenShift you can easily deploy and run Java applications on JBoss with your favorite application frameworks and datastores. Want a JBoss server running Spring backed by MySQL? Or maybe you want to run with Scala and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-  public static void printTwo() {
-    printOne();
-    printOne();
-  }
-}
---
+TIP: Ready to take your JBoss application to the cloud? Excited about the new features in JBoss Enterprise Application Platform 6 and JBoss AS 7 like EE6, CDI/Weld, a small memory footprint and lightning fast startup times? +
+Learn more about link:http://www.jboss.org/[JBoss Application server] and link:http://www.redhat.com/products/jbossenterprisemiddleware/[JBoss Enterprise Application Platform].
+
+=== Simplify the Lifecycle
+
+Getting a Java application with a MySQL backend deployed onto OpenShift with JBoss is as easy as executing two commands:
+
+[source]
+----
+$ rhc app create MyApp jbossas-7
+$ rhc cartridge add mysql-5.5 -a MyApp
+----
+
+These two commands create your "server" and install and configure JBoss, MySQL, a git repository on the server, and a simple web application. You can now visit your application on the web at:
+
+[source]
+----
+http://MyApp-MyDomain.rhcloud.com/
+----
+
+link:#top[Back to top]
+
+[[tomcat]]
+== Apache Tomcat
+
+image::tomcat-power.gif[Powered by Tomcat]
+
+With OpenShift you can easily deploy and run Java applications on Apache Tomcat with your favorite application frameworks and datastores. OpenShift supports Apache Tomcat via our JBoss EWS cartridge. Want a Tomcat server running Spring backed by MySQL? Or maybe you want to run with Scala and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+
+TIP: Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. +
+Apache Tomcat powers numerous large-scale, mission-critical web applications across a diverse range of industries and organizations. +
+Learn more at the link:http://tomcat.apache.org/[Tomcat homepage at the Apache organization].
+
+=== Simplify the Lifecycle
+
+Getting a Java app with a MySQL backend deployed onto OpenShift with Apache Tomcat is as easy as executing two commands:
+
+[source]
+----
+$ rhc app create MyApp jbossews-2.0
+$ rhc cartridge add mysql-5.5 -a MyApp
+----
+
+These two commands create your "server" and install and configure Tomcat (via JBoss EWS), MySQL, a git repository on the server, and a simple web application. You can now visit your application on the web at:
+
+[source]
+----
+http://MyApp-MyDomain.rhcloud.com/
+----
+
+link:#top[Back to top]
+
+[[end-to-end]]
+== End-to-End Java Support
+
+* Application Stack
+
+** link:https://www.openshift.com/quickstarts/jee-full-profile-on-jboss[JavaEE6]
+** link:java-spring.html[Spring]
+** link:https://github.com/opensas/openshift-play2-computerdb[Scala/Play!]
+** link:https://github.com/kameshsampath/jbossas7-liferay-quickstart[Liferay]
+
+* Application server
+
+** link:java-overview.html#jboss[JBoss AS7]
+** link:java-overview.html#jboss[JBoss EAP6]
+** link:java-overview.html#tomcat[Tomcat 6 & 7 (JBoss EWS 1.0 & 2.0)]
+** link:https://www.openshift.com/quickstarts/wildfly-8[WildFly]
+** link:https://github.com/openshift/openshift-glassfish3-sample[GlassFish as DIY]
+** link:https://github.com/openshift-quickstart/jetty-openshift-quickstart[Jetty as DIY]
+
+* Datastore
+
+** link:databases-overview.html#mysql-on-openshift[MySQL]
+** link:databases-overview.html#mongodb-on-openshift[MongoDB]
+** link:databases-overview.html#postgresql-on-openshift[PostgreSQL]
+
+* Tool
+
+** link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
+** link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
+** link:jenkins-overview.html[Jenkins]
+** link:https://www.openshift.com/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
+** link:overview-deploying.html[Git]
+** link:overview-ssh.html[SSH Access]
+** link:#[Maven 3]
+** link:https://www.openshift.com/blogs/running-ant-builds-on-openshift[Ant]
+
+link:#top[Back to top]
