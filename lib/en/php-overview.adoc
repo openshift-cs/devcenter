@@ -16,7 +16,7 @@ nav_priority: 1
 
 With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. Want a Zend server backed by MySQL? Or maybe you're looking for CodeIgniter and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-NOTE: PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
+TIP: PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
 
 link:#simplify-your-php-deployments[Simplify your PHP deployments] +
 link:#go-enterprise-with-zend[Go Enterprise with Zend] +
@@ -28,6 +28,8 @@ link:#scale-to-meet-your-needs[Scale to Meet Your Needs] +
 
 [[simplify-your-php-deployments]]
 == Simplify your PHP deployments
+
+image::php-logo.png["PHP logo"]
 
 Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -51,11 +53,13 @@ link:#top[Back to Top]
 [[go-enterprise-with-zend]]
 == Go Enterprise with Zend
 
+image::zend-logo.png[Zend logo]
+
 include::_fragments/php-zend-overview.adoc[]
 
 include::_fragments/php-zend-deploy.adoc[]
 
-IMPORTANT: link:php-zend.html[Learn More about Zend Server]
+-> link:php-zend.html[Learn More about Zend Server]
 
 link:#top[Back to Top]
 
