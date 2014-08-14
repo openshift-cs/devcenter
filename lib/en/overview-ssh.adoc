@@ -8,7 +8,8 @@ nav_priority: 50
 ---
 = SSH
 
-== SSH
+[float]
+= SSH
 
 OpenShift allows remote access to your application via the Secure Shell
 protocol (SSH). SSH provides direct access to the command line of your
@@ -29,7 +30,7 @@ To remotely access your application you need to:
 Some useful SSH commands are also described on this page.
 
 [[setting-up-ssh-keys]]
-=== Setting up SSH Keys
+== Setting up SSH Keys
 
 Each SSH key is a pair - a public key that you share with others, and a
 private key that you keep secret. The client encrypts some data using
@@ -51,12 +52,13 @@ upload a key for you through an easy to use wizard.
 haven't already done so.
 * From a command line terminal type
 +
----------
-rhc setup
----------
+[source]
+--
+$ rhc setup
+--
 
 This will launch the the setup wizard to configure your OpenShift
-account. Enter your user name and password. 
+account. Enter your user name and password.
 
 * Type *yes* when the wizard
 asks if you want to upload your public key. Your public key will be
@@ -68,7 +70,7 @@ multiple computers, repeat the above procedure so that each computer has
 access to the application.
 
 [[installing-an-ssh-client]]
-=== Installing an SSH Client
+== Installing an SSH Client
 
 
 Most UNIX like platforms like Mac OS X and Linux have SSH installed by
@@ -80,7 +82,7 @@ link:overview-ssh.html#using-ssh-on-windows[SSH on
 Windows]
 
 [[connecting-to-your-application-from-windows]]
-=== Connecting to Your Application from Windows
+== Connecting to Your Application from Windows
 
 Once you have an application up and running and your keys are uploaded
 to the server you can now SSH into the remote server from your computer.
@@ -112,7 +114,8 @@ your application.
 3. If you have setup and uploaded your keys correctly a prompt similar to
 this displays:
 +
-----
+[source]
+--
 Welcome to OpenShift shell
 
 This shell will assist you in managing OpenShift applications.
@@ -125,13 +128,13 @@ and recreate it
 !!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
 
 Type "help" for more info.
-----
+--
 
 You are now connected to your application and can start debugging or
 monitoring it. SSH access is only recommended for advanced users.
 
 [[common-commands]]
-=== Common Commands
+== Common Commands
 
 |===
 |help |tail_all

@@ -3,14 +3,17 @@ layout: base
 category: 02_Getting Started
 breadcrumb: Getting Started
 parent_url:
-nav_title: RHEL6
+nav_title: RHEL 6
 nav_priority: 40
 ---
 = Getting Started
 :icons:
 
+[float]
+= OpenShift on RHEL 6
+
 include::_fragments/overview-client-tools-rhel6.adoc[]
 
-=== Next Step - Deploy an Application
+== Next Step - Deploy an Application
 
 include::_fragments/getting-started-tutorial-list.adoc[]

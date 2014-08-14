@@ -12,7 +12,8 @@ nav_priority: 1
 
 [[top]]
 [[php-application-hosting]]
-== PHP Application Hosting
+[float]
+= PHP Application Hosting
 
 With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. Want a Zend server backed by MySQL? Or maybe you're looking for CodeIgniter and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
@@ -21,10 +22,6 @@ TIP: PHP is a general-purpose server-side scripting language originally designed
 link:#simplify-your-php-deployments[Simplify your PHP deployments] +
 link:#go-enterprise-with-zend[Go Enterprise with Zend] +
 link:#environment-variables[Environment variables] +
-link:#end-to-end-php-support[End-to-End PHP Support] +
-link:#rapid-development-with-ide[Rapid Development with an IDE] +
-link:#build-test-deploy[Build -> Test -> Deploy] +
-link:#scale-to-meet-your-needs[Scale to Meet Your Needs] +
 
 [[simplify-your-php-deployments]]
 == Simplify your PHP deployments
@@ -67,69 +64,5 @@ link:#top[Back to Top]
 == Environment variables
 
 include::_fragments/php-env.adoc[]
-
-link:#top[Back to Top]
-
-[[end-to-end-php-support]]
-== End-to-End PHP Support
-
-Looking to scale your PHP application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
-
-=== Stacks
-
-* link:php-zend.html[Zend Server]
-
-=== Tools
-
-* link:php-composer.html[Composer]
-
-=== Frameworks
-
-* link:php-cakephp.html[CakePHP]
-* link:php-codeigniter.html[CodeIgniter]
-* link:php-symphony.html[Symphony]
-* link:php-yii.html[Yii]
-* link:php-zend.html[Zend Framework]
-
-=== Applications
-
-* link:php-drupal.html[Drupal]
-* link:php-magento.html[Magento]
-* link:php-wordpress.html[Wordpress]
-
-link:#top[Back to Top]
-
-[[rapid-development-with-ide]]
-== Rapid Development with an IDE
-
-How you develop your PHP application is up to you. Use your favorite IDE and track and push your changes with Git. But you dislike command line?
-
-For a seamless development experience on OpenShift, use the link:php-jboss.html[JBoss Tools with Eclipse] to deploy your changes to the cloud, tail application log files, and connect to remote databases.
-
-Don't like the command line? No problem! Use the  to create and work with your applications.
-
--> link:php-jboss.html[Install the JBoss Tools]
-
-link:#top[Back to Top]
-
-[[build-test-deploy]]
-== Build -> Test -> Deploy
-
-Want to make sure your PHP application is stable before your latest changes go live?
-
-link:https://wiki.jenkins-ci.org[Jenkins] is a full featured continuous integration (CI) server that can run builds, tests, and other scheduled tasks and integrate with your OpenShift applications.
-
--> link:php-jenkins.html[Build with Jenkins]
-
-link:#top[Back to Top]
-
-[[scale-to-meet-your-needs]]
-== Scale to Meet Your Needs
-
-Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand.
-
-The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your web cartridge on-line to handle requests.
-
--> link:php-scaling.html[Scale your application]
 
 link:#top[Back to Top]

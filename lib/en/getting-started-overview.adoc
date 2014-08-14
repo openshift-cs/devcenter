@@ -11,15 +11,16 @@ nav_priority: 1
 
 [[top]]
 [[getting-started]]
-== Getting Started with OpenShift Online
+[float]
+= Getting Started with OpenShift Online
 
 OpenShift Online provides several environments to work from, each which provide advantages when creating and managing your applications. To access the full power of OpenShift Online, it is recommended to become familiar with both environments.
 
-=== Web Console
+== Web Console
 
 OpenShift's web console gives you the power to create and manage your apps without installing anything or going to the command line. The console guides you through each application creation and suggests additional capabilities to complement it. Examples include MongoDB, MySQL, or Jenkins continuous integration builds.
 
-=== Command Line Tools (rhc)
+== Command Line Tools (rhc)
 The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment.
 
 The OpenShift client tools are packaged as a Ruby Gem.
@@ -28,11 +29,11 @@ IMPORTANT: To run the tools on your platform, you'll need Ruby 1.8.7 or newer, t
 
 '''
 
-==== Step 1 - Sign Up for a free OpenShift Online account
+=== Step 1 - Sign Up for a free OpenShift Online account
 
 https://www.openshift.com/app/account[Click here to create a free OpenShift account]
 
-==== Step2 - Select Your Operating System
+=== Step2 - Select Your Operating System
 link:getting-started-windows.html[Windows] +
 link:getting-started-mac-os-x.html[Mac OS X] +
 link:getting-started-fedora.html[Fedora] +

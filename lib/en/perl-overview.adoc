@@ -11,7 +11,8 @@ nav_priority: 1
 
 [[top]]
 [[perl-application-hosting]]
-== Perl Application Hosting
+[float]
+= Perl Application Hosting
 
 Perl is a high-level, general-purpose dynamic programming language. With OpenShift you can easily deploy and run Perl applications using your favorite frameworks and databases. Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
@@ -40,22 +41,22 @@ Looking to scale your Perl application for heavy traffic, or want to automatical
 [cols="2*"]
 |===
 |Application Stack
-a|* https://github.com/openshift/dancer-example[Dancer] 
-* Catalyst 
-* CGI::Application 
-* Mojolicious 
+a|* https://github.com/openshift/dancer-example[Dancer]
+* Catalyst
+* CGI::Application
+* Mojolicious
 
 |Datastores
-a|* link:/developers/mysql[MySQL]
-* link:/developers/mongodb[MongoDB] 
-* link:/developers/postgresql[PostgreSQL]
+a|* link:/en/databases-overview.html#mysql-on-openshift[MySQL]
+* link:/en/databases-overview.html#mongodb-on-openshift[MongoDB]
+* link:/en/databases-overview.html#postgresql-on-openshift[PostgreSQL]
 
 |Tools
-a|* link:/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
-* link:/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
-* link:/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE] 
-* link:/developers/deploying-and-building-applications[Git] 
-* link:/developers/remote-access/[SSH Access] 
-* link:/jenkins[Jenkins]
+a|* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
+* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
+* link:https://www.openshift.com/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
+* link:/en/overview-deploying.html[Git]
+* link:/en/overview-ssh.html[SSH Access]
+* link:/en/jenkins-overview.html[Jenkins]
 |===
 

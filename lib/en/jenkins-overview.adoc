@@ -9,4 +9,5 @@ nav_priority: 1
 = Jenkins Overview
 :source-highlighter: coderay
 
-== Main Jenkins Header
+[float]
+= Main Jenkins Header

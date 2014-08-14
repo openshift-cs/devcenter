@@ -8,7 +8,8 @@ nav_priority: 50
 ---
 = Environment Variables
 
-== Environment Variables
+[float]
+= Environment Variables
 
 OpenShift has a few environment variables to make it easy for your to configure your application to run properly. The following tables show the variables,
 some examples of what the value would be, and what you might use them
@@ -18,13 +19,13 @@ may be slightly different for similar types of cartridges (for instance,
 if you have a PostgreSQL database as opposed to MySQL).
 
 If you'd like to see the exact values for your application, there are
-two ways you can see your available variables. 
+two ways you can see your available variables.
 
-1. Add `export` to your +.openshift/action_hooks/build+ file and push a new commit. You will beable to see the variables in your git output (they will all start with"remote: declare -x"). 
+1. Add `export` to your +.openshift/action_hooks/build+ file and push a new commit. You will beable to see the variables in your git output (they will all start with"remote: declare -x").
 
 2. SSH into your application and run `env`
 
-=== Informational 
+== Informational
 These variables provide some information about your
 application.
 
@@ -39,7 +40,7 @@ application.
 
 |===
 
-=== Directories
+== Directories
 These directories are where your application lives on
 OpenShift. Please remember that the only directory that is guaranteed to
 never be deleted is your `OPENSHIFT_DATA_DIR`.
@@ -55,7 +56,7 @@ never be deleted is your `OPENSHIFT_DATA_DIR`.
 
 |===
 
-=== Database
+== Database
 These variables pertain to your database (if you have one) and are used to connect your application to your database. The exact variable names depend upon the database type; the value of +<database>+ will be +MONGODB+, +MYSQL+, or +POSTGRESQL+ as appropriate/
 
 |===
@@ -69,7 +70,7 @@ These variables pertain to your database (if you have one) and are used to conne
 |OPENSHIFT_<database>_DB_URL|mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/|Database connection URL you can use to connect to your database
 |===
 
-=== Jenkins
+== Jenkins
 If your application includes Jenkins, you will have access to these variables as well.
 
 |===
@@ -81,7 +82,7 @@ If your application includes Jenkins, you will have access to these variables as
 jenkins server (where builds get done)
 |===
 
-=== Gear Information
+== Gear Information
 These variables will be used if you have a scaling application.
 
 |===

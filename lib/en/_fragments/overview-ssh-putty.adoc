@@ -1,12 +1,12 @@
 [[using-ssh-on-windows]]
-=== Using SSH on Windows
+== Using SSH on Windows
 
 PuTTY is a popular free SSH client for Windows. This document shows how
 to install and configure PuTTY so that you can connect to your
 application with SSH on a Windows machine.
 
-[[available-screencast]]
-==== Available Screencast
+[[video-walkthrough]]
+=== Video Walkthrough
 
 Along with the instructions below, we've created a screencast that will
 walk you through every step.
@@ -14,7 +14,7 @@ walk you through every step.
 video::dZwngyEtWmU[youtube, width=640, height=480]
 
 [[download-the-putty-installer]]
-==== Download the PuTTY Installer
+=== Download the PuTTY Installer
 
 Get the installer from the
 http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[PuTTY
@@ -25,7 +25,7 @@ Make sure you download the latest stable release under the headers
 should be named something like *putty-0.63-installer.exe*.
 
 [[running-the-installer]]
-==== Running the Installer
+=== Running the Installer
 
 After downloading the installer, using File Explorer open up the folder
 you downloaded it to and double click on the icon to run the installer.
@@ -63,7 +63,7 @@ reading the README file for further information about PuTTY.
 image::/en/images/overview-ssh-putty-wizard-6.png[]
 
 [[importing-your-ssh-key]]
-==== Importing Your SSH Key
+=== Importing Your SSH Key
 
 We're assuming that rhc setup was already run or that you have completed
 alternate steps to create an SSH key pair for use with OpenShift. We
@@ -117,7 +117,7 @@ image::/en/images/overview-ssh-putty-launch-5.png[]
 You've imported your SSH key and may close the PuTTYgen application.
 
 [[configuring-a-session-to-connect-to-your-application]]
-==== Configuring a Session to Connect to Your Application
+=== Configuring a Session to Connect to Your Application
 
 We are assuming you've already created an application on OpenShift and
 now want to configure PuTTY to easily connect to it with SSH.
@@ -177,7 +177,7 @@ session in the list. Click on the *Load* button and then click on the
 image::/en/images/overview-ssh-putty-configure-5.png[]
 
 [[now-you-are-ready-to-connect-to-your-openshift-application-with-ssh-on-windows]]
-==== Now You Are Ready to Connect to Your OpenShift Application with SSH on
+=== Now You Are Ready to Connect to Your OpenShift Application with SSH on
 Windows
 
 link:/page/ssh[See the SSH page] for a list of commands and things you

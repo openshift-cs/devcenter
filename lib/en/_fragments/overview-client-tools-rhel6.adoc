@@ -1,5 +1,5 @@
 [[red-hat-enterprise-linux-6]]
-=== Setting up the OpenShift Environment on Red Hat Enterprise Linux 6
+== Setting up the OpenShift Environment on Red Hat Enterprise Linux 6
 
 We recommend using the Ruby gem on RHEL. You need to install rubygems
 and git first with:

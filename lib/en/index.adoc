@@ -3,12 +3,13 @@ layout: home
 ---
 = OpenShift Online Developer Center
 
-== Developer Center
+[float]
+= Developer Center
 This is the dev center content (in English).
 
 include::_fragments/sample.adoc[]
 
-=== Paragraphs
+== Paragraphs
 
 [.lead]
 This text will be styled as a lead paragraph (i.e., larger font).

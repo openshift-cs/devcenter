@@ -9,4 +9,5 @@ nav_priority: 1
 = Node.js Overview
 :source-highlighter: coderay
 
-== Main Node.js Header
+[float]
+= Main Node.js Header

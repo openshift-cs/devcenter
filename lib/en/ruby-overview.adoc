@@ -9,4 +9,5 @@ nav_priority: 1
 = Ruby Overview
 :source-highlighter: coderay
 
-== Main Ruby Header
+[float]
+= Main Ruby Header

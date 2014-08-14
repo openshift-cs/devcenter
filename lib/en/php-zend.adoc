@@ -13,7 +13,8 @@ nav_priority: 1
 
 [[top]]
 [[zend-server]]
-== Zend Server
+[float]
+= Zend Server
 
 include::_fragments/php-zend-overview.adoc[]
 
@@ -53,7 +54,7 @@ link:#top[Back to Top]
 [[zend-studio]]
 == Zend Studio
 
-Zend Studio allows you to develop, test and deploy OpenShift projects in a seamless and highly-efficient process. 
+Zend Studio allows you to develop, test and deploy OpenShift projects in a seamless and highly-efficient process.
 
 * link:http://files.zend.com/help/Zend-Studio/zend-studio.htm#openshift_integration.htm[How to: Using Zend Studio with OpenShift]
 * link:http://files.zend.com/help/Zend-Studio/zend-studio.htm#creating_a_new_openshift_project.htm[How to: Creating a new OpenShift project]

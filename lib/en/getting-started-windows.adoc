@@ -9,6 +9,9 @@ nav_priority: 10
 = Getting Started with Windows
 :icons:
 
+[float]
+= OpenShift on Windows
+
 include::_fragments/overview-client-tools-windows.adoc[]
 
 === Next Step - Deploy an Application
