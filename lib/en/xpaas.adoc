@@ -1,0 +1,54 @@
+---
+layout: base
+category: 50_JBoss xPaaS
+breadcrumb: JBoss xPaaS
+parent_url: xpaas.html
+nav_title: Overview
+nav_priority: 1
+---
+= JBoss xPaaS Overview
+
+[float]
+= JBoss xPaaS Services for OpenShift
+[.lead]
+JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift. +
+Developers can build applications, integrate with other systems, orchestrate using rules and processes, and then deploy across hybrid environments.
+
+video::IkU_PQ_AnPc[youtube, width=450, height=253]
+
+== Application Container Services
+Complex enterprise applications need to run on one of the four "footprints" - physical, virtual, private, or public - leveraging core services like persistence and transactions from the container.
+
+=== Enterprise Application Platform
+Market-leading open source Java EE platform for modern, highly-scalable, secure, transactional applications. Build and deploy enterprise Java applications in the cloud using Java EE, Spring or your choice of Java framework.
+
+link:/en/java-overview.html#jboss[Learn More]
+
+== Integration Services
+Modern applications are designed to connect with other applications and data to enhance their functionality without having duplication. Better to connect and consume than to replicate; Integration Services allow developers to connect to applications and data, send and receive messages - all with the reliability and precision of enterprise grade technology.
+
+=== Fuse
+The JBoss Fuse enterprise service bus is technology for building and implementing communication between different applications, services, and data. It is specifically designed for extensive connectivity.
+
+link:/en/xpaas-fuse.html[Learn More] +
+
+=== Data Virtualization
+JBoss Data Virtualization is a technology which allows applications to use data from multiple heterogeneous data sources. It comprises tools and runtime services for creating and executing bi-directional data services.
+
+link:/en/xpaas-data-virtualization.html[Learn More] +
+
+== Business Process Services
+Business Process Management and Business Rules Management technologies empower you to model, automate, and orchestrate business processes across applications, services and data, to strengthen business agility, execution and results.
+
+=== Business Process Management
+JBoss BPM Suite provides business users and developers with powerful and intuitive tools to capture business processes, policies and rules and configure advanced business reporting, to obtain process-based applications that can be modified with agility in response to the business needs.
+
+link:/en/xpaas-business-process-management-suite.html[Learn More] +
+
+== Mobile Services
+With mobile devices becoming a primary client in the enterprise, incorporating key mobile features and capabilities are a vital part of any application development project. Mobile services simplify and streamline supporting the many mobile client types while extending your application to these devices.
+
+=== Unified Push Server
+The Unified Push Server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage push related aspects of their applications for any mobile development environment.
+
+link:https://www.openshift.com/quickstarts/aerogear-push-0x[Learn More]
