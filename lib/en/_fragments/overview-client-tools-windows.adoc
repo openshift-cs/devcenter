@@ -1,8 +1,8 @@
 [[windows]]
-=== Setting up the OpenShift Environment on Windows
+== Setting up the OpenShift Environment on Windows
 The command line environment requires three things to be installed on Windows: [red]*Ruby*, [red]*Git*, and [red]*the rhc gem* (OpenShift command line tools gem)
 
-==== Step 1 - Install Ruby
+=== Step 1 - Install Ruby
 http://rubyinstaller.org[RubyInstaller 1.9] provides the best experience
 for installing Ruby on Windows XP, Vista, and Windows 7. Download the
 newest version from http://rubyinstaller.org/downloads/[the download
@@ -24,7 +24,7 @@ process and ensure the *Add Ruby executables to your PATH* check box is
 selected.
 
 [[installing-git]]
-==== Step 2 - Install Git
+=== Step 2 - Install Git
 
 The next step is to install http://msysgit.github.com/[Git for Windows]
 so that you can synchronise your local application source and your
@@ -44,7 +44,7 @@ C:Files> git --version git version 1.7.11.msysgit.1
 ----
 
 [[installing-the-openshift-gem]]
-==== Step 3: Installing the OpenShift gem
+=== Step 3: Install the OpenShift gem
 
 After Ruby and Git are correctly installed, use the RubyGems package
 manager (included in Ruby) to install the OpenShift client tools. Run:
@@ -67,6 +67,6 @@ please contact us on
 https://www.openshift.com/irc[IRC] or visit the
 https://help.openshift.com[Help Center] for more assistance.
 
-=== Video Walkthrough
+== Video Walkthrough
 
 video::cgNWp7SlS3A[youtube, width=640, height=480]

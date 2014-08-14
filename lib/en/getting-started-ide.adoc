@@ -9,4 +9,5 @@ nav_priority: 150
 = Getting Started
 :icons:
 
-=== Using an IDE to Manage OpenShift Applications
+[float]
+= Using an IDE to Manage OpenShift Applications

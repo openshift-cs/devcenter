@@ -2,7 +2,7 @@
 layout: base
 category: 01_Overview
 breadcrumb: Overview
-parent_url: 
+parent_url:
 nav_title: Deploying applications
 nav_priority: 50
 ---
@@ -12,14 +12,15 @@ nav_priority: 50
 
 [[top]]
 [[deploying-applications]]
-== Deploying applications
+[float]
+= Deploying applications
 
 All OpenShift applications are built around a Git source control workflow - you code locally, then push your changes to the server. The server then runs a number of *hooks* to build and configure your application, and finally restarts your application. Optionally, applications can elect to be built using Jenkins, or run using "hot deployment" which speeds up the deployment of code to OpenShift.
 
 link:#making-changes-to-your-application[Making Changes to your Application] +
 link:#continuous-delivery-with-jenkins[Continuous Delivery with Jenkins] +
 
-IMPORTANT: Learn how to use Git by reviewing the basic concepts of Git version control. Try out this 15-minute introductory course by Code School and GitHub. -> link:https://www.codeschool.com/courses/try-git[START COURSE]
+TIP: Learn how to use Git by reviewing the basic concepts of Git version control. Try out this 15-minute introductory course by Code School and GitHub. link:https://www.codeschool.com/courses/try-git[START COURSE]
 
 [[making-changes-to-your-application]]
 == Making Changes to your Application

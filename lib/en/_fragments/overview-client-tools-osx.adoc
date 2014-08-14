@@ -1,5 +1,5 @@
 [[mac-os-x]]
-=== Setting up the OpenShift Environment on Mac OS X
+== Setting up the OpenShift Environment on Mac OS X
 
 From OS X Lion onwards, *Ruby 1.8.7* is installed by default.
 
@@ -48,6 +48,6 @@ please contact us on
 https://www.openshift.com/irc[IRC] or visit the
 https://help.openshift.com[Help Center] for more assistance.
 
-=== Video Walkthrough
+== Video Walkthrough
 
 video::MoGpT1AW3MA[youtube, width=640, height=480]

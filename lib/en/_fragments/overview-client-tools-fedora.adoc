@@ -1,5 +1,5 @@
 [[fedora]]
-=== Setting up the OpenShift Environment on Fedora
+== Setting up the OpenShift Environment on Fedora
 
 RHC client tools are available as an RPM and can be installed with the
 YUM package manager on Fedora. Keep in mind that this version is not

@@ -9,9 +9,12 @@ nav_priority: 100
 = Getting Started
 :icons:
 
+[float]
+= OpenShift on Ubuntu
+
 include::_fragments/overview-client-tools-ubuntu.adoc[]
 
-=== Next Step - Deploy an Application
+== Next Step - Deploy an Application
 
 include::_fragments/getting-started-tutorial-list.adoc[]
 

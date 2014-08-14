@@ -12,11 +12,12 @@ nav_priority: 1
 
 [[top]]
 [[java]]
-== Java Application Hosting
+[float]
+= Java Application Hosting
 
 With OpenShift you can easily deploy and run Java applications using your favorite application servers and frameworks. Want a JBoss server running Spring backed by MySQL? Or maybe you're looking for GlassFish with Scala and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-TIP: Java is a general-purpose, concurrent, class-based, object-oriented computer programming language that is specifically designed to have as few implementation dependencies as possible. + 
+TIP: Java is a general-purpose, concurrent, class-based, object-oriented computer programming language that is specifically designed to have as few implementation dependencies as possible. +
 Follow the official documentation to link:https://java.com[learn more].
 
 OpenShift provides several ways to deploy Java application, please choose your environment (if you are not sure, JBoss is a safe choice): +

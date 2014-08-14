@@ -11,7 +11,8 @@ nav_priority: 30
 
 [[top]]
 [[platform-features]]
-== Platform Features
+[float]
+= Platform Features
 OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide]
 
 IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the United States, Canada, or Europe (EU member states, Iceland, Norway, and Switzerland). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here]

@@ -1,5 +1,5 @@
 [[ubuntu]]
-=== Setting up the OpenShift Environment on Ubuntu
+== Setting up the OpenShift Environment on Ubuntu
 
 Use the apt-get command line package manager to install Ruby and Git
 before you install the OpenShift command line tools. Run:
@@ -55,6 +55,6 @@ please contact us on
 https://www.openshift.com/irc[IRC] or visit the
 https://help.openshift.com[Help Center] for more assistance.
 
-=== Video Walkthrough
+== Video Walkthrough
 
 video::WZug3f-Ld34[youtube, width=640, height=480]

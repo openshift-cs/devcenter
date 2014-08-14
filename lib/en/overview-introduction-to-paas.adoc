@@ -8,5 +8,6 @@ nav_priority: 10
 ---
 = Introduction to PaaS
 
-== Introduction to PaaS
+[float]
+= Introduction to PaaS
 This is the intro to paas content.

@@ -1,5 +1,5 @@
 [[downloadable-cartridges]]
-=== Download and Run Your Own Cartridges
+== Download and Run Your Own Cartridges
 IMPORTANT: Downloading cartridges require version 1.9.1 of RHC
 
 In OpenShift, cartridges aren't limited to just to our supported and
@@ -9,7 +9,7 @@ deploy these custom cartridges, you simply provide the URL of the
 cartridge manifest in the console or from the CLI. OpenShift will then
 download and install the cartridge.
 [[how-cartridges-are-downloaded]]
-==== How Cartridges are Downloaded
+=== How Cartridges are Downloaded
 
 Any OpenShift cartridge can be turned in to a downloadable cartridge.
 OpenShift accepts a URL to the *manifest* for your cartridge (a YML
@@ -22,32 +22,35 @@ Here's an example manifest (taken from
 link:https://github.com/smarterclayton/openshift-go-cart/blob/master/metadata/manifest.yml[the
 Go cartridge]):
 
---------------------
+[source]
+--
 Name: go
 Display-Name: Go 1.1
 Version: "1.1"
 ...
---------------------
+--
 
 The source version of this manifest doesn't contain a +Source-Url+
 attribute, which means that OpenShift won't be able to download and
 install the cartridge. To correct that, we could check in a new version
 of the manifest that points to this Git repository:
 
----------------------------------------------------------------
+[source]
+--
 Name: go
 Display-Name: Go 1.1
 Version: "1.1"
 Source-Url: git@github.com:smarterclayton/openshift-go-cart.git
-...    
----------------------------------------------------------------
+...
+--
 
 OpenShift will recognize the URL as being a Git repository, and when you
 install the cartridge via RHC:
 
----------------------------------------------------------------------------------------------------------
-rhc create-app goapp https://raw.github.com/smarterclayton/openshift-go-cart/master/metadata/manifest.yml
----------------------------------------------------------------------------------------------------------
+[source]
+--
+$ rhc create-app goapp https://raw.github.com/smarterclayton/openshift-go-cart/master/metadata/manifest.yml
+--
 
 we'll download the latest contents of the Git repository into your gear.
 
@@ -62,7 +65,7 @@ open hosting platform to let you install and run source versions of
 cartridges easily.
 
 [[cdk]]
-==== The Cartridge Development Kit (CDK)
+=== The Cartridge Development Kit (CDK)
 
 Developing a cartridge involves having a way to build that cartridge and
 host those builds where OpenShift can access it. The CDK is an
@@ -73,9 +76,10 @@ cartridge.
 To get started, you can create your own CDK on OpenShift Online and give
 it the Go cartridge source code:
 
----------------------------------------------------------------------------------------------------------------------------
+[source]
+--
 rhc create-app mycart http://cdk-claytondev.rhcloud.com --from-code="git://github.com/smarterclayton/openshift-go-cart.git"
----------------------------------------------------------------------------------------------------------------------------
+--
 
 This will download and install the latest
 https://github.com/smarterclayton/openshift-cdk-cart[source code for the
@@ -83,9 +87,10 @@ CDK] as a downloadable cartridge (the CDK is self hosted). The source
 code in the CDK will be a fork of the Go cartridge. Once your app is
 created, visit it in a web browser:
 
-----------------------------------
+[source]
+--
 http://mycart-mydomain.rhcloud.com
-----------------------------------
+--
 
 You'll see a list of the commits for the cartridge and can switch
 between branches to get the cartridge URL. Copy any of the manifest URLs
@@ -97,7 +102,7 @@ For more information on using the CDK, please view the
 https://github.com/smarterclayton/openshift-cdk-cart[README.md].
 
 [[the-cartridge-reflector]]
-==== The Cartridge Reflector
+=== The Cartridge Reflector
 
 If you just want to download and run a cartridge whose source is on
 GitHub, there's a simple app running on OpenShift which can fetch the
@@ -105,37 +110,41 @@ manifest and automatically add a +Source-Url+. The reflector is located at
 +cartreflect-claytondev.rhcloud.com+ and takes a GitHub repository and
 project name. For example, visit:
 
----------------------------------------------------------------------------------
+[source]
+--
 http://cartreflect-claytondev.rhcloud.com/github/smarterclayton/openshift-go-cart
----------------------------------------------------------------------------------
+--
 
 in your browser. You'll see the contents of the manifest.yml, plus a
 Source-Url at the very end. The reflector is fetching your manifest and
 determining the right URL, which by default will be the master branch:
 
-----------------------------------------------------------------------------------
+[source]
+--
 Source-Url: https://github.com/smarterclayton/openshift-go-cart/archive/master.zip
-----------------------------------------------------------------------------------
+--
 
 You can now install the cartridge directly with:
 
---------------------------------------------------------------------------------------------------------
-rhc create-app goapp "http://cartreflect-claytondev.rhcloud.com/github/smarterclayton/openshift-go-cart"
---------------------------------------------------------------------------------------------------------
+[source]
+--
+$ rhc create-app goapp "http://cartreflect-claytondev.rhcloud.com/github/smarterclayton/openshift-go-cart"
+--
 
 If you want to install a particular branch, tag, or commit, just add the
 commit parameter with that string:
 
---------------------------------------------------------------------------------------------------------------------------------------------------------
-rhc create-app goapp "http://cartreflect-claytondev.rhcloud.com/github/smarterclayton/openshift-go-cart?commit=d48e5b19333bcc8500cb11aef08eed457da7b9f8"
---------------------------------------------------------------------------------------------------------------------------------------------------------
+[source]
+--
+$ rhc create-app goapp "http://cartreflect-claytondev.rhcloud.com/github/smarterclayton/openshift-go-cart?commit=d48e5b19333bcc8500cb11aef08eed457da7b9f8"
+--
 
 Follow the instructions in the
 link:https://github.com/smarterclayton/cartridge-reflector[README.md] for
 installing your own Cartridge Reflector.
 
 [[limitations-of-downloaded-cartridges]]
-==== Limitations of Downloaded Cartridges
+=== Limitations of Downloaded Cartridges
 
 In order to prevent abuse by malicious users, the OpenShift server sets
 limitations on the manifests it will download. Your manifest must meet
@@ -152,7 +161,7 @@ In addition, each application may have a maximum of 5 downloadable
 cartridges.
 
 [[tips-for-developing-cartridges-online]]
-==== Tips for Developing Cartridges Online
+=== Tips for Developing Cartridges Online
 
 When developing a new cartridge on OpenShift, you won't have access to
 all of the logging and debug output that happens underneath the covers
@@ -186,7 +195,7 @@ process management logic in reusable functions in your `bin/control`
 script so you can update it if you need it.
 
 [[examples]]
-==== Cartridge Examples From Around the Web
+=== Cartridge Examples From Around the Web
 
 * link:https://github.com/smarterclayton/openshift-cdk-cart[Cartridge
 Development Kit]
