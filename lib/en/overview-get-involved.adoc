@@ -3,22 +3,22 @@
 Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
 
 Application Gallery
-Our showcase of applications running on OpenShift Online
+Our [showcase of applications] running on OpenShift Online
 
 Developer Spotlight
-Get to know members of the OpenShift community
+Get to know [users of OpenShift Online] 
 
 Extend OpenShift
-Build and contribute your own cartridges and QuickStarts
+Build and contribute your [own cartridges and QuickStarts]
 
 Stay Informed
 The OpenShift newsletter keeps you up to date with the latest from the team
 
 Talk back
-Engage us on Twitter, Facebook, Google+, and LinkedIn.
+Engage us on [Twitter], [Facebook], [Google+], and [LinkedIn].
 
 Vote on Features
-Help drive product direction by suggesting or voting on features
+Help drive product direction by [suggesting or voting on features]
 
 
 
@@ -30,8 +30,8 @@ Help drive product direction by suggesting or voting on features
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
 
 
-JOIN ORIGIN COMMUNITY
+http://origin.openshift.com[JOIN ORIGIN COMMUNITY]
 
-ORIGIN ON GITHUB	
+https://github.com/openshift[ORIGIN ON GITHUB]	
 
-INSTALL ORIGIN NOW
+https://install.openshift.com[INSTALL ORIGIN NOW]
