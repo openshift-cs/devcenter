@@ -1,1 +1,37 @@
-Diane's Content
+### Get Involved with OpenShift
+
+*_Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?_*
+
+Application Gallery +
+Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online
+
+Developer Spotlight +
+Get to know https://www.openshift.com/developer-spotlight[users of OpenShift Online] 
+
+Extend OpenShift +
+Build and contribute your https://www.openshift.com/developers/extend[own cartridges and QuickStarts]
+
+Stay Informed +
+The OpenShift newsletter[OpenShift newsletter] keeps you up to date with the latest from the team
+
+Talk back +
+Engage us on https://twitter.com/openshift[Twitter], Facebook[Facebook], Google+[Google+], and LinkedIn[LinkedIn].
+
+Vote on Features +
+Help drive product direction by suggesting or voting on features[suggesting or voting on features]
+
+
+
+
+### Open Source
+
+*_OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project._*
+
+Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
+
+
+http://origin.openshift.com[JOIN ORIGIN COMMUNITY]
+
+https://github.com/openshift[ORIGIN ON GITHUB]	
+
+https://install.openshift.com[INSTALL ORIGIN NOW]
