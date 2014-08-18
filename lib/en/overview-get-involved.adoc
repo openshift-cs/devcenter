@@ -1,6 +1,6 @@
 ### Get Involved with OpenShift
 
-## Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
+*_Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?_*
 
 Application Gallery
 Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online
@@ -25,7 +25,7 @@ Help drive product direction by suggesting or voting on features[suggesting or v
 
 ### Open Source
 
-## OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
+*_OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project._*
 
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
 
