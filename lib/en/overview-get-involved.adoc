@@ -1,31 +1,31 @@
 ### Get Involved with OpenShift
 
-Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
+## Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
 
 Application Gallery
-Our [showcase of applications] running on OpenShift Online
+Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online
 
 Developer Spotlight
-Get to know [users of OpenShift Online] 
+Get to know https://www.openshift.com/developer-spotlight[users of OpenShift Online] 
 
 Extend OpenShift
-Build and contribute your [own cartridges and QuickStarts]
+Build and contribute your https://www.openshift.com/developers/extend[own cartridges and QuickStarts]
 
 Stay Informed
-The OpenShift newsletter keeps you up to date with the latest from the team
+The OpenShift newsletter[OpenShift newsletter] keeps you up to date with the latest from the team
 
 Talk back
-Engage us on [Twitter], [Facebook], [Google+], and [LinkedIn].
+Engage us on https://twitter.com/openshift[Twitter], Facebook[Facebook], Google+[Google+], and LinkedIn[LinkedIn].
 
 Vote on Features
-Help drive product direction by [suggesting or voting on features]
+Help drive product direction by suggesting or voting on features[suggesting or voting on features]
 
 
 
 
 ### Open Source
 
-##OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
+## OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
 
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
 
