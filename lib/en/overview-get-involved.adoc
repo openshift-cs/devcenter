@@ -2,22 +2,22 @@
 
 *_Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?_*
 
-Application Gallery
+Application Gallery +
 Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online
 
-Developer Spotlight
+Developer Spotlight +
 Get to know https://www.openshift.com/developer-spotlight[users of OpenShift Online] 
 
-Extend OpenShift
+Extend OpenShift +
 Build and contribute your https://www.openshift.com/developers/extend[own cartridges and QuickStarts]
 
-Stay Informed
+Stay Informed +
 The OpenShift newsletter[OpenShift newsletter] keeps you up to date with the latest from the team
 
-Talk back
+Talk back +
 Engage us on https://twitter.com/openshift[Twitter], Facebook[Facebook], Google+[Google+], and LinkedIn[LinkedIn].
 
-Vote on Features
+Vote on Features +
 Help drive product direction by suggesting or voting on features[suggesting or voting on features]
 
 
