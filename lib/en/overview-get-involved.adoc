@@ -1,6 +1,6 @@
-###Get Involved with OpenShift
+### Get Involved with OpenShift
 
-##Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
+Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
 
 Application Gallery
 Our showcase of applications running on OpenShift Online
