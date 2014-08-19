@@ -9,5 +9,65 @@ nav_priority: 1
 = Python Overview
 :source-highlighter: coderay
 
+[[top]]
+[[python-application-hosting]]
 [float]
-= Main Python Header
+= Python Application Hosting
+
+With OpenShift you can easily deploy and run Python applications using your favorite frameworks and databases. Want a Tornado server running Django and backed by MySQL? Or maybe you're looking for Flask and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+
+TIP: Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. The Web Server Gateway Interface (WSGI) defines a simple and universal interface between web servers and web applications or frameworks for the Python programming language. -> link:https://www.python.org/[Learn more]
+
+[[simplify-your-python-deployments]]
+== Simplify your Python deployments
+
+image::python-logo.png["Python logo"]
+
+Getting a Python app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
+
+[source]
+--
+$ rhc app create MyApp python-3.3
+$ rhc cartridge add mysql-5.5 -a MyApp
+--
+
+These two commands create your "server" and install and configure Python, MySQL, and a git repository on the server. You can now visit your application on the web at:
+
+[source]
+--
+http://MyApp-MyDomain.rhcloud.com/
+--
+
+== End-to-End Perl Support
+
+Looking to scale your Python application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
+
+[cols="2*"]
+|===
+|Application Servers
+a|* https://www.openshift.com/blogs/enabling-python-27-on-a-paas-with-the-openshift-diy-app-type[uWSGI]
+a|* https://www.openshift.com/quickstarts/tornado-on-openshift[Tornado]
+
+|Application Stack
+a|* https://www.openshift.com/quickstarts/django[Django]
+a|* https://github.com/openshift/flask-example[Flask]
+a|* https://www.openshift.com/blogs/how-to-deploy-a-pyramid-application-on-openshift[Pyramid]
+a|* https://www.openshift.com/blogs/deploying-turbogears2-python-web-framework-using-express[TurboGears]
+a|* https://github.com/openshift-quickstart/bottle-openshift-quickstart[Bottle]
+* Pylons
+* Zope
+* Web2Py
+
+|Datastores
+a|* link:/en/databases-overview.html#mysql-on-openshift[MySQL]
+* link:/en/databases-overview.html#mongodb-on-openshift[MongoDB]
+* link:/en/databases-overview.html#postgresql-on-openshift[PostgreSQL]
+
+|Tools
+a|* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
+* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
+* link:https://www.openshift.com/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
+* link:/en/overview-deploying.html[Git]
+* link:/en/overview-ssh.html[SSH Access]
+* link:/en/jenkins-overview.html[Jenkins]
+|===
