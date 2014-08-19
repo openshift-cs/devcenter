@@ -8,6 +8,97 @@ nav_priority: 1
 ---
 = Jenkins Overview
 :source-highlighter: coderay
+:icons:right
 
+[[top]]
+[[build-with-jenkins]]
 [float]
-= Main Jenkins Header
+= Build with Jenkins
+
+Jenkins (https://wiki.jenkins-ci.org) is a full featured continuous integration (CI) server that can run builds, tests, and other scheduled tasks and integrate with your OpenShift applications.
+
+With Jenkins, you have access to a full library of plugins (https://wiki.jenkins-ci.org/display/JENKINS/Plugins) and a vibrant, thriving community of users who have discovered a new way to do development. The basic work flow is:
+
+1. Commit and push new code to your repo.
+2. Jenkins waits for this commit, runs a full series of tests (customized by the developer) 
+3. With OpenShift, if the tests and build are successful, the new code gets deployed. If it fails, the old code continues to run with no downtime related to the push.
+4. Users can review the persistent build history maintained by Jenkins
+
+Jenkins includes a feature-rich web user interface that provides the ability to trigger builds, customize builds, manage resources, manage plugins, and many other features. The Jenkins user interface will typically be available at https://jenkins-namespace.rhcloud.com
+
+How can you get started? First, make sure you are running the latest rhc tools (gem update rhc or yum update rhc). Then follow these steps:
+
+[[step1]]
+== Step 1 - Create Jenkins
+
+[source]
+--
+$ rhc app create jenkins jenkins-1
+--
+
+Note the administrator username and password that is created and returned from rhc. This will be needed to administer Jenkins.
+
+[[step2]]
+== Step 2 - Create an Application with Embedded Jenkins
+For a new application:
+[source]
+--
+$ rhc app create jboss1 jbossas-7 --enable-jenkins
+--
+For an existing application:
+[source]
+--
+$ rhc cartridge add jenkins-client-1 -a jboss1
+--
+This will create a Jenkins Job specifically configured for the application including parameters such as the builder size, DNS resolution timeout, and the application's git repo URL. These parameters and more can be managed via the Jenkins web UI.
+
+[step3]
+== Step 3 - Modify and Push your Application
+[source]
+--
+$ git push
+--
+
+This will trigger the build/test/deploy sequence in Jenkins. When a build is triggered, Jenkins first needs to schedule the build. The scheduling process involves creating a temporary builder for the application. On the Jenkins side, a Node (aka Slave) is created. In OpenShift, a corresponding builder Application is created named appnamebldr. If the Node/builder already exists at scheduling then the existing builder will be used and the build will immediately fire. NOTE: This Node and builder Application will consume one Gear. Nodes and builder Applications are automatically deleted and the corresponding Gear is freed after 15 idle minutes.
+
+[[step4]]
+== Step 4 - Troubleshooting
+To troubleshoot errors that occur during the build/test/deploy phase with Jenkins, from a git push, etc. there are three logs that will indicate the problem in most cases.
+
+Logging for Application level errors (e.g. compilation failures, test failures) is available via the Jenkins web UI under the corresponding Node's build history.
+
+[[how-jenkins-build-work]]
+== How does a Jenkins build work?
+Building with Jenkins uses dedicated application space that can be larger then the application runtime space. Because the build happens in its own dedicated jail, the running application is not shutdown or changed in any way until after the build is a success. If it is not, the current active running application will continue to run. However, a failure in the deploy process (deploy/start/post_deploy) may still leave the app partially deployed or inaccessible. During a build the following steps take place:
+
+1. User issues a git push
+2. Jenkins is notified a new push is ready.
+3. A dedicated Jenkins slave (builder) is created. It can be seen by using the 'rhc domain show' command. The app name will be the same as the originating app plus "bldr" tagged onto the end. Note: This requires the first 28 chars of app name be unique or builders will be shared (can cause issues).
+4. Jenkins runs the build
+5. Content from originating app is downloaded to the builder app through git and rsync (Git for source code and rsync for existing libraries).
+6. ci_build.sh is called from the Jenkins shell which sets up the builder app for the Jenkins environment
+. 1. .openshift/action_hooks/pre_build is executed on the Jenkins builder
+. 2. Any built in bundling steps (PHP Pear processing, Python virtual env, etc) are performed.
+. 3. .openshift/action_hooks/build is executed on the Jenkins builder
+7. Any additional desired steps are executed from the Jenkins shell (Maven build, Gem install, test cases, etc).
+8. Jenkins stops the current running application
+9. Jenkins rsyncs all new content over to the originating application
+10. .openshift/action_hooks/deploy is executed on the originating application by calling the deploy.sh script
+11. Jenkins starts the originating application
+12. .openshift/action_hooks/post_deploy is executed on the originating application
+13. Jenkins archives build artifiacts for later reference
+14. After 15 minutes of idle time, the 'build app' will be destroyed and will no longer show up with the 'rhc domain show' command. The build artifacts however, will still exist in Jenkins and can be viewed there.
+
+Users can look at the build job by clicking on it in the Jenkins interface and going to "configure". It is the Jenkins' build job to stop, sync and start the application once a build is complete.
+
+Logging for Jenkins level errors (e.g. DNS timeouts, builder configuration) is available in the Jenkins logs from the command line:
+[source]
+--
+$ rhc tail jenkins
+--
+
+Logging for deployment level errors is available in the Application logs from the command line:
+[source]
+--
+$ rhc tail jboss1
+--
