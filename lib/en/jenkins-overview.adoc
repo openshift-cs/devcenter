@@ -8,7 +8,7 @@ nav_priority: 1
 ---
 = Jenkins Overview
 :source-highlighter: coderay
-:icons:right
+:icons:
 
 [[top]]
 [[build-with-jenkins]]
@@ -77,9 +77,9 @@ Building with Jenkins uses dedicated application space that can be larger then t
 4. Jenkins runs the build
 5. Content from originating app is downloaded to the builder app through git and rsync (Git for source code and rsync for existing libraries).
 6. ci_build.sh is called from the Jenkins shell which sets up the builder app for the Jenkins environment
-. 1. .openshift/action_hooks/pre_build is executed on the Jenkins builder
-. 2. Any built in bundling steps (PHP Pear processing, Python virtual env, etc) are performed.
-. 3. .openshift/action_hooks/build is executed on the Jenkins builder
+. .openshift/action_hooks/pre_build is executed on the Jenkins builder
+. Any built in bundling steps (PHP Pear processing, Python virtual env, etc) are performed.
+. .openshift/action_hooks/build is executed on the Jenkins builder
 7. Any additional desired steps are executed from the Jenkins shell (Maven build, Gem install, test cases, etc).
 8. Jenkins stops the current running application
 9. Jenkins rsyncs all new content over to the originating application
