@@ -3,7 +3,7 @@ layout: base
 category: 01_Overview
 breadcrumb: Overview
 parent_url:
-nav_title: Extend OpenShift
+nav_title: Get Involved
 nav_priority: 100
 ---
 = Extend OpenShift
