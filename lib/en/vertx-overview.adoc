@@ -1,0 +1,59 @@
+---
+layout: base
+category: 35_Vert.x
+breadcrumb: Vert.x
+parent_url: vert.x-overview.html
+nav_title: Overview
+nav_priority: 1
+---
+= Vert.x Overview
+:source-highlighter: coderay
+:icons:
+
+[[top]]
+[[Vert.x-application-hosting]]
+[float]
+= Vert.x Application Hosting
+
+http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. Built on top of http://netty.io/[Netty], you get non-blocking IO with asynchronous threads and plenty of other goodness right out of the box.
+
+With OpenShift you can easily deploy and run Vert.x applications with your favorite frameworks and datastores. 
+
+[[simplify-your-Vert.x-deployments]]
+== Simplify your Vert.x deployments
+
+image::vertx-logo.png["Vert.x logo"]
+
+Getting a Vert.x app with a MongoDB backend deployed onto OpenShift is as easy as executing one command:
+
+[source]
+--
+$ rhc app create MyVertXapp vertx mongodb-2.4
+--
+
+These commands creates your "server" and installs and configures Vert.x, MongoDB, a git repository on the server, and clones a git repo to your local machine. You can now visit your application on the web at:
+
+[source]
+--
+http://MyVertXapp-MyDomain.rhcloud.com/
+--
+
+For more details you can read the instructions for the Vert.x cartridge https://github.com/vert-x/openshift-cartridge[on GitHub]
+
+[[Scaling]]
+== Scale to Meet Your Needs
+
+Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your Vert.x applications online to handle requests. Then when/if traffic dies down the OpenShift infrastructure will retire servers while keeping your overall application running. 
+
+////
+This creates an arrow and link to an internal document
+////
+-> Read More About link:/en/overview-platform-features.html#scaling[Scaling]
+
+[[top]]
+[[Vert.x-blog-posts]]
+[float]
+== Blogs post discussing Vert.x on OpenShift
+
+https://www.openshift.com/blogs/async-web-apps-for-the-masses-running-vertx-on-openshift[Async Web Apps for the Masses: Running Vert.x on OpenShift]
+link:#top[Back to Top]
