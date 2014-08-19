@@ -8,6 +8,7 @@ nav_priority: 1
 ---
 = Python Overview
 :source-highlighter: coderay
+:icons:right
 
 [[top]]
 [[python-application-hosting]]
