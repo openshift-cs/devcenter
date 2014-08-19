@@ -21,8 +21,6 @@ TIP: Python is a general-purpose, high-level programming language whose design p
 [[simplify-your-python-deployments]]
 == Simplify your Python deployments
 
-image::python-logo.png["Python logo"]
-
 Getting a Python app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 
 [source]
