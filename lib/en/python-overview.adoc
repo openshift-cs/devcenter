@@ -45,15 +45,15 @@ Looking to scale your Python application for heavy traffic, or want to automatic
 [cols="2*"]
 |===
 |Application Servers
-a|* https://www.openshift.com/blogs/enabling-python-27-on-a-paas-with-the-openshift-diy-app-type[uWSGI]
-a|* https://www.openshift.com/quickstarts/tornado-on-openshift[Tornado]
+a|* link:https://www.openshift.com/blogs/enabling-python-27-on-a-paas-with-the-openshift-diy-app-type[uWSGI]
+* link:https://www.openshift.com/quickstarts/tornado-on-openshift[Tornado]
 
 |Application Stack
-a|* https://www.openshift.com/quickstarts/django[Django]
-a|* https://github.com/openshift/flask-example[Flask]
-a|* https://www.openshift.com/blogs/how-to-deploy-a-pyramid-application-on-openshift[Pyramid]
-a|* https://www.openshift.com/blogs/deploying-turbogears2-python-web-framework-using-express[TurboGears]
-a|* https://github.com/openshift-quickstart/bottle-openshift-quickstart[Bottle]
+a|* link:https://www.openshift.com/quickstarts/django[Django]
+* link:https://github.com/openshift/flask-example[Flask]
+* link:https://www.openshift.com/blogs/how-to-deploy-a-pyramid-application-on-openshift[Pyramid]
+* link:https://www.openshift.com/blogs/deploying-turbogears2-python-web-framework-using-express[TurboGears]
+* link:https://github.com/openshift-quickstart/bottle-openshift-quickstart[Bottle]
 * Pylons
 * Zope
 * Web2Py
