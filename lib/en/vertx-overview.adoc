@@ -1,7 +1,7 @@
 ---
 layout: base
 category: 35_Vert.x
-breadcrumb: vert.x
+breadcrumb: Vert.x
 parent_url: vert.x-overview.html
 nav_title: Overview
 nav_priority: 1
