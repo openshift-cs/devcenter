@@ -1,1 +1,49 @@
-Diane's Content
+---
+layout: base
+category: 01_Overview
+breadcrumb: Overview
+parent_url:
+nav_title: Extend OpenShift
+nav_priority: 100
+---
+= Extend OpenShift
+:source-highlighter: coderay
+:icons:
+
+[float]
+= Get Involved with OpenShift
+
+[lead]
+Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
+
+== Open Source
+
+[lead]
+OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
+
+Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
+
+http://origin.openshift.com[JOIN THE ORIGIN COMMUNITY]
+
+https://github.com/openshift[ORIGIN ON GITHUB]
+
+https://install.openshift.com[INSTALL ORIGIN NOW]
+
+=== Application Gallery
+Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online.
+
+=== Developer Spotlight
+Get to know https://www.openshift.com/developer-spotlight[users of OpenShift Online].
+
+=== Extend OpenShift
+Build and contribute your https://www.openshift.com/developers/extend[own cartridges and QuickStarts].
+
+=== Stay Informed
+The http://openshift.us3.list-manage.com/subscribe?u=979c70339150d05eec1531104&id=c528e5e48e[Monthly OpenShift Newsletter] keeps you up to date with the latest from the team.
+
+=== Talk back
+Engage us on https://twitter.com/openshift[Twitter], https://www.facebook.com/openshift[Facebook], link:https://plus.google.com/+OpenShift/posts[Google], and https://www.linkedin.com/groups/OpenShift-4185734[LinkedIn].
+
+=== Vote on Features
+Help drive product direction by https://openshift.uservoice.com/forums/258655-ideas[suggesting or voting on features].
+
