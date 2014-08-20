@@ -11,8 +11,7 @@ nav_priority: 1
 [float]
 = JBoss xPaaS Services for OpenShift
 [.lead]
-JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift. +
-Developers can build applications, integrate with other systems, orchestrate using rules and processes, and then deploy across hybrid environments.
+JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift. Developers can build applications, integrate with other systems, orchestrate using rules and processes, and then deploy across hybrid environments.
 
 video::IkU_PQ_AnPc[youtube, width=450, height=253]
 

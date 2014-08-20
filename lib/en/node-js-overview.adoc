@@ -9,5 +9,46 @@ nav_priority: 1
 = Node.js Overview
 :source-highlighter: coderay
 
+[[top]]
 [float]
-= Main Node.js Header
+= Node.js Application Hosting
+[.lead]
+Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for link:https://www.openshift.com/blogs/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app[data-intensive real-time applications that run across distributed devices].
+
+With OpenShift you can easily deploy and run Node.js applications using your favorite frameworks and databases. Want to run a Ghost blog backed by MySQL? Or maybe you're looking for Express and MongoDB? link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps[If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift].
+
+link:#supported-technologies[Supported Technologies]
+
+image::nodejs-logo.png[Node.js logo]
+
+== Simplify Your Node.js Deployments
+Setting up a fresh Linux environment with Nodejs and MongoDB can be done in a single command:
+
+[source]
+--
+$ rhc app create MyApp nodejs-0.10 mongodb-2.4
+--
+
+Our rhc command line tool allows you to quickly install and configure Node.js, MongoDB, SSHd, and a git repository (for pushing updated code). After running the command, your application will be available at:
+
+[source]
+--
+http://MyApp-MyDomain.rhcloud.com/
+--
+
+Web link:https://www.openshift.com/blogs/launching-applications-with-openshifts-web-based-workflow[workflows for launching new hosted environments] are also available.
+
+link:#top[Back to Top]
+
+[[supported-technologies]]
+== Supported Node.js Technologies
+
+=== Frameworks
+link:https://www.openshift.com/blogs/cloudy-with-a-chance-of-meteorjs[Meteor.js] +
+
+=== Application Stacks
+
+link:https://www.openshift.com/quickstarts/ghost-on-openshift[Ghost] +
+link:https://www.openshift.com/blogs/day-27-restify-build-correct-rest-web-services-in-nodejs[Restify]
+
+link:#top[Back to top]
