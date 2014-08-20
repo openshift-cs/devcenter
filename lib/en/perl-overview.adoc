@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 30_Perl
-breadcrumb: Perl
-parent_url: perl-overview.html
-nav_title: Overview
-nav_priority: 1
+category: 05_Languages
+breadcrumb: Languages
+parent_url:
+nav_title: Perl
+nav_priority: 60
 ---
 = Perl Overview
 :source-highlighter: coderay

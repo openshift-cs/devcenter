@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 10_PHP
-breadcrumb: PHP
-parent_url: php-overview.html
+category: 05_Languages
+breadcrumb: Languages
+parent_url:
 nav_title: Zend Server
-nav_priority: 1
+nav_priority: 90
 ---
 
 = Zend Server

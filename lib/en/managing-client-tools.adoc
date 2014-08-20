@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
+category: 03_Managing Your Applications
+breadcrumb: Managing Your Applications
 parent_url:
 nav_title: Client Tools
-nav_priority: 50
+nav_priority: 30
 ---
 = Client Tools
 

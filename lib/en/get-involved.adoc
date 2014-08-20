@@ -1,12 +1,12 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
-parent_url:
-nav_title: Get Involved
-nav_priority: 100
+category: 50_Get Involved
+breadcrumb: Get Involved
+parent_url: get-involved.html
+nav_title: Overview
+nav_priority: 1
 ---
-= Extend OpenShift
+= Get Involved
 :source-highlighter: coderay
 :icons:
 

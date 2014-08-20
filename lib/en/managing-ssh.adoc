@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
+category: 03_Managing Your Applications
+breadcrumb: Managing Your Applications
 parent_url:
 nav_title: SSH
-nav_priority: 50
+nav_priority: 40
 ---
 = SSH
 

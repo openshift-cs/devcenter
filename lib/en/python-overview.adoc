@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 20_Python
-breadcrumb: Python
-parent_url: python-overview.html
-nav_title: Overview
-nav_priority: 1
+category: 05_Languages
+breadcrumb: Languages
+parent_url:
+nav_title: Python
+nav_priority: 40
 ---
 = Python Overview
 :source-highlighter: coderay

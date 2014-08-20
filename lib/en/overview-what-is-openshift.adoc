@@ -3,11 +3,11 @@ layout: base
 category: 01_Overview
 breadcrumb: Overview
 parent_url:
-nav_title: Introduction to PaaS
-nav_priority: 10
+nav_title: What is OpenShift?
+nav_priority: 1
 ---
-= Introduction to PaaS
+= What is OpenShift?
 
 [float]
-= Introduction to PaaS
+= What is OpenShift?
 This is the intro to paas content.
