@@ -12,43 +12,49 @@ nav_priority: 1
 [[top]]
 [[databases]]
 [float]
-= Database Support
+= Databases
+OpenShift gives you access to a private database instance with full control - you make the choices, not a hosting provider.
 
-* link:#mongodb-on-openshift[MongoDB]
+link:#mongodb[MongoDB] + 
+A scalable, high-performance, open source NoSQL database by 10gen. You can install the link:#rockmongo[RockMongo] cartridge to administrate your instance from the web.
 
-* link:#mysql-on-openshift[MySQL]
+link:#mysql[MySQL] +
+A multi-user, multi-threaded SQL database server. Deploy link:#phpmyadmin[phpMyAdmin] to administrate your dbs from the web.
 
-* link:#postgresql-on-openshift[PostgreSQL]
+link:#postgresql[PostgreSQL] +
+An advanced Object-Relational database management system.
 
-[[mongodb-on-openshift]]
+[[mongodb]]
 == MongoDB on OpenShift
+The `mongodb` cartridge provides link:http://www.mongodb.org/[MongoDB] on OpenShift. MongoDB is a document-oriented NoSQL database, using JSON-style documents with dynamic schemas. With OpenShift you can easily deploy and run applications backed by MongoDB using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-image::logo-mongodb.png[MongoDB logo]
+=== Environment Variables
+The `mongodb` cartridge provides several environment variables to reference for ease of use:
 
-MongoDB is a document-oriented NoSQL database, using JSON-style documents with dynamic schemas. With OpenShift you can easily deploy and run applications backed by MongoDB using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
-
-Looking to scale your application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
-
-[cols="2*"]
+[options="header"]
 |===
-|Application Languages
-a|* link:/en/java-overview.html[Java]
-* link:/en/php-overview.html[PHP]
-* link:/en/ruby-overview.html[Ruby]
-* link:/en/node-js-overview.html[Node.js]
-* link:/en/python-overview.html[Python]
-* link:/en/perl-overview.html[Perl]
+|Variable |Description
 
-|Tools
-a|* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
-* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
-* link:https://www.openshift.com/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
-* link:/en/overview-deploying.html[Git]
-* link:/en/overview-ssh.html[SSH Access]
-* link:/en/jenkins-overview.html[Jenkins]
+|OPENSHIFT_MONGODB_DB_HOST
+|The MongoDB IP address
+
+|OPENSHIFT_MONGODB_DB_PORT
+|The MongoDB port
+
+|OPENSHIFT_MONGODB_DB_USERNAME
+|The MongoDB username
+
+|OPENSHIFT_MONGODB_DB_PASSWORD
+|The MongoDB password
+
+|OPENSHIFT_MONGODB_DB_URL
+|The MongoDB connection URL (e.g. mongodb://<username>:<password>@<hostname>:<port>/)
+
+|OPENSHIFT_MONGODB_DB_LOG_DIR
+|The path to the MongoDB log directory
 |===
 
-== Simplify the Lifecycle
+=== Example Use
 
 Getting a Python app with a MongoDB backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -65,37 +71,59 @@ These two commands create your "server" and install and configure Python, MongoD
 http://MyApp-MyDomain.rhcloud.com/
 --
 
-Don't like the command line? No problem! Use the link:/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your applications.
+[[rockmongo]]
+=== RockMongo
+The `rockmongo` cartridge provides http://rockmongo.com/[RockMongo] on OpenShift. In order to add this cartridge to an application, the link:#mongodb[MongoDB] cartridge must already be present. Once installed, RockMongo can be used by navigating to http://_app_-_domain_.rhcloud.com/rockmongo with the MongoDB login credentials.
 
 link:#top[Back to Top]
 
-[[mysql-on-openshift]]
+[[mysql]]
 == MySQL on OpenShift
 
-MySQL is an open-source relational database management system. With OpenShift you can easily deploy and run applications backed by MySQL using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+The `mysql` cartridge(s) provides link:http://www.mysql.com/[MySQL] on OpenShift. MySQL is an open-source relational database management system. With OpenShift you can easily deploy and run applications backed by MySQL using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-Looking to scale your application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
+=== Environment Variables
+The `mysql` cartridge provides several environment variables to reference for ease of use:
 
-[cols="2*"]
+[options="header"]
 |===
-|Application Languages
-a|* link:/en/java-overview.html[Java]
-* link:/en/php-overview.html[PHP]
-* link:/en/ruby-overview.html[Ruby]
-* link:/en/node-js-overview.html[Node.js]
-* link:/en/python-overview.html[Python]
-* link:/en/perl-overview.html[Perl]
+|Variable |Description
 
-|Tools
-a|* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
-* link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
-* link:https://www.openshift.com/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
-* link:/en/overview-deploying.html[Git]
-* link:/en/overview-ssh.html[SSH Access]
-* link:/en/jenkins-overview.html[Jenkins]
+|OPENSHIFT_MYSQLDB_DB_HOST
+|The MySQL IP address
+
+|OPENSHIFT_MYSQLDB_DB_PORT
+|The MySQL port
+
+|OPENSHIFT_MYSQLDB_DB_LOG_DIR
+|The path to the MySQL log directory
+
+|OPENSHIFT_MYSQL_VERSION
+|The version of the MySQL server
+
+|OPENSHIFT_MYSQL_TIMEZONE
+|The MySQL server timezone
+
+|OPENSHIFT_MYSQL_LOWER_CASE_TABLE_NAMES
+|Sets how the table names are stored and compared
+
+|OPENSHIFT_MYSQL_DEFAULT_STORAGE_ENGINE
+|The default storage engine (table type)
+
+|OPENSHIFT_MYSQL_MAX_CONNECTIONS
+|The maximum permitted number of simultaneous client connections
+
+|OPENSHIFT_MYSQL_FT_MIN_WORD_LEN
+|The minimum length of the word to be included in a FULLTEXT index.
+
+|OPENSHIFT_MYSQL_FT_MAX_WORD_LEN
+|The maximum length of the word to be included in a FULLTEXT index.
+
+|OPENSHIFT_MYSQL_AIO
+|Controls the 'innodb_use_native_aio' setting value in case the native AIO is broken. See http://help.directadmin.com/item.php?id=529
 |===
 
-== Simplify the Lifecycle
+=== Example Use
 
 Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -112,39 +140,68 @@ These two commands create your "server" and install and configure PHP, MySQL, an
 http://MyApp-MyDomain.rhcloud.com/
 --
 
-Don't like the command line? No problem! Use the link:/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your applications.
+[[phpmyadmin]]
+=== phpMyAdmin
+The `phpmyadmin` cartridge provides http://www.phpmyadmin.net[phpMyAdmin] on OpenShift. In order to add this cartridge to an application, the link:#mysql[MySQL] cartridge must already be present. Once installed, phpMyAdmin can be used by navigating to http://_app_-_domain_.rhcloud.com/phpmyadmin with the MySQL login credentials.
 
 link:#top[Back to Top]
 
-[[postgresql-on-openshift]]
+[[postgresql]]
 == PostgreSQL on OpenShift
 
-image::PostgreSQL-logo.gif[PostgreSQL logo]
+The `postgresql` cartridge(s) provides link:http://www.postgresql.com/[PostgreSQL] on OpenShift. PostgreSQL is an open-source object-relational database system. With OpenShift you can easily deploy and run applications backed by PostgreSQL using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-PostgreSQL is an open-source object-relational database system. With OpenShift you can easily deploy and run applications backed by PostgreSQL using your favorite servers and frameworks. Just pick an application framework and get started. If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+=== Environment Variables
+The `postgresql` cartridge provides several environment variables to reference for ease of use:
 
-Looking to scale your application for heavy traffic, or want to automatically build/test/deploy? We've got you covered there too!
-
-[cols="2*"]
+[options="header"]
 |===
-|Application Languages
-a|* link:/developers/java[Java]
-* link:/developers/php[PHP]
-* link:/developers/ruby[Ruby]
-* link:/developers/node-js[Node.js]
-* link:/developers/python[Python]
-* link:/developers/perl[Perl]
+|Variable |Description
 
-|Tools
-a|* link:/blogs/getting-started-with-eclipse-paas-integration[Eclipse]
-* link:/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools]
-* link:/blogs/look-ma-no-hands-developing-for-the-cloud-in-the-cloud-with-cloud9-ide[Cloud9 IDE]
-* link:/developers/deploying-and-building-applications[Git]
-* link:/developers/remote-access/[SSH Access]
-* link:/jenkins[Jenkins]
+|OPENSHIFT_POSTGRESQL_DB_HOST
+|Numeric host address
+
+|OPENSHIFT_POSTGRESQL_DB_PORT
+|Port
+
+|OPENSHIFT_POSTGRESQL_DB_USERNAME
+|DB Username
+
+|OPENSHIFT_POSTGRESQL_DB_PASSWORD
+|DB Password
+
+|OPENSHIFT_POSTGRESQL_DB_LOG_DIR
+|Directory for log files
+
+|OPENSHIFT_POSTGRESQL_DB_PID
+|PID of current Postgres server
+
+|OPENSHIFT_POSTGRESQL_DB_SOCKET_DIR
+|Postgres socket location
+
+|OPENSHIFT_POSTGRESQL_DB_URL
+|Full server URL of the form "postgresql://user:password@host:port"
+
+|OPENSHIFT_POSTGRESQL_VERSION
+|PostgreSQL version in the form `X.Y`
 |===
 
-== Simplify the Lifecycle
+You can fine-tune the PostgreSQL server performance by using the rhc tool and changing the default values for these variables:
+
+[options="header"]
+|===
+|Variable |Description
+
+|OPENSHIFT_POSTGRESQL_SHARED_BUFFERS
+|The shared_buffers configuration parameter determines how much memory is dedicated to PostgreSQL to use for caching data.
+
+|OPENSHIFT_POSTGRESQL_MAX_CONNECTIONS
+|max_connections sets exactly that: the maximum number of client connections allowed.
+|===
+
+For more details, please refer to the PostgreSQL link:https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server[wiki page].
+
+=== Example Use
 
 Getting a Python app with a PostgreSQL backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -161,7 +218,4 @@ These two commands create your "server" and install and configure Python, Postgr
 http://MyApp-MyDomain.rhcloud.com/
 --
 
-Don't like the command line? No problem! Use the link:/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your applications.
-
 link:#top[Back to Top]
-
