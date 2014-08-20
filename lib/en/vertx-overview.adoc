@@ -11,18 +11,18 @@ nav_priority: 1
 :icons:
 
 [[top]]
-[[Vert.x-application-hosting]]
 [float]
 = Vert.x Application Hosting
+[.lead]
+http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications.
 
-http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. Built on top of http://netty.io/[Netty], you get non-blocking IO with asynchronous threads and plenty of other goodness right out of the box.
+Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. Built on top of http://netty.io/[Netty], you get non-blocking IO with asynchronous threads and plenty of other goodness right out of the box.
 
-With OpenShift you can easily deploy and run Vert.x applications with your favorite frameworks and datastores. 
-
-[[simplify-your-Vert.x-deployments]]
-== Simplify your Vert.x deployments
+With OpenShift you can easily deploy and run Vert.x applications with your favorite frameworks and datastores.
 
 image::vertx-logo.png["Vert.x logo"]
+
+== Simplify Your Vert.x deployments
 
 Getting a Vert.x app with a MongoDB backend deployed onto OpenShift is as easy as executing one command:
 
@@ -43,17 +43,11 @@ For more details you can read the instructions for the Vert.x cartridge https://
 [[Scaling]]
 == Scale to Meet Your Needs
 
-Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your Vert.x applications online to handle requests. Then when/if traffic dies down the OpenShift infrastructure will retire servers while keeping your overall application running. 
+Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your Vert.x applications online to handle requests. Then when/if traffic dies down the OpenShift infrastructure will retire servers while keeping your overall application running.
 
-////
-This creates an arrow and link to an internal document
-////
 -> Read More About link:/en/overview-platform-features.html#scaling[Scaling]
 
-[[top]]
 [[Vert.x-blog-posts]]
-[float]
-== Blogs post discussing Vert.x on OpenShift
-
+== See also
 https://www.openshift.com/blogs/async-web-apps-for-the-masses-running-vertx-on-openshift[Async Web Apps for the Masses: Running Vert.x on OpenShift]
 link:#top[Back to Top]

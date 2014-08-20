@@ -15,13 +15,14 @@ nav_priority: 1
 [float]
 = PHP Application Hosting
 
+[.lead]
 With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. Want a Zend server backed by MySQL? Or maybe you're looking for CodeIgniter and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
 
-TIP: PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
+PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
 
-link:#simplify-your-php-deployments[Simplify your PHP deployments] +
+link:#simplify-your-php-deployments[Simplify Your PHP deployments] +
 link:#go-enterprise-with-zend[Go Enterprise with Zend] +
-link:#environment-variables[Environment variables] +
+link:#supported-technologies[Supported Technologies]
 
 [[simplify-your-php-deployments]]
 == Simplify your PHP deployments
@@ -66,3 +67,24 @@ link:#top[Back to Top]
 include::_fragments/php-env.adoc[]
 
 link:#top[Back to Top]
+
+[[supported-technologies]]
+== Supported PHP Technologies
+
+=== Frameworks
+link:https://www.openshift.com/quickstarts/codeigniter[CodeIgniter] +
+link:https://www.openshift.com/quickstarts/cakephp[CakePHP] +
+link:https://www.openshift.com/quickstarts/symfony-236[Symphony] +
+Yii
+
+=== Application Stacks
+
+link:https://www.openshift.com/quickstarts/wordpress-3x[Wordpress] +
+link:https://www.openshift.com/quickstarts/drupal-7[Drupal] +
+link:https://www.openshift.com/quickstarts/magento-community-edition[Magento] +
+
+=== Application Servers
+
+link:/en/php-zend.html[Zend Server] +
+
+link:#top[Back to top]

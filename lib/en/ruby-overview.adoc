@@ -10,4 +10,52 @@ nav_priority: 1
 :source-highlighter: coderay
 
 [float]
-= Main Ruby Header
+= Ruby Application Hosting
+[.lead]
+Ruby is a dynamic, reflective, general-purpose object-oriented programming language. Popular development frameworks include Ruby on Rails and Sinatra.
+
+With OpenShift you can easily deploy and run Ruby applications using your favorite frameworks and databases. Want to run Ruby on Rails backed by MySQL? Or maybe you're looking for Sinatra and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+
+link:#supported-technologies[Supported Technologies]
+
+image::ruby-logo.png[Ruby logo]
+
+== Simplify Your Ruby Deployments
+Getting a Ruby app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
+
+[source]
+--
+$ rhc app create MyApp ruby-2.0
+$ rhc cartridge add mysql-5.5 -a MyApp
+--
+
+These two commands create your gear and install and configure Ruby, MySQL, and a git repository. You can now visit your application on the web at:
+
+[source]
+--
+http://MyApp-MyDomain.rhcloud.com/
+--
+
+Want to create a Ruby on Rails application next? It just takes a few more commands:
+
+[source]
+--
+$ cd MyApp
+$ rails new app
+$ git commit -am 'message'
+$ git push
+--
+
+link:#top[Back to top]
+
+[[supported-technologies]]
+== Supported Ruby Technologies
+
+=== Application Stacks
+
+link:https://github.com/openshift/rails-example[Rails] +
+link:https://github.com/openshift/sinatra-example[Sinatra] +
+Padrino +
+Sequel +
+
+link:#top[Back to top]
