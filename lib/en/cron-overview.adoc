@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 85_Cron
-breadcrumb: Cron
-parent_url: cron-overview.html
-nav_title: Overview
-nav_priority: 1
+category: 03_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url:
+nav_title: Cron
+nav_priority: 50
 ---
 = Cron Overview
 :source-highlighter: coderay
@@ -15,16 +15,16 @@ nav_priority: 1
 
 This cartridge adds periodic job execution functionality to your OpenShift application.
 
-=== Installation
+== Installation
 To add this cartridge to your application, you can either add it when you create your application:
-    
+
 [source]
 --
 rhc app create <APP> ruby-1.9 cron
 --
 
 Or add it to your existing application:
-    
+
 [source]
 --
 rhc cartridge add cron -a <APP>

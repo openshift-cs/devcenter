@@ -1,9 +1,9 @@
 ---
 layout: base
-category: 05_Java
-breadcrumb: Java
-parent_url: java-overview.html
-nav_title: Overview
+category: 05_Languages
+breadcrumb: Languages
+parent_url:
+nav_title: Java
 nav_priority: 1
 ---
 = Java Overview

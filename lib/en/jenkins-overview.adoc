@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 75_Jenkins
-breadcrumb: Jenkins
-parent_url: jenkins-overview.html
-nav_title: Overview
-nav_priority: 1
+category: 03_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url:
+nav_title: Jenkins
+nav_priority: 50
 ---
 = Jenkins Overview
 :source-highlighter: coderay

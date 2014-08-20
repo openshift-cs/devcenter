@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 15_Node.js
-breadcrumb: Node.js
-parent_url: node-js-overview.html
-nav_title: Overview
-nav_priority: 1
+category: 05_Languages
+breadcrumb: Languages
+parent_url:
+nav_title: Node.js
+nav_priority: 30
 ---
 = Node.js Overview
 :source-highlighter: coderay

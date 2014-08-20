@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 50_JBoss xPaaS
+category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Data Virtualization
