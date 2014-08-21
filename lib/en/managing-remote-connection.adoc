@@ -3,13 +3,13 @@ layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url:
-nav_title: SSH
-nav_priority: 40
+nav_title: Remote Connection
+nav_priority: 50
 ---
-= SSH
+= Remote Connection
 
 [float]
-= SSH
+= Remote Connection
 
 OpenShift allows remote access to your application via the Secure Shell
 protocol (SSH). SSH provides direct access to the command line of your

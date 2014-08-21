@@ -69,11 +69,11 @@ link:databases-postgresql.html[-> Learn More]
 
 === Jenkins
 Jenkins is a continuous integration (CI) build server that is deeply integrated into OpenShift. When you add Jenkins as an application you will enable your other applications to run complex builds whenever you push code. The Jenkins client connects to your Jenkins application and enables builds and testing of your application. Requires one Jenkins application to be created first. +
-link:jenkins-overview.html[-> Learn More]
+link:managing-continuous-integration.html[-> Learn More]
 
 ===  Cron
 Allows you to run command line programs at scheduled times. Use this for background jobs and periodic processing. +
-link:cron-overview.html[-> Learn More]
+link:managing-background-jobs.html[-> Learn More]
 
 == The OpenShift Development Environment
 There are a number of tools that can enhance your OpenShift experience and match your style of development. From command line scripts that you can use to automate tasks to the Web Console and even a fully integrated IDE. Below are links to a number of these tools along with getting started guides and other helpful documents to get you up and running fast.

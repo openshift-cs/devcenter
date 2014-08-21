@@ -3,10 +3,10 @@ layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url:
-nav_title: Client Tools
-nav_priority: 30
+nav_title: Connecting Client Tools
+nav_priority: 10
 ---
-= Client Tools
+= Connecting Client Tools
 
 [float]
 = Client Tools
