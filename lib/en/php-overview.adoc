@@ -16,15 +16,16 @@ nav_priority: 2
 = PHP Application Hosting
 
 [.lead]
-With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. Want a Zend server backed by MySQL? Or maybe you're looking for CodeIgniter and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. OpenShift Online currently supports `PHP 5.3` and `5.4`.
 
-PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. -> link:http://php.net/[Learn more]
+PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. +
+link:http://php.net/[-> Learn More]
 
-link:#simplify-your-php-deployments[Simplify Your PHP deployments] +
-link:#go-enterprise-with-zend[Go Enterprise with Zend] +
-link:#supported-technologies[Supported Technologies]
+link:#simplify[Simplify Your PHP deployments] +
+link:#php[The PHP Cartridge] +
+link:/en/php-zend.html[Go Enterprise with Zend] +
 
-[[simplify-your-php-deployments]]
+[[simplify]]
 == Simplify your PHP deployments
 
 image::php-logo.png["PHP logo"]
@@ -48,43 +49,67 @@ As MySQL was deployed for you by the platform, you can connect to it by using co
 
 link:#top[Back to Top]
 
-[[go-enterprise-with-zend]]
-== Go Enterprise with Zend
+[[php]]
+== The PHP Cartridge
 
-image::zend-logo.png[Zend logo]
+The `php` cartridge provides http://www.php.net[PHP] on OpenShift.
 
-include::_fragments/php-zend-overview.adoc[]
+=== Template Repository Layout
+[source]
+----
+index.php              Template PHP index page
+.openshift/            Location for OpenShift specific files
+    action_hooks/      See the Action Hooks documentation <1>
+    markers/           See the Markers section below
+    pear.txt           List of pears to install <2>
+----
+<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
+<2> A list of pears to install, line by line on the server. This will happen when the user git pushes.
 
-include::_fragments/php-zend-deploy.adoc[]
+=== Document root
+http://httpd.apache.org/docs/current/mod/core.html#documentroot[Apache DocumentRoot],
+the directory that forms the main document tree visible from the web, is selected based
+on the existence of a common directory in the repository code in the following order:
+[source]
+----
+1. php/          # for backward compatibility with OpenShift Origin v1/v2
+2. public/       # Zend Framework v1/v2, Laravel, FuelPHP, Surebert etc.
+3. public_html/  # Apache per-user web directories, Slim Framework etc.
+4. web/          # Symfony etc.
+5. www/          # Nette etc.
+6. ./            # Drupal, Wordpress, CakePHP, CodeIgniter, Joomla, Kohana, PIP etc.
+----
 
--> link:php-zend.html[Learn More about Zend Server]
+=== PHP include_path
+The following application directories, that might exist in the repository code, are added
+to the http://php.net/manual/en/ini.core.php#ini.include-path[PHP include_path] and thus
+automatically searched when calling require(), include() and other file I/O functions:
+[source]
+----
+- lib/
+- libs/
+- libraries/
+- src/
+- misc/
+- vendor/
+- vendors/
+----
+
+=== Markers
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will remove all previous deps and start installing required deps from scratch
+
+|hot_deploy
+|Will prevent the apache process from being restarted during build/deployment
+
+|disable_auto_scaling
+|Will prevent scalable applications from scaling up or down according to application load.
+|===
 
 link:#top[Back to Top]
-
-[[environment-variables]]
-== Environment variables
-
-include::_fragments/php-env.adoc[]
-
-link:#top[Back to Top]
-
-[[supported-technologies]]
-== Supported PHP Technologies
-
-=== Frameworks
-link:https://www.openshift.com/quickstarts/codeigniter[CodeIgniter] +
-link:https://www.openshift.com/quickstarts/cakephp[CakePHP] +
-link:https://www.openshift.com/quickstarts/symfony-236[Symphony] +
-Yii
-
-=== Application Stacks
-
-link:https://www.openshift.com/quickstarts/wordpress-3x[Wordpress] +
-link:https://www.openshift.com/quickstarts/drupal-7[Drupal] +
-link:https://www.openshift.com/quickstarts/magento-community-edition[Magento] +
-
-=== Application Servers
-
-link:/en/php-zend.html[Zend Server] +
-
-link:#top[Back to top]
