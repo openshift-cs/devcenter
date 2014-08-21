@@ -14,9 +14,12 @@ nav_priority: 60
 [float]
 = Perl Application Hosting
 [.lead]
-Perl is a high-level, general-purpose dynamic programming language. With OpenShift you can easily deploy and run Perl applications using your favorite frameworks and databases. Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? OpenShift Online currently supports `Perl 5.10`.
 
-link:#supported-technologies[Supported Technologies]
+Perl is a high-level, general-purpose dynamic programming language. With OpenShift you can easily deploy and run Perl applications using your favorite frameworks and databases.
+
+link:#simplify[Simplify Your Perl Deployments]
+link:#perl[The Perl Cartridge]
 
 image::perl-logo.png[Perl logo]
 
@@ -37,12 +40,60 @@ These two commands create your gear and install and configure Perl, MySQL, and a
 http://MyApp-MyDomain.rhcloud.com/
 --
 
-[[supported-technologies]]
-== Supported Perl Technologies
+link:#top[Back to Top]
 
-=== Application Stacks
-https://github.com/openshift/dancer-example[Dancer] +
-Catalyst +
-CGI::Application +
-Mojolicious
+[[perl]]
+== The Perl Cartridge
+The `perl` cartridge provides http://www.perl.org/[Perl] on OpenShift.
 
+=== Template Repository Layout
+[source]
+--
+index.pl
+.openshift/           Location for OpenShift specific files
+    action_hooks/     See the Action Hooks documentation <1>
+    markers/          See the Markers section below
+    cpan.txt          List of modules to install
+--
+<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
+
+Due to changes in Perl cartridge template layout, the application root is now stored in `$OPENSHIFT_REPO_DIR`, but is also backward compatible with deprecated `perl/` directory.
+
+Modules are installed with `cpan.txt`, located in the `.openshift/` directory. In addition, application dependencies can be installed using cpanfile or Makefile.PL placed in the .openshift/ folder. deplist.txt is deprecated in favor of .openshift/cpan.txt.
+
+=== Cartridge Layout
+[source]
+--
+run/                  Various run configs (like httpd pid)
+usr/                  Perl example application template
+env/                  Environment variables
+logs/                 Log data (like httpd access/error logs)
+lib/                  Various libraries
+bin/setup             The script to setup the cartridge
+bin/build             Default build script
+bin/teardown          Called at cartridge destruction
+bin/control           Init script to start/stop httpd
+versions/             Version data to support multiple perl versions (copied into place by setup)
+--
+
+=== Markers
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will remove all previous perl deps and start installing required deps from scratch
+
+|enable_cpan_tests
+|Will install all the cpan packages and run their tests
+
+|hot_deploy
+|Will prevent the apache process from being restarted during build/deployment
+
+|disable_auto_scaling
+|Will prevent scalable applications from scaling up or down according to application load.
+|===
+
+link:#top[Back to Top]

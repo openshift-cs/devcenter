@@ -23,6 +23,8 @@ link:#environment-variables[Environment Variables] +
 link:#more-resources[More Resources] +
 link:#zend-studio[Zend Studio] +
 
+image::zend-logo.png[Zend logo]
+
 [[deploying-zend-server]]
 == Deploying Zend Server
 

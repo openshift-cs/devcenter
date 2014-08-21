@@ -14,7 +14,7 @@ nav_priority: 100
 [float]
 = Vert.x Application Hosting
 [.lead]
-http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications.
+http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. OpenShift Online currently supports `Vert.x 2.1`.
 
 Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. Built on top of http://netty.io/[Netty], you get non-blocking IO with asynchronous threads and plenty of other goodness right out of the box.
 

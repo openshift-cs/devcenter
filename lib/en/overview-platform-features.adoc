@@ -13,13 +13,14 @@ nav_priority: 10
 [[platform-features]]
 [float]
 = OpenShift Features
-OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide]
+[.lead]
+OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide].
 
-IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the United States, Canada, or Europe (EU member states, Iceland, Norway, and Switzerland). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here]
+IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
 
-https://www.openshift.com/products/pricing/geo-request-form[- Request OpenShift Online in your country]
-
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[- View OpenShift Online User Guide]
+[.lead]
+https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country] +
+https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[-> View the OpenShift Online User Guide]
 
 == Feature List
 link:#resource-management[Resource Management] +

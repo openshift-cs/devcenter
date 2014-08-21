@@ -8,18 +8,21 @@ nav_priority: 50
 ---
 = Ruby Overview
 :source-highlighter: coderay
+:icons:
 
 [float]
 = Ruby Application Hosting
 [.lead]
+With OpenShift you can easily deploy and run Ruby applications using your favorite frameworks and databases. Want to run Ruby on Rails backed by MySQL? Or maybe you're looking for Sinatra and MongoDB? OpenShift Online currently supports `Ruby 1.8`, `1.9`, and `2.0`.
+
 Ruby is a dynamic, reflective, general-purpose object-oriented programming language. Popular development frameworks include Ruby on Rails and Sinatra.
 
-With OpenShift you can easily deploy and run Ruby applications using your favorite frameworks and databases. Want to run Ruby on Rails backed by MySQL? Or maybe you're looking for Sinatra and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
-
-link:#supported-technologies[Supported Technologies]
+link:#simplify[Simplify Your Ruby Deployments]
+link:#ruby[The Ruby Cartridge]
 
 image::ruby-logo.png[Ruby logo]
 
+[[simplify]]
 == Simplify Your Ruby Deployments
 Getting a Ruby app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 
@@ -48,14 +51,142 @@ $ git push
 
 link:#top[Back to top]
 
-[[supported-technologies]]
-== Supported Ruby Technologies
+[[ruby]]
+== The Ruby Cartridge
+The `ruby` cartridge provides a bare metal http://rack.github.io[Rack] application with http://www.ruby-lang.org[Ruby].
 
-=== Application Stacks
+=== Template Repository Layout
+[source]
+--
+tmp/               Temporary storage
+public/            Content (images, css, etc. available to the public)
+config.ru          This file is used by Rack-based servers to start the application.
+.openshift/        Location for OpenShift specific files
+    action_hooks/  See the Action Hooks documentation <1>
+    markers/       See the Markers section below
+--
+<1> link:oo_user_guide.html#action-hooks[Action Hooks] documentation
 
-link:https://github.com/openshift/rails-example[Rails] +
-link:https://github.com/openshift/sinatra-example[Sinatra] +
-Padrino +
-Sequel +
+=== Ruby Mirror
+OpenShift is mirroring rubygems.org at http://mirror.ops.rhcloud.com/mirror/ruby/
+This mirror is on the same network as your application, and your gem download should be faster.
+
+To use the OpenShift mirror:
+
+. Edit your Gemfile and replace
++
+[source]
+--
+source 'https://rubygems.org'
+--
++
+with
++
+[source]
+--
+source 'http://mirror.ops.rhcloud.com/mirror/ruby/'
+--
+. Edit your Gemfile.lock and replace
++
+[source]
+--
+remote: https://rubygems.org/
+--
++
+with
++
+[source]
+--
+remote: http://mirror.ops.rhcloud.com/mirror/ruby/
+--
+
+=== Rails 3.0
+
+There are several approaches how to speed up deployment of your Rails application to OpenShift.
+
+==== Gem installation
+
+
+There are two options for deploying a Rails application to OpenShift.
+
+*Method 1 (Recommended)* +
+`git push` your application `Gemfile/Gemfile.lock`. This will cause the remote OpenShift node to run `bundle install --deployment` to download and install your dependencies.  Each subsequent git push will use the previously downloaded dependencies as a starting point, so additional downloads will be a delta.
+
+*Method 2* +
+`git add` your `.bundle` and `vendor/bundle` directories after running `bundle install --deployment` locally. Be sure to exclude any gems that have native code or ensure they can run on RHEL x86_64.
+
+==== Asset pipeline
+
+To prevent a long and unnecessary compilation of assets on application initial deployment and re-deployments, these two steps must be done.
+
+Step 1* +
+It's necessary to install `sprockets` gem by adding the line `gem 'turbo-sprockets-rails3'` into your Gemfile and run `bundle install`.
+
+*Step 2* +
+After `sprockets` gem is installed you need to precompile all your assets locally by `rake assets:precompile`, which compiles all the assets into `public/assets`. When compiling the assets the sprocket gem creates a file called `sources_manifest.yml`, located also in `public/assets`. This manifest contains names of all assets files together with their hash values. This file ensures that only changed assets will be recompiled on re-deployment.
+
+==== Load database schema
+
+If your Rails application contains a large amount of migrations it's good to use `db:schema:load` on initial deploy and `db:migrate` on re-deploymnets. You can do this by looking into the database and checking whether one of the DB tables exists.
+
+This example checks, in the deploy hook, if the `spree_activators` table is present in the database.
+[source, ruby]
+--
+if [ echo "use $OPENSHIFT_APP_NAME; show tables" | mysql | grep spree_activators ]
+then
+    bundle exec rake db:schema:load RAILS_ENV="production"
+else
+    bundle exec rake db:migrate RAILS_ENV="production"
+fi
+--
+
+=== Environment Variables
+The `ruby` cartridge provides several environment variables to reference for ease of use:
+
+OPENSHIFT_RUBY_LOGDIR:: Log files go here.
+OPENSHIFT_RUBY_VERSION:: The Ruby language version. The valid values are `1.8` and `1.9`.
+BUNDLE_WITHOUT: Prevents Bundler from installing certain groups specified in the Gemfile.
+
+=== Using RAILS_ENV=development
+
+In OpenShift you can use the Rails development environment as you do when you
+are developing the Rails application locally. To instruct OpenShift to deploy
+your application in development mode, you need to set this user-environment
+variable:
+
+* `RAILS_ENV` (eg. `rhc env set RAILS_ENV=development`)
+
+When the Rails application run under development environment OpenShift will:
+
+* Skip the automatic static asset (re)compilation
+* Disable `bundle` command unless you do modification to the application Gemfile
+* Set web server to run your application in 'development' mode
+* Skip full restart of the Apache as the code is reloaded automatically
+
+The development mode can speed up the development phase of you application in
+OpenShift, but it is not recommended to use this mode for production.
+
+=== `threaddump` command
+OpenShift's CLI tool, https://rubygems.org/gems/rhc[`rhc`], has a subcommand `threaddump`. Applications created by this cartridge respond to this command by looking
+for the appropriate `Rack` process, and sending `ABRT` signal to it. As explained in the http://www.modrails.com/documentation/Users%20guide%20Apache.html#debugging_frozen[Passenger User Guide], this signal will dump the current thread backtraces but also terminates the processes.
+
+NOTE: The `Rack` process may not exist if the application has just started and has not been accessed.
+
+=== Markers
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will trigger a clean re-bundle during the build cycle.
+
+|hot_deploy
+|Will prevent shutdown and startup of the application during builds. The Passenger `restart.txt` file will be used to reload the application.
+
+|disable_asset_compilation
+|Will prevent assets to be compiled upon application deployment. This marker should be used when deploying application with assets which are already compiled.
+|===
 
 link:#top[Back to top]

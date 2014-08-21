@@ -1,0 +1,82 @@
+---
+layout: base
+category: 40_Databases
+breadcrumb: Databases
+parent_url:
+nav_title: MySQL
+nav_priority: 1
+---
+= MySQL Overview
+:source-highlighter: coderay
+
+[[top]]
+[float]
+= MySQL on OpenShift
+[.lead]
+The `mysql` cartridge(s) provides link:http://www.mysql.com/[MySQL] on OpenShift. MySQL is an open-source relational database management system. With OpenShift you can easily deploy and run applications backed by MySQL using your favorite servers and frameworks. OpenShift Online currently supports `MySQL 5.1` and `5.5`.
+
+== The MySQL Cartridge
+
+=== Environment Variables
+The `mysql` cartridge provides several environment variables to reference for ease of use:
+
+[options="header"]
+|===
+|Variable |Description
+
+|OPENSHIFT_MYSQLDB_DB_HOST
+|The MySQL IP address
+
+|OPENSHIFT_MYSQLDB_DB_PORT
+|The MySQL port
+
+|OPENSHIFT_MYSQLDB_DB_LOG_DIR
+|The path to the MySQL log directory
+
+|OPENSHIFT_MYSQL_VERSION
+|The version of the MySQL server
+
+|OPENSHIFT_MYSQL_TIMEZONE
+|The MySQL server timezone
+
+|OPENSHIFT_MYSQL_LOWER_CASE_TABLE_NAMES
+|Sets how the table names are stored and compared
+
+|OPENSHIFT_MYSQL_DEFAULT_STORAGE_ENGINE
+|The default storage engine (table type)
+
+|OPENSHIFT_MYSQL_MAX_CONNECTIONS
+|The maximum permitted number of simultaneous client connections
+
+|OPENSHIFT_MYSQL_FT_MIN_WORD_LEN
+|The minimum length of the word to be included in a FULLTEXT index.
+
+|OPENSHIFT_MYSQL_FT_MAX_WORD_LEN
+|The maximum length of the word to be included in a FULLTEXT index.
+
+|OPENSHIFT_MYSQL_AIO
+|Controls the 'innodb_use_native_aio' setting value in case the native AIO is broken. See http://help.directadmin.com/item.php?id=529
+|===
+
+=== Example Use
+
+Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
+
+[source]
+--
+$ rhc app create MyApp php-5.4
+$ rhc cartridge add mysql-5.5 -a MyApp
+--
+
+These two commands create your "server" and install and configure PHP, MySQL, and a git repository on the server. You can now visit your application on the web at:
+
+[source]
+--
+http://MyApp-MyDomain.rhcloud.com/
+--
+
+[[phpmyadmin]]
+=== phpMyAdmin
+The `phpmyadmin` cartridge provides http://www.phpmyadmin.net[phpMyAdmin] on OpenShift. In order to add this cartridge to an application, the link:#top[MySQL] cartridge must already be present. Once installed, phpMyAdmin can be used by navigating to http://_app_-_domain_.rhcloud.com/phpmyadmin with the MySQL login credentials.
+
+link:#top[Back to Top]
