@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 03_Managing Your Applications
+category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url:
 nav_title: Deploying Applications
