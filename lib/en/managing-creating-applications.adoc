@@ -1,0 +1,12 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url:
+nav_title: Creating Applications
+nav_priority: 20
+---
+= Creating Applications
+
+[float]
+= Creating Applications

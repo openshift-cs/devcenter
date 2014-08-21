@@ -4,7 +4,7 @@ category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url:
 nav_title: Continuous Integration
-nav_priority: 50
+nav_priority: 70
 ---
 = Continous Integration
 :source-highlighter: coderay
