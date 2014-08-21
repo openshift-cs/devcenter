@@ -1,12 +1,12 @@
 ---
 layout: base
-category: 03_Managing Your Applications
+category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url:
-nav_title: Jenkins
+nav_title: Continuous Integration
 nav_priority: 50
 ---
-= Jenkins Overview
+= Continous Integration
 :source-highlighter: coderay
 :icons:
 
