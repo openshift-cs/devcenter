@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 05_Languages
-breadcrumb: Languages
+category: 05_Languages and Technologies
+breadcrumb: Languages and Technologies
 parent_url:
 nav_title: Java
 nav_priority: 1
