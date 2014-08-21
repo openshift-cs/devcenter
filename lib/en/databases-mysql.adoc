@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 04_Databases
-breadcrumb: Databases
+category: 04_Databases and Technologies
+breadcrumb: Databases and Technologies
 parent_url:
 nav_title: MySQL
 nav_priority: 1

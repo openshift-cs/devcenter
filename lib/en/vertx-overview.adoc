@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 03_Languages and Technologies
-breadcrumb: Languages and Technologies
+category: 03_Languages
+breadcrumb: Languages
 parent_url:
 nav_title: Vert.x
 nav_priority: 100
