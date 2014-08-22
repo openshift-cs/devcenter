@@ -10,7 +10,7 @@ nav_priority: 50
 
 [float]
 = Remote Connection
-
+[.lead]
 OpenShift allows remote access to your application via the Secure Shell
 protocol (SSH). SSH provides direct access to the command line of your
 application or gear on the remote server. After you are logged in on the
