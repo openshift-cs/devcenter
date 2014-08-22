@@ -39,7 +39,7 @@ Using the web console included with JBoss Fuse, you can build your connections w
 Connect your applications, services and data using standard pattern based integrations from the foremost book on the subject – Enterprise Integration Patterns: Designing Building and Deploying Messaging Solutions by Gregor Hohpe and Bobby Woolf. JBoss Fuse embraces these patterns and the standards they provide for notation, vocabulary and visual depiction. You can drag and drop the patterns from a palette in the JBoss Fuse tooling for faster solutions.
 
 == Simplify the Lifecycle
-Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking “Deploy Now” or executing the following command:
+Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking "Deploy Now" or executing the following command:
 
 [source]
 --
@@ -81,7 +81,7 @@ link:#top[Back to Top]
 
 [[getting-started]]
 == Get Started with JBoss Fuse ESB
-Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking “Deploy Now” below.
+Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking "Deploy Now" below.
 
 link:https://openshift.redhat.com/app/console/application_type/quickstart!16634[Deploy Now]
 
@@ -90,21 +90,21 @@ JBoss xPaaS services on OpenShift are powerful middleware cartridges that we are
 Check out our link:/en/xpaas-fuse-getting-started.html[Getting Started] page for important setup details and alternate deployment methods and see our link:/en/xpaas-fuse-faq.html[FAQ] page answers to common questions.
 
 === Installation Option 1: Using the QuickStart / OpenShift web console
-Start by logging into your OpenShift account (don’t have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either the QuickStart page and clicking the “Deploy Now” button or the OpenShift console by clicking “My Apps” in the upper right corner of your browser.
+Start by logging into your OpenShift account (don’t have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either the QuickStart page and clicking the "Deploy Now" button or the OpenShift console by clicking "My Apps" in the upper right corner of your browser.
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
 
-If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “Fuse” or you can scroll down to the list of quick links and click “JBoss Fuse 6.1” under “Integration”. This will bring you to the “Configure Application” step (see below.)
+If you use the OpenShift console click the "Add Application" button below your list of applications or the "Create your first application now" link. You can either search for "Fuse" or you can scroll down to the list of quick links and click "JBoss Fuse 6.1" under "Integration". This will bring you to the "Configure Application" step (see below.)
 
 image::xpaas/xpaas-fuse-2.jpg[Jboss Fuse Cartridge]
 
-If you use the QuickStart, click on the “Deploy Now” button. This will bring you directly to the “Configure Application” step.
+If you use the QuickStart, click on the "Deploy Now" button. This will bring you directly to the "Configure Application" step.
 
-To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. “Fuse”, “Fusetest” or whatever you like.) You don’t need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We recommend a medium gear if you have access to one. The Fuse cartridge will run perfectly well in a small gear but you may find it to be a bit slow.
+To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. "Fuse", "Fusetest" or whatever you like.) You don’t need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We recommend a medium gear if you have access to one. The Fuse cartridge will run perfectly well in a small gear but you may find it to be a bit slow.
 
-Make your Scaling selection – “No scaling” will work just fine – and then hit “Create Application” and OpenShift will build the application for you. When that is complete you will see the “Next Steps” page and you can decide whether you want to change the code of the application. For now select “Not now”. The next page will have some important information for you so don’t go speeding past it.
+Make your Scaling selection – "No scaling" will work just fine – and then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don’t go speeding past it.
 
-In the first line you will see the URL for your Fuse cartridge. A bit further down you’ll see the auto generated login credentials. Save these because you will need them to login to the Fuse Management Console. Once you have this information recorded click on the “Continue to the application overview page” link.
+In the first line you will see the URL for your Fuse cartridge. A bit further down you’ll see the auto generated login credentials. Save these because you will need them to login to the Fuse Management Console. Once you have this information recorded click on the "Continue to the application overview page" link.
 
 image::xpaas/xpaas-fuse-3.jpg[Jboss Fuse Application Overview]
 
@@ -164,8 +164,8 @@ How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the Fuse 6.1 Alpha cartridge. You can either use the OpenShift console or the command line. For instructions check out our link:#getting-started[Getting Started] section.
 Where do I go for support?::
   The best places to go for support are the OpenShift link:https://help.openshift.com[Help Center] or the link:http://fusesource.com/forums/forum.jspa?forumID=1[Fuse community boards]. We would love to have your input so go where you’re most comfortable and we will see it.
-What does it mean that this is an “Alpha” cartridge?::
-  JBoss Fuse on OpenShift is based on a pre-release version of JBoss Fuse 6.1 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Fuse on a cloud platform like OpenShift and some of those are in development. So we felt the term “Alpha” was an industry wide term that conveyed the right sense of where this technology is – its targeted at production use cases but not production supported at this time.
+What does it mean that this is an "Alpha" cartridge?::
+  JBoss Fuse on OpenShift is based on a pre-release version of JBoss Fuse 6.1 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Fuse on a cloud platform like OpenShift and some of those are in development. So we felt the term "Alpha" was an industry wide term that conveyed the right sense of where this technology is – its targeted at production use cases but not production supported at this time.
 What is the cartridge lifecyle?::
   JBoss Middleware cartridges will advance through several stages on OpenShift. Many will begin life as cartridges based on their community projects (like WildFly). Others will start out based on pre-release versions of our supported projects as part of the JBoss Developer program which provides developer access to pre-release products under the JBoss Developer Program Terms and Conditions.
 +
