@@ -12,7 +12,7 @@ nav_priority: 60
 
 [float]
 = Cron Overview
-
+[.lead]
 This cartridge adds periodic job execution functionality to your OpenShift application.
 
 == Installation

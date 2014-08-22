@@ -12,7 +12,7 @@ nav_priority: 2
 
 [float]
 = Extend OpenShift
-
+[.lead]
 Bring your favorite technologies to OpenShift as a QuickStart or make
 your code reusable in a Cartridge. Or get the source and extend the
 platform.
