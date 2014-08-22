@@ -80,10 +80,13 @@ h2 > a.anchor:before, h3 > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:
   content: "\f0c1";
   display: block;
   font-family: FontAwesome;
-  font-size: 0.75em;
+  font-size: 0.7em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 0.1em;
+  padding-top: 0.2em;
+}
+h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before {
+  font-size: 1em;
 }
 
 h2:hover > a.anchor, 
@@ -99,16 +102,19 @@ h6 > a.anchor:hover {
   visibility: visible;
 }
 
+.main {
+  border-left: 1px solid #e7e7e7;
+  margin-left: -1px;
+  padding-left: 25px;
+}
+
+
 @media (min-width: 768px) {
   .lead {
     font-size: 16px;
   }
-}
-
   .main {
-    border-left: 1px solid #e7e7e7;
-    margin-left: -1px;
-    padding-left: 25px;
+    padding-left: 30px;
   }
 }
 
@@ -141,6 +147,7 @@ h6 > a.anchor:hover {
 
 .nav-sidebar li a:hover {
   color: #333;
+  text-decoration: none;
 }
 
 .nav-sidebar > li > a {
