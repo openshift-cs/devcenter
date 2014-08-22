@@ -129,7 +129,7 @@ of use:
 |Appended to JAVA_OPTS prior to invoking the Java VM.
 |===
 
-For more information about environment variables, consult the link:oo_user_guide.html#environment-variables[Users Guide].
+For more information about environment variables, consult the link:http://openshift.github.io/documentation/#environment-variables[Users Guide].
 
 === Markers
 Adding marker files to `.openshift/markers` will have the following effects:
