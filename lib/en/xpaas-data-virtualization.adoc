@@ -19,13 +19,13 @@ link:#support[Support] +
 link:#faq[Data Virtualization FAQ]
 
 == Overview
-Applications and data are the yin and yang of information technology. IT’s business value flows from the combination of the two. In today’s data-run world, what is required is a platform that will deliver any combination of data to any application at any time, in any form needed. Red Hat JBoss Data Virtualization enables agile data utilization in 3 easy steps:
+Applications and data are the yin and yang of information technology. IT's business value flows from the combination of the two. In today's data-run world, what is required is a platform that will deliver any combination of data to any application at any time, in any form needed. Red Hat JBoss Data Virtualization enables agile data utilization in 3 easy steps:
 
 . *Connect:* Access data from multiple, heterogeneous data sources.
 . *Compose:* Easily create reusable, business friendly virtual data models and views by combining and transforming data.
 . *Consume* Make unified data easily consumable through open standards interfaces.
 
-With OpenShift you can easily deploy and run JBoss Data Virtualization to connect your applications to data from many different sources with the advantage that to your applications, these all appear as a single source of data – a virtual database. JBoss Data Virtualization on OpenShift is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift. This preview is based on the JBoss Data Virtualization 6.0 supported release but as a preview it does not come with guaranteed support. It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha release. There will be fixes and updates frequently over the short term followed by a Beta release and then a supported release.
+With OpenShift you can easily deploy and run JBoss Data Virtualization to connect your applications to data from many different sources with the advantage that to your applications, these all appear as a single source of data - a virtual database. JBoss Data Virtualization on OpenShift is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift. This preview is based on the JBoss Data Virtualization 6.0 supported release but as a preview it does not come with guaranteed support. It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha release. There will be fixes and updates frequently over the short term followed by a Beta release and then a supported release.
 
 We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
 
@@ -36,7 +36,7 @@ JBoss Data Virtualization hides the technical complexity of knowing physical dat
 
 == Model Driven Development
 
-JBoss Data Virtualization’s Eclipse-based graphical tool lets you map and transform data from sources to target formats, as well as resolve semantic differences, create virtual data structures at a physical or logical level, and use declarative interfaces that are compatible with and optimized for your applications.
+JBoss Data Virtualization's Eclipse-based graphical tool lets you map and transform data from sources to target formats, as well as resolve semantic differences, create virtual data structures at a physical or logical level, and use declarative interfaces that are compatible with and optimized for your applications.
 
 == Universal Connectivity with Big Data and Cloud
 
@@ -86,9 +86,9 @@ If you use the OpenShift console click the "Add Application" button below your l
 
 If you use the QuickStart, click the "Deploy Now" button. This will bring you directly to the "Configure Application" step.
 
-To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. "Data Virtuaulization", "DV" or whatever you like.) You don’t need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We recommend a medium gear if you have access to one. The DV cartridge will run perfectly well in a small gear but you may find it to be a bit slow.
+To configure the application you will need to configure your application's public URL. Choose a name for this application (e.g. "Data Virtuaulization", "DV" or whatever you like.) You don't need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We recommend a medium gear if you have access to one. The DV cartridge will run perfectly well in a small gear but you may find it to be a bit slow.
 
-Make your Scaling selection – "No scaling" will work just fine – and then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don’t go speeding past it.
+Make your Scaling selection - "No scaling" will work just fine - and then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don't go speeding past it.
 
 === Installation Option 2: Using the command line tools (rhc)
 You can deploy the DataVirtualization cartridge via command line. Using the rhc command line type:
@@ -170,13 +170,13 @@ link:#top[Back to Top]
 == JBoss Data Virtualization FAQ
 [qanda]
 What is the best thing about data virtualization?::
-  Data virtualization is a technology that allows applications to use data from multiple heterogeneous data sources. JBoss Data Virtualization comprises tools and runtime services for creating and executing bi-directional data services. IT’s business value flows from the combination of applications and data. The best thing about JBoss Data Virutalization is that it can deliver any combination of data to any application at any time, in any form needed.
+  Data virtualization is a technology that allows applications to use data from multiple heterogeneous data sources. JBoss Data Virtualization comprises tools and runtime services for creating and executing bi-directional data services. IT's business value flows from the combination of applications and data. The best thing about JBoss Data Virutalization is that it can deliver any combination of data to any application at any time, in any form needed.
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the JBoss Data Virtualization Alpha cartridge. You can either use the OpenShift console or the command line. For step-by-step instructions see our link:#getting-started[Getting Started] section.
 Where do I go for support?::
-  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/datavirt[JBoss Data Virtualization community boards]. We would love to have your input so go where you’re most comfortable and we will see it.
+  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/datavirt[JBoss Data Virtualization community boards]. We would love to have your input so go where you're most comfortable and we will see it.
 What does it mean that this is an "Alpha" cartridge?::
-  JBoss Data Virtualization on OpenShift is based on JBoss Data Virtualization 6.0 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Data Virtuaization on a cloud platform like OpenShift and some of those are in development. So we felt the term "Alpha" was an industry wide term that conveyed the right sense of where this technology is – its targeted at production use cases but not production supported at this time.
+  JBoss Data Virtualization on OpenShift is based on JBoss Data Virtualization 6.0 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Data Virtuaization on a cloud platform like OpenShift and some of those are in development. So we felt the term "Alpha" was an industry wide term that conveyed the right sense of where this technology is - its targeted at production use cases but not production supported at this time.
 What is the cartridge lifecycle?::
   JBoss Middleware cartridges will advance through several stages on OpenShift. Many will begin life as cartridges based on their community projects (like WildFly). Others will start out based on pre-release versions of our supported projects as part of the link:http://www.jboss.org/developer-program[JBoss Developer Program] which provides developer access to pre-release products under the JBoss Developer Program link:http://www.jboss.org/developer-program/termsandconditions[Terms and Conditions].
 +
