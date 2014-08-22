@@ -111,7 +111,7 @@ OPENSHIFT_JBOSSEWS_HTTP_PORT:: The EWS listening port
 OPENSHIFT_JBOSSEWS_JPDA_PORT:: The EWS JPDA listening port
 JAVA_OPTS_EXT:: Appended to JAVA_OPTS prior to invoking the Java VM.
 
-For more information about environment variables, consult the link:oo_user_guide.html#environment-variables[Users Guide].
+For more information about environment variables, consult the link:http://openshift.github.io/documentation/oo_user_guide.html#environment-variables[Users Guide].
 
 [[tomcat-environment-variable-replacement-support]]
 .Environment Variable Replacement Support

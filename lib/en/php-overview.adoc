@@ -23,7 +23,7 @@ link:http://php.net/[-> Learn More]
 
 link:#simplify[Simplify Your PHP deployments] +
 link:#php[The PHP Cartridge] +
-link:/en/php-zend.html[Go Enterprise with Zend] +
+link:php-zend.html[Go Enterprise with Zend] +
 
 [[simplify]]
 == Simplify your PHP deployments

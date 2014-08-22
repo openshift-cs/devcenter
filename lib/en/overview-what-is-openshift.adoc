@@ -48,7 +48,7 @@ A lightweight, high performance application platform for the JVM that's designed
 link:vertx-overview.html[-> Learn More]
 
 === Custom
-Using a downloadable cartridge, you can easily bring your own frameworks and technologies to OpenShift, reducing the need to set up a DIY cart. link:https://www.openshift.com/developers/download-cartridges[Read our guides] on creating and using your own cartridges.
+Using a downloadable cartridge, you can easily bring your own frameworks and technologies to OpenShift, reducing the need to set up a DIY cart. link:get-involved-extend-openshift.html[Read our guides] on creating and using your own cartridges.
 
 == Database Services
 Extend your application with a number of powerful database and addon cartridges.
