@@ -18,7 +18,7 @@ To get started using Rake, within the /lib folder of this project, run:
 ```
 $ rake setup
 ```
-To generate the files, regenerate pages on changes, and starts a server to preview the site in your browser at http://localhost:4242, run:
+To generate the files, regenerate pages on changes, and start a server to preview the site in your browser at http://localhost:4242, run:
 ```
 $ rake
 ```
