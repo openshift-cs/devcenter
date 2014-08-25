@@ -7,8 +7,6 @@ nav_title: JBossAS/Wildfly
 nav_priority: 1.2
 ---
 = JBossAS Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [[java]]

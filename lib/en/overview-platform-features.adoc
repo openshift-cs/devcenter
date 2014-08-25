@@ -7,7 +7,6 @@ nav_title: OpenShift Features
 nav_priority: 10
 ---
 = OpenShift Features
-:icons:
 
 [[top]]
 [[platform-features]]

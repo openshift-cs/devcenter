@@ -7,7 +7,6 @@ nav_title: Ubuntu
 nav_priority: 100
 ---
 = Getting Started
-:icons:
 
 [float]
 = OpenShift on Ubuntu

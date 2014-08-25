@@ -7,7 +7,6 @@ nav_title: PostgreSQL
 nav_priority: 3
 ---
 = PostgreSQL Overview
-:source-highlighter: coderay
 
 [[top]]
 [float]

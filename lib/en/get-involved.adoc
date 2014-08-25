@@ -7,8 +7,6 @@ nav_title: Overview
 nav_priority: 1
 ---
 = Get Involved
-:source-highlighter: coderay
-:icons:
 
 [float]
 = Get Involved with OpenShift
@@ -47,3 +45,9 @@ Engage us on https://twitter.com/openshift[Twitter], https://www.facebook.com/op
 === Vote on Features
 Help drive product direction by https://openshift.uservoice.com/forums/258655-ideas[suggesting or voting on features].
 
+[source, php]
+--
+<?php
+echo "Something";
+?>
+--

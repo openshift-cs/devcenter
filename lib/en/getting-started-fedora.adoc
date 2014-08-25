@@ -7,7 +7,6 @@ nav_title: Fedora
 nav_priority: 30
 ---
 = Getting Started
-:icons:
 
 [float]
 = OpenShift on Fedora

@@ -7,7 +7,6 @@ nav_title: MySQL
 nav_priority: 1
 ---
 = MySQL Overview
-:source-highlighter: coderay
 
 [[top]]
 [float]

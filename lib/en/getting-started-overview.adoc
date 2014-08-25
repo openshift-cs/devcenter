@@ -7,7 +7,6 @@ nav_title: Overview
 nav_priority: 1
 ---
 = Getting Started
-:icons:
 
 [[top]]
 [[getting-started]]

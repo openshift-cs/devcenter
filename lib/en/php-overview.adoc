@@ -7,8 +7,6 @@ nav_title: PHP
 nav_priority: 2
 ---
 = PHP Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [[php-application-hosting]]

@@ -7,8 +7,6 @@ nav_title: Vert.x
 nav_priority: 100
 ---
 = Vert.x Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [float]
