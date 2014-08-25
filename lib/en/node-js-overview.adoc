@@ -7,8 +7,6 @@ nav_title: Node.js
 nav_priority: 30
 ---
 = Node.js Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [float]

@@ -7,7 +7,6 @@ nav_title: Windows
 nav_priority: 10
 ---
 = Getting Started with Windows
-:icons:
 
 [float]
 = OpenShift on Windows

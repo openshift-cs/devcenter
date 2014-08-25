@@ -7,7 +7,6 @@ nav_title: MongoDB
 nav_priority: 2
 ---
 = MongoDB Overview
-:source-highlighter: coderay
 
 [[top]]
 [float]

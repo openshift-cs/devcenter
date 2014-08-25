@@ -7,8 +7,6 @@ nav_title: Extend OpenShift
 nav_priority: 2
 ---
 = Extend OpenShift
-:source-highlighter: coderay
-:icons:
 
 [float]
 = Extend OpenShift

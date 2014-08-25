@@ -6,10 +6,7 @@ parent_url:
 nav_title: Zend Server
 nav_priority: 90
 ---
-
 = Zend Server
-:icons:
-:source-highlighter: coderay
 
 [[top]]
 [[zend-server]]

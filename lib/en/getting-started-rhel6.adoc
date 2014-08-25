@@ -7,7 +7,6 @@ nav_title: RHEL 6
 nav_priority: 40
 ---
 = Getting Started
-:icons:
 
 [float]
 = OpenShift on RHEL 6

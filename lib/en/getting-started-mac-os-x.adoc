@@ -7,7 +7,6 @@ nav_title: OS X
 nav_priority: 30
 ---
 = Getting Started
-:icons:
 
 [float]
 = OpenShift on Mac OS X

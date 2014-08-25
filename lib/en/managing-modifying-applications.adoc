@@ -7,8 +7,6 @@ nav_title: Modifying Applications
 nav_priority: 30
 ---
 = Modifying Applications
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [[deploying-applications]]

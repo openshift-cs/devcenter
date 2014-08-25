@@ -7,7 +7,6 @@ nav_title: Perl
 nav_priority: 60
 ---
 = Perl Overview
-:source-highlighter: coderay
 
 [[top]]
 [[perl-application-hosting]]

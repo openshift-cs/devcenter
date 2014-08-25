@@ -7,8 +7,6 @@ nav_title: Tomcat
 nav_priority: 1.4
 ---
 = Tomcat Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [float]

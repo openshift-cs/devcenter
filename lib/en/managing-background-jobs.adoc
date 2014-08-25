@@ -7,8 +7,6 @@ nav_title: Background Jobs
 nav_priority: 60
 ---
 = Cron Overview
-:source-highlighter: coderay
-:icons:
 
 [float]
 = Cron Overview

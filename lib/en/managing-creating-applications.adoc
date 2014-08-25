@@ -7,8 +7,6 @@ nav_title: Creating Applications
 nav_priority: 20
 ---
 = Creating Applications
-:icons:
-:source-highlighter: coderay
 
 [[top]]
 [float]

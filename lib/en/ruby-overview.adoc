@@ -7,8 +7,6 @@ nav_title: Ruby
 nav_priority: 50
 ---
 = Ruby Overview
-:source-highlighter: coderay
-:icons:
 
 [float]
 = Ruby Application Hosting

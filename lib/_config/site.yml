@@ -11,3 +11,5 @@ asciidoctor:
   :attributes:
     sectanchors: ''
     imagesdir: /en/images@
+    icons: font
+    source-highlighter: coderay

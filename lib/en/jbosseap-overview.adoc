@@ -7,8 +7,6 @@ nav_title: JBossEAP
 nav_priority: 1.3
 ---
 = JBossEAP Overview
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [float]

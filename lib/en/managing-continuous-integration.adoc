@@ -7,8 +7,6 @@ nav_title: Continuous Integration
 nav_priority: 70
 ---
 = Continous Integration
-:source-highlighter: coderay
-:icons:
 
 [[top]]
 [float]
