@@ -45,8 +45,6 @@ At a minimum, the first several lines of a new .adoc document must follow this p
     nav_priority: 2 <6>
     ---
     = JBossAS Overview <7>
-    :source-highlighter: coderay <8>
-    :icons: <9>
 
     Start writing your content here.
 
@@ -57,7 +55,5 @@ At a minimum, the first several lines of a new .adoc document must follow this p
     <5> Used in leftnav - Link text for this specific page
     <6> Used in leftnav - sort order for the page in this specific category
     <7> Title of page (only set once)
-    <8> include this line if you need source code colorization (using coderay)
-    <9> Allows the use of icons for admonition blocks (e.g. TIP, IMPORTANT, etc.)
 
 For the rest of the document, make sure that you are following proper [AsciiDoc syntax](http://asciidoctor.org/docs/asciidoc-writers-guide/) and preview your document before submitting a pull request. There's no magic in how the documentation is built, so if it doesn't look right in your sandbox, it won't look right on the documentation site.
