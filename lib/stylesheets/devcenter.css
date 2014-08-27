@@ -17,12 +17,8 @@
   color: inherit;
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 .breadcrumb .sitename a {
-  color: #e22434;
+  color: #c00;
   font-size: 20px;
   font-weight: 300;
 }
