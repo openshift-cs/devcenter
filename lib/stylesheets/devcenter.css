@@ -1,7 +1,4 @@
 .breadcrumb {
-  background: transparent;
-  border-radius: 0;
-  color: #888;
   margin: 0;
   padding: 3px 0 20px;
 }
@@ -13,20 +10,14 @@
   }
 }
 
-.breadcrumb a {
-  color: inherit;
-}
-
-.breadcrumb .sitename a {
-  color: #c00;
-  font-size: 20px;
-  font-weight: 300;
-}
-
 .collapse a.active {
   background-color: #DEEAF4;
   color: #000;
   position: relative;
+}
+
+.collapse a.active:hover {
+  text-decoration: none;
 }
 
 .collapse a.active:before {
@@ -46,18 +37,7 @@ h2, .h2 {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #000;
-  font-weight: 300;
   position: relative;
-}
-
-h4, .h4 {
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-h5, h6, .h5, .h6 {
-  font-weight: 700;
 }
 
 h2 > a.anchor, h3 > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor {
@@ -81,6 +61,7 @@ h2 > a.anchor:before, h3 > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:
   -moz-osx-font-smoothing: grayscale;
   padding-top: 0.2em;
 }
+
 h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before {
   font-size: 1em;
 }
@@ -106,9 +87,6 @@ h6 > a.anchor:hover {
 
 
 @media (min-width: 768px) {
-  .lead {
-    font-size: 16px;
-  }
   .main {
     padding-left: 30px;
   }
@@ -138,16 +116,15 @@ h6 > a.anchor:hover {
 }
 
 .nav-sidebar li a {
-  color: #686868;
+  color: inherit;
 }
 
 .nav-sidebar li a:hover {
-  color: #333;
-  text-decoration: none;
+  color: #000;
 }
 
 .nav-sidebar > li > a {
-  padding: 8px 0;
+  padding: 7px 0;
 }
 
 .nav-sidebar > li > a:focus, .nav-sidebar > li > a:hover {
@@ -155,6 +132,7 @@ h6 > a.anchor:hover {
 }
 
 .sidebar {
+  font-weight: 300;
   display: none;
   padding-top: 13px;
 }
@@ -253,7 +231,6 @@ body, html {
 .text-center { text-align: center !important; }
 .text-justify { text-align: justify !important; }
 .hide { display: none; }
-p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.21875em; line-height: 1.6; }
 .subheader, #content #toctitle, .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { line-height: 1.4; color: #7a2518; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
 abbr, acronym { text-transform: uppercase; font-size: 90%; color: #333333; border-bottom: 1px dotted #dddddd; cursor: help; }
 abbr { text-transform: none; }
@@ -262,11 +239,9 @@ blockquote cite { display: block; font-size: inherit; color: #454545; }
 blockquote cite:before { content: "\2014 \0020"; }
 blockquote cite a, blockquote cite a:visited { color: #454545; }
 blockquote, blockquote p { line-height: 1.6; color: #6e6e6e; }
-@media only screen and (min-width: 768px) { h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
-  h1 { font-size: 2.75em; }
-  h2 { font-size: 2.3125em; }
-  h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
-  h4 { font-size: 1.4375em; } }
+@media only screen and (min-width: 768px) { 
+  #toctitle, .sidebarblock > .content > .title { line-height: 1.4; }
+  #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
 table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
 table thead, table tfoot { background: whitesmoke; font-weight: bold; }
 table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td { padding: 0.5em 0.625em 0.625em; font-size: inherit; color: #333333; text-align: left; }
