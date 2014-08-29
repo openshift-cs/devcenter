@@ -6,15 +6,13 @@
 
 |link:java-overview.html[Java]
 |
-link:java-overview.html[JBoss] +
-link:java-overview.html[Tomcat] +
-link:java-overview.html[Spring] +
+link:jboss-overview.html[JBossAS/Wildfly] +
+link:jbosseap-overview.html[JBossEAP] +
+link:tomcat-overview.html[Tomcat] +
 
 |link:php-overview.html[PHP]
 |
-link:java-overview.html[Wordpress] +
-link:java-overview.html[Drupal] +
-link:java-overview.html[CodeIngniter] +
+link:php-zend.html[Zend Server]
 
 |link:node-js-overview.html[Node.js]
 |Coming Soon

@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 05_Managing Your Applications
-breadcrumb: Managing Your Applications
+category: 02_Getting Started
+breadcrumb: Getting Started
 parent_url:
 nav_title: Modifying Applications
 nav_priority: 30
@@ -9,7 +9,6 @@ nav_priority: 30
 = Modifying Applications
 
 [[top]]
-[[deploying-applications]]
 [float]
 = Modifying Applications
 [.lead]
@@ -64,7 +63,7 @@ Finally, you're ready to send your changes to your application - you'll 'push' t
 $ git push
 ----------------
 
-The output of the push command will contain information from OpenShift about your deployment -
+The output of the push command will contain information from OpenShift about your deployment.
 
 -> link:http://git-scm.com/book[Learn more about using Git ]
 

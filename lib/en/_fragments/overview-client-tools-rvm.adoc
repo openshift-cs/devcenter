@@ -11,5 +11,8 @@ $ rvm gemset use global
 $ gem install rhc
 -----------------------
 
-No matter which version of Ruby you are running, the rhc command will be
-available.
+No matter which version of Ruby you are running, the rhc command will be available.
+
+
+
+
