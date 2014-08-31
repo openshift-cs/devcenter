@@ -3,23 +3,23 @@ layout: base
 category: 01_Overview
 breadcrumb: Overview
 parent_url:
-nav_title: Platform Features
-nav_priority: 30
+nav_title: OpenShift Features
+nav_priority: 10
 ---
-= Platform Features
-:icons:
+= OpenShift Features
 
 [[top]]
 [[platform-features]]
 [float]
-= Platform Features
-OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide]
+= OpenShift Features
+[.lead]
+OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide].
 
-IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the United States, Canada, or Europe (EU member states, Iceland, Norway, and Switzerland). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here]
+IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
 
-https://www.openshift.com/products/pricing/geo-request-form[- Request OpenShift Online in your country]
-
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[- View OpenShift Online User Guide]
+[.lead]
+https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country] +
+https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[-> View the OpenShift Online User Guide]
 
 == Feature List
 link:#resource-management[Resource Management] +
@@ -135,7 +135,7 @@ link:#supported-cartridges[Supported Cartridges] +
 === Creating a Scalable Application
 You must specify whether or not an application can scale when you create the application. By default, applications created on OpenShift Online are not scalable.
 
-If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[the OpenShift Online User Guide], “Cloning an Existing Application” for more information.
+If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[the OpenShift Online User Guide], "Cloning an Existing Application" for more information.
 
 ==== Web Console
 

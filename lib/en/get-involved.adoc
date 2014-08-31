@@ -1,24 +1,22 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
-parent_url:
-nav_title: Get Involved
-nav_priority: 100
+category: 50_Get Involved
+breadcrumb: Get Involved
+parent_url: get-involved.html
+nav_title: Overview
+nav_priority: 1
 ---
-= Extend OpenShift
-:source-highlighter: coderay
-:icons:
+= Get Involved
 
 [float]
 = Get Involved with OpenShift
 
-[lead]
+[.lead]
 Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
 
 == Open Source
 
-[lead]
+[.lead]
 OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
 
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
@@ -47,3 +45,9 @@ Engage us on https://twitter.com/openshift[Twitter], https://www.facebook.com/op
 === Vote on Features
 Help drive product direction by https://openshift.uservoice.com/forums/258655-ideas[suggesting or voting on features].
 
+[source, php]
+--
+<?php
+echo "Something";
+?>
+--

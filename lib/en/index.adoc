@@ -1,151 +1,96 @@
 ---
 layout: home
 ---
-= OpenShift Online Developer Center
+= Home
 
 [float]
-= Developer Center
-This is the dev center content (in English).
-
-include::_fragments/sample.adoc[]
-
-== Paragraphs
-
+= What is OpenShift?
 [.lead]
-This text will be styled as a lead paragraph (i.e., larger font).
+OpenShift Online is Red Hat's public cloud application development and hosting platform that automates the provisioning, management and scaling of applications so that you can focus on writing the code for your business, startup, or big idea.
 
-Normal paragraphs don't require any special markup. +
+video::aZ40GobvA1c[youtube, width=450, height=253]
 
- A literal paragraph is a series of indented
- lines, used in some structures.
+== OpenShift Runtime Environments
 
-=== Admonitions
+OpenShift Online supports a variety of programming languages and runtimes.
 
-NOTE: This is a NOTE.
+=== Java
+OpenShift allows extreme flexibility in working with your preferred runtime andå framework, with support for *JBossAS*, *Wildfly*, *JBossEAP*, *Apache Tomcat*, and *Spring*. You can also extend your applications with a number of JBoss xPaaS services, such as *Fuse*, *Data Virtualization*, *BPM Suite*, or *Aerogear Push*. +
+link:java-overview.html[-> Learn More]
 
-TIP: This is a TIP.
+=== PHP
+OpenShift provides many options for PHP developers. Along with support for many popular PHP frameworks such as *CodeIgniter*, *CakePHP* and *Yii*, OpenShift Online has a vast selection of PHP quickstarts that can get you up and running with applications like *Wordpress*, *Drupal* and *Magento* in just a few minutes. +
+link:php-overview.html[-> Learn More]
 
-IMPORTANT: This is IMPORTANT.
+=== Node.js
+A platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. +
+link:node-js-overview.html[-> Learn More]
 
-WARNING: This is a WARNING.
+=== Python
+Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. With OpenShift you can easily deploy and run Python applications using your favorite frameworks and databases. +
+link:python-overview.html[-> Learn More]
 
-CAUTION: This is a CAUTION.
+=== Ruby
+With OpenShift, you can create robust Ruby applications without the need for application changes or proprietary APIs. You can also use one of our quickstarts for hassle-free deployment that is extensible and secure. +
+link:ruby-overview.html[-> Learn More]
 
-[TIP]
-====
-An admonition block may contain complex content.
+=== Perl
+Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift. +
+link:perl-overview.html[-> Learn More]
 
-.A list
-- one
-- two
-- three
+=== Vert.x
+A lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications. Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. +
+link:vertx-overview.html[-> Learn More]
 
-Another paragraph.
-====
+=== Custom
+Using a downloadable cartridge, you can easily bring your own frameworks and technologies to OpenShift, reducing the need to set up a DIY cart. link:get-involved-extend-openshift.html[Read our guides] on creating and using your own cartridges.
 
-=== Font Styling
-_italic phrase_ +
-*bold phrase* +
-*_bold italic phrase_* +
-^super^script phrase +
-~sub~script phrase +
-Do werewolves believe in [small]#small print#? +
+== Database Services
+Extend your application with a number of powerful database and addon cartridges.
 
-=== Lists
+=== MySQL
+A multi-user, multi-threaded SQL database server. Deploy *phpMyAdmin* to administrate your dbs from the web. +
+link:databases-mysql.html[-> Learn More]
 
-==== Unordered List
-* Edgar Allen Poe
-* Sheri S. Tepper
-* Bill Bryson
+=== MongoDB
+A scalable, high-performance, open source NoSQL database by 10gen. You can install the *RockMongo* cartridge to administrate your instance from the web. +
+link:databases-mongodb.html[-> Learn More]
 
-==== Checklist
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+=== PostgreSQL
+An advanced Object-Relational database management system. +
+link:databases-postgresql.html[-> Learn More]
 
-==== Ordered List
-. Step 1
-. Step 2
-. Step 3
+== Continuous Integration and Tools
 
-=== Q & A
-[qanda]
-What is Asciidoctor?::
-  An implementation of the AsciiDoc processor in Ruby.
-What is the answer to the Ultimate Question?:: 42
+=== Jenkins
+Jenkins is a continuous integration (CI) build server that is deeply integrated into OpenShift. When you add Jenkins as an application you will enable your other applications to run complex builds whenever you push code. The Jenkins client connects to your Jenkins application and enables builds and testing of your application. Requires one Jenkins application to be created first. +
+link:managing-continuous-integration.html[-> Learn More]
 
-=== Links
-http://asciidoctor.org - automatic!
+===  Cron
+Allows you to run command line programs at scheduled times. Use this for background jobs and periodic processing. +
+link:managing-background-jobs.html[-> Learn More]
 
-http://asciidoctor.org[Asciidoctor]
+== The OpenShift Development Environment
+There are a number of tools that can enhance your OpenShift experience and match your style of development. From command line scripts that you can use to automate tasks to the Web Console and even a fully integrated IDE. Below are links to a number of these tools along with getting started guides and other helpful documents to get you up and running fast.
 
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+=== Web Console
+An easy to use resource for managing your applications from anywhere. You can create applications, add and remove cartridges and edit account details. +
+link:https://openshift.redhat.com/app/console[-> Access the Web Console]
 
-=== YouTube
+=== RHC Client Tools
+The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment. +
+link:managing-client-tools.html[-> Install and Use RHC]
 
-video::rbFIHgHDRgo[youtube, width=640, height=480]
+=== JBoss Developer Studio
+JBoss Developer Studio, with its Eclipse Based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. Integrates with the OpenShift platform to put the ability to create, edit and deploy applications right at your fingertips. +
+link:https://www.openshift.com/page/install-jboss-developer-studio[-> Install and Use JBoss Developer Studio]
 
-=== Content/Code Blocks
+== Pricing and Premium Features
+OpenShift Online currently offers several options to developers, including a pretty generous free tier. Please visit our link:https://www.openshift.com/products/pricing[Pricing Page] for more information.
 
-==== Inline
+Interested in learning more about OpenShift's premium features? Visit our link:overview-platform-features.html[Features Guide] for more information.
 
-Reference code like +types+ or +methods+ inline.
+== Get Started with OpenShift Online
+Ready to launch your big idea on OpenShift? link:getting-started-overview.html[Get started] now!
 
-==== Block
-
-....
-error: The requested operation returned error: 1954 Forbidden search for defensive operations manual
-absolutely fatal: operation initiation lost in the dodecahedron of doom
-would you like to die again? y/n
-....
-
-
-==== Standard Code Block
-
-.Gemfile.lock
-----
-GEM
-  remote: https://rubygems.org/
-  specs:
-    asciidoctor (0.1.4)
-
-PLATFORMS
-  ruby
-
-DEPENDENCIES
-  asciidoctor (~> 0.1.4)
-----
-
-==== Block w/Coloring
-
-[source,ruby]
-.app.rb
-----
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-----
-
-==== Block w/Notes
-
-[source,ruby]
-----
-require 'sinatra' <1>
-
-get '/hi' do      <2>
-  "Hello World!"  <3>
-end
-----
-<1> Library import
-<2> URL mapping
-<3> Content for response
-
-
-'''
-
-Content last updated {date}
-
-
+Visit our link:https://help.openshift.com[Help Center] if you have any questions along the way.

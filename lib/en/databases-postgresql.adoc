@@ -1,0 +1,86 @@
+---
+layout: base
+category: 04_Databases and Technologies
+breadcrumb: Databases and Technologies
+parent_url:
+nav_title: PostgreSQL
+nav_priority: 3
+---
+= PostgreSQL Overview
+
+[[top]]
+[float]
+= PostgreSQL on OpenShift
+[.lead]
+The `postgresql` cartridge(s) provides link:http://www.postgresql.com/[PostgreSQL] on OpenShift. PostgreSQL is an open-source object-relational database system. With OpenShift you can easily deploy and run applications backed by PostgreSQL using your favorite servers and frameworks. OpenShift Online currently supports `PostgreSQL 8.4` and `9.2`.
+
+== The PostgreSQL Cartridge
+
+=== Environment Variables
+The `postgresql` cartridge provides several environment variables to reference for ease of use:
+
+[options="header"]
+|===
+|Variable |Description
+
+|OPENSHIFT_POSTGRESQL_DB_HOST
+|Numeric host address
+
+|OPENSHIFT_POSTGRESQL_DB_PORT
+|Port
+
+|OPENSHIFT_POSTGRESQL_DB_USERNAME
+|DB Username
+
+|OPENSHIFT_POSTGRESQL_DB_PASSWORD
+|DB Password
+
+|OPENSHIFT_POSTGRESQL_DB_LOG_DIR
+|Directory for log files
+
+|OPENSHIFT_POSTGRESQL_DB_PID
+|PID of current Postgres server
+
+|OPENSHIFT_POSTGRESQL_DB_SOCKET_DIR
+|Postgres socket location
+
+|OPENSHIFT_POSTGRESQL_DB_URL
+|Full server URL of the form "postgresql://user:password@host:port"
+
+|OPENSHIFT_POSTGRESQL_VERSION
+|PostgreSQL version in the form `X.Y`
+|===
+
+You can fine-tune the PostgreSQL server performance by using the rhc tool and changing the default values for these variables:
+
+[options="header"]
+|===
+|Variable |Description
+
+|OPENSHIFT_POSTGRESQL_SHARED_BUFFERS
+|The shared_buffers configuration parameter determines how much memory is dedicated to PostgreSQL to use for caching data.
+
+|OPENSHIFT_POSTGRESQL_MAX_CONNECTIONS
+|max_connections sets exactly that: the maximum number of client connections allowed.
+|===
+
+For more details, please refer to the PostgreSQL link:https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server[wiki page].
+
+=== Example Use
+
+Getting a Python app with a PostgreSQL backend deployed onto OpenShift is as easy as executing two commands:
+
+[source]
+--
+$ rhc app create MyApp python-3.3
+$ rhc cartridge add postgresql-9.2 -a MyApp
+--
+
+These two commands create your "server" and install and configure Python, PostgreSQL, and a git repository on the server. You can now visit your application on the web at:
+
+[source]
+--
+http://MyApp-MyDomain.rhcloud.com/
+--
+
+link:#top[Back to Top]

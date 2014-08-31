@@ -1,18 +1,16 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
-parent_url:
+category: 50_Get Involved
+breadcrumb: Get Involved
+parent_url: get-involved.html
 nav_title: Extend OpenShift
-nav_priority: 50
+nav_priority: 2
 ---
 = Extend OpenShift
-:source-highlighter: coderay
-:icons:
 
 [float]
 = Extend OpenShift
-
+[.lead]
 Bring your favorite technologies to OpenShift as a QuickStart or make
 your code reusable in a Cartridge. Or get the source and extend the
 platform.

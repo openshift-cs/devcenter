@@ -62,10 +62,7 @@ complete, run:
 C:Files> rhc setup
 ------------------------
 The OpenShift interactive setup wizard displays and prompts you to complete the rest
-of the process. If you cannot run OpenShift client tools at this point,
-please contact us on
-https://www.openshift.com/irc[IRC] or visit the
-https://help.openshift.com[Help Center] for more assistance.
+of the process. If you cannot run OpenShift client tools at this point, please visit the link:https://help.openshift.com[Help Center] for more assistance.
 
 == Video Walkthrough
 

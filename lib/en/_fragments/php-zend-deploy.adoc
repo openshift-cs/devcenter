@@ -1,4 +1,4 @@
-The process of deploying Zend Server on OpenShift is very simple
+The process of deploying Zend Server on OpenShift is very simple:
 
 [source]
 --
@@ -6,7 +6,7 @@ $ rhc app create MyApp zend-6.1
 $ rhc cartridge add mysql-5.5 -a MyApp
 --
 
-These two commands create your "server" and install and configure PHP, MySQL, and a git repository on the server. You can now visit your application on the web at:
+These two commands create your server and install and configure PHP, MySQL, and a git repository on the server. You can now visit your application on the web at:
 
 [source]
 --

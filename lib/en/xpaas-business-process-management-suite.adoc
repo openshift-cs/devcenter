@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 50_JBoss xPaaS
+category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: BPM Suite
@@ -74,7 +74,7 @@ Red Hat JBoss BPM Suite includes JBoss BRMS, a full business rules management sy
 In many cases processes need to interact with other systems. To enable this, JBoss BPM Suite offers a number of ways of interacting with these external systems and sources of data and information. It not only exposes its own API and REST services, but you can customize any connection at any point of the process to enable information exchange.
 
 == Simplify the lifecycle
-Getting the JBoss BPM Suite process management capabilities deployed onto OpenShift is as easy as clicking “Deploy Now” or executing the following command:
+Getting the JBoss BPM Suite process management capabilities deployed onto OpenShift is as easy as clicking "Deploy Now" or executing the following command:
 
 [source]
 --
@@ -100,25 +100,25 @@ link:#top[Back to Top]
 There are two ways to install the BPM Suite cartridge on OpenShift and you can choose the option that best suits your workflow - either through the OpenShift Online web console or through the Command Line Tools (rhc).
 
 === Installation Option 1: Using the QuickStart / OpenShift Web Console
-Start by logging into your OpenShift account (don’t have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
+Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
 
-* The link:https://www.openshift.com/quickstarts/jboss-business-process-management-suite[BPMS QuickStart page] and then on the “Deploy now” button;
+* The link:https://www.openshift.com/quickstarts/jboss-business-process-management-suite[BPMS QuickStart page] and then on the "Deploy now" button;
 * link:https://openshift.redhat.com/app/console/application_type/quickstart!17804[Deploy Now] (will take you to the web console)
-* The OpenShift console by clicking “Login” (if this is your first time) or “My Apps” (if you already have some) in the upper right corner of your browser:
+* The OpenShift console by clicking "Login" (if this is your first time) or "My Apps" (if you already have some) in the upper right corner of your browser:
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
 
-If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “BPM” or you can scroll down to the list of quick links and click “JBoss BPM Suite 6” under “xPaaS”. This will bring you to the “Configure Application” step (see below.)
+If you use the OpenShift console click the "Add Application" button below your list of applications or the "Create your first application now" link. You can either search for "BPM" or you can scroll down to the list of quick links and click "JBoss BPM Suite 6" under "xPaaS". This will bring you to the "Configure Application" step (see below.)
 
 image::xpaas/xpaas-bpms-2.png[JBoss BPMS Cartridge Description]
 
-If you use the QuickStart, click on the “Deploy Now” button. This will bring you directly to the “Configure Application” step.
+If you use the QuickStart, click on the "Deploy Now" button. This will bring you directly to the "Configure Application" step.
 
-To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. “BPM”, “BPMtest” or whatever you like.) You don’t need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it. You can upgrade to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears link:https://openshift.redhat.com/app/account/plans/bronze/upgrade[here]. (you can visit the link:https://help.openshift.com[OpenShift Help Center] if you need further assistance)
+To configure the application you will need to configure your application's public URL. Choose a name for this application (e.g. "BPM", "BPMtest" or whatever you like.) You don't need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it. You can upgrade to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears link:https://openshift.redhat.com/app/account/plans/bronze/upgrade[here]. (you can visit the link:https://help.openshift.com[OpenShift Help Center] if you need further assistance)
 
-Make your Gear selection to “Medium”, and for scaling select – “No scaling”, which will work just fine; then hit “Create Application” and OpenShift will build the application for you. When that is complete you will see the “Next Steps” page and you can decide whether you want to change the code of the application. For now select “Not now”. The next page will have some important information for you so don’t go speeding past it.
+Make your Gear selection to "Medium", and for scaling select - "No scaling", which will work just fine; then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don't go speeding past it.
 
-In the first line you will see the URL for your BPM cartridge. A bit further down you’ll see the auto generated login credentials. Save these because you will need them to login to BPM Suite Business Central. Once you have this information recorded click on the “Continue to the application overview page” link.
+In the first line you will see the URL for your BPM cartridge. A bit further down you'll see the auto generated login credentials. Save these because you will need them to login to BPM Suite Business Central. Once you have this information recorded click on the "Continue to the application overview page" link.
 
 image::xpaas/xpaas-bpms-3.png[JBoss BPMS Cartridge Sucess]
 
@@ -130,7 +130,7 @@ A process example is automatically imported and made available under the organiz
 
 image::xpaas/xpaas-bpms-5.png[JBoss BPMS Console]
 
-And that’s it. You are now running BPM Suite on OpenShift. Congratulations!
+And that's it. You are now running BPM Suite on OpenShift. Congratulations!
 
 === Installation Option 2: Using the Command Line Tools (rhc)
 If you want to use the rhc command line type:
@@ -142,7 +142,7 @@ $ rhc create-app -g medium bpmsuite https://raw.githubusercontent.com/jboss-bpms
 
 Please note that we advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it.
 
-You can use other name instead of “bpmsuite” in this command.
+You can use other name instead of "bpmsuite" in this command.
 
 This will output the generated users and passwords for Business Central, which you can use to login into Business Central or BAM applications..
 
@@ -165,11 +165,11 @@ link:#top[Back to Top]
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the BPM Suite Alpha cartridge. You can either use the OpenShift console or the command line. You can check out our link:#getting-started[Getting Started] section for further instructions.
 Where do I go for support?::
-  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/jbpm[BPM Suite community boards]. We would love to have your input so go where you’re most comfortable and we will see it.
-What does it mean that this is an “Alpha” cartridge?::
-  BPM Suite on OpenShift is based on a candidate release version of JBoss BPM Suite 6.0.2 and like any pre-release software it is undergoing testing and improvements on its way to general availability. There are also unique requirements to running BPM Suite on a cloud platform like OpenShift and some of those are in development. For example, we strongly advise it is run at least on a medium gear. We feel the term “Alpha” is an industry wide term that conveys the right sense of where this technology is – it is targeted at production use cases but not production supported at this time.
+  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/jbpm[BPM Suite community boards]. We would love to have your input so go where you're most comfortable and we will see it.
+What does it mean that this is an "Alpha" cartridge?::
+  BPM Suite on OpenShift is based on a candidate release version of JBoss BPM Suite 6.0.2 and like any pre-release software it is undergoing testing and improvements on its way to general availability. There are also unique requirements to running BPM Suite on a cloud platform like OpenShift and some of those are in development. For example, we strongly advise it is run at least on a medium gear. We feel the term "Alpha" is an industry wide term that conveys the right sense of where this technology is - it is targeted at production use cases but not production supported at this time.
 Why do you recommend it is run at least on a medium gear? Will it run on a small gear?::
-  The previous version of BPM Suite (6.0.1) didn’t run at an acceptable performance on a small gear so we advised to run it only in a medium gear. For 6.0.2 we have improved this and are happy to confirm it will run on a small gear. However, BPM Suite is a feature-rich, state-of-the-art product. You can easily manage it from the user or programming interfaces, since these abstract you from that complexity. Among other things it includes the full BRMS product and advanced functionality that requires a bigger environment to run at a good performance than what a small gear provides. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will also contrain what you can effectively do with it. So we recommend it is run at least on a medium gear.
+  The previous version of BPM Suite (6.0.1) didn't run at an acceptable performance on a small gear so we advised to run it only in a medium gear. For 6.0.2 we have improved this and are happy to confirm it will run on a small gear. However, BPM Suite is a feature-rich, state-of-the-art product. You can easily manage it from the user or programming interfaces, since these abstract you from that complexity. Among other things it includes the full BRMS product and advanced functionality that requires a bigger environment to run at a good performance than what a small gear provides. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will also contrain what you can effectively do with it. So we recommend it is run at least on a medium gear.
 Will you create a BRMS Cartridge?::
   The BPM Suite includes the whole BRMS product. This means that if you are only interested in rules management and automation, for the time being, you can use the BRMS capabilities that BPM Suite cartridge contains.
 What is the cartridge lifecyle?::

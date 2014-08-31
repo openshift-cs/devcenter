@@ -1,20 +1,19 @@
 ---
 layout: base
-category: 01_Overview
-breadcrumb: Overview
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
 parent_url:
-nav_title: Environment Variables
-nav_priority: 50
+nav_title: Using Environment Variables
+nav_priority: 40
 ---
-= Environment Variables
+= Using Environment Variables
 
 [float]
-= Environment Variables
+= Using Environment Variables
+[.lead]
+OpenShift has a few environment variables to make it easy for your to configure your application to run properly.
 
-OpenShift has a few environment variables to make it easy for your to configure your application to run properly. The following tables show the variables,
-some examples of what the value would be, and what you might use them
-for. Depending on what extra cartridges you have enabled in your
-application, you may have more or less available variables. Also, values
+The following tables show the variables, some examples of what the value would be, and what you might use them for. Depending on what extra cartridges you have enabled in your application, you may have more or less available variables. Also, values
 may be slightly different for similar types of cartridges (for instance,
 if you have a PostgreSQL database as opposed to MySQL).
 

@@ -5,8 +5,11 @@ name: Developer Center
 title: OpenShift Online Developer Center
 org: Red Hat
 base_url: ''
-
+static_assets_url: 'https://assets.openshift.net/content'
 asciidoctor:
   :safe: safe
   :attributes:
+    sectanchors: ''
     imagesdir: /en/images@
+    icons: font
+    source-highlighter: coderay

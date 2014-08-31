@@ -7,35 +7,190 @@ nav_title: Overview
 nav_priority: 1
 ---
 = Getting Started
-:icons:
 
 [[top]]
-[[getting-started]]
 [float]
 = Getting Started with OpenShift Online
+[.lead]
+It's easy to get up and running on OpenShift, but we offer you a lot of choice when it comes to your preferred environment. Below you'll find the information you need to get started creating and managing applications on OpenShift.
 
-OpenShift Online provides several environments to work from, each which provide advantages when creating and managing your applications. To access the full power of OpenShift Online, it is recommended to become familiar with both environments.
+[.lead]
+link:#step1[Step 1: Sign Up for a Free Account] +
+link:#step2[Step 2: Set up the OpenShift Environment] +
+link:#step3[Step 3: Create Your First Application] +
+link:#step4[Step 4: Make Your First Change] +
+link:#tutorials[Langauge-Specific Tutorials] +
 
-== Web Console
+[[step1]]
+== Step 1: Sign Up for a Free Account
+[.lead]
+https://www.openshift.com/app/account[> Create a Free OpenShift Account]
 
+[[step2]]
+== Step 2: Set up the OpenShift Environment
+OpenShift Online provides several environments to work from, each which provide advantages when creating and managing your applications. To access the full power of OpenShift Online, we recommended you become familiar with at least the Web Console and Command Line environments.
+
+=== Web Console
 OpenShift's web console gives you the power to create and manage your apps without installing anything or going to the command line. The console guides you through each application creation and suggests additional capabilities to complement it. Examples include MongoDB, MySQL, or Jenkins continuous integration builds.
 
-== Command Line Tools (rhc)
+[.lead]
+link:https://openshift.redhat.com/app/console[> Enter the Web Console (login required)]
+
+=== Command Line Tools (RHC)
 The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment.
 
 The OpenShift client tools are packaged as a Ruby Gem.
 
 IMPORTANT: To run the tools on your platform, you'll need Ruby 1.8.7 or newer, the ability to install a gem (on Linux this requires root access), and the Git version control tool.
 
-'''
+[.lead]
+link:getting-started-client-tools.html[> Install the Client Tools]
 
-=== Step 1 - Sign Up for a free OpenShift Online account
+=== JBoss Developer Studio (Eclipse IDE)
+JBoss Developer Studio, with its Eclipse-based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. It integrates with the OpenShift platform to put the ability to create, edit, and deploy applications right at your fingertips.
 
-https://www.openshift.com/app/account[Click here to create a free OpenShift account]
+[.lead]
+link:getting-started-ide.html[> Install JBoss Developer Studio (Optional)]
 
-=== Step2 - Select Your Operating System
-link:getting-started-windows.html[Windows] +
-link:getting-started-mac-os-x.html[Mac OS X] +
-link:getting-started-fedora.html[Fedora] +
-link:getting-started-rhel6.html[RHEL6] +
-link:getting-started-ubuntu.html[Ubuntu] +
+link:#top[Back to Top]
+
+[[step3]]
+== Step 3: Create Your First Application
+
+=== Option 1 - Web Console
+One option for creating your first application is to log into the web console and follow the step-by-step instructions to get started. However, you will still need to use Git to make changes.
+
+[.lead]
+link:https://openshift.redhat.com/app/console/application_types[> Create an App in the Web Console (login required)]
+
+=== Option 2 - Command Line (RHC)
+With the link:getting-started-client-tools.html[RHC set-up] complete, you are ready to create your first application. For the purposes of this example, we are going to create a Python application, but you could use any of our supported web cartridges. The list of cartridges grows pretty rapidly, so if you want to see the full list of cartridges on OpenShift, please execute the following command:
+
+[source,console]
+--
+$ rhc cartridge list
+--
+
+Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
+
+Let's create an app!
+
+Here's the syntax for creating an OpenShift application.
+
+[source]
+--
+$ rhc app create <app_name> <web_language>
+--
+
+or
+
+[source]
+--
+$ rhc app create <app_name> <web_language> <other cartridges>
+--
+
+And here is how we use it to create an application named _insultapp_ using the Python 2.7 cartridge.
+
+[source,console]
+...........................
+
+[me@localhost ~]$ rhc app create insultapp python-2.7
+Application Options
+--------------------
+Domain:     osbeginnerbook
+Cartridges: python-2.7
+Gear Size:  default
+Scaling:    no
+
+Creating application 'insultapp' ... done
+
+
+Waiting for your DNS name to be available ... done
+
+Cloning into 'insultapp'...
+The authenticity of host 'insultapp-osbeginnerbook.rhcloud.com (19.66.2.6)'
+can't be established.
+RSA key fingerprint is 4e:65:76:72:47:6f:6e:6e:61:47:69:76:65:55:55:70.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'insultapp-osbeginnerbook.rhcloud.com' (RSA) to the
+list of known hosts.
+
+Your application 'insultapp' is now available.
+
+  URL:        http://insultapp-osbeginnerbook.rhcloud.com/
+  SSH to:     6e7672676e61676976757570@insultapp-osbeginnerbook.rhcloud.com
+  Git remote: ssh://6e7672676e61676976757570@insultapp-osbeginnerbook.
+    rhcloud.com/~/git/insultapp.git/
+  Cloned to:  /home/me/insultapp
+
+Run 'rhc show-app insultapp' for more details about your app.
+...........................
+
+That's it! When the command finishes executing you will have Apache HTTP server with _mod_wsgi_ running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
+
+[.lead]
+link:getting-started-creating-applications.html[> Learn More about Creating Applications]
+
+link:#top[Back to Top]
+
+[[step4]]
+== Step 4: Make Your First Change
+As a developer on OpenShift, you make code changes on your local machine, check those changes in locally, and then "push" those changes to OpenShift. One of the primary advantages of Git is that it does not require a continuous online presence in order to run. You can easily check in (in Git terminology, 'commit') and revert changes locally before deciding to upload those changes to OpenShift.
+
+=== Using the Git Repository
+
+Every OpenShift application you create has its own Git repository that only you can access.
+
+If you create your application from the command line, +rhc+ will automatically download a copy of that repository (Git calls this 'cloning') to your local system.
+
+If you create an application from the web console, you'll need to tell Git to clone the repository. Find the Git URL from the application page, and then run:
+
+[source]
+--
+$ git clone <git_url> <directory to create>
+--
+
+=== Submitting Changes
+
+Once you make changes, you'll need to 'add' and 'commit' those changes - 'add' tells Git that a file or set of files will become part of a larger check in, and 'commit' completes the check in. Git requires that each commit have a message to describe it.
+
+[source]
+----------------
+$ git add .
+$ git commit -m "A checkin to my application"
+----------------
+
+Finally, you're ready to send your changes to your application - you'll 'push' these changes with:
+
+[source]
+----------------
+$ git push
+----------------
+
+The output of the push command will contain information from OpenShift about your deployment.
+[.lead]
+link:http://git-scm.com/book[> Learn more about using Git]
+
+=== When you Push...
+
+Building without Jenkins uses your application space as part of the build and test process. Because of this, the application is shut down so its memory can be used for building. The following steps take place:
+
+* You run a 'git push' on your computer - your changes are sent to your OpenShift application
+* The application is shut down
+* Your changes are copied on the server into the correct location
+* OpenShift invokes your build hooks - script files you've placed in your Git repository
+* Your application is started
+
+[.lead]
+link:getting-started-modifying-applications.html[> Learn More About Modifying Applications]
+
+link:#top[Back to Top]
+
+[[tutorials]]
+== What's Next?
+
+Access one of our more specific tutorials or learn more about specific cartridges on OpenShift.
+
+include::_fragments/getting-started-tutorial-list.adoc[]
+
+link:#top[Back to Top]
