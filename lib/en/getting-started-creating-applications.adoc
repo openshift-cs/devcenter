@@ -29,14 +29,7 @@ link:#section_paidtier[Premium Plan Advantages]
 
 [[create-app]]
 === Creating Your First Application
-With your RHC set-up complete, you are ready to create your first application. For the purposes of example, we are going to create a Python application, however you could use any of our supported web cartridges to make an application. The list of cartridges grows pretty rapidly, so if you want to see the full list of cartridges on OpenShift, please execute the following command:
-
-[source,console]
---
-$ rhc cartridge list
---
-
-Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
+With your RHC set-up complete, you are ready to create your first application. For the purposes of example, we are going to create a Python application. Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
 
 Let's create an app!
 
@@ -93,9 +86,9 @@ Run 'rhc show-app insultapp' for more details about your app.
 
 That's it! When the command finishes executing you will have Apache HTTP server with _mod_wsgi_ running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
 
-We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. We will discuss this further below in <<section_autoscaling>>.
+We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. We will discuss this later when we discuss autoscaling!!! in depth.
 
-We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see <<section_paidtier>> to understand other reasons to move into the paid tier.
+We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the paid tier documentation!!! to understand other reasons to move into the paid tier.
 
 Finally, we could also use the _--from-code_ option to point to a publicly accessible Git repository to serve as the template for our application. One caveat with this flag is that when OpenShift tries to create the gear, the application has to download and build the Git repository within a particular time period.
 
@@ -106,6 +99,9 @@ Go ahead and look at your web page (_Figure 1_). What you should see is the temp
 [[screenshot_appcreation]]
 .A What your first application looks like!
 image::creationScreenShot.png["Screenshot of the default Python application"]
+
+
+While that was exciting and all, let's go ahead and do more with our application. Time to link:getting-started-modifying-applications.html[modify our application]
 
 link:#top[Back to Top]
 
