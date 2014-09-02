@@ -13,30 +13,66 @@
       Home | OpenShift Dev Center
     = partial( 'styles.html.haml' )
     = partial( 'scripts.html.haml' )
-  %body
+  %body.devcenter-home
     = partial( 'openshift-header.html.haml' )
-    .container
-      = partial( 'toggle.html.haml' )
-      %ol.breadcrumb
-        %li.sitename
-          %a{href: "/en"} Developer Center
-      .row.row-offcanvas.row-offcanvas-left
-        .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
-          %ul.nav.nav-sidebar
-            - site.pages.reject{|p| p.category.nil?}.group_by(&:category).sort.each do |category, pages|
-              %li.nav-header{ :class=>page.category =~ /#{category}/i ? 'active' : nil }
-                %a{"data-target" => "##{category.gsub(/[^A-Z]/i, '').downcase}Menu", "data-toggle" => "collapse", href: "#"}
-                  %span{ :class=>page.category=~ /#{category}/i ? 'fa fa-angle-down' : 'fa fa-angle-right' }
-                  = category.gsub(/[^A-Z\. ]/i, '')
-                %ul.collapse.list-unstyled{"id" => "#{category.gsub(/[^A-Z]/i, '').downcase}Menu"}
-                  - pages.sort_by{ |a| a.nav_priority }.each do |p|
-                    %li
-                      %a{ :href => p.url } #{p.nav_title}
-            %li.nav-header
-              %a{ href: "https://access.redhat.com/documentation/en-US/OpenShift_Online/" } Documentation
-            %li.nav-header
-              %a{ href: "http://help.openshift.com" } Get Help
-        .col-xs-12.col-sm-9.col-md-9.main
-          ~ content
+    
+    
+      
+    %header.masthead.masthead-devcenter.text-center
+      .container
+        .title-inner
+          %h1 Developer Center
+          .tag Your Code. Your Choice.
+          %a.enter-link{:href => "/en/overview-what-is-openshift.html"} Enter the Developer Center
+
+    .landing.landing-devcenter.cushion-bottom
+      .container
+        .row.text-center
+          .col-md-4.col-sm-4.get-started-bloc
+            %a{:href => "http://localhost:4242/en/getting-started-overview.html"}
+              .section-mark
+                %img{:alt => "get started icon", :src => "https://assets.openshift.net/content/devcenter/circle-icon-get-started.png"}/
+              %h2 Get Started
+            %span Step by step instruction – web console, command-line tools, or your IDE.
+          .col-md-4.col-sm-4.documentation-bloc
+            %a{:href => "https://access.redhat.com/documentation/en-US/OpenShift_Online/"}
+              .section-mark
+                %img{:alt => "documentation icon", :src => "https://assets.openshift.net/content/devcenter/circle-icon-documentation.png"}/
+              %h2 Documentation
+            %span A comprehensive walkthrough of the OpenShift service and all of the core concepts.
+          .col-md-4.col-sm-4.help-bloc
+            %a{:href => ""}
+              .section-mark
+                %img{:alt => "need help icon", :src => "hhttps://assets.openshift.net/content/devcenter/circle-icon-help.png"}/
+              %h2 Need Help?
+            %span Visit the OpenShift Online Help Center for a complete list of available resources and support options.
+        .row.cushion
+          .col-md-7.col-sm-8.col-xs-8.center-block
+            .search-form
+              %form#cse-search-form-body.search.has-button{:action => "https://help.openshift.com/hc/en-us/search", :method => "get", :role => "form"}
+                .form-group
+                  .search-pf-input-group
+                    %input#cse-search-input-body.form-control{:autocomplete => "off", :dir => "ltr", :name => "query", :placeholder => "How can we help?", :spellcheck => "false", :style => "outline: none;", :type => "search"}
+                .form-group
+                  %button.btn.btn-default{:type => "button"}
+                    %span.fa.fa-search
+
+    .landing.cushion
+      .container
+        .row
+          .col-md-10.col-centered.text-center
+            %h3 Get Involved with OpenShift Online
+            .row
+              .col-md-4.text-center
+                %h4
+                  %a{:href => "http://ideas.openshift.com"} Submit and vote features
+              .col-md-4.text-center
+                %h4
+                  %a{:href => "https://www.openshift.com/application-gallery"} Application Gallery
+              .col-md-4.text-center
+                %h4
+                  %a{:href => "https://www.openshift.com/developer-spotlight"} Developer Spotlight
+
+      
     = partial( 'analytics.html.haml' )
     = partial( 'footer.html.haml' )
