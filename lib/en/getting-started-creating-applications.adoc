@@ -2,7 +2,7 @@
 layout: base
 category: 02_Getting Started
 breadcrumb: Getting Started
-parent_url:
+parent_url: getting-started-overview.html
 nav_title: Creating Applications
 nav_priority: 20
 meta_desc: Create your first application on OpenShift either through the web console or RHC client tools.
