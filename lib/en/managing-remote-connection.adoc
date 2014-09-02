@@ -2,7 +2,7 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url:
+parent_url: managing-remote-connection.html
 nav_title: Remote Connection
 nav_priority: 50
 meta_desc: Connect to your OpenShift application remotely using SSH. This page shows you how with Windows and other platforms.
@@ -20,7 +20,7 @@ server, check logs and test quick changes.
 
 SSH is recommended for advanced users who need to debug their
 applications - for more routine tasks use the
-link:overview-client-tools.html[OpenShift client tools (rhc)].
+link:getting-started-client-tools.html[OpenShift client tools (rhc)].
 
 To remotely access your application you need to:
 
@@ -49,7 +49,7 @@ If you're less familiar with SSH keys and you aren't sure whether you
 have generated keys yet, the OpenShift client tools can generate and
 upload a key for you through an easy to use wizard.
 
-* Install the link:overview-client-tools.html[OpenShift client tools], if you
+* Install the link:getting-started-client-tools.html[OpenShift client tools], if you
 haven't already done so.
 * From a command line terminal type
 +

@@ -2,7 +2,7 @@
 layout: base
 category: 01_Overview
 breadcrumb: Overview
-parent_url:
+parent_url: overview-what-is-openshift.html
 nav_title: What is OpenShift?
 nav_priority: 1
 meta_desc: OpenShift Online is Red Hats public cloud application development and hosting platform that automates the provisioning, management and scaling of applications.
@@ -85,7 +85,7 @@ link:https://openshift.redhat.com/app/console[-> Access the Web Console]
 
 === RHC Client Tools
 The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment. +
-link:managing-client-tools.html[-> Install and Use RHC]
+link:getting-started-client-tools.html[-> Install and Use RHC]
 
 === JBoss Developer Studio
 JBoss Developer Studio, with its Eclipse Based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. Integrates with the OpenShift platform to put the ability to create, edit and deploy applications right at your fingertips. +

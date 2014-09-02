@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: base_simple
 ---
 = Page not found
 

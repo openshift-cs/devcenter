@@ -1,8 +1,8 @@
 ---
 layout: base
 category: 04_Databases and Technologies
-breadcrumb: Databases and Technologiess
-parent_url:
+breadcrumb: Databases and Technologies
+parent_url: databases-mongodb.html
 nav_title: MongoDB
 nav_priority: 2
 meta_desc: MongoDB Developers - OpenShift Resources to get your Mongo applications hosted in the cloud.

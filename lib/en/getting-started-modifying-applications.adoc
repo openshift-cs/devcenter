@@ -123,6 +123,6 @@ link:#top[Back to Top]
 
 Building with Jenkins uses dedicated application space that can be larger than the application runtime space. Because the build happens in its own dedicated gear, the running application is not shut down or changed in any way until after the build succeeds. If it fails, the running application code will not be changed. However, a failure during the deploy process such as missing dependencies, bad runtime code, or incorrect build output may leave the app partially deployed or inaccessible.
 
--> link:/en/jenkins-overview.html[Learn more about building with Jenkins]
+-> link:/en/managing-continuous-integration.html[Learn more about building with Jenkins]
 
 link:#top[Back to Top]

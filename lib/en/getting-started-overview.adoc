@@ -2,7 +2,7 @@
 layout: base
 category: 02_Getting Started
 breadcrumb: Getting Started
-parent_url:
+parent_url: getting-started-overview.html
 nav_title: Overview
 nav_priority: 1
 meta_desc: Get started at the web console or by installing the rhc command line tools for your operating system - Windows, Mac OS X, or Linux.

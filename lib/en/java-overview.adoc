@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: java-overview.html
 nav_title: Java
 nav_priority: 1
 meta_desc: Java Developers - OpenShift Resources to get your Java applications hosted in the cloud.
@@ -19,6 +19,8 @@ With OpenShift you can easily deploy and run Java applications using your favori
 Java is a general-purpose, concurrent, class-based, object-oriented computer programming language that is specifically designed to have as few implementation dependencies as possible.
 
 Visit the official Java documentation to link:https://java.com[learn more].
+
+image::java-logo.png[Java logo]
 
 == Supported Technologies
 OpenShift provides several ways to deploy Java applications, including the following environments:
