@@ -5,6 +5,7 @@ breadcrumb: Databases and Technologies
 parent_url:
 nav_title: MySQL
 nav_priority: 1
+meta_desc: MySQL Developers - OpenShift Resources to get your MySQL applications hosted in the cloud.
 ---
 = MySQL Overview
 

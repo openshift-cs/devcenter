@@ -5,6 +5,7 @@ breadcrumb: Getting Started
 parent_url:
 nav_title: Installing Client Tools
 nav_priority: 10
+meta_desc: RHC client tools are available for all operating systems.  Follow these simple steps to manage your application in the cloud--from create to delete.
 ---
 = Installing Client Tools
 

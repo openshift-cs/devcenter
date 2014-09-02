@@ -5,6 +5,7 @@ breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Overview
 nav_priority: 1
+meta_desc: JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift.
 ---
 = JBoss xPaaS Overview
 

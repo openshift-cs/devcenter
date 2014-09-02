@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: JBossEAP
 nav_priority: 1.3
+meta_desc: JBossEAP Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
 = JBossEAP Overview
 

@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: PHP
 nav_priority: 2
+meta_desc: PHP Developers - OpenShift Resources to get your PHP applications hosted in the cloud.
 ---
 = PHP Overview
 

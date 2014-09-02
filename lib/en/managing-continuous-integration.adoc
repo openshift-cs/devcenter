@@ -5,6 +5,7 @@ breadcrumb: Managing Your Applications
 parent_url:
 nav_title: Continuous Integration
 nav_priority: 70
+meta_desc: Step-by-step how to build your application with Jenkins to run builds tests and other scheduled tasks with an OpenShift application.
 ---
 = Continous Integration
 

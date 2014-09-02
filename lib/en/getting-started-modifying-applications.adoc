@@ -1,10 +1,11 @@
 ---
 layout: base
-category: 
+category: 02_Getting Started
 breadcrumb: Getting Started
 parent_url:
 nav_title: Modifying Applications
 nav_priority: 30
+meta_desc: Deploy and build applications on OpenShift. Choose to push local changes to OpenShift or build with Jenkins.
 ---
 = Modifying Applications
 

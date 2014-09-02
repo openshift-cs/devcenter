@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: Java
 nav_priority: 1
+meta_desc: Java Developers - OpenShift Resources to get your Java applications hosted in the cloud.
 ---
 = Java Overview
 

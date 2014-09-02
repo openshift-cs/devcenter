@@ -5,6 +5,7 @@ breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: BPM Suite
 nav_priority: 3
+meta_desc: An overview of the JBoss Business Process Management Suite available on OpenShift.
 ---
 = JBoss Business Process Management Suite
 
