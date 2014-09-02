@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 02_Getting Started
+category: 
 breadcrumb: Getting Started
 parent_url:
 nav_title: Creating Applications
@@ -37,14 +37,14 @@ Here's the syntax for creating an OpenShift application.
 
 [source]
 --
-$ rhc app create <app_name> <web_language>
+$ rhc app-create <app_name> <web_language>
 --
 
 or
 
 [source]
 --
-$ rhc app create <app_name> <web_language> <other cartridges>
+$ rhc app-create <app_name> <web_language> <other cartridges>
 --
 
 And here is how we use it to create an application named _insultapp_ using the Python 2.7 cartridge.
@@ -52,7 +52,7 @@ And here is how we use it to create an application named _insultapp_ using the P
 [source,console]
 ...........................
 
-[me@localhost ~]$ rhc app create insultapp python-2.7
+[me@localhost ~]$ rhc app-create insultapp python-2.7
 Application Options
 --------------------
 Domain:     osbeginnerbook
@@ -101,7 +101,7 @@ Go ahead and look at your web page (_Figure 1_). What you should see is the temp
 image::creationScreenShot.png["Screenshot of the default Python application"]
 
 
-While that was exciting and all, let's go ahead and do more with our application. Time to link:getting-started-modifying-applications.html[modify our application]
+While that was exciting and all, let's go ahead and do more with our application. Time to link:getting-started-modifying-applications-python.html[modify our application]
 
 link:#top[Back to Top]
 
