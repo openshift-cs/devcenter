@@ -5,6 +5,7 @@ breadcrumb: Get Involved
 parent_url: get-involved.html
 nav_title: Overview
 nav_priority: 1
+meta_desc: Stay in touch, engage, and stay informed with the OpenShift community through blogs and upcoming events.
 ---
 = Get Involved
 

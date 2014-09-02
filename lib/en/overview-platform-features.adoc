@@ -5,6 +5,7 @@ breadcrumb: Overview
 parent_url:
 nav_title: OpenShift Features
 nav_priority: 10
+meta_desc: OpenShift Online offers many powerful application management options some of which are only available on the premium Bronze and Silver plans.
 ---
 = OpenShift Features
 

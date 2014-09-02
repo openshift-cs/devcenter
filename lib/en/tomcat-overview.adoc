@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: Tomcat
 nav_priority: 1.4
+meta_desc: Tomcat Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
 = Tomcat Overview
 

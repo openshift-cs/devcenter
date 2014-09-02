@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: Node.js
 nav_priority: 30
+meta_desc: Node.js Developers - OpenShift Resources to get your Node.js applications hosted in the cloud.
 ---
 = Node.js Overview
 

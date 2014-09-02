@@ -5,6 +5,7 @@ breadcrumb: Get Involved
 parent_url: get-involved.html
 nav_title: Extend OpenShift
 nav_priority: 2
+meta_desc: Bring your favorite technologies to OpenShift as a QuickStart or make your code reusable in a Cartridge.
 ---
 = Extend OpenShift
 

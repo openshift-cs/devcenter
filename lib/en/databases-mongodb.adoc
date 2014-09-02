@@ -5,6 +5,7 @@ breadcrumb: Databases and Technologiess
 parent_url:
 nav_title: MongoDB
 nav_priority: 2
+meta_desc: MongoDB Developers - OpenShift Resources to get your Mongo applications hosted in the cloud.
 ---
 = MongoDB Overview
 

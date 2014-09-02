@@ -5,6 +5,7 @@ breadcrumb: Languages
 parent_url:
 nav_title: Perl
 nav_priority: 60
+meta_desc: Perl Developers - OpenShift Resources to get your Perl applications hosted in the cloud.
 ---
 = Perl Overview
 
@@ -17,7 +18,7 @@ Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicio
 
 Perl is a high-level, general-purpose dynamic programming language. With OpenShift you can easily deploy and run Perl applications using your favorite frameworks and databases.
 
-link:#simplify[Simplify Your Perl Deployments]
+link:#simplify[Simplify Your Perl Deployments] +
 link:#perl[The Perl Cartridge]
 
 image::perl-logo.png[Perl logo]
