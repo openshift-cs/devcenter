@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 02_Getting Started
+category: 
 breadcrumb: Getting Started
 parent_url:
 nav_title: Creating Applications
