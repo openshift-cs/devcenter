@@ -2,7 +2,7 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url:
+parent_url: managing-environment-variables.html
 nav_title: Using Environment Variables
 nav_priority: 40
 meta_desc: OpenShift has several environment variables to make it easy for your to configure your application properly.

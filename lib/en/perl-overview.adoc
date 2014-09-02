@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: perl-overview.html
 nav_title: Perl
 nav_priority: 60
 meta_desc: Perl Developers - OpenShift Resources to get your Perl applications hosted in the cloud.

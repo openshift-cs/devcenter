@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: php-overview.html
 nav_title: Zend Server
 nav_priority: 90
 meta_desc: Zend Server Studio and Framework Developers - OpenShift Resources to get your PHP applications hosted in the cloud.

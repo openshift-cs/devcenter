@@ -2,7 +2,7 @@
 layout: base
 category: 04_Databases and Technologies
 breadcrumb: Databases and Technologies
-parent_url:
+parent_url: databases-postgresql.html
 nav_title: PostgreSQL
 nav_priority: 3
 meta_desc: PostgreSQL Developers - OpenShift Resources to get your PostgreSQL applications hosted in the cloud.

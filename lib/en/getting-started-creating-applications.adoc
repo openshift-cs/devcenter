@@ -118,7 +118,7 @@ It is highly recommended that you make your applications scalable by default. Th
 * Your application server, your database server, and any other server you put in your application will each go on their own gear and therefore not compete for disk, memory, or other resources. This will give you much better performance compared to non-scaling where they all run in the same gear.
 * It gives you more flexibility if you start to experience more load on your application. You can set the scaling limits for the application tier to accommodate the new traffic.
 * It will allow you to scale up manually if you know a big event is coming up and you want to warm up the servers beforehand.
-* There is no command to make a non-scalable application into a scalable application. If you want to make a non-scalable app scalable, you will need to snapshot it, spin up a new scalable application, and then restore it to the new application (see <<section_snapshots>> for information about snapshots).
+* There is no command to make a non-scalable application into a scalable application.
 
 link:#top[Back to Top]
 

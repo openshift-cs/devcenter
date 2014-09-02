@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: java-overview.html
 nav_title: JBossEAP
 nav_priority: 1.3
 meta_desc: JBossEAP Developers - OpenShift Resources to host your Java applications in the cloud.
@@ -16,6 +16,8 @@ meta_desc: JBossEAP Developers - OpenShift Resources to host your Java applicati
 == The JBossEAP Cartridge
 [.lead]
 Provides the JBossEAP application server on OpenShift. OpenShift Online currently supports `JBossEAP 6.2`.
+
+image::jboss-logo.png[JBoss logo]
 
 === Template Repository Layout
 [source]
