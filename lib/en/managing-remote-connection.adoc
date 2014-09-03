@@ -79,7 +79,7 @@ default. However, Windows does not. Many third party SSH clients for
 windows are available, however we prefer PuTTY, which is free to use.
 
 * Install and Configure PuTTY for
-link:overview-ssh.html#using-ssh-on-windows[SSH on
+link:#using-ssh-on-windows[SSH on
 Windows]
 
 [[connecting-to-your-application-from-windows]]
@@ -87,7 +87,7 @@ Windows]
 
 Once you have an application up and running and your keys are uploaded
 to the server you can now SSH into the remote server from your computer.
-The link:/page/install-and-setup-putty-ssh-client-for-windows[Windows
+The link:#using-ssh-on-windows[Windows
 SSH page] has instructions on creating a profile for your application
 which makes it easy to connect to with a simple mouse click. Create your
 profile as described, and connect with a single click to connect, as in

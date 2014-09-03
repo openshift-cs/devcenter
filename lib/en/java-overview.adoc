@@ -20,7 +20,7 @@ Java is a general-purpose, concurrent, class-based, object-oriented computer pro
 
 Visit the official Java documentation to link:https://java.com[learn more].
 
-image::java-logo.png[Java logo]
+image::jboss-logo.png[Java logo]
 
 == Supported Technologies
 OpenShift provides several ways to deploy Java applications, including the following environments:
