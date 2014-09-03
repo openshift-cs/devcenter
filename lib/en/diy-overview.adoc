@@ -15,13 +15,13 @@ meta_desc: Do-it-yourself Developers - OpenShift Resources to get your custom ap
 [.lead]
 The `diy` cartridge provides a minimal, free-form scaffolding which leaves all details of the cartridge to the application developer.
 
-=== Get started
+== Get started
 . Add the framework of choice to your repo.
 . Modify `.openshift/action_hooks/start` to start your application. The application is required to bind to `$OPENSHIFT_DIY_IP:$OPENSHIFT_DIY_PORT`.
 . Modify `.openshift/action_hooks/stop` to stop your application.
 . Commit and push your changes.
 
-=== Repo layout
+== Repo layout
 [source]
 --
 static/           Externally exposed static content goes here
