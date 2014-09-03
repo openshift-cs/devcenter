@@ -521,7 +521,7 @@ b.conum * { color: inherit !important; }
 
 .navbar-openshift+.masthead-devcenter {
   background-color: #60605B;
-  background: #60605B url("https://assets.openshift.net/content/devcenter/devcenter-bg2000.jpg") 50% 10px repeat-x;
+  background: #60605B url("https://developers.openshift.com/images/devcenter-bg2000.jpg") 50% 10px repeat-x;
   margin-top: -30px;
   padding: 60px 0 109px;
 }
