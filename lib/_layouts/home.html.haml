@@ -13,6 +13,10 @@
       Home | OpenShift Dev Center
     = partial( 'styles.html.haml' )
     = partial( 'scripts.html.haml' )
+    :javascript
+      google.setOnLoadCallback(function() {
+        google.search.CustomSearchControl.attachAutoCompletionWithOptions('013769182564158614814:lt-zcblgpx4', document.getElementById('cse-search-input-body'), 'cse-search-form-body', {'maxCompletions' : 5});
+      }, true);
   %body.devcenter-home
     = partial( 'openshift-header.html.haml' )
     %header.masthead.masthead-devcenter.text-center
