@@ -43,8 +43,9 @@ At a minimum, the first several lines of a new .adoc document must follow this p
     parent_url: <4>
     nav_title: JBossAS/Wildfly <5>
     nav_priority: 2 <6>
+    meta_desc: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud. <7>
     ---
-    = JBossAS Overview <7>
+    = JBossAS Overview <8>
 
     Start writing your content here.
 
@@ -54,6 +55,7 @@ At a minimum, the first several lines of a new .adoc document must follow this p
     <4> Used for breadcrumbs - url of parent
     <5> Used in leftnav - Link text for this specific page
     <6> Used in leftnav - sort order for the page in this specific category
-    <7> Title of page (only set once)
+    <7> Meta description - for SEO
+    <8> Title of page (only set once)
 
 For the rest of the document, make sure that you are following proper [AsciiDoc syntax](http://asciidoctor.org/docs/asciidoc-writers-guide/) and preview your document before submitting a pull request. There's no magic in how the documentation is built, so if it doesn't look right in your sandbox, it won't look right on the documentation site.
