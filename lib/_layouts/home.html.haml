@@ -15,37 +15,33 @@
     = partial( 'scripts.html.haml' )
   %body.devcenter-home
     = partial( 'openshift-header.html.haml' )
-    
-    
-      
     %header.masthead.masthead-devcenter.text-center
       .container
         .title-inner
-          %h1 Developer Center
+          %h1 OpenShift Developers
           .tag Your Code. Your Choice.
-          %a.enter-link{:href => "/en/overview-what-is-openshift.html"} Enter the Developer Center
-
+          %a.enter-link{:href => "en/overview-what-is-openshift.html"} Enter the Developer Center
     .landing.landing-devcenter.cushion-bottom
       .container
         .row.text-center
           .col-md-4.col-sm-4.get-started-bloc
-            %a{:href => "http://localhost:4242/en/getting-started-overview.html"}
+            %a{:href => "en/getting-started-overview.html"}
               .section-mark
-                %img{:alt => "get started icon", :src => "https://developers.openshift.com/images/circle-icon-get-started.png"}/
+                %img{:alt => "get started icon", :src => "../images/circle-icon-get-started.png"}/
               %h2 Get Started
-            %span Step by step instruction – web console, command-line tools, or your IDE.
+            %span Get your first application up and running and learn the basics of OpenShift.
           .col-md-4.col-sm-4.documentation-bloc
             %a{:href => "https://access.redhat.com/documentation/en-US/OpenShift_Online/"}
               .section-mark
-                %img{:alt => "documentation icon", :src => "https://developers.openshift.com/images/circle-icon-documentation.png"}/
+                %img{:alt => "documentation icon", :src => "../images/circle-icon-documentation.png"}/
               %h2 Documentation
-            %span A comprehensive walkthrough of the OpenShift service and all of the core concepts.
+            %span Visit the comprehensive documentation and learn more about specific commands.
           .col-md-4.col-sm-4.help-bloc
-            %a{:href => ""}
+            %a{:href => "https://help.openshift.com"}
               .section-mark
-                %img{:alt => "need help icon", :src => "https://developers.openshift.com/images/circle-icon-help.png"}/
+                %img{:alt => "need help icon", :src => "../images/circle-icon-help.png"}/
               %h2 Need Help?
-            %span Visit the OpenShift Online Help Center for a complete list of available resources and support options.
+            %span Visit the OpenShift Online Help Center for a complete list of available resources.
         .row.cushion
           .col-md-7.col-sm-8.col-xs-8.center-block
             .search-form
@@ -56,7 +52,6 @@
                 .form-group
                   %button.btn.btn-default{:type => "button"}
                     %span.fa.fa-search
-
     .landing.cushion
       .container
         .row
@@ -65,14 +60,12 @@
             .row
               .col-md-4.text-center
                 %h4
-                  %a{:href => "http://ideas.openshift.com"} Submit and vote features
+                  %a{:href => "http://ideas.openshift.com"} Vote on Features
               .col-md-4.text-center
                 %h4
                   %a{:href => "https://www.openshift.com/application-gallery"} Application Gallery
               .col-md-4.text-center
                 %h4
-                  %a{:href => "https://www.openshift.com/developer-spotlight"} Developer Spotlight
-
-      
+                  %a{:href => "https://developers.openshift.com/en/get-involved-extend-openshift.html"} Extend OpenShift
     = partial( 'analytics.html.haml' )
     = partial( 'footer.html.haml' )
