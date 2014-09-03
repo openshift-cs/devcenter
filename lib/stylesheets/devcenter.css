@@ -66,16 +66,16 @@ h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before {
   font-size: 1em;
 }
 
-h2:hover > a.anchor, 
-h2 > a.anchor:hover, 
+h2:hover > a.anchor,
+h2 > a.anchor:hover,
 h3:hover > a.anchor,
 h3 > a.anchor:hover,
-h4:hover > a.anchor, 
-h4 > a.anchor:hover, 
-h5:hover > a.anchor, 
-h5 > a.anchor:hover, 
-h6:hover > a.anchor, 
-h6 > a.anchor:hover { 
+h4:hover > a.anchor,
+h4 > a.anchor:hover,
+h5:hover > a.anchor,
+h5 > a.anchor:hover,
+h6:hover > a.anchor,
+h6 > a.anchor:hover {
   visibility: visible;
 }
 
@@ -100,7 +100,7 @@ h6 > a.anchor:hover {
   font-size: 16px;
 }
 
-.nav-header ul { 
+.nav-header ul {
   font-size: 14px;
 }
 
@@ -209,9 +209,9 @@ body, html {
  p {
   margin: 0 0 1.6em;
  }
- 
+
  /* Remnants of Asciidoctor default stylesheet - remove styles as needed */
- 
+
 #map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
 .left { float: left !important; }
 .right { float: right !important; }
@@ -228,7 +228,7 @@ blockquote cite { display: block; font-size: inherit; color: #454545; }
 blockquote cite:before { content: "\2014 \0020"; }
 blockquote cite a, blockquote cite a:visited { color: #454545; }
 blockquote, blockquote p { line-height: 1.6; color: #6e6e6e; }
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 768px) {
   #toctitle, .sidebarblock > .content > .title { line-height: 1.4; }
   #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
 table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
@@ -507,7 +507,7 @@ b.conum * { color: inherit !important; }
 
 
 
-/* Dev Center home page 
+/* Dev Center home page
    ------------------------ */
 
 .devcenter-home h2 {
@@ -521,7 +521,7 @@ b.conum * { color: inherit !important; }
 
 .navbar-openshift+.masthead-devcenter {
   background-color: #60605B;
-  background: #60605B url("https://developers.openshift.com/images/devcenter-bg2000.jpg") 50% 10px repeat-x;
+  background: #60605B url("../images/devcenter-bg2000.jpg") 50% 10px repeat-x;
   margin-top: -30px;
   padding: 60px 0 109px;
 }
@@ -572,10 +572,10 @@ b.conum * { color: inherit !important; }
 
 .section-mark {
   box-sizing: content-box;
-  display:inline-block; 
-  width:200px; 
+  display:inline-block;
+  width:200px;
   height: 200px;
-  position:relative;  
+  position:relative;
   margin:1em;
   border-radius: 200px;
   border: 8px solid #fff;
@@ -606,7 +606,7 @@ b.conum * { color: inherit !important; }
 
 
 .get-started-bloc, .documentation-bloc, .help-bloc {
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
 }
 
 .get-started-bloc a:hover, .documentation-bloc a:hover, .help-bloc a:hover {
