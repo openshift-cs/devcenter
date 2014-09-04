@@ -7,7 +7,7 @@ nav_title: Python
 nav_priority: 40
 meta_desc: Python Developers - OpenShift Resources to get your Python applications hosted in the cloud.
 ---
-= Python Overview
+= Python Application Hosting
 
 [[top]]
 [[python-application-hosting]]

@@ -7,7 +7,7 @@ nav_title: JBossAS/Wildfly
 nav_priority: 1.2
 meta_desc: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
-= JBossAS Overview
+= JBossAS Application Hosting
 
 [[top]]
 [[java]]

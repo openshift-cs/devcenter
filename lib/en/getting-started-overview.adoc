@@ -20,7 +20,7 @@ link:#step1[Step 1: Sign Up for a Free Account] +
 link:#step2[Step 2: Set up the OpenShift Environment] +
 link:#step3[Step 3: Create Your First Application] +
 link:#step4[Step 4: Make Your First Change] +
-link:#tutorials[Langauge-Specific Tutorials] +
+link:#tutorials[Language-Specific Tutorials] +
 
 [[step1]]
 == Step 1: Sign Up for a Free Account
