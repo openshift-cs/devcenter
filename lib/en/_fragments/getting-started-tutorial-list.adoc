@@ -7,7 +7,7 @@
 |link:java-overview.html[Java]
 |
 link:jboss-overview.html[JBossAS/Wildfly] +
-link:jbosseap-overview.html[JBossEAP] +
+link:jbosseap-overview.html[JBoss EAP] +
 link:tomcat-overview.html[Tomcat] +
 
 |link:php-overview.html[PHP]
