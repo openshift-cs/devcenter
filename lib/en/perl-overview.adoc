@@ -7,7 +7,7 @@ nav_title: Perl
 nav_priority: 60
 meta_desc: Perl Developers - OpenShift Resources to get your Perl applications hosted in the cloud.
 ---
-= Perl Overview
+= Perl Application Hosting
 
 [[top]]
 [[perl-application-hosting]]
