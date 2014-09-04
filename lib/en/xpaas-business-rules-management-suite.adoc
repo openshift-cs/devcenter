@@ -1,0 +1,178 @@
+---
+layout: base
+category: 30_JBoss xPaaS
+breadcrumb: JBoss xPaaS
+parent_url: xpaas.html
+nav_title: BRM Suite
+nav_priority: 40
+meta_desc: An overview of the JBoss Business Rules Management Suite available on OpenShift.
+---
+= JBoss Business Rules Management Suite
+
+[[top]]
+[float]
+= JBoss Business Rules Management Suite
+[.lead]
+JBoss BRMS 6 provides business users and developers with powerful and intuitive tools to capture business rules and automate business decisions across physical, virtual, mobile, and cloud environments. The result is improved business agility, consistent and efficient decision execution, and shorter application development cycles. 
+
+link:#getting-started[Getting Started] +
+link:#video-walkthrough[Video Walkthrough] +
+link:#support[Support] +
+link:#faq[BRMS FAQ]
+
+== Overview
+Business Process Management (BPM) and Business Rules Management (BRM) technologies provide an environment in which business and IT users can collaborate effectively to manage business logic and quickly modify procedures and policies as business conditions demand. By automating business logic, organizations can operate consistently, with repeatable and auditable processes and decisions. Additionally, monitoring business activity provides a pathway for business optimization, increasing effectiveness and reducing cost.
+
+Red Hat JBoss BRMS provides a powerful, easy-to-use business rules management system, with extensions for complex event processing that let businesses recognize and respond to events in real-time from social networks, blogs, and more with a number of advantages:
+
+*Intuitive:* The JBoss BRMS web-based authoring interface facilitates fast, easy rule development.
+
+*Intelligence:* Automatic rules-based decision support with real-time situational knowledge and contextualized events.
+
+*Collaboration:* Collaboration during the entire process life cycle through a personalized and unified interface for both business and IT teams.
+
+*Cloud-ready:* Compatible with OpenShift by Red Hat for greater scalability, rapid deployment and predictable costs.
+
+*Open:* Open source technology delivers high quality and performance while reducing costs.
+
+*Embeddable:* Its IDE supports the Drools Rule Language (DRL) enabling developers to easily integrate rule-based applications with Java™ code and external information systems. 
+
+With OpenShift you can easily deploy and run JBoss BRMS to capture business rules and automate business decisions directly in the cloud. You can also configure advanced rules from your IDE with Drools Rule Language (DRL) to run in the cloud and integrate these with rule-based applications to provide support to all types of business needs.
+
+JBoss BRMS on OpenShift is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift. This preview is based on the JBoss BRMS 6 supported release but as a preview it does not come with guaranteed support. It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha release. There will be fixes and updates frequently over the short term followed by a Beta release and then a supported release.
+
+We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms, which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
+
+=== Intuitive for business users
+
+The JBoss BRMS web-based authoring interface facilitates fast, easy rule development. It uses intuitive rule metaphors like decision tables, scorecards, and domain-specific rule languages. Rules can also be authored offline and imported from tools such as Microsoft Excel and OpenOffice Calc.
+
+=== Advanced development options for developers
+
+The JBoss BRMS workbench integrated development environment (IDE), part of JBoss Developer Studio, supports the Drools Rule Language (DRL). It offers syntax coloring, code completion, an outline view, rule validation, error reporting, and debugging. The IDE enables developers to easily integrate rule-based applications with Java™ code and external information systems.
+
+== Simplify the lifecycle
+
+Getting the JBoss BRMS rule management capabilities deployed onto OpenShift is as easy as clicking “Deploy Now” or executing the following command (you can change “brms” for other word as it will be the name of your app:
+
+[source]
+--
+rhc app create -g large brms https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-brms/master/metadata/manifest.yml
+--
+
+This will output the generated users and passwords for Business Central, which you can use to login into JBoss BRMS.
+For important information on setting up your JBoss BRMS cartridge, check out our link:#getting-started[Getting Started] page.
+
+link:#top[Back to Top]
+
+[[support]]
+== Support
+For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
+
+You can provide feedback, requests or contributions for the JBoss BRM Suite cartridge on jboss.org at: https://community.jboss.org/en/brms.
+
+Documentation on JBoss BRMS is available at: https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_BRMS/ 
+
+link:#top[Back to Top]
+
+[[getting-started]]
+== Getting Started with JBoss BRM Suite on OpenShift
+There are two ways to install the BRMS cartridge on OpenShift and you can choose the option that best suits your workflow:
+
+=== Installation Option 1: Using the QuickStart / OpenShift Web Console
+Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
+
+* The link:https://www.openshift.com/quickstarts/jboss-business-rules-management-suite[BRMS QuickStart page] and then on the "Deploy now" button;
+* link:https://openshift.redhat.com/app/console/application_type/quickstart!18137[Deploy Now] (will take you to the web console)
+* The OpenShift console by clicking "Login" (if this is your first time) or "My Apps" (if you already have some) in the upper right corner of your browser:
+
+image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
+
+If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “BRMS” or you can scroll down to the list of quick links and click “JBoss Business Rules Management Suite” under “xPaaS”. This will bring you to the “Configure Application” step (see below.)
+
+image::xpaas/xpaas-brms-2.png[JBoss BPMS Cartridge Description]
+
+If you use the QuickStart, click on the “Deploy Now” button. This will bring you directly to the “Configure Application” step.
+
+To configure the application you will need to configure your application’s public URL. Choose a name for this application (e.g. “BRMS”, “BRMStest” or whatever you like.) You don’t need to enter anything in the Source Code field. You will need to have access to multiple gear sizes to select a large gear. We strongly encourage you to run BRMS on a large gear. It will not have proper performance on a medium or small gear. You can upgrade (here) to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears (you can email openshift@redhat.com if you need further assistance)
+
+Make your Gear selection to “Large” and for scaling select – “No scaling”, which will work just fine; then hit “Create Application” and OpenShift will build the application for you. When that is complete you will see the “Next Steps” page and you can decide whether you want to change the code of the application. For now select “Not now”. The next page will have some important information for you so don’t go speeding past it.
+
+First you’ll see the auto generated login credentials. Save these because you will need them to login to BRMS Business Central. Once you have this information recorded click on the “Continue to the application overview page” link.
+
+image::xpaas/xpaas-brms-3.png[JBoss BPMS Cartridge Sucess]
+
+Clicking that link will bring you to the Applications view in OpenShift where you will see your new BRMS application listed. Click on the application and you will see the URL for the running application and details about the cartridge. Click on the URL and that will take you to the login screen for BRMS Business Central. Enter the user name and password you recorded and click log in. You will then see the BRMS Business Central welcome page.
+
+A process example is automatically imported and made available under the organization 'demo'. You can use it to learn and create your own processes and rules.
+
+And that’s it. You are now running BRMS on OpenShift. Congratulations!
+
+=== Installation Option 2: Using the Command Line Tools (rhc)
+If you want to use the rhc command line type:
+
+[source]
+--
+$ rhc create-app -g large brmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-brms/master/metadata/manifest.yml
+--
+
+We strongly encourage you to run BRMS on a large gear. It will not have proper performance on a medium or small gear. 
+
+You can use other name instead of “brms” in this command.
+
+This will output the generated users and passwords for Business Central, which you can use to login into Business Central. 
+
+== Usage
+
+See the link:https://github.com/jboss-bpms/openshift-cartridge-brms#usage[BRMS Cartridge Usage].
+
+For an additional guide, please see this getting started video which will guide you through the steps needed to create your BRM Suite alpha cartridge.
+
+link:#top[Back to Top]
+
+[[video-walkthrough]]
+== Video Walkthrough
+
+video::104313232[vimeo, width=640, height=400]
+link:#top[Back to Top]
+
+[[faq]]
+== BRM Suite FAQ
+[qanda]
+How do I load the cartridge on OpenShift?::
+  Just like any downloadable cartridge on OpenShift there are two ways to install the BRMS Alpha cartridge. You can either use the OpenShift console or the command line. In either case, you can find further instructions on our Getting Started page.
+
+Where do I go for support?::
+  The best places to go for support are the OpenShift forums or the BRMS community boards. We would love to have your input so go where you’re most comfortable and we will see it.
+
+What does it mean that this is an “Alpha” cartridge?::
+  BRMS on OpenShift is based on a candidate release version of JBoss BRMS 6.0.2 and like any pre-release software it is undergoing testing and improvements on its way to general availability. There are also unique requirements to running BRMS on a cloud platform like OpenShift and some of those are in development. For example we advise it is run at least on a large gear for a better experience. We feel the term “Alpha” is an industry wide term that conveys the right sense of where this technology is – it is targeted at production use cases but not production supported at this time.
+
+Why do you recommend it is run on a large gear? Will it run on a medium or small gear?::
+  JBoss BRMS is a state-of-the-art, complex product. You probably won't notice this from the user or programming interfaces, since these abstract you from that complexity. Its advanced functionality requires a bigger environment to run at an acceptable performance than what a medium or small gear provides. That is why we strongly advise it is run at least on a large gear. We are working towards making it able to run on a medium gear at the proper performance, which we'll keep you updated about.
+
+
+Will you create a BPM Suite cartridge?::
+  Yes, a BPM Suite cartridge based on a candidate release version of JBoss BPM Suite 6.0.2 is already available in OpenShift. Please go link:https://www.openshift.com/developers/jboss-bpms[here] to learn more about it and give it a try!
+
+JBoss BPM Suite includes JBoss BRMS. Why should I use the BRMS cartridge instead of the BPM Suite cartridge?::
+  Good question. JBoss BPM Suite includes the whole BRMS product so you can use the BRMS capabilities that the BPM Suite cartridge contains. However, there are specific use cases, purely targeted at rules management, where it is more convenient to use the BRMS product. For example, if you are dealing with adding rules management capabilities to applications such as risk scoring in the financial industry, or to your B2B platform serving an e-commerce website. Check both by yourself and we’ll be happy with your decision.
+
+What is the cartridge lifecyle?::
+  JBoss Middleware cartridges will advance through several stages on OpenShift. Many will begin life as cartridges based on their community projects (like WildFly). Others will start out based on pre-release versions of our supported projects as part of the JBoss Developer program, which provides developer access to pre-release products under the JBoss Developer Program Terms and Conditions.
++
+Community cartridges will reflect their community projects and will change with as their communities update them. If you wish to use the updates, you will have to re-install the cartridge.
++
+Alpha cartridges are pre-release versions of supported products. They are released under the JBoss Developer Program terms and conditions and are intended only for development use and not for production use or to access updates to products without a Red Hat subscription. Alpha cartridges will be updated as the product progresses to beta. As with any pre-release software, there will be sharp edges and unfinished pieces but those are a worthwhile tradeoff for early access to the direction of future products.
++
+Beta or tech preview cartridges will also be based on pre-release software and covered by the JBoss Developer Program terms and conditions. As beta code, these cartridges will naturally be closer to finished products than alpha cartridges are, and our current plan is that tech preview cartridges will be introduced and updated as the product proceeds to general release. 
++
+Please note that either alpha or beta cartridges may not correspond to alpha or beta releases of the underlying product.
+
+Does this mean BRMS cartridges will be made generally available and supported?::
+  The release of community, alpha or beta cartridges should not be viewed as a commitment to release a supported cartridge. However the release of alpha/beta cartridges can rightly be viewed as an expression of intent absent specific timing. 
+
+Where do I go to learn more about BRMS?::
+  For more information about JBoss BRMS you can visit http://www.jboss.org/products/brms or http://www.redhat.com
+
+link:#top[Back to Top]

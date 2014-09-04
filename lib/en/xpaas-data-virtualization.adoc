@@ -4,7 +4,7 @@ category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Data Virtualization
-nav_priority: 4
+nav_priority: 50
 meta_desc: An overview of JBoss Data Virtualization tools and runtime services available on OpenShift.
 ---
 = JBoss Data Virtualization

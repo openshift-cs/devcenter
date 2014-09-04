@@ -4,7 +4,7 @@ category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Overview
-nav_priority: 1
+nav_priority: 10
 meta_desc: JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift.
 ---
 = JBoss xPaaS Overview
@@ -44,6 +44,11 @@ Business Process Management and Business Rules Management technologies empower y
 JBoss BPM Suite provides business users and developers with powerful and intuitive tools to capture business processes, policies and rules and configure advanced business reporting, to obtain process-based applications that can be modified with agility in response to the business needs.
 
 link:/en/xpaas-business-process-management-suite.html[Learn More] +
+
+=== Business Rules Management
+JBoss BRM Suite provides a powerful, easy-to-use business rules management system, with extensions for complex event processing that let businesses recognize and respond to events in real-time from social networks, blogs, and more.
+ 
+link:/en/xpaas-business-rules-management-suite.html[Learn More] +
 
 == Mobile Services
 With mobile devices becoming a primary client in the enterprise, incorporating key mobile features and capabilities are a vital part of any application development project. Mobile services simplify and streamline supporting the many mobile client types while extending your application to these devices.
