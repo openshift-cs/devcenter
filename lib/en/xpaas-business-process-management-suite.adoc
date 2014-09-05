@@ -4,7 +4,7 @@ category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: BPM Suite
-nav_priority: 3
+nav_priority: 30
 meta_desc: An overview of the JBoss Business Process Management Suite available on OpenShift.
 ---
 = JBoss Business Process Management Suite
@@ -109,7 +109,7 @@ Start by logging into your OpenShift account (don't have one? Click link:https:/
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
 
-If you use the OpenShift console click the "Add Application" button below your list of applications or the "Create your first application now" link. You can either search for "BPM" or you can scroll down to the list of quick links and click "JBoss BPM Suite 6" under "xPaaS". This will bring you to the "Configure Application" step (see below.)
+If you use the OpenShift console click the "Add Application" button below your list of applications or the "Create your first application now" link. You can either search for "BPM" or you can scroll down to the list of quick links and click "JBoss Business Process Management Suite" under "xPaaS". This will bring you to the "Configure Application" step (see below.)
 
 image::xpaas/xpaas-bpms-2.png[JBoss BPMS Cartridge Description]
 
@@ -119,7 +119,7 @@ To configure the application you will need to configure your application's publi
 
 Make your Gear selection to "Medium", and for scaling select - "No scaling", which will work just fine; then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don't go speeding past it.
 
-In the first line you will see the URL for your BPM cartridge. A bit further down you'll see the auto generated login credentials. Save these because you will need them to login to BPM Suite Business Central. Once you have this information recorded click on the "Continue to the application overview page" link.
+First you'll see the auto generated login credentials. Save these because you will need them to login to BPM Suite Business Central. Once you have this information recorded click on the "Continue to the application overview page" link.
 
 image::xpaas/xpaas-bpms-3.png[JBoss BPMS Cartridge Sucess]
 

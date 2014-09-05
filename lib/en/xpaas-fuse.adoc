@@ -4,7 +4,7 @@ category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Fuse ESB
-nav_priority: 2
+nav_priority: 20
 meta_desc: Deploy and run JBoss Fuse Enterprise Service Bus on OpenShift.
 ---
 = JBoss Fuse Enterprise Service Bus
