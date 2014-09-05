@@ -3,15 +3,15 @@ layout: base
 category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
-nav_title: BRM Suite
+nav_title: BRMS
 nav_priority: 40
-meta_desc: An overview of the JBoss Business Rules Management Suite available on OpenShift.
+meta_desc: An overview of the JBoss Business Rules Management System available on OpenShift.
 ---
-= JBoss Business Rules Management Suite
+= JBoss Business Rules Management System
 
 [[top]]
 [float]
-= JBoss Business Rules Management Suite
+= JBoss Business Rules Management System
 [.lead]
 JBoss BRMS 6 provides business users and developers with powerful and intuitive tools to capture business rules and automate business decisions across physical, virtual, mobile, and cloud environments. The result is improved business agility, consistent and efficient decision execution, and shorter application development cycles. 
 
@@ -69,26 +69,26 @@ link:#top[Back to Top]
 == Support
 For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
 
-You can provide feedback, requests or contributions for the JBoss BRM Suite cartridge on jboss.org at: https://community.jboss.org/en/brms.
+You can provide feedback, requests or contributions for the JBoss BRMS cartridge on jboss.org at: https://community.jboss.org/en/brms.
 
 Documentation on JBoss BRMS is available at: https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_BRMS/ 
 
 link:#top[Back to Top]
 
 [[getting-started]]
-== Getting Started with JBoss BRM Suite on OpenShift
+== Getting Started with JBoss BRMS on OpenShift
 There are two ways to install the BRMS cartridge on OpenShift and you can choose the option that best suits your workflow:
 
 === Installation Option 1: Using the QuickStart / OpenShift Web Console
 Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
 
-* The link:https://www.openshift.com/quickstarts/jboss-business-rules-management-suite[BRMS QuickStart page] and then on the "Deploy now" button;
+* The link:https://www.openshift.com/quickstarts/jboss-business-rules-management-system[BRMS QuickStart page] and then on the "Deploy now" button;
 * link:https://openshift.redhat.com/app/console/application_type/quickstart!18137[Deploy Now] (will take you to the web console)
 * The OpenShift console by clicking "Login" (if this is your first time) or "My Apps" (if you already have some) in the upper right corner of your browser:
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
 
-If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “BRMS” or you can scroll down to the list of quick links and click “JBoss Business Rules Management Suite” under “xPaaS”. This will bring you to the “Configure Application” step (see below.)
+If you use the OpenShift console click the “Add Application” button below your list of applications or the “Create your first application now” link. You can either search for “BRMS” or you can scroll down to the list of quick links and click “JBoss Business Rules Management System” under “xPaaS”. This will bring you to the “Configure Application” step (see below.)
 
 image::xpaas/xpaas-brms-2.png[JBoss BPMS Cartridge Description]
 
@@ -113,7 +113,7 @@ If you want to use the rhc command line type:
 
 [source]
 --
-$ rhc create-app -g large brmsuite https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-brms/master/metadata/manifest.yml
+$ rhc create-app -g large brms https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-brms/master/metadata/manifest.yml
 --
 
 We strongly encourage you to run BRMS on a large gear. It will not have proper performance on a medium or small gear. 
@@ -126,7 +126,7 @@ This will output the generated users and passwords for Business Central, which y
 
 See the link:https://github.com/jboss-bpms/openshift-cartridge-brms#usage[BRMS Cartridge Usage].
 
-For an additional guide, please see this getting started video which will guide you through the steps needed to create your BRM Suite alpha cartridge.
+For an additional guide, please see this getting started video which will guide you through the steps needed to create your BRMS alpha cartridge.
 
 link:#top[Back to Top]
 
@@ -137,7 +137,7 @@ video::104313232[vimeo, width=640, height=400]
 link:#top[Back to Top]
 
 [[faq]]
-== BRM Suite FAQ
+== BRMS FAQ
 [qanda]
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the BRMS Alpha cartridge. You can either use the OpenShift console or the command line. In either case, you can find further instructions on our Getting Started page.
