@@ -45,10 +45,10 @@ JBoss BPM Suite provides business users and developers with powerful and intuiti
 
 link:/en/xpaas-business-process-management-suite.html[Learn More] +
 
-=== Business Rules Management
-JBoss BRM Suite provides a powerful, easy-to-use business rules management system, with extensions for complex event processing that let businesses recognize and respond to events in real-time from social networks, blogs, and more.
+=== Business Rules Management System
+JBoss BRMS provides a powerful, easy-to-use business rules management system, with extensions for complex event processing that let businesses recognize and respond to events in real-time from social networks, blogs, and more.
  
-link:/en/xpaas-business-rules-management-suite.html[Learn More] +
+link:/en/xpaas-business-rules-management-system.html[Learn More] +
 
 == Mobile Services
 With mobile devices becoming a primary client in the enterprise, incorporating key mobile features and capabilities are a vital part of any application development project. Mobile services simplify and streamline supporting the many mobile client types while extending your application to these devices.
