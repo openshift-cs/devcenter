@@ -19,7 +19,6 @@ meta_desc: JBossAS Developers - OpenShift Resources to host your Java applicatio
 [.lead]
 Provides the JBossAS application server on OpenShift. OpenShift Online currently supports `JBossAS 7.1` and `8.0`.
 
-image::jboss-logo.png[JBoss logo]
 image::wildfly-logo.png[JBoss logo]
 
 === Template Repository Layout
