@@ -2,11 +2,12 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: java-overview.html
 nav_title: Java
 nav_priority: 1
+meta_desc: Java Developers - OpenShift Resources to get your Java applications hosted in the cloud.
 ---
-= Java Overview
+= Java Application Hosting
 
 [[top]]
 [[java]]
@@ -30,7 +31,7 @@ link:/en/jbossas-overview.html[-> Learn More]
 OpenShift Online currently supports `Tomcat 6` and `7`. +
 link:/en/tomcat-overview.html[-> Learn More]
 
-=== link:jbosseap-overview.html[JBossEAP]
+=== link:jbosseap-overview.html[JBoss EAP]
 OpenShift Online currently supports `JBoss EAP 6.2`.  +
 link:/en/jbosseap-overview.html[-> Learn More]
 

@@ -2,11 +2,12 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: java-overview.html
 nav_title: Tomcat
 nav_priority: 1.4
+meta_desc: Tomcat Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
-= Tomcat Overview
+= Tomcat Application Hosting
 
 [[top]]
 [float]
@@ -18,7 +19,7 @@ TIP: Apache Tomcat is an open source software implementation of the Java Servlet
 
 Learn more at the link:http://tomcat.apache.org/[Tomcat homepage].
 
-image::tomcat-power.gif[Powered by Tomcat]
+image::tomcat.png[Powered by Tomcat]
 
 == Simplify Your Tomcat Deployments
 

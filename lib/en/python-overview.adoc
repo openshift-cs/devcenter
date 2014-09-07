@@ -2,11 +2,12 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: python-overview.html
 nav_title: Python
 nav_priority: 40
+meta_desc: Python Developers - OpenShift Resources to get your Python applications hosted in the cloud.
 ---
-= Python Overview
+= Python Application Hosting
 
 [[top]]
 [[python-application-hosting]]
@@ -17,7 +18,7 @@ With OpenShift you can easily deploy and run Python applications using your favo
 
 Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. The Web Server Gateway Interface (WSGI) defines a simple and universal interface between web servers and web applications or frameworks for the Python programming language. -> link:https://www.python.org/[Learn more]
 
-link:#simplify[Simplify your Python Deployments]
+link:#simplify[Simplify your Python Deployments] +
 link:#python[The Python Cartridges]
 
 image::python-logo.png[Python logo]

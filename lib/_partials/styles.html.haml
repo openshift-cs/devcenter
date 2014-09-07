@@ -1,3 +1,9 @@
 %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.static_assets_url}/subdomain.css" }
 %link{ :rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/devcenter.css" }
-%link{ :rel=>'shortcut icon', :type=>'text/css', :href=>"https://www.openshift.com/sites/all/themes/openshift-theme/favicon.ico" }
+%link{ :rel=>'apple-touch-icon-precomposed', :type=>'image/png', :href=>"#{site.static_assets_url}/subdomain/touch-icon-precomposed.png" }
+%link{ :rel=>'shortcut icon', :type=>'text/css', :href=>"#{site.static_assets_url}/subdomain/favicon32x32.png" }
+<!--[if IE]><link rel="shortcut icon" href="#{site.static_assets_url}/subdomain/favicon.ico"><![endif]-->
+/ or, set /favicon.ico for IE10 win
+%meta{:content => "OpenShift", :name => "application-name"}/
+%meta{:content => "#000000", :name => "msapplication-TileColor"}/
+%meta{:content => "#{site.static_assets_url}/subdomain/touch-icon-precomposed.png", :name => "msapplication-TileImage"}/

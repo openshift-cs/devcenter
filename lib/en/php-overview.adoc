@@ -2,11 +2,12 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: php-overview.html
 nav_title: PHP
 nav_priority: 2
+meta_desc: PHP Developers - OpenShift Resources to get your PHP applications hosted in the cloud.
 ---
-= PHP Overview
+= PHP Application Hosting
 
 [[top]]
 [[php-application-hosting]]
@@ -23,10 +24,10 @@ link:#simplify[Simplify Your PHP deployments] +
 link:#php[The PHP Cartridge] +
 link:php-zend.html[Go Enterprise with Zend] +
 
+image::php-logo.png[PHP logo]
+
 [[simplify]]
 == Simplify your PHP deployments
-
-image::php-logo.png[PHP logo]
 
 Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
 

@@ -5,6 +5,7 @@ breadcrumb: Get Involved
 parent_url: get-involved.html
 nav_title: Overview
 nav_priority: 1
+meta_desc: Stay in touch, engage, and stay informed with the OpenShift community through blogs and upcoming events.
 ---
 = Get Involved
 
@@ -14,40 +15,38 @@ nav_priority: 1
 [.lead]
 Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
 
-== Open Source
+image::origin-logo.png[OpenShift Origin]
 
-[.lead]
+== Open Source
 OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
 
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
 
-http://origin.openshift.com[JOIN THE ORIGIN COMMUNITY]
+[.lead]
+http://origin.openshift.com[-> Join the Origin Community] +
+https://github.com/openshift[-> Origin on GitHub] +
+https://install.openshift.com[-> Install Origin Now]
 
-https://github.com/openshift[ORIGIN ON GITHUB]
+== Application Gallery
+The OpenShift Online Application Gallery is a showcase of applications running on OpenShift Online.
+[.lead]
+link:https://www.openshift.com/application-gallery[-> Visit the Application Gallery]
 
-https://install.openshift.com[INSTALL ORIGIN NOW]
+== Developer Spotlight
+Get to know the members of the OpenShift Community by checking out these developer profiles.
+[.lead]
+link:https://www.openshift.com/developer-spotlight[-> Visit the Developer Spotlight]
 
-=== Application Gallery
-Our https://www.openshift.com/application-gallery[showcase of applications] running on OpenShift Online.
+== Extend OpenShift
+Bring your favorite technologies to OpenShift as a QuickStart or make your code reusable in a Cartridge. Or get the source and extend the platform.
+[.lead]
+link:https://www.openshift.com/developers/extend[-> Learn More]
 
-=== Developer Spotlight
-Get to know https://www.openshift.com/developer-spotlight[users of OpenShift Online].
-
-=== Extend OpenShift
-Build and contribute your https://www.openshift.com/developers/extend[own cartridges and QuickStarts].
-
-=== Stay Informed
-The http://openshift.us3.list-manage.com/subscribe?u=979c70339150d05eec1531104&id=c528e5e48e[Monthly OpenShift Newsletter] keeps you up to date with the latest from the team.
-
-=== Talk back
+== Find us on Social Media
 Engage us on https://twitter.com/openshift[Twitter], https://www.facebook.com/openshift[Facebook], link:https://plus.google.com/+OpenShift/posts[Google], and https://www.linkedin.com/groups/OpenShift-4185734[LinkedIn].
 
-=== Vote on Features
-Help drive product direction by https://openshift.uservoice.com/forums/258655-ideas[suggesting or voting on features].
+== Vote on Ideas and Features
+Your feedback drives our design process. Your votes count! Let us know what you want to see from OpenShift. Help drive product direction by link:https://openshift.uservoice.com/forums/258655-ideas[suggesting or voting on features].
 
-[source, php]
---
-<?php
-echo "Something";
-?>
---
+[.lead]
+link:https://openshift.uservoice.com/forums/258655-ideas[-> Vote on Features]

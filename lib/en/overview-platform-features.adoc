@@ -2,9 +2,10 @@
 layout: base
 category: 01_Overview
 breadcrumb: Overview
-parent_url:
+parent_url: overview-what-is-openshift.html
 nav_title: OpenShift Features
 nav_priority: 10
+meta_desc: OpenShift Online offers many powerful application management options some of which are only available on the premium Bronze and Silver plans.
 ---
 = OpenShift Features
 
@@ -18,8 +19,7 @@ OpenShift Online offers many powerful application management options, some of wh
 IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
 
 [.lead]
-https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country] +
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[-> View the OpenShift Online User Guide]
+https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country]
 
 == Feature List
 link:#resource-management[Resource Management] +
@@ -78,7 +78,7 @@ or
 rhc app create mediumgearexample php-5.4 --g medium
 ----
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html#Creating_an_Application5[Learn more about creating and configuring applications with rhc]
+https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[Learn more about creating and configuring applications with rhc]
 
 [[additional-gear-storage]]
 === Additional Gear Storage
@@ -214,7 +214,7 @@ The OpenShift web console shows you how many gears are currently being consumed 
 
 [[supported-cartridges]]
 === Supported Scaling Web Cartridges
-Most of the standard OpenShift https://www.openshift.com/developers/technologies[web cartridges] are scalable using HAProxy, with the exception of the Do-It-Yourself, Jenkins, and Zend cartridges.
+Most of the standard OpenShift link:overview-what-is-openshift.html[web cartridges] are scalable using HAProxy, with the exception of the Do-It-Yourself, Jenkins, and Zend cartridges.
 
 link:#top[Back to Top]
 

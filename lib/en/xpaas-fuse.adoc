@@ -4,7 +4,8 @@ category: 30_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: Fuse ESB
-nav_priority: 2
+nav_priority: 20
+meta_desc: Deploy and run JBoss Fuse Enterprise Service Bus on OpenShift.
 ---
 = JBoss Fuse Enterprise Service Bus
 
@@ -53,7 +54,7 @@ These commands create your Fuse instance and install and configure the admin con
 https://myApp-MyDomain.rhcloud.com/
 --
 
-For important information on setting up your JBoss Fuse cartridge, check out our link:/en/xpaas-fuse-getting-started.html[Getting Started] page.
+For important information on setting up your JBoss Fuse cartridge, check out our link:#getting-started[Getting Started] section.
 
 == Rapid Development with an IDE
 Don't like the command line or web console for designing connections between applications and data? No problem! Use link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your connections.
@@ -75,7 +76,7 @@ Or you can link:http://stackoverflow.com/questions/ask/advice?tags=openshift[ask
 Documentation on JBoss Fuse is available at:
 https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Fuse/
 
-Check out our link:https://www.openshift.com/developers/jboss-fuse/getting-started[Getting Started] and link:https://www.openshift.com/developers/jboss-fuse/faq[FAQ].
+Check out our link:#getting-started[Getting Started] and link:#faq[FAQ].
 
 link:#top[Back to Top]
 
@@ -87,7 +88,7 @@ link:https://openshift.redhat.com/app/console/application_type/quickstart!16634[
 
 JBoss xPaaS services on OpenShift are powerful middleware cartridges that we are making available as Alpha releases for developers to experiment with and explore. While you can deploy these cartridges in our free OpenShift Online small gears, we would recommend medium or large gears for optimum performance. You can upgrade to the OpenShift Bronze or Silver tier to leverage medium or large gears and visit the link:https://help.openshif.com[OpenShift Help Center] if you need further assistance.
 
-Check out our link:/en/xpaas-fuse-getting-started.html[Getting Started] page for important setup details and alternate deployment methods and see our link:/en/xpaas-fuse-faq.html[FAQ] page answers to common questions.
+See our link:#faq[FAQ] page answers to common questions.
 
 === Installation Option 1: Using the QuickStart / OpenShift web console
 Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either the QuickStart page and clicking the "Deploy Now" button or the OpenShift console by clicking "My Apps" in the upper right corner of your browser.
@@ -113,7 +114,7 @@ Clicking that link will bring you to the Applications view in OpenShift where yo
 And that's it. You are now running Fuse on OpenShift. Woo hoo!
 
 === Installation Option 2: Using the command line tools (rhc)
-If you want to use the link:/en/overview-client-tools.html[rhc command line] type:
+If you want to use the link:getting-started-client-tools.html[rhc command line] type:
 
 [source]
 --

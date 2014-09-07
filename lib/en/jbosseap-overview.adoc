@@ -2,19 +2,22 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
-nav_title: JBossEAP
+parent_url: java-overview.html
+nav_title: JBoss EAP
 nav_priority: 1.3
+meta_desc: JBoss EAP Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
-= JBossEAP Overview
+= Red Hat JBoss Enteprise Application Platform Hosting Overview
 
 [[top]]
 [float]
-= JBossEAP Application Hosting
+= Red Hat JBoss Enteprise Application Platform Hosting
 
-== The JBossEAP Cartridge
+== The JBoss EAP Cartridge
 [.lead]
-Provides the JBossEAP application server on OpenShift. OpenShift Online currently supports `JBossEAP 6.2`.
+Provides the JBoss EAP application server on OpenShift. OpenShift Online currently supports `JBoss EAP 6.3`.
+
+image::jboss-logo.png[JBoss logo]
 
 === Template Repository Layout
 [source]
@@ -50,7 +53,7 @@ pom.xml to app_name, your base url would then become http://app_name-namespace.r
 
 NOTE: If you are building locally you'll also want to add any output wars/ears under deployments from the build to your .gitignore file.
 
-NOTE: If you are running scaled EAP6.0 then you need an application deployed to the root context (i.e. http://app_name-namespace.rhcloud.com/) for the HAProxy load-balancer to recognize that the EAP6.0 instance  is active.
+NOTE: If you are running scaled JBoss EAP then you need an application deployed to the root context (i.e. http://app_name-namespace.rhcloud.com/) for the HAProxy load-balancer to recognize that the JBoss EAP instance is active.
 
 *Method 2* +
 You can git push pre-built wars into `deployments/`. To do this with the default repo you'll want to first run `git rm -r src/ pom.xml` from the root of your repo.
@@ -149,7 +152,7 @@ Adding marker files to `.openshift/markers` will have the following effects:
 |Will prevent a JBoss container restart during build/deployment. Newly build archives will be re-deployed automatically by the JBoss HDScanner component.
 
 |java7
-|Will run JBossEAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
+|Will run JBoss EAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
 |===
 
 === JBoss CLI

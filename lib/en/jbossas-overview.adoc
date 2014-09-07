@@ -2,11 +2,12 @@
 layout: base
 category: 03_Languages
 breadcrumb: Languages
-parent_url:
+parent_url: java-overview.html
 nav_title: JBossAS/Wildfly
 nav_priority: 1.2
+meta_desc: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
-= JBossAS Overview
+= JBossAS Application Hosting
 
 [[top]]
 [[java]]
@@ -17,6 +18,8 @@ nav_priority: 1.2
 == The JBossAS / Wildfly Cartridge
 [.lead]
 Provides the JBossAS application server on OpenShift. OpenShift Online currently supports `JBossAS 7.1` and `8.0`.
+
+image::wildfly-logo.png[JBoss logo]
 
 === Template Repository Layout
 [source]

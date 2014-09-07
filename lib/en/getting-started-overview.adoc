@@ -2,9 +2,10 @@
 layout: base
 category: 02_Getting Started
 breadcrumb: Getting Started
-parent_url:
+parent_url: getting-started-overview.html
 nav_title: Overview
 nav_priority: 1
+meta_desc: Get started at the web console or by installing the rhc command line tools for your operating system - Windows, Mac OS X, or Linux.
 ---
 = Getting Started
 
@@ -19,7 +20,7 @@ link:#step1[Step 1: Sign Up for a Free Account] +
 link:#step2[Step 2: Set up the OpenShift Environment] +
 link:#step3[Step 3: Create Your First Application] +
 link:#step4[Step 4: Make Your First Change] +
-link:#tutorials[Langauge-Specific Tutorials] +
+link:#tutorials[Language-Specific Tutorials] +
 
 [[step1]]
 == Step 1: Sign Up for a Free Account
