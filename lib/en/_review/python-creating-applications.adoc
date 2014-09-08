@@ -86,9 +86,9 @@ Run 'rhc show-app insultapp' for more details about your app.
 
 That's it! When the command finishes executing you will have Apache HTTP server with _mod_wsgi_ running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
 
-We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. We will discuss this later when we discuss autoscaling!!! in depth.
+We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. There are several reasons you would want to link:autoscaling.html[use autoscaling] by default. 
 
-We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the paid tier documentation!!! to understand other reasons to move into the paid tier.
+We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the link:premium-plan-advantage.html[paid tier documentation] to understand other reasons to move into the paid tier.
 
 Finally, we could also use the _--from-code_ option to point to a publicly accessible Git repository to serve as the template for our application. One caveat with this flag is that when OpenShift tries to create the gear, the application has to download and build the Git repository within a particular time period.
 
@@ -103,35 +103,5 @@ image::creationScreenShot.png["Screenshot of the default Python application"]
 
 While that was exciting and all, let's go ahead and do more with our application. Time to link:getting-started-modifying-applications-python.html[modify our application]
 
-link:#top[Back to Top]
-
-[[section_autoscaling]]
-=== Autoscaling and Why You Should Use it by Default
-
-OpenShift is the only PaaS on the market that provides autoscaling at the application tier. When you make an application scalable, a software-based load-balancer called _HAProxy_ will be added to the same gear as the application server. All web traffic to the application will then be routed through HAProxy. Currently, if the number of active connections goes above 16 -- whether they are regular HTTP or WebSocket connections -- HAProxy will trigger the creation of another application gear. OpenShift will spin up another app server gear, `rsync` the code over to the new gear, plug the gear into HAProxy, and then start using it to serve connections. If the connections later drop back below the threshold for long enough not to be considered random noise, HAProxy will trigger the draining of connections and OpenShift will spin down the gear.
-
-All of this happens without any human intervention. Of course, OpenShift lets you set a minimun and maximum number of gears for application server use.
-
-It is highly recommended that you make your applications scalable by default. There are several reasons for this:
-
-* Your application server, your database server, and any other server you put in your application will each go on their own gear and therefore not compete for disk, memory, or other resources. This will give you much better performance compared to non-scaling where they all run in the same gear.
-* It gives you more flexibility if you start to experience more load on your application. You can set the scaling limits for the application tier to accommodate the new traffic.
-* It will allow you to scale up manually if you know a big event is coming up and you want to warm up the servers beforehand.
-* There is no command to make a non-scalable application into a scalable application. If you want to make a non-scalable app scalable, you will need to snapshot it, spin up a new scalable application, and then restore it to the new application (see <<section_snapshots>> for information about snapshots).
-
-link:#top[Back to Top]
-
-[[section_paidtier]]
-=== Premium Plan Advantages
-
-Everything above can be carried out using the OpenShift _Free Plan_  but there are strong reasons why you might want to use one of the premium plans as your application becomes more serious:
-
-. Your application will never be idled. Currenty on the free tier, if there are no HTTP connections to your application for 24 hours, OpenShift idles the gear. The next HTTP request to the application will have to wait while OpenShift un-idles the application. If you are a premium plan user, then your users will never experience the delay of the application coming back from idling.
-. You gain the ability to buy more gears, thereby allowing you to create more applications. With more gears you can also allow your application to scale to handle more traffic.
-. You gain the ability to buy larger gears, which can be crucial for memory-hungry application servers.
-. You gain the ability to purchase premium application servers for more than 3 gears or on larger gears, such as JBoss EAP.
-. You gain the ability to get access to more disk space, beyond the 1GB that comes with the Free Plan.
-. You can use your own SSL certificates with your custom domain names.
-. Some of the premium plans provide the ability to open support tickets.
 
 link:#top[Back to Top]

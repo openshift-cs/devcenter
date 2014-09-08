@@ -1,0 +1,20 @@
+---
+layout: base
+category: 
+breadcrumb: Getting Started
+parent_url:
+nav_title: Advantages Paid Tier
+nav_priority: 20
+---
+= Premium Plan Advantages
+
+Everything above can be carried out using the OpenShift _Free Plan_  but there are strong reasons why you might want to use one of the premium plans as your application becomes more serious:
+
+. Your application will never be idled. Currenty on the free tier, if there are no HTTP connections to your application for 24 hours, OpenShift idles the gear. The next HTTP request to the application will have to wait while OpenShift un-idles the application. If you are a premium plan user, then your users will never experience the delay of the application coming back from idling.
+. You gain the ability to buy more gears, thereby allowing you to create more applications. With more gears you can also allow your application to scale to handle more traffic.
+. You gain the ability to buy larger gears, which can be crucial for memory-hungry application servers.
+. You gain the ability to purchase premium application servers for more than 3 gears or on larger gears, such as JBoss EAP.
+. You gain the ability to get access to more disk space, beyond the 1GB that comes with the Free Plan.
+. You can use your own SSL certificates with your custom domain names.
+. Some of the premium plans provide the ability to open support tickets.
+

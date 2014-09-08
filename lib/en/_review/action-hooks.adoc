@@ -1,0 +1,22 @@
+---
+layout: base
+category: 
+breadcrumb: Getting Started
+parent_url:
+nav_title: Action Hooks
+nav_priority: 20
+---
+= Action Hook Scripts
+
+OpenShift cartridges are designed to take care of the major tasks required to build and deploy a web application. If there are actions you want to perform as part of the build lifecycle that go beyond the basics, you can include these in action hook scripts.
+
+Action hook scripts are included as part of your application Git repository, in the __.openshift/action_hooks__ directory. Different cartridges may support different hooks, depending on their build lifecycles; however, they should all include +pre_build+, +build+, +deploy+, and +post_deploy+, as well as +pre+ and +post+ hooks for the +start+, +stop+, +restart+, +reload+, and +tidy+ actions.
+
+To run code at a particular time in the lifecycle, place a script in the __action_hooks__ directory with the same name as the phase when you want it to be executed. The script can be written in Shell, Python, PHP, Ruby, or any other scripting language installed in the OpenShift environment that you can reference. It does not matter what language you chose for your web application; all of these scripting environments are still available to run on your gear. The script should be executable; run the +chmod x+ ++__scriptname__++ command to ensure this.
+
+[WARNING]
+====
+Windows users may find that permissions they set on their action hook scripts are lost when the scripts are pushed to OpenShift with Git. To fix this issue, run the command +git update-index --chmod=+x .openshift/action_hooks/*+ and push the scripts again.
+====
+
+Action hook scripts need to be added and committed in Git just like any other repository file. When they are pushed to the cloud, you will see any effects as the build lifecycle runs. For example, if you delete files in the _/tmp_ directory as part of an action hook, the +git push+ output will echo the result of that command unless you tell your script to swallow output.
