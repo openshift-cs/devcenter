@@ -14,7 +14,7 @@ nav_priority: 30
 [.lead]
 == Making Code Modifications
 
-In link:getting-started-creating-applications-python.html[the last section] we used OpenShift and a single RHC command to create a Python application running in the cloud. In a matter of seconds the application was live on the Internet; when we visited its URL we got back the OpenShift equivalent of a 'Hello World' page, including some useful information on what to do next. Spinning up an application quickly and easily like this is pretty cool, but a static page can only entertain for so long. In this chapter we will modify the default application to do something more exciting and deploy the changes to OpenShift.
+In link:getting-started-creating-applications-python.html[the last section] we used OpenShift and a single RHC command to create a Python application running in the cloud. In a matter of seconds the application was live on the Internet; when we visited its URL we got back the OpenShift equivalent of a 'Hello World' page, including some useful information on what to do next. Spinning up an application quickly and easily like this is pretty cool, but a static page can only entertain for so long. In this section we will modify the default application to do something more exciting and deploy the changes to OpenShift.
 
 === Cloning Code to Your Local Machine
 
@@ -144,10 +144,10 @@ Note that each time new code is deployed, the directory on the gear containing t
 
 [TIP]
 ====
-By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed. See link:http://!!![backing up doc] to learn how.
+By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed. See link:backing-up=application.html[backing up doc] to learn how.
 ====
 
-As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later chapters. In the next section we will talk about how you can write scripts to hook into various phases of the build.
+As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation]. 
 
 Once this cycle is complete, we can visit our application URL in a browser and are now greeted with "Hello, code monkey!" (see <<screenshot_hellocodemonkey>>).
 
@@ -155,43 +155,9 @@ Once this cycle is complete, we can visit our application URL in a browser and a
 .The Flask application in action
 image::helloCodeMonkeyScreenShot.png["Screenshot of the Flask application"]
 
-=== Action Hook Scripts
-
-OpenShift cartridges are designed to take care of the major tasks required to build and deploy a web application. If there are actions you want to perform as part of the build lifecycle that go beyond the basics, you can include these in action hook scripts.
-
-Action hook scripts are included as part of your application Git repository, in the __.openshift/action_hooks__ directory. Different cartridges may support different hooks, depending on their build lifecycles; however, they should all include +pre_build+, +build+, +deploy+, and +post_deploy+, as well as +pre+ and +post+ hooks for the +start+, +stop+, +restart+, +reload+, and +tidy+ actions.
-
-To run code at a particular time in the lifecycle, place a script in the __action_hooks__ directory with the same name as the phase when you want it to be executed. The script can be written in Shell, Python, PHP, Ruby, or any other scripting language installed in the OpenShift environment that you can reference. It does not matter what language you chose for your web application; all of these scripting environments are still available to run on your gear. The script should be executable; run the +chmod x+ ++__scriptname__++ command to ensure this.
-
-[WARNING]
-====
-Windows users may find that permissions they set on their action hook scripts are lost when the scripts are pushed to OpenShift with Git. To fix this issue, run the command +git update-index --chmod=+x .openshift/action_hooks/*+ and push the scripts again.
-====
-
-Action hook scripts need to be added and committed in Git just like any other repository file. When they are pushed to the cloud, you will see any effects as the build lifecycle runs. For example, if you delete files in the _/tmp_ directory as part of an action hook, the +git push+ output will echo the result of that command unless you tell your script to swallow output.
-
-[[section_hotdeployingcode]]
-=== Hot-Deploying Code
-
-When we pushed our code changes to the example application, we saw that the Python cartridge was stopped while the app was built and deployed, and then started back up again. If there had been a database cartridge installed in our application, it would have been stopped as well. This meant our application was unavailable for that time; if we had hit the URL at that moment, we would have received a 503 Service Unavailable message. In addition, for many of OpenShift's programming languages, you do not need to stop the server to deploy new code on the server. Going through a start/stop cycle for the application server significantly slows down the deployment experience.
-
-We want to properly insult people rather than scaring them away with server error status codes, so our next code change will be to add a marker file to tell the platform to hot deploy the code. This signals that OpenShift should deploy new application versions without restarting the server. The hot deployment option is available on most of the core OpenShift application cartridges; the JBoss, Tomcat, PHP, Zend, Perl, Ruby, and Python cartridges all support this. (See <<section_markers>> for more information about marker files.) Enabling hot deployment is as simple as creating an empty file named _hot_deploy_ in the __.openshift/markers__ directory, adding it to the local repository with +git add+, doing a +git commit+, and then finally executing a +git push+:
 
 
-++++
-<screen>
-[me@localhost ~/insultapp]$ <emphasis role="strong">touch .openshift/markers/hot_deploy</emphasis>
-[me@localhost ~/insultapp]$ <emphasis role="strong">git add .openshift/markers/hot_deploy</emphasis>
-[me@localhost ~/insultapp]$ <emphasis role="strong">git commit -m "Changing application to hot deploy"</emphasis>
-</screen>
-++++
-
-[WARNING]
-====
-
-There are times when you want the server to be stopped and then started again, such as when making changes to _server.xml_ in a Java application: you need the application server to restart in order to pick up the changes. There might also be times when you believe a bug in the code you are deploying or running has crashed the application server. Please remember to remove or rename the _hot_deploy_ file, +git add+, +git commit+, and _then_ +git push+ in this situation. This is a sometimes-forgotten problem that has bitten at least one of your gentle authors more than once.
-
-====
+If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy. 
 
 Our app is looking pretty good now, but a single canned insult will get old fast. We will make things more entertaining by adding some randomization, Elizabethan style. There is a list of insulting Shakespearean words that has been floating around the Internet practically since it was a twinkle in someone's eye (no, not Al Gore). There are two columns of adjectives and one column of nouns; the idea is to combine one word from each column. Our next step is to gather a few insulting words and add a __insulter.py__ file to encapsulate the serious business logic of contempt:
 
@@ -255,4 +221,4 @@ Once the new code has hit the cloud, we can refresh the app for some random Shak
 .A random insult from the hot-deployed app
 image::gsos_0302.png["Screenshot of the modified application"]
 
-In this chapter we showed how to modify OpenShift application starter code, spicing up our Python demo app with logic to insult its users. We achieved this with Git commands including +add+, +status+, +commit+, +push+, and, with the help of RHC, +clone+. We also explained how we can add custom scripts to the application lifecycle with action hooks, and how to use a marker file to configure an app to hot deploy.
+In this section we showed how to modify OpenShift application starter code, spicing up our Python demo app with logic to insult its users. We achieved this with Git commands including +add+, +status+, +commit+, +push+, and, with the help of RHC, +clone+. We also explained how we can add custom scripts to the application lifecycle with action hooks, and how to use a marker file to configure an app to hot deploy.

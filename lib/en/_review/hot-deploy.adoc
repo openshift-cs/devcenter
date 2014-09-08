@@ -1,0 +1,30 @@
+---
+layout: base
+category: 
+breadcrumb: Getting Started
+parent_url:
+nav_title: Hot Deploying Code
+nav_priority: 20
+---
+= Hot-Deploying Code
+
+When we pushed our code changes to the example application, we saw that the Python cartridge was stopped while the app was built and deployed, and then started back up again. If there had been a database cartridge installed in our application, it would have been stopped as well. This meant our application was unavailable for that time; if we had hit the URL at that moment, we would have received a 503 Service Unavailable message. In addition, for many of OpenShift's programming languages, you do not need to stop the server to deploy new code on the server. Going through a start/stop cycle for the application server significantly slows down the deployment experience.
+
+We want to properly insult people rather than scaring them away with server error status codes, so our next code change will be to add a marker file to tell the platform to hot deploy the code. This signals that OpenShift should deploy new application versions without restarting the server. The hot deployment option is available on most of the core OpenShift application cartridges; the JBoss, Tomcat, PHP, Zend, Perl, Ruby, and Python cartridges all support this. (See <<section_markers>> for more information about marker files.) Enabling hot deployment is as simple as creating an empty file named _hot_deploy_ in the __.openshift/markers__ directory, adding it to the local repository with +git add+, doing a +git commit+, and then finally executing a +git push+:
+
+
+++++
+<screen>
+[me@localhost ~/insultapp]$ <emphasis role="strong">touch .openshift/markers/hot_deploy</emphasis>
+[me@localhost ~/insultapp]$ <emphasis role="strong">git add .openshift/markers/hot_deploy</emphasis>
+[me@localhost ~/insultapp]$ <emphasis role="strong">git commit -m "Changing application to hot deploy"</emphasis>
+</screen>
+++++
+
+[WARNING]
+====
+
+There are times when you want the server to be stopped and then started again, such as when making changes to _server.xml_ in a Java application: you need the application server to restart in order to pick up the changes. There might also be times when you believe a bug in the code you are deploying or running has crashed the application server. Please remember to remove or rename the _hot_deploy_ file, +git add+, +git commit+, and _then_ +git push+ in this situation. This is a sometimes-forgotten problem that has bitten at least one of your gentle authors more than once.
+
+====
+

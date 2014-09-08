@@ -1,0 +1,20 @@
+---
+layout: base
+category: 
+breadcrumb: Getting Started
+parent_url:
+nav_title: Benefits of Autoscaling
+nav_priority: 20
+---
+= Autoscaling and Why You Should Use it by Default
+
+OpenShift is the only PaaS on the market that provides autoscaling at the application tier. When you make an application scalable, a software-based load-balancer called _HAProxy_ will be added to the same gear as the application server. All web traffic to the application will then be routed through HAProxy. Currently, if the number of active connections goes above 16 -- whether they are regular HTTP or WebSocket connections -- HAProxy will trigger the creation of another application gear. OpenShift will spin up another app server gear, `rsync` the code over to the new gear, plug the gear into HAProxy, and then start using it to serve connections. If the connections later drop back below the threshold for long enough not to be considered random noise, HAProxy will trigger the draining of connections and OpenShift will spin down the gear.
+
+All of this happens without any human intervention. Of course, OpenShift lets you set a minimun and maximum number of gears for application server use.
+
+It is highly recommended that you make your applications scalable by default. There are several reasons for this:
+
+* Your application server, your database server, and any other server you put in your application will each go on their own gear and therefore not compete for disk, memory, or other resources. This will give you much better performance compared to non-scaling where they all run in the same gear.
+* It gives you more flexibility if you start to experience more load on your application. You can set the scaling limits for the application tier to accommodate the new traffic.
+* It will allow you to scale up manually if you know a big event is coming up and you want to warm up the servers beforehand.
+* There is no command to make a non-scalable application into a scalable application. If you want to make a non-scalable app scalable, you will need to snapshot it, spin up a new scalable application, and then restore it to the new application (see <<section_snapshots>> for information about snapshots).
