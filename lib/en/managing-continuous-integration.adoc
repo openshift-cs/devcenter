@@ -23,7 +23,7 @@ link:#how-jenkins-build-works[How a Jenkins Build Works]
 [[basic-workflow]]
 == Basic Workflow
 1. Commit and push new code to your repo.
-2. Jenkins waits for this commit, runs a full series of tests (customized by the developer) 
+2. Jenkins waits for this commit, runs a full series of tests (customized by the developer)
 3. With OpenShift, if the tests and build are successful, the new code gets deployed. If it fails, the old code continues to run with no downtime related to the push.
 4. Users can review the persistent build history maintained by Jenkins
 
