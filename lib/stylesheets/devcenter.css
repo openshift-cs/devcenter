@@ -646,6 +646,10 @@ b.conum * { color: inherit !important; }
   .masthead-devcenter .tag {
     font-size: 20px;
   }
+  .section-mark {
+    width: 160px;
+    height: 160px;
+  }
 }
 
 
