@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 03_Languages
-breadcrumb: Languages
+category: 03_Languages and Technologies
+breadcrumb: Languages and Technologies
 parent_url: java-overview.html
 nav_title: JBoss EAP
 nav_priority: 1.3
