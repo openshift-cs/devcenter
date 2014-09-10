@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 04_Databases and Technologies
-breadcrumb: Databases and Technologies
+category: 04_Databases
+breadcrumb: Databases
 parent_url: databases-mongodb.html
 nav_title: MongoDB
 nav_priority: 2
