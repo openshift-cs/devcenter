@@ -39,7 +39,7 @@ link:#additional-gear-storage[Additional Gear Storage] +
 
 [[additional-gear-sizes]]
 === Additonal Gear Sizes
-OpenShift currently offers three gear sizes that can be selected at the time an application is created. For all OpenShift users, 3 small gears are available for free. Premium plan customers have access to larger gear sizes and to more gears, allowing the creation of more applications and the ability to scale those applications based on usage.
+OpenShift currently offers four gear sizes that can be selected at the time an application is created. For all OpenShift users, 3 small gears are available for free. Premium plan customers have access to larger gear sizes and to more gears, allowing the creation of more applications and the ability to scale those applications based on usage.
 
 The following gear prices are in USD. For CAD or EUR pricing, please refer to the plans and https://www.openshift.com/pricing[pricing page].
 
@@ -47,9 +47,8 @@ The following gear prices are in USD. For CAD or EUR pricing, please refer to th
 |===
 
 | *Small* | $0.02/hr (4 or more) | 512MB RAM
-
+| *Small.highcpu* | $0.025/hr | 512MB RAM
 | *Medium* | $0.05/hr | 1GB RAM
-
 | *Large* | $0.10/hr | 2GB RAM
 
 |===
