@@ -165,6 +165,15 @@ Now you are ready to connect to the Data Virtualization instance on OpenShift. G
 
 image::xpaas/xpaas-data-virtualization-12.png[JBDS Teiid Instance Configuration]
 
+== Additional Resources
+=== How-to Blogs
+* https://www.openshift.com/blogs/salesforce-as-a-rest-service-using-jboss-data-virtualization-on-openshift
+* https://www.openshift.com/blogs/how-to-add-mysql-databases-to-jboss-data-virtualization-instances
+* https://www.openshift.com/blogs/using-teiid-to-add-and-query-mysql-databases-in-jboss-data-virtualization-instances
+
+=== JBoss Data Virtualization Cartridge
+* https://github.com/jboss-datavirtualization/openshift-cartridge-datavirtualization
+
 link:#top[Back to Top]
 
 [[faq]]

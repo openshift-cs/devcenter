@@ -1,0 +1,333 @@
+---
+layout: base
+category: 04_Databases
+breadcrumb: Databases
+parent_url: databases-amazon-rds.html
+nav_title: Amazon RDS
+nav_priority: 50
+meta_desc: Amazon RDS Developers - OpenShift Resources to get your applications hosted in the cloud.
+---
+= Using Amazon RDS
+
+[[top]]
+[float]
+= Using Amazon RDS with OpenShift Online
+[.lead]
+link:http://aws.amazon.com/rds/[Amazon RDS], also known as Amazon Relational Database Service, is a web service that makes it easy for you to set up, operate and scale a relational database on top of Amazon EC2.
+
+It provides access to link:http://www.mysql.com/[MySQL], link:http://www.oracle.com/us/products/database/overview/index.html[Oracle], link:http://www.postgresql.org/[PostgreSQL], and link:http://www.microsoft.com/en-us/sqlserver/default.aspx[Microsoft SQL] server database engines. In addition to standard database features, RDS offers the following functionality:
+
+. Automatic database patches
+. Automated backup
+. Point-in-time recovery
+. Vertical scaling of database instances via a single API call
+
+In this guide, we will cover how OpenShift developers can use the Amazon RDS MySQL database service with their applications.
+
+== In this Guide
+link:#prerequisites[Prerequisites] +
+link:#step1[Step 1: Select an AWS Region] +
+link:#step2[Step 2: Create a DB Security Group] +
+link:#step3[Step 3: Launch a New RDS DB Instance] +
+link:#step4[Step 4: Create an OpenShift Application] +
+link:#step5[Step 5: Connect Your Application to the RDS Instance] +
+link:#step6[Step 6: Configure the DB to Accept Only SSL Connections] +
+link:#step7[Step 7: Use Amazon RDS with a Java Application] +
+
+[[prerequisites]]
+== Prerequisites
+
+=== 1. Sign up for a free OpenShift Online Account
+The OpenShift Online Free Plan gives you three free gears on which to run your applications.
+
+=== 2. Install the Command Line Tools (RHC)
+This guide uses the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please link:getting-started-client-tools.html[visit this installation guide] first and make sure your version is up to date with the following command:
+[source]
+--
+$ sudo gem update rhc
+--
+
+=== 3. Set up Your Account
+Set up your OpenShift account using the command `rhc setup` as outlined in the link:getting-started-client-tools.html[installation guide]. This command will help you to create a namespace and upload your SSH key to the OpenShift server.
+
+=== 4. Sign up for an Amazon AWS account at http://aws.amazon.com
+
+
+link:#top[Back to Top]
+
+[[step1]]
+== Step 1: Pick an Amazon Data Center
+OpenShift Online's Free Plan and default paid plan runs on top of Amazon EC2's US East data center. Unless you have a Bronze or Silver Plan and are hosting an application in other regions, you should use the Amazon US East data center for your Amazon RDS DB instance. If your OpenShift app is hosted in another OpenShift region pick an Amazon Region to match.
+link:#top[Back to Top]
+
+[[step2]]
+== Step 2: Create an Amazon RDS DB Security Group
+Every Amazon RDS instance has a firewall that prevents any outside access to it. So, before you can create an Amazon RDS instance, you should create a new DB security group that gives access to an IP range. Go to https://console.aws.amazon.com/rds/home and then click on *Security Groups* as shown below.
+
+image::databases/amazon-rds1.png[Security Groups 1]
+
+Click on *Create DB Security Group* to create a new security group.
+
+image::databases/amazon-rds2.png[Security Groups 2]
+
+Enter the details for your new security group as shown below, and click the *Add* button.
+
+image::databases/amazon-rds3.png[Security Groups 3]
+
+The new security group will be visible in the security group list. Click the *details icon* to view the security group details.
+
+image::databases/amazon-rds4.png[Security Groups 4]
+
+Next we configure the security group to permit ingress from all IPs. After entering a CIDR value of 0.0.0.0/0, click the Add button. The 0.0.0.0/0 will allow all IPs to access the database instance. This is important with environments such as OpenShift that do not provide static IPs.
+
+image::databases/amazon-rds5.png[Security Groups 5]
+
+After a few seconds, the new CIDR connection type will become visible in *Security Group Details*.
+
+image::databases/amazon-rds6.png[Security Groups 6]
+
+link:#top[Back to Top]
+
+[[step3]]
+== Step 3: Launch a New RDS DB Instance
+Click on *Instances* in the left navigation bar and then click on *Launch DB Instance*:
+
+image::databases/amazon-rds7.png[New DB Instance 1]
+
+Now, you have to choose the Database Engine that you want to work with. We'll use the MySQL database option.
+
+image::databases/amazon-rds8.png[New DB Instance 2]
+
+Next, you have to specify whether you want to use this database for production purposes. We will choose 'No' but for production it is recommended to use 'Yes'.
+
+image::databases/amazon-rds9.png[New DB Instance 3]
+
+Next, enter the database details. The details include the MySQL version, database identifier, username and password to connect to the MySQL database, etc.
+
+image::databases/amazon-rds10.png[New DB Instance 4]
+
+On the Additional Configuration page, you have to provide the additional information that RDS needs to launch the MySQL database. You have to specify the database name, port, availability zone, DB Security Group, etc. The DB Security Group is *very important as we want to use the Security Group we created in step 2*. Enter the details and press Next Step.
+
+image::databases/amazon-rds11.png[New DB Instance 5]
+
+Next, on the Management Options page, you can specify the backup and maintenance options for your DB instance.
+
+image::databases/amazon-rds12.png[New DB Instance 6]
+
+Finally, you can review the details of your DB instance on the Review page. If you need to make any changes, click the Previous button to return to the appropriate page, and then make necessary changes. After making all the changes, click on the Launch DB Instance button to create a new MySQL DB instance.
+
+Creation and provisioning of the new MySQL DB instance will take a minute or so and once done it will be available under the list of DB instances as shown below:
+
+image::databases/amazon-rds13.png[New DB Instance 7]
+
+link:#op[Back to Top]
+
+[[step4]]
+== Step 4: Create an OpenShift Application
+We will create a new application with the JBoss EAP 6 cartridge, using the following terminal command:
+
+[source]
+--
+$ rhc app-create javapp jbosseap
+--
+
+Here is the link:getting-started-overview.html[document] which provides more background on creating an OpenShift application. The application will be accessible at *javaapp-{domain-name}.rhcloud.com*. Replace the {domain-name} with your own unique OpenShift domain name (also sometimes called a namespace).
+
+link:#top[Back to Top]
+
+[[step5]]
+== Step 5: Connect to RDS Instance from the OpenShift Application Gear
+If you have the MySQL client tools on your local machine you can use that instead of using the one in your gear. If you don't have it locally, you can use the MySQL DB instance installed on your gear. SSH into the application gear using the `rhc ssh command`, as shown below:
+
+[source]
+--
+$ rhc ssh --app javaapp
+--
+
+The details of the MySQL DB instance can be found by clicking on the details icon in the DB instance list on Amazon, as shown below:
+
+image::databases/amazon-rds14.png[MySQL DB Details]
+
+After clicking on the details page, you can view the MySQL host name that you can connect to. The host information is next to Endpoint and it will be a subdomain of *.rds.amazonaws.com.
+
+image::databases/amazon-rds15.png[MySQL DB Details 2]
+
+Connect to the Amazon RDS MySQL DB instance from your OpenShift gear by executing the following command:
+
+[source]
+--
+[javaapp-domain.rhcloud.com 530f227e50044604f9000060]\> mysql --host <host_endpoint>.rds.amazonaws.com --port 3306 -u <username> -p<password> <database_name>
+--
+
+Once connected, you can run any SQL command. To check the uptime of your MySQL database, you can run the command as shown below:
+
+[source]
+--
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 5.5.33-log Source distribution
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW STATUS like 'Uptime';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Uptime        | 2227  |
++---------------+-------+
+1 row in set (0.33 sec)
+
+mysql>
+--
+
+link:#top[Back to Top]
+
+[[step6]]
+== Step 6: Configure Your MySQL DB Instance to Accept Only SSL Connections
+You should make your connection secure by configuring your RDS instance to only accept SSL-encrypted connections from authorized users.
+
+NOTE: If you set up SSL, you will need to download the certificate or your code will not work either. If you don't use SSL, your MySQL usernames and passwords will be sent in the clear over the internet - this would be bad.
+
+To configure SSL, execute the following SQL command. Please replace username with your MySQL DB instance username.
+
+[source]
+--
+mysql> GRANT USAGE ON *.* TO 'username'@'%' REQUIRE SSL;
+--
+
+Now if you quit the connection and try to login again using the `mysql` command mentioned in step 5, you will get an Access Denied Error.
+
+[source]
+--
+[javaapp-domain.rhcloud.com 530f227e50044604f9000060]\> mysql --host <host_endpoint>.rds.amazonaws.com --port 3306 -u <username> -p<password> <db_name>
+ERROR 1045 (28000): Access denied for user 'username'@'ip-10-181-217-44.ec2.internal' (using password: YES)
+--
+
+To connect to the MySQL DB instance, you have to first download the Amazon RDS CA certificate.
+On the gear, navigate to $OPENSHIFT_DATA_DIR and run the `wget` command as shown below.
+
+[source]
+--
+[javaapp-domain.rhcloud.com 530f227e50044604f9000060]\> cd $OPENSHIFT_DATA_DIR
+[javaapp-domain.rhcloud.com data]\> wget https://s3.amazonaws.com/rds-downloads/mysql-ssl-ca-cert.pem
+--
+
+Next, connect to the RDS instance using the `mysql` command line as shown below. Please note the use of the ssl_ca parameter to reference the public key.
+
+[source]
+--
+[javaapp-domain.rhcloud.com data]\> mysql --host <host_endpoint>.rds.amazonaws.com --port 3306 -u <username> -p<password> <db_name> --ssl_ca=mysql-ssl-ca-cert.pem
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 5.5.33-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+--
+
+link:#top[Back to Top]
+
+[[step7]]
+== Step 7: Using Amazon RDS with a Java Application
+So far we have looked at how to connect to the database with the `mysql` command line. Now, we will learn how to use it with the Java application.
+
+Exit the SSH connection and go inside your local application directory. Clone the source code of the application from my GitHub repository.
+
+[source]
+--
+$ git rm -rf src/ pom.xml
+$ git commit -am "deleted template application"
+$ git remote add upstream -m master https://github.com/shekhargulati/todo-openshift-amazon-rds.git
+$ git pull -s recursive -X theirs upstream master
+--
+
+This pulls down a simple Java EE 'to do' application, which can be used to create and read 'to do' items.
+
+[TIP]
+====
+*When a user makes a POST request to '/api/v1/todos', then the user creates a new 'to do' item.*
+[source]
+--
+$ curl -i -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d  '{"todo" : "Learn AngularJS","tags":["angular","learning","book-reading"]}' http://todo-domainname.rhcloud.com/api/v1/todos
+
+HTTP/1.1 201 Created
+Date: Wed, 08 Jan 2014 20:06:22 GMT
+Server: Apache-Coyote/1.1
+Location: http://todo-domainname.rhcloud.com/api/v1/todos/192529
+Content-Length: 0
+Set-Cookie: GEAR=local-52ccf099e0b8cd8978000029; path=/
+Content-Type: text/plain
+--
+====
+
+[TIP]
+====
+*When a user makes a GET request to 'api/v1/todos/:id', then the user fetches the 'to do' item with the specified id.*
+
+[source]
+--
+$ curl http://todo-domainname.rhcloud.com/api/v1/todos/192529
+
+{"id":192529,"todo":"Learn AngularJS","tags":["angular","learning","book-reading"],"createdOn":1389211581180}
+--
+====
+
+The datasource configuration is mentioned in _.openshift/config/standalone.xml_. This is a standard JBoss configuration file. When you push the changes to your OpenShift application gear, this file will override the existing JBoss configuration file.
+
+[source]
+--
+<datasource jndi-name="java:jboss/datasources/MysqlDS"
+    enabled="true" use-java-context="true" pool-name="MysqlDS" use-ccm="true">
+    <connection-url>jdbc:mysql://${env.AMAZON_RDS_MYSQL_DB_HOST}:${env.AMAZON_RDS_MYSQL_DB_PORT}/${env.AMAZON_RDS_MYSQL_DB_NAME}?autoReconnect=true&amp;verifyServerCertificate=false&amp;useSSL=true&amp;requireSSL=true
+    </connection-url>
+    <driver>mysql</driver>
+    <security>
+        <user-name>${env.AMAZON_RDS_MYSQL_DB_USERNAME}</user-name>
+        <password>${env.AMAZON_RDS_MYSQL_DB_PASSWORD}</password>
+    </security>
+    <validation>
+        <check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
+        <background-validation>true</background-validation>
+    </validation>
+    <pool>
+        <flush-strategy>IdleConnections</flush-strategy>
+        <allow-multiple-users />
+    </pool>
+</datasource>
+--
+
+The configuration shown above uses a few environment variables to configure Amazon RDS-specific values. You need to create these environment variables so that your application can access the Amazon RDS MySQL DB instance.
+
+[source]
+--
+$ rhc env-set AMAZON_RDS_MYSQL_DB_NAME=<MySQL DB name> --app javaapp
+$ rhc env-set AMAZON_RDS_MYSQL_DB_USERNAME=<MySQL DB Username> --app javaapp
+$ rhc env-set AMAZON_RDS_MYSQL_DB_PASSWORD=<MySQL DB Password> --app javaapp
+$ rhc env-set AMAZON_RDS_MYSQL_DB_HOST=<MySQL Host Name> --app javaapp
+$ rhc env-set AMAZON_RDS_MYSQL_DB_PORT=<MySQL DB Port> --app javaapp
+--
+
+Push the code to your OpenShift application gear to see the application in action.
+
+
+[source]
+--
+$ git push
+--
+
+After the application is deployed successfully, you will see the application running at *javaapp-{domain-name}.rhcloud.com*. You should be able to put and retrieve todo items as well as queries those items from MySQL at the command line.
+
+link:#top[Back to Top]

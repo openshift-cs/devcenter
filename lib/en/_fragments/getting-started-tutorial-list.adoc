@@ -6,7 +6,7 @@
 
 |link:java-overview.html[Java]
 |
-link:jboss-overview.html[JBossAS/Wildfly] +
+link:jbossas-overview.html[JBossAS/Wildfly] +
 link:jbosseap-overview.html[JBoss EAP] +
 link:tomcat-overview.html[Tomcat] +
 
@@ -20,10 +20,10 @@ link:php-zend.html[Zend Server]
 |link:python-overview.html[Python]
 |Coming Soon
 
-|link:Ruby-overview.html[Ruby]
+|link:ruby-overview.html[Ruby]
 |Coming Soon
 
-|link:Perl-overview.html[Perl]
+|link:perl-overview.html[Perl]
 |Coming Soon
 
 |link:jenkins-overview.html[Jenkins]

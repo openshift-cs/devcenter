@@ -22,12 +22,52 @@ IMPORTANT: OpenShift Online premium plan support is currently available to custo
 https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country]
 
 == Feature List
+link:#regions-and-zones[Region and Zone Management] +
 link:#resource-management[Resource Management] +
 link:#scaling[Scaling] +
 link:#domain-management[Domain Management] +
 link:#collaboration[Collaboration] +
 link:#marketplace[Marketplace] +
 link:#support[Support] +
+
+[[regions-and-zones]]
+== Region and Zone Management
+All applications on the Free Plan are created on gears within the `us-east-1` Amazon EC2 region.
+
+Bronze and Silver plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region.
+
+NOTE: Only applications using Small.highcpu, Medium, or Large gears can use additional regions.
+
+=== Command Line Tools
+To view available regions or create an application using a specific region, you can use the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please link:getting-started-client-tools.html[visit this installation guide] first and make sure your version is up to date.
+
+=== Listing Available Regions and Zones
+The `region` command is used to list and manage regions and zones.
+
+To list all available regions and zones, use the following command:
+[source]
+--
+$ rhc region list
+--
+
+TIP: You can also list available regions using the `rhc regions` command.
+
+=== Creating an Application in a Specific Region or Zone
+If you have a Bronze or Silver account, you can create an application with Small.highcpu, Medium, or Large gears in a region other than `us-east-1` using the `--region` option:
+
+[source]
+--
+$ rhc create-app <name> <cartridge> --gear-size <size> --region <region> --scaling
+--
+
+For example:
+
+[source]
+--
+$ rhc app create racer php-5.4 --gear-size medium --region aws-eu-west-1a --scaling
+--
+
+link:#top[Back to Top]
 
 [[resource-management]]
 == Resource Management
@@ -39,7 +79,7 @@ link:#additional-gear-storage[Additional Gear Storage] +
 
 [[additional-gear-sizes]]
 === Additonal Gear Sizes
-OpenShift currently offers three gear sizes that can be selected at the time an application is created. For all OpenShift users, 3 small gears are available for free. Premium plan customers have access to larger gear sizes and to more gears, allowing the creation of more applications and the ability to scale those applications based on usage.
+OpenShift currently offers four gear sizes that can be selected at the time an application is created. For all OpenShift users, 3 small gears are available for free. Premium plan customers have access to larger gear sizes and to more gears, allowing the creation of more applications and the ability to scale those applications based on usage.
 
 The following gear prices are in USD. For CAD or EUR pricing, please refer to the plans and https://www.openshift.com/pricing[pricing page].
 
@@ -47,9 +87,8 @@ The following gear prices are in USD. For CAD or EUR pricing, please refer to th
 |===
 
 | *Small* | $0.02/hr (4 or more) | 512MB RAM
-
+| *Small.highcpu* | $0.025/hr | 512MB RAM
 | *Medium* | $0.05/hr | 1GB RAM
-
 | *Large* | $0.10/hr | 2GB RAM
 
 |===
@@ -68,14 +107,14 @@ You can also define gear size when creating an application using the command lin
 
 [source]
 ----
-rhc app create mediumgearexample php-5.4 --gear-size medium
+$ rhc app create mediumgearexample php-5.4 --gear-size medium
 ----
 
 or
 
 [source]
 ----
-rhc app create mediumgearexample php-5.4 --g medium
+$ rhc app create mediumgearexample php-5.4 --g medium
 ----
 
 https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[Learn more about creating and configuring applications with rhc]

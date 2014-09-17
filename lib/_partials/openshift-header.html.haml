@@ -14,12 +14,15 @@
         %li
           %a{"href"=>"https://www.openshift.com/products/pricing"}
             Pricing
-        %li
-          %a{"href"=>"https://help.openshift.com"}
-            Support
         %li.active
           %a{"href"=>"https://developers.openshift.com"}
-            Dev Center
+            Developer Portal
+        %li
+          %a{"href"=>"https://help.openshift.com"}
+            Help Center
+        %li
+          %a{"href"=>"https://openshift.uservoice.com"}
+            Vote on Features
         %li
           %a{"href"=>"https://www.openshift.com/marketplace"}
             Add-ons
@@ -31,10 +34,9 @@
           %a.nav-sign-up{"href"=>"https://www.openshift.com/app/account/new"}
             Sign up free
     %a.navbar-brand{"href"=>"/"}
-    %button.navbar-toggle{"type"=>"button", "data-toggle"=>"collapse", "data-target"=>".navbar-collapse"}
+    %button.navbar-toggle.collapsed{"type"=>"button", "data-toggle"=>"collapse", "data-target"=>".navbar-collapse"}
       %span.sr-only
         Toggle search
-      %i.fa.fa-search
   %div.navbar-collapse.collapse
     %ul.nav.navbar-nav.navbar-right
       %li

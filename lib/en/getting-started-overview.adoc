@@ -51,7 +51,7 @@ link:getting-started-client-tools.html[> Install the Client Tools]
 JBoss Developer Studio, with its Eclipse-based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. It integrates with the OpenShift platform to put the ability to create, edit, and deploy applications right at your fingertips.
 
 [.lead]
-link:getting-started-ide.html[> Install JBoss Developer Studio (Optional)]
+link:getting-started-installing-jboss-studio.html[> Install JBoss Developer Studio (Optional)]
 
 link:#top[Back to Top]
 
