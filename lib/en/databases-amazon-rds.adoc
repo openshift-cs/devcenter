@@ -56,7 +56,7 @@ Set up your OpenShift account using the command `rhc setup` as outlined in the l
 link:#top[Back to Top]
 
 [[step1]]
-== Step 1: Pck an Amazon Data Center
+== Step 1: Pick an Amazon Data Center
 OpenShift Online's Free Plan and default paid plan runs on top of Amazon EC2's US East data center. Unless you have a Bronze or Silver Plan and are hosting an application in other regions, you should use the Amazon US East data center for your Amazon RDS DB instance. If your OpenShift app is hosted in another OpenShift region pick an Amazon Region to match.
 link:#top[Back to Top]
 
@@ -106,7 +106,7 @@ Next, enter the database details. The details include the MySQL version, databas
 
 image::databases/amazon-rds10.png[New DB Instance 4]
 
-On the Additional Configuration page, you have to provide the additional information that RDS needs to launch the MySQL database. You have to specify the database name, port, availability zone, DB Security Group, etc. The DB Security Group is **very important to use the Security Group we created in step 2**. Enter the details and press Next Step.
+On the Additional Configuration page, you have to provide the additional information that RDS needs to launch the MySQL database. You have to specify the database name, port, availability zone, DB Security Group, etc. The DB Security Group is *very important as we want to use the Security Group we created in step 2*. Enter the details and press Next Step.
 
 image::databases/amazon-rds11.png[New DB Instance 5]
 
