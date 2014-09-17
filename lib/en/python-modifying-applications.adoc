@@ -1,17 +1,17 @@
 ---
-layout: base
-category: 
-breadcrumb: Getting Started
-parent_url:
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: overview-what-is-openshift.html
 nav_title: Modifying Applications
-nav_priority: 30
+nav_priority: 60
 ---
 = Modifying Applications
 
 [[top]]
 [float]
 = Modifying Applications
-[.lead]
+
 == Making Code Modifications
 
 In link:getting-started-creating-applications-python.html[the last section] we used OpenShift and a single RHC command to create a Python application running in the cloud. In a matter of seconds the application was live on the Internet; when we visited its URL we got back the OpenShift equivalent of a 'Hello World' page, including some useful information on what to do next. Spinning up an application quickly and easily like this is pretty cool, but a static page can only entertain for so long. In this section we will modify the default application to do something more exciting and deploy the changes to OpenShift.
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     app.run()
 ----
 
-In _routes.py_ we create a Flask application type called +app+. From there we use annotations to define that HTTP requests to the root URL get handled by the function +insult+. The _application_ file loads the Python virtual environment (a mechanism for having different Python libraries on the same machine) and imports the +app+ from the +routes+ module defined in _routes.py_. 
+In _routes.py_ we create a Flask application type called +app+. From there we use annotations to define that HTTP requests to the root URL get handled by the function +insult+. The _application_ file loads the Python virtual environment (a mechanism for having different Python libraries on the same machine) and imports the +app+ from the +routes+ module defined in _routes.py_.
 
 
 Now that we have made some changes to the application code base, we should commit them to the local Git repository. We can do that with the following Git commands: +add+ to add the changes to the repository index, and +commit+ to record the new contents of the index. It is good practice to use the +git status+ command before each one to make sure you are clear on what is happening, although for brevity this is not shown here:
@@ -147,7 +147,7 @@ Note that each time new code is deployed, the directory on the gear containing t
 By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed. See link:backing-up=application.html[backing up doc] to learn how.
 ====
 
-As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation]. 
+As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation].
 
 Once this cycle is complete, we can visit our application URL in a browser and are now greeted with "Hello, code monkey!" (see <<screenshot_hellocodemonkey>>).
 
@@ -157,7 +157,7 @@ image::helloCodeMonkeyScreenShot.png["Screenshot of the Flask application"]
 
 
 
-If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy. 
+If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy.
 
 Our app is looking pretty good now, but a single canned insult will get old fast. We will make things more entertaining by adding some randomization, Elizabethan style. There is a list of insulting Shakespearean words that has been floating around the Internet practically since it was a twinkle in someone's eye (no, not Al Gore). There are two columns of adjectives and one column of nouns; the idea is to combine one word from each column. Our next step is to gather a few insulting words and add a __insulter.py__ file to encapsulate the serious business logic of contempt:
 

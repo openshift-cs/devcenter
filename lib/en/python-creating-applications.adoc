@@ -1,10 +1,10 @@
 ---
-layout: base
-category: 
-breadcrumb: Getting Started
-parent_url:
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: overview-what-is-openshift.html
 nav_title: Creating Applications
-nav_priority: 20
+nav_priority: 50
 ---
 = Creating Applications
 
@@ -86,7 +86,7 @@ Run 'rhc show-app insultapp' for more details about your app.
 
 That's it! When the command finishes executing you will have Apache HTTP server with _mod_wsgi_ running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
 
-We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. There are several reasons you would want to link:autoscaling.html[use autoscaling] by default. 
+We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. There are several reasons you would want to link:autoscaling.html[use autoscaling] by default.
 
 We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the link:premium-plan-advantage.html[paid tier documentation] to understand other reasons to move into the paid tier.
 
