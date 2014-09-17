@@ -381,6 +381,7 @@ ul.checklist li > p:first-child > input[type="checkbox"]:first-child { position:
 ul.inline { margin: 0 auto 0.625em auto; margin-left: -1.375em; margin-right: 0; padding: 0; list-style: none; overflow: hidden; }
 ul.inline > li { list-style: none; float: left; margin-left: 1.375em; display: block; }
 ul.inline > li > * { display: block; }
+ul p{ margin-bottom: 0px; }
 .unstyled dl dt { font-weight: normal; font-style: normal; }
 ol.arabic { list-style-type: decimal; }
 ol.decimal { list-style-type: decimal-leading-zero; }
@@ -389,6 +390,7 @@ ol.upperalpha { list-style-type: upper-alpha; }
 ol.lowerroman { list-style-type: lower-roman; }
 ol.upperroman { list-style-type: upper-roman; }
 ol.lowergreek { list-style-type: lower-greek; }
+ol p { margin-bottom: 0px; }
 .hdlist > table, .colist > table { border: 0; background: none; }
 .hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
 td.hdlist1 { padding-right: .75em; font-weight: bold; }
