@@ -120,7 +120,7 @@ Creation and provisioning of the new MySQL DB instance will take a minute or so 
 
 image::databases/amazon-rds13.png[New DB Instance 7]
 
-link:#op[Back to Top]
+link:#top[Back to Top]
 
 [[step4]]
 == Step 4: Create an OpenShift Application
