@@ -14,17 +14,18 @@ meta_desc: Get started with Tomcat 7 on OpenShift.
 = Quickly Getting Started with Tomcat 6/7 (EWS 1.0/2.0)
 [.lead]
 It's easy to get up and running with Tomcat on OpenShift and the experience will be very similar to the experience you have had running it on any Linux system. We support both source and WAR file deploys and you can modify your Server.xml. One important caveat, your applications will not have write permissions to the *Webapp* directory, so you will have to write content to another directory.
-On OpenShift we use [JBoss EWS] 1.0 and  2.0 for Tomcat 6 and 7 respectively. EWS is a hardened and Red Hat supported version of Apache Tomcat. By versions use Java OpenJDK 1.7 
+On OpenShift we use http://www.jboss.org/products/webserver/overview/[JBoss EWS] 1.0 and  2.0 for Tomcat 6 and 7 respectively. EWS is a hardened and Red Hat supported version of Apache Tomcat. By versions use Java OpenJDK 1.7 
 
 WARNING: EWS has had the clustering modules removed so you can not do Tomcat clustering with EWS. 
   
 [.lead]
 
-// TODO link:#step1[Step 1: Create Your First Tomcat Application] +
-// TODO link:#step2[Step 2: Make Your First Change] +
+link:#step1[Step 1: Create Your First Tomcat Application] 
+
+// TODO link:#step2[Step 2: Make Your First Change] 
 // TODO link:#step3[Step 3: Deploying a WAR File]
 // TODO add DB here, hot deploy, and server.xml link:#other[Other Hints and Tips]
-// TODO link:#next[Next Steps] +
+// TODO link:#next[Next Steps] 
 
 [[step1]]
 == Step 1: Create Your First Tomcat Application
@@ -77,6 +78,7 @@ Run 'rhc show-app mytomcatapp' for more details about your app.
 
 You can now see your application running at the *URL* listed in the output. You also now a have a local git repository for your application in the directory listed under *Cloned to:*
 
+// TODO left off here
 [[step2]]
 == Step 4: Make Your First Change
 As a developer on OpenShift, you make code changes on your local machine, check those changes in locally, and then "push" those changes to OpenShift. One of the primary advantages of Git is that it does not require a continuous online presence in order to run. You can easily check in (in Git terminology, 'commit') and revert changes locally before deciding to upload those changes to OpenShift.

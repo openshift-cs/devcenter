@@ -1,7 +1,7 @@
 ---
 layout: base
 category: 
-breadcrumb: Getting Started
+breadcrumb:
 parent_url:
 nav_title: Action Hooks
 nav_priority: 20
@@ -20,3 +20,26 @@ Windows users may find that permissions they set on their action hook scripts ar
 ====
 
 Action hook scripts need to be added and committed in Git just like any other repository file. When they are pushed to the cloud, you will see any effects as the build lifecycle runs. For example, if you delete files in the _/tmp_ directory as part of an action hook, the +git push+ output will echo the result of that command unless you tell your script to swallow output.
+
+Here is an example action hooks that checks if there is a data in a MongoDB database and if not, it imports data from the git repository for the application.
+
+[source, console]
+--
+#!/bin/bash
+dbsize=$(mongo -quiet $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPENSHIFT_APP_NAME -u $OPENSHIFT_MONGODB_DB_USERNAME -p $OPENSHIFT_MONGODB_DB_PASSWORD --eval "db.placenames.count()")
+
+#If the query says that parkpoints has 0 documents then we import the data
+if [[ $dbsize = "0" ]]
+then
+
+	#import the data
+	mongoimport -d $OPENSHIFT_APP_NAME -c placenames --type json --file $OPENSHIFT_REPO_DIR/gnis.json -h $OPENSHIFT_MONGODB_DB_HOST --port $OPENSHIFT_MONGODB_DB_PORT -u admin -p $OPENSHIFT_MONGODB_DB_PASSWORD
+
+	#make the 2D index
+	mongo -quiet $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPENSHIFT_APP_NAME -u $OPENSHIFT_MONGODB_DB_USERNAME -p $OPENSHIFT_MONGODB_DB_PASSWORD --eval 'db.placenames.ensureIndex( { pos : "2dsphere" } );'
+	echo "imported the data"
+else
+	echo "There was already data in the database. Not importing"
+fi
+--
+
