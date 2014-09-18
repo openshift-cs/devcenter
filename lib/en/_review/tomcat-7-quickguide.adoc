@@ -1,0 +1,140 @@
+---
+layout: base
+category: 02_Getting Started
+breadcrumb: Getting Started
+parent_url: getting-started-overview.html
+nav_title: Overview
+nav_priority: 1
+meta_desc: Get started with Tomcat 7 on OpenShift.
+---
+= Getting Started
+
+[[top]]
+[float]
+= Quickly Getting Started with Tomcat 6/7 (EWS 1.0/2.0)
+[.lead]
+It's easy to get up and running with Tomcat on OpenShift and the experience will be very similar to the experience you have had running it on any Linux system. We support both source and WAR file deploys and you can modify your Server.xml. One important caveat, your applications will not have write permissions to the *Webapp* directory, so you will have to write content to another directory.
+On OpenShift we use [JBoss EWS] 1.0 and  2.0 for Tomcat 6 and 7 respectively. EWS is a hardened and Red Hat supported version of Apache Tomcat. By versions use Java OpenJDK 1.7 
+
+WARNING: EWS has had the clustering modules removed so you can not do Tomcat clustering with EWS. 
+  
+[.lead]
+
+// TODO link:#step1[Step 1: Create Your First Tomcat Application] +
+// TODO link:#step2[Step 2: Make Your First Change] +
+// TODO link:#step3[Step 3: Deploying a WAR File]
+// TODO add DB here, hot deploy, and server.xml link:#other[Other Hints and Tips]
+// TODO link:#next[Next Steps] +
+
+[[step1]]
+== Step 1: Create Your First Tomcat Application
+
+For this tutorial, we are going to assume you are creating an application titled *mytomcatapp* and your domain is *mydomain*. Before going through the rest of the tutorial it is assumed you have created an OpenShift account and installed the link:getting-started-client-tools.html[RHC command line tools]. Once that is completed you should open a terminal on your local machine and change into a directory where you want your source code to be located.  Then at the command prompt enter the follwing command to create a Tomcat application.
+
+[source, console] 
+--
+$ rhc app-create mytomcatapp tomcat7 
+--
+
+or 
+
+[source, console] 
+--
+$ rhc app-create mytomcatapp tomcat6 
+--
+
+and you should see output that looks something like this:
+
+[source, console]
+--
+Using jbossews-2.0 (Tomcat 7 (JBoss EWS 2.0)) for 'tomcat7'
+
+Application Options
+-------------------
+Domain:     mydomain
+Cartridges: jbossews-2.0
+Gear Size:  default
+Scaling:    no
+
+Creating application 'mytomcatapp' ... done
+
+
+Waiting for your DNS name to be available ... done
+
+Cloning into 'mytomcatapp'...
+Warning: Permanently added 'mytomcatapp-mydomain.rhcloud.com,54.237.129.193' (RSA) to the list of known hosts.
+
+Your application 'mytomcatapp' is now available.
+
+  URL:        http://mytomcatapp-mydomain.rhcloud.com/
+  SSH to:     541a13a04382ec1b7b0002f3@mytomcatapp-mydomain.rhcloud.com
+  Git remote: ssh://541a13a04382ec1b7b0002f3@mytomcatapp-mydomain.rhcloud.com/~/git/mytomcatapp.git/
+  Cloned to:  /home/me/git_demo/mytomcatapp
+
+Run 'rhc show-app mytomcatapp' for more details about your app.
+
+--
+
+You can now see your application running at the *URL* listed in the output. You also now a have a local git repository for your application in the directory listed under *Cloned to:*
+
+[[step2]]
+== Step 4: Make Your First Change
+As a developer on OpenShift, you make code changes on your local machine, check those changes in locally, and then "push" those changes to OpenShift. One of the primary advantages of Git is that it does not require a continuous online presence in order to run. You can easily check in (in Git terminology, 'commit') and revert changes locally before deciding to upload those changes to OpenShift.
+
+=== Using the Git Repository
+
+Every OpenShift application you create has its own Git repository that only you can access.
+
+If you create your application from the command line, +rhc+ will automatically download a copy of that repository (Git calls this 'cloning') to your local system.
+
+If you create an application from the web console, you'll need to tell Git to clone the repository. Find the Git URL from the application page, and then run:
+
+[source]
+--
+$ git clone <git_url> <directory to create>
+--
+
+=== Submitting Changes
+
+Once you make changes, you'll need to 'add' and 'commit' those changes - 'add' tells Git that a file or set of files will become part of a larger check in, and 'commit' completes the check in. Git requires that each commit have a message to describe it.
+
+[source]
+----------------
+$ git add .
+$ git commit -m "A checkin to my application"
+----------------
+
+Finally, you're ready to send your changes to your application - you'll 'push' these changes with:
+
+[source]
+----------------
+$ git push
+----------------
+
+The output of the push command will contain information from OpenShift about your deployment.
+[.lead]
+link:http://git-scm.com/book[> Learn more about using Git]
+
+=== When you Push...
+
+Building without Jenkins uses your application space as part of the build and test process. Because of this, the application is shut down so its memory can be used for building. The following steps take place:
+
+* You run a 'git push' on your computer - your changes are sent to your OpenShift application
+* The application is shut down
+* Your changes are copied on the server into the correct location
+* OpenShift invokes your build hooks - script files you've placed in your Git repository
+* Your application is started
+
+[.lead]
+link:getting-started-modifying-applications.html[> Learn More About Modifying Applications]
+
+link:#top[Back to Top]
+
+[[tutorials]]
+== What's Next?
+
+Access one of our more specific tutorials or learn more about specific cartridges on OpenShift.
+
+include::_fragments/getting-started-tutorial-list.adoc[]
+
+link:#top[Back to Top]
