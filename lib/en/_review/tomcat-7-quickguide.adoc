@@ -21,8 +21,7 @@ WARNING: EWS has had the clustering modules removed so you can not do Tomcat clu
 [.lead]
 
 link:#step1[Step 1: Create Your First Tomcat Application] 
-
-// TODO link:#step2[Step 2: Make Your First Change] 
+link:#step2[Step 2: Make Your First Change] 
 // TODO link:#step3[Step 3: Deploying a WAR File]
 // TODO add DB here, hot deploy, and server.xml link:#other[Other Hints and Tips]
 // TODO link:#next[Next Steps] 
@@ -78,44 +77,72 @@ Run 'rhc show-app mytomcatapp' for more details about your app.
 
 You can now see your application running at the *URL* listed in the output. You also now a have a local git repository for your application in the directory listed under *Cloned to:*
 
-// TODO left off here
 [[step2]]
-== Step 4: Make Your First Change
+== Step 2: Make Your First Change
 As a developer on OpenShift, you make code changes on your local machine, check those changes in locally, and then "push" those changes to OpenShift. One of the primary advantages of Git is that it does not require a continuous online presence in order to run. You can easily check in (in Git terminology, 'commit') and revert changes locally before deciding to upload those changes to OpenShift.
 
 === Using the Git Repository
 
-Every OpenShift application you create has its own Git repository that only you can access.
+To make our first change, we need to edit the +index.html+ in the *mytomcatapp/src/main/webapp* directory. You can do this by going to the file in your terminal and editing with a comand line editor like VIM or EMacs, or you can edit with the editor of your choice. Strip out everything between the two *body* tags and change the content to look like this
 
-If you create your application from the command line, +rhc+ will automatically download a copy of that repository (Git calls this 'cloning') to your local system.
-
-If you create an application from the web console, you'll need to tell Git to clone the repository. Find the Git URL from the application page, and then run:
-
-[source]
+[source, html]
 --
-$ git clone <git_url> <directory to create>
+<body>
+	<h1>>Hello world!</h1>
+</body>
 --
 
-=== Submitting Changes
+Now that you have made your incredibly complicated code change, let's deploy the change to the server. To accomplish this task we need to use git.
 
-Once you make changes, you'll need to 'add' and 'commit' those changes - 'add' tells Git that a file or set of files will become part of a larger check in, and 'commit' completes the check in. Git requires that each commit have a message to describe it.
+We execute the following commands in the local git repository which is the directory that has the same name as the application, *mytomcatapp*. If you have not set your name and email in git, it will prompt you to take care of that first.
 
-[source]
-----------------
-$ git add .
-$ git commit -m "A checkin to my application"
-----------------
+. If we had added any new files to the repository we would have done the following command to tell git to track new files as part of the repository.
 
-Finally, you're ready to send your changes to your application - you'll 'push' these changes with:
+[source, console]
+--
+$ git add --all .
+--
 
-[source]
-----------------
+. Next we commit all our local changes to the git repository and include a message for the commit
+
+[source, console]
+--
+$ git commit -am "you message"
+--
+
+. Finally, we push these changes to the git repository in your OpenShift applications. 
+
+[source, console]
+--
 $ git push
-----------------
+--
 
-The output of the push command will contain information from OpenShift about your deployment.
-[.lead]
-link:http://git-scm.com/book[> Learn more about using Git]
+The output of the push command will first show you the git push and then it will show you the build process and deployment for your OpenShift application. When the build is finished, you can go back to your applications URL and see a page which just says "Hello World" in nice big font.
+
+This is the basic process you will continue to follow as you develop your application: git add (optional), code change, git commit, and finally git push. 
+
+If you are curious about git, here is a great resource link:http://git-scm.com/book[> to learn more about using Git]
+
+[[step3]]
+== Step 3: Deploying WAR files
+
+OpenShift also supports if you would prefer to build a WAR file on your local machine and then deploy it. There are several process which are each very simple. Let's go through them in increasing order of complexity:
+
+=== Using Git
+
+. Take the WAR file and place it in the webapps directory
+. Git add, git commit, and git push using the same commands as above
+. Your application should automatically be deployed
+
+WARNING: If you use this tecnhique, each time you push up a new WAR file it is adding a binary to your git repository. Git handles binaries, like WAR file, by basically storing the old one and adding the new version. This can quickly eat up your disk space on the gear with the git repository. 
+
+// TODO left off here
+=== Using SFTP 
+
+
+
+
+
 
 === When you Push...
 
