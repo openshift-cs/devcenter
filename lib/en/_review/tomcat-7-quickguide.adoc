@@ -22,8 +22,8 @@ WARNING: EWS has had the clustering modules removed so you can not do Tomcat clu
 
 link:#step1[Step 1: Create Your First Tomcat Application] 
 link:#step2[Step 2: Make Your First Change] 
-// TODO link:#step3[Step 3: Deploying a WAR File]
-// TODO add DB here, hot deploy, and server.xml link:#other[Other Hints and Tips]
+link:#step3[Step 3: Deploying a WAR File]
+// TODO link:#other[Other Hints and Tips] 
 // TODO link:#next[Next Steps] 
 
 [[step1]]
@@ -126,41 +126,39 @@ If you are curious about git, here is a great resource link:http://git-scm.com/b
 [[step3]]
 == Step 3: Deploying WAR files
 
-OpenShift also supports if you would prefer to build a WAR file on your local machine and then deploy it. There are several process which are each very simple. Let's go through them in increasing order of complexity:
-
-=== Using Git
-
-. Take the WAR file and place it in the webapps directory
-. Git add, git commit, and git push using the same commands as above
-. Your application should automatically be deployed
-
-WARNING: If you use this tecnhique, each time you push up a new WAR file it is adding a binary to your git repository. Git handles binaries, like WAR file, by basically storing the old one and adding the new version. This can quickly eat up your disk space on the gear with the git repository. 
-
-// TODO left off here
-=== Using SFTP 
+OpenShift also supports if you would prefer to build a WAR file on your local machine and then deploy it. There are several process which are each very simple. There is a https://help.openshift.com/hc/en-us/articles/202399740-How-to-deploy-pre-compiled-java-applications-WAR-and-EAR-files-onto-your-OpenShift-gear-using-the-java-cartridges[great knowledgebase article] that covers deploying WAR files with both Git and SFTP/SCP.
 
 
+[[other]]
+== Other hints and tips
 
 
+=== Server.xml
+Most of the behavior of Tomcat can be controlled through http://tomcat.apache.org/tomcat-7.0-doc/config/[the server.xml file]. In Openshift you can find the server.xml inside your applications git repository. Navigate to the *{git repo}/.openshift/config/* directory and you will see the server.xml there. Please be careful when making a change to the file as you have the potential to make your application not work correctly. You also need to make sure the Tomcat server restarts after you make the change. 
 
+=== Hot Deploy 
 
-=== When you Push...
+When you do your normal git push above, if you pay attention, you will see that Openshift starts and stops the Tomcat server on each build. For Java applications you can actually just build the WAR file and deploy your code without restarting the server. We have written link:hot-deploy.html[a document] explaining how OpenShift uses a marker in the git repository to turn on this build style. 
 
-Building without Jenkins uses your application space as part of the build and test process. Because of this, the application is shut down so its memory can be used for building. The following steps take place:
+=== Adding a Database to Your Appliction
 
-* You run a 'git push' on your computer - your changes are sent to your OpenShift application
-* The application is shut down
-* Your changes are copied on the server into the correct location
-* OpenShift invokes your build hooks - script files you've placed in your Git repository
-* Your application is started
+The JNDI sources loaded in the server.xml by default
+//TODO 
 
-[.lead]
-link:getting-started-modifying-applications.html[> Learn More About Modifying Applications]
+=== Configuring JVM properties
+//TODO
+
+[[next]]
+== Next Steps
+
+Of course the best next step is to start creating an application. If you want to follow a more involved tutorial we have one that will talk you more in depth in creating and maintaining application.  //TODO
+
+You can also look at the application gallery and developer spotlight to see what other developers have created on OpenShift. // TODO
+
+Finally, you can look through our quickstarts and community cartridges to see other exciting technology you can use in your applications. // TODO
 
 link:#top[Back to Top]
 
-[[tutorials]]
-== What's Next?
 
 Access one of our more specific tutorials or learn more about specific cartridges on OpenShift.
 
