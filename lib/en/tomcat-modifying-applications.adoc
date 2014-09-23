@@ -128,7 +128,7 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
 
-        resp.getWriter().write("Hi, there!");
+        resp.getWriter().write("Hello, code monkey!");
 
     }
     
@@ -204,7 +204,7 @@ remote: Activation status: success
 remote: Deployment completed with status: success
 ----
 
-Note that each time new code is deployed, the directory on the gear containing the current copy of the Git repository is blown away and then replaced with an updated copy, so anything stored there between deployments will be lost.
+Note that each time new code is deployed, the directory on the gear containing the current copy of the Git repository is blown away and then replaced with an updated copy, so anything stored there between deployments will be lost. We explain where you can store files persistently in>>>.
 
 [TIP]
 ====
@@ -213,8 +213,102 @@ By default, pushing code changes to the OpenShift repository will also trigger a
 
 As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our application, the Tomcat cartridge is stopped, the Git repository is cloned, Maven is run to prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation].
 
-Once this cycle is complete, we can visit our application URL in a browser and are now greeted with `Hi, there!`.
+Once this cycle is complete, we can visit our application URL in a browser and are now greeted with `Hello, code monkey!`.
+
+
+[[screenshot_hellocodemonkey]]
+.The Java application in action
+image::helloCodeMonkeyScreenShot.png["Screenshot of the Java application"]
 
 If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy.
+
+Our app is looking pretty good now, but a single canned insult will get old fast. We will make things more entertaining by adding some randomization, Elizabethan style. There is a list of insulting Shakespearean words that has been floating around the Internet practically since it was a twinkle in someone's eye (no, not Al Gore). There are two columns of adjectives and one column of nouns; the idea is to combine one word from each column. Our next step is to gather a few insulting words and add a Insulter class to encapsulate the serious business logic of contempt:
+
+[source,java]
+----
+package com.openshift.devcenter;
+
+import java.util.Random;
+
+public class Insulter {
+
+    private static String[] firsts = new String[] { "artless", "bawdy", "beslubbering", "bootless", "churlish" };
+    private static String[] seconds = new String[] { "base-court", "bat-fowling", "beef-witted", "beetle-headed",
+            "boil-brained" };
+    private static String[] nouns = new String[] { "apple-john", "baggage", "barnacle", "bladder", "boar-pig" };
+
+    private static String INSULT = "Thou %s !";
+    private static String NAMED = "%s, thou %s!";
+    private static String TEMPLATE = "%s %s %s";
+
+    public String insult() {
+        return String.format(INSULT, generateInsult());
+    }
+
+    public String namedInsult(String name) {
+        return String.format(NAMED, name, generateInsult());
+    }
+
+    private String generateInsult() {
+        int f = new Random().nextInt(firsts.length);
+        int s = new Random().nextInt(seconds.length);
+        int n = new Random().nextInt(nouns.length);
+
+        return String.format(TEMPLATE, firsts[f], seconds[s], nouns[n]);
+    }
+
+}
+----
+
+Next, we change the Servlet to make use of our new functions:
+
+[source,python]
+----
+package com.openshift.devcenter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(urlPatterns = "/*")
+public class Servlet extends HttpServlet {
+
+    private Insulter insulter = new Insulter();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        if(req.getPathInfo().equals("/")) {
+            resp.getWriter().write(insulter.insult());
+        } else {
+            String name = req.getPathInfo().substring(1);
+            resp.getWriter().write(insulter.namedInsult(name));
+        }
+
+    }
+
+}
+
+----
+
+Notice we use the two insult-constructing functions to generate our insults. You can also see that we are grabbing any text after the `/` and making it available to the function `namedInsult()` as a parameter called `name`. We added this function for cases when only a personalized insult will do.
+
+We add and commit those changes to the Git repository, and then the final step is to `git push` our latest two commits. The output from OpenShift shows that the server has not been stopped and restarted because hot deployment is enabled:
+
+----
+remote: Not stopping cartridge python because hot deploy is enabled
+...
+remote: Not starting cartridge python because hot deploy is enabled
+----
+
+Once the new code has hit the cloud, we can refresh the app for some random Shakespearean insult fun (see <<screenshot_randominsults>>).
+
+[[screenshot_randominsults]]
+.A random insult from the hot-deployed app
+image::gsos_0302.png["Screenshot of the modified application"]
 
 In this section we showed how to modify OpenShift application starter code, spicing up our Tomcat application with a basic Servlet. We achieved this with Git commands including `add`, `status`, `commit`, `push`, and, with the help of RHC, `clone`.
