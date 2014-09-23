@@ -29,7 +29,7 @@ link:#section_paidtier[Premium Plan Advantages]
 
 [[create-app]]
 === Creating Your First Application
-With your RHC set-up complete, you are ready to create your first application. For the purposes of example, we are going to create a simepl Java web application. Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
+With your RHC set-up complete, you are ready to create your first application. For the purposes of example, we are going to create a simple Java web application. Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
 
 Let's create an app!
 

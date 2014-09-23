@@ -81,7 +81,7 @@ and, of couse, we do have dependency on Servlet API.
 [[maven-is-built-in]]
 === Maven is built in
 
-OpenShift comes with native support for maven. That means that all your pushes to your remote git repository (when pom.xml file is present) are build by Maven automaticaly. To make this magic happen, there is a profile configured in your pom.xml file that helps Maven to communicate with OpenShift in the right way.
+OpenShift comes with native support for maven. That means that all your pushes to your remote git repository (when pom.xml file is present) are build by Maven automatically. To make this magic happen, there is a profile configured in your pom.xml file that helps Maven to communicate with OpenShift in the right way.
 
 [source,xml]
 ----
