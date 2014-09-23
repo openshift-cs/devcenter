@@ -25,7 +25,7 @@ $ rhc app-create myappname webcartridge dbcartridge
 
 --
 
-In the example above you can replace webcartridge with any of our web cartridges, like **php-5.4** or **tomcat7**, and dbcartridge is any of our database cartridges, such as **postgresql-9.2** or **mongodb-2.4**. This will spin up your database server for your application and put environment variables in your application for the database connection parameters.
+In the example above you can replace webcartridge with any of our web cartridges, like **php-5.4** or **tomcat7**, and dbcartridge is any of our database cartridges, such as **postgresql-9.2** or **mongodb-2.4**. This will spin up your database server for your application and put environment variables in your application for the database connection parameters. If you want to use a downloadable cart for your datastore, you would replace the dbcartridge with the URL used to download the cartridge. 
 
 If you want to add a database to an existing application the command is similar:
 
