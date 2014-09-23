@@ -1,0 +1,29 @@
+---
+layout: base
+category: 02_Adding a Database to Your Application
+breadcrumb: Getting Started
+parent_url: adding-database.html
+nav_title: Overview
+nav_priority: 1
+meta_desc: Adding a Database to Your Application
+---
+
+[[top]]
+[float]
+= Adding a Database to Your Application
+
+Now that you have created an application we will quickly show you how to add a database to your application. The main focus of this quick introduction is adding one of the OpenShift "native" datastores, that is one of the datastore cartridges runs on an OpenShift gear and that writes it's data to the filesystem on the gear.
+
+== Adding the Database
+
+You can either add the database cartridge at application creation times
+
+
+
+=== Reading Environment Variables
+
+We have compiled a table by programming language that shows how to load environment variables, such as the database connection information.
+
+include::_fragments/read-env-variables-table.adoc[]
+
+[.lead]
