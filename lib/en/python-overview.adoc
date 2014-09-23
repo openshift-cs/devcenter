@@ -1,5 +1,5 @@
 ---
-layout: python
+layout: base
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: python-overview.html
