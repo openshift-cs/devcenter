@@ -12,13 +12,42 @@ meta_desc: Adding a Database to Your Application
 [float]
 = Adding a Database to Your Application
 
-Now that you have created an application we will quickly show you how to add a database to your application. The main focus of this quick introduction is adding one of the OpenShift "native" datastores, that is one of the datastore cartridges runs on an OpenShift gear and that writes it's data to the filesystem on the gear.
+Now that you have created an application we will quickly show you how to add a database to your application. The main focus of this quick introduction is adding one of the OpenShift "native" datastores, that is one of the datastore cartridges that runs on an OpenShift gear and that writes it's data to the filesystem on the gear.
 
 == Adding the Database
 
-You can either add the database cartridge at application creation times
+You can either add the database cartridge at application creation time or after the application is created. To add it at application creation time you just add it to the list of cartridges for your application:
 
+[source, console]
+--
 
+$ rhc app-create myappname webcartridge dbcartridge
+
+--
+
+In the example above you can replace webcartridge with any of our web cartridges, like **php-5.4** or **tomcat7**, and dbcartridge is any of our database cartridges, such as **postgresql-9.2** or **mongodb-2.4**. This will spin up your database server for your application and put environment variables in your application for the database connection parameters.
+
+If you want to add a database to an existing application the command is similar:
+
+[source, console]
+--
+
+$ rhc cartridge-add dbcartridge --app myappname
+
+-- 
+
+This command will also spin up your database server and insert the environment variables. Adding the database after application creation gives you more control over the gear size and environment variables for the cartridge.
+
+To use the datastore in your code, you just need to read in the environment variables for the database connection parameters. The name of the environment variables will be different based on the cartridge you choose. 
+
+To see the username and password for your datastore you can use the command line tools:
+
+[source, console]
+--
+
+$ rhc app show myappname -v
+
+--
 
 === Reading Environment Variables
 
@@ -26,4 +55,3 @@ We have compiled a table by programming language that shows how to load environm
 
 include::_fragments/read-env-variables-table.adoc[]
 
-[.lead]
