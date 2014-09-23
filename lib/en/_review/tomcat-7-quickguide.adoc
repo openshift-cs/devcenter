@@ -23,8 +23,8 @@ WARNING: EWS has had the clustering modules removed so you can not do Tomcat clu
 link:#step1[Step 1: Create Your First Tomcat Application] 
 link:#step2[Step 2: Make Your First Change] 
 link:#step3[Step 3: Deploying a WAR File]
-// TODO link:#other[Other Hints and Tips] 
-// TODO link:#next[Next Steps] 
+link:#other[Other Hints and Tips] 
+link:#next[Next Steps] 
 
 [[step1]]
 == Step 1: Create Your First Tomcat Application
@@ -134,28 +134,53 @@ OpenShift also supports if you would prefer to build a WAR file on your local ma
 
 
 === Server.xml
-Most of the behavior of Tomcat can be controlled through http://tomcat.apache.org/tomcat-7.0-doc/config/[the server.xml file]. In Openshift you can find the server.xml inside your applications git repository. Navigate to the *{git repo}/.openshift/config/* directory and you will see the server.xml there. Please be careful when making a change to the file as you have the potential to make your application not work correctly. You also need to make sure the Tomcat server restarts after you make the change. 
+Most of the behavior of Tomcat can be controlled through http://tomcat.apache.org/tomcat-7.0-doc/config/[the server.xml file]. In OpenShift you can find the server.xml inside your applications git repository. Navigate to the *{git repo}/.openshift/config/* directory and you will see the server.xml there. Please be careful when making a change to the file as you have the potential to make your application not work correctly. You also need to make sure the Tomcat server restarts after you make the change. 
 
-=== Hot Deploy 
+=== Hot Deploy and Other Markers 
 
-When you do your normal git push above, if you pay attention, you will see that Openshift starts and stops the Tomcat server on each build. For Java applications you can actually just build the WAR file and deploy your code without restarting the server. We have written link:hot-deploy.html[a document] explaining how OpenShift uses a marker in the git repository to turn on this build style. 
+When you do your normal git push above, if you pay attention, you will see that Openshift starts and stops the Tomcat server on each build. For Java applications you can actually just build the WAR file and deploy your code without restarting the server. We have written link:hot-deploy.html[a document] explaining how OpenShift uses a marker in the git repository to turn on this build style.  
+// TODO need a doc that describes markers that we point to here
+
+==== Other Markers
+
+Adding marker files to .openshift/markers will have the following effects:
+
+[cols="2*", options="header"]
+|===
+|Marker
+|Effect
+
+|enable_jpda
+|Will enable the JPDA socket based transport on the java virtual machine running the Tomcat server. This enables you to remotely debug code running inside Tomcat.
+
+|skip_maven_build
+|Maven build step will be skipped
+
+|force_clean_build
+|Will start the build process by removing all non-essential Maven dependencies. Any current dependencies specified in your pom.xml file will then be re-downloaded.
+
+|java7
+|Will run Tomcat with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
 
 === Adding a Database to Your Appliction
 
-The JNDI sources loaded in the server.xml by default
-//TODO 
+We have link:adding-database.html[a document] to cover how to add a database to your application. As noted in the document, you should only use environment variables to specify the connection parameters to connect to your database. Using hard coded names, ports, or credentials limits the resusability of your app and can potentially break your app during OpenShift maintenance.
+
+By default, the three provided datastores: MySQL, Postgresql, and MongoDB have JNDI entries in your **server.xml**. As noted above you can edit your **server.xml**, which allows you to delete or add other JNDI sources to your application. The syntax is standard syntax, there are no modification you need to make for OpenShift. Once again, please use environment variables rather than hard coding in values.
+
 
 === Configuring JVM properties
-//TODO
+
+You can also use environment variables to con
 
 [[next]]
 == Next Steps
 
-Of course the best next step is to start creating an application. If you want to follow a more involved tutorial we have one that will talk you more in depth in creating and maintaining application.  //TODO
+Of course the best next step is to start creating an application. If you want to follow a link:tomcat-creating-application.html [more involved tutorial] we have one that will talk you more in depth in creating and maintaining application. 
 
-You can also look at the application gallery and developer spotlight to see what other developers have created on OpenShift. // TODO
+You can also look at the https://www.openshift.com/application-gallery[application gallery] and https://www.openshift.com/developer-spotlight[developer spotlight] to see what other developers have created on OpenShift. 
 
-Finally, you can look through our quickstarts and community cartridges to see other exciting technology you can use in your applications. // TODO
+Finally, you can look through our http://origin.ly/[quickstarts and community cartridges] to see other exciting technology you can use in your applications. 
 
 link:#top[Back to Top]
 
