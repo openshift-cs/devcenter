@@ -203,9 +203,12 @@ With the command line, you can add, set, or remove additional storage for your a
 $ rhc cartridge storage php-5 -a App_Name --set Storage_Amount(GB)
 --
 
-_For ecample:_
+For example:
 
+[source]
+--
 $ rhc cartridge storage php-5 -a racer --set 5gb
+--
 
 https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Gear_Storage_and_Disk_Space_Management.html[Learn more about managing disk space with rhc]
 
