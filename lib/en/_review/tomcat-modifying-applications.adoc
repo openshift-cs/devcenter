@@ -1,0 +1,314 @@
+---
+layout: tomcat
+category:
+breadcrumb: Languages and Technologies
+parent_url: overview-what-is-openshift.html
+nav_title: Modifying Applications
+nav_priority: 60
+---
+= Modifying Applications
+
+[[top]]
+[float]
+= Modifying Applications
+
+== Making Code Modifications
+
+In link:tomcat-creating-applications.html[the last section] we used OpenShift and a single RHC command to create a Java application deployed to Tomcat running in the cloud. In a matter of seconds the application was live on the Internet; when we visited its URL we got back the OpenShift equivalent of a 'Hello World' page, including some useful information on what to do next. Spinning up an application quickly and easily like this is pretty cool, but a static page can only entertain for so long. In this section we will modify the default application to do something more exciting and deploy the changes to OpenShift.
+
+=== Cloning Code to Your Local Machine
+
+When you create an OpenShift application with the RHC command-line tools, by default the new Git repository created on the OpenShift gear will be cloned to your local machine. The contents will end up in a new directory with the same name as the application, created inside the directory in which you ran the `rhc app create` command. If you would like the repository to be cloned to a different location, specify this by adding the `--repo repo_dir_path` option to your `rhc app create` command; the repository contents will be cloned into the directory specified, which should either be empty or not yet exist. If you do not wish to clone the Git repository as part of the app creation process, you can add the `--no-git` flag.
+
+If you choose not to clone the OpenShift application repository when you create the app, or something goes wrong and the clone fails, you can clone it later using the command `rhc git-clone`. This is a wrapper for the standard `git clone` command that provides some extra benefits: you can specify what to clone by using the application's name, rather than its full Git URL, and it adds some RHC configuration data to the Git repository config. This means that you can run RHC commands from within the cloned directory without having to specify the application to which you wish them to apply with `-a appname`. Where RHC commands shown in this book omit the `-a appname` option, it is because they are being run within an app repository cloned via RHC, either with `rhc app create` or `rhc git-clone`.
+
+To view the Git URL for your OpenShift application, run the command `rhc app show -a appname`.
+
+[TIP]
+====
+In order to clone an application repository, you must have supplied OpenShift with an SSH public key for the machine on which you are working. If you have not yet done this, run the command pass:[<literal role="keep-together">rhc setup</literal>]. See link:getting-started-client-tools.html[modify our application] for more information.
+====
+
+[[exploring-application-code]]
+=== Exploring Application Code
+
+Once you have a local copy of the OpenShift application repository you can modify the code using whatever tool you prefer: a command-line text editor, a graphical editor, or an IDE. For our example application, we will start by making a few changes. We shall use just plain Servlets to keep things simple.
+
+You can check the pom.xml file in your repository. It comes populated with some handy defaults for OpenShift. We use Red Hat's repository for artifacts.
+
+[source,xml]
+----
+<repositories>
+    <repository>
+        <id>eap</id>
+        <url>http://maven.repository.redhat.com/techpreview/all</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+----
+
+As OpenShift comes with support for both MySQL and PostgreSQL, we have the appropriate JDBC drivers as dependencies
+
+[source,xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>9.2-1003-jdbc4</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.25</version>
+    </dependency>     
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+----
+
+and, of couse, we do have dependency on Servlet API.
+
+[[maven-is-built-in]]
+=== Maven is built in
+
+OpenShift comes with native support for maven. That means that all your pushes to your remote git repository (when pom.xml file is present) are build by Maven automatically. To make this magic happen, there is a profile configured in your pom.xml file that helps Maven to communicate with OpenShift in the right way.
+
+[source,xml]
+----
+<profile>
+    <id>openshift</id>
+    <build>
+        <finalName>insultapp</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <outputDirectory>webapps</outputDirectory>
+                    <warName>ROOT</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+----
+
+Generally what we want from Maven is to generate a war file and name it `ROOT.war`. Once built, we want Maven to place to the `webapps` directory. From there Tomcat will pick up the artifact and will deploy it.
+
+[[creating-application-code]]
+=== Creating Application Code
+
+We have seen we have all the needed pieces in place, so we can create our Servlet. Create a new file `src/main/java/com/openshift/devcenter/Servlet.java` with the following content
+
+[source,java]
+----
+package com.openshift.devcenter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(urlPatterns = "/")
+public class Servlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+            throws ServletException, IOException {
+
+        resp.getWriter().write("Hello, code monkey!");
+
+    }
+    
+}
+----
+
+Now that we have made some changes to the application code base, we should commit them to the local Git repository. We can do that with the following Git commands: `add` to add the changes to the repository index, and `commit` to record the new contents of the index. It is good practice to use the `git status` command before each one to make sure you are clear on what is happening, although for brevity this is not shown here:
+
+
+[source, console]
+----
+[me@localhost ~/insultapp]$ git add -A
+[me@localhost ~/insultapp]$ git commit -m "Added Servlet"
+[master 465ab3a] Added Servlet
+ 3 files changed, 24 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 src/main/java/com/openshift/devcenter/Servlet.java
+----
+
+The code changes are now committed on our local machine, but our OpenShift app remains unaffected. In the next section, we will push our modifications to the cloud.
+
+=== Building and Deploying Your Code
+
+Once you have committed your code changes, you can deploy them to OpenShift with just one command: `git push`. There is no special binary or secret sauce involved; it is just pure Git and SSH. If we run the command `git status`, we can see that we have modifications ready and raring to go. The `git push` command sends them on their merry way up into the cloud:
+
+
+[source,console]
+----
+[me@localhost ~/insultapp]$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+nothing to commit, working directory clean
+[me@localhost ~/insultapp]$ git push
+----
+
+This is not the whole output, but once you push, the code is build by Maven and the resulting war file is deployed to Tomcat.
+
+----
+remote: Stopping jbossews cartridge
+...
+remote: Apache Maven 3.0.4 (r1232336; 2012-12-18 14:36:37-0500)
+remote: Maven home: /usr/share/java/apache-maven-3.0.4
+remote: Java version: 1.7.0_65, vendor: Oracle Corporation
+remote: Java home: /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.65/jre
+remote: Default locale: en_US, platform encoding: ANSI_X3.4-1968
+remote: OS name: "linux", version: "2.6.32-431.23.3.el6.x86_64", arch: "i386", family: "unix"
+...
+remote: [INFO] Packaging webapp
+remote: [INFO] Assembling webapp [insultapp] in [/var/lib/openshift/54217fe74382ec33fd000007/app-root/runtime/repo/target/insultapp]
+remote: [INFO] Processing war project
+remote: [INFO] Copying webapp resources [/var/lib/openshift/54217fe74382ec33fd000007/app-root/runtime/repo/src/main/webapp]
+remote: [INFO] Webapp assembled in [52 msecs]
+remote: [INFO] Building war: /var/lib/openshift/54217fe74382ec33fd000007/app-root/runtime/repo/webapps/ROOT.war
+remote: [INFO] WEB-INF/web.xml already added, skipping
+remote: [INFO] ------------------------------------------------------------------------
+remote: [INFO] BUILD SUCCESS
+remote: [INFO] ------------------------------------------------------------------------
+remote: [INFO] Total time: 31.254s
+remote: [INFO] Finished at: Tue Sep 23 12:13:08 EDT 2014
+remote: [INFO] Final Memory: 11M/164M
+remote: [INFO] ------------------------------------------------------------------------
+remote: Preparing build for deployment
+remote: Deployment id is 038c7658
+remote: Activating deployment
+...
+remote: Starting jbossews cartridge
+remote: Found 127.10.87.1:8080 listening port
+remote: -------------------------
+remote: Git Post-Receive Result: success
+remote: Activation status: success
+remote: Deployment completed with status: success
+----
+
+Note that each time new code is deployed, the directory on the gear containing the current copy of the Git repository is blown away and then replaced with an updated copy, so anything stored there between deployments will be lost. We explain where you can store files persistently in>>>.
+
+[TIP]
+====
+By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed. See link:backing-up=application.html[backing up doc] to learn how.
+====
+
+As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our application, the Tomcat cartridge is stopped, the Git repository is cloned, Maven is run to prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation].
+
+Once this cycle is complete, we can visit our application URL in a browser and are now greeted with `Hello, code monkey!`.
+
+
+[[screenshot_hellocodemonkey]]
+.The Java application in action
+image::helloCodeMonkeyScreenShot.png["Screenshot of the Java application"]
+
+If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy.
+
+Our app is looking pretty good now, but a single canned insult will get old fast. We will make things more entertaining by adding some randomization, Elizabethan style. There is a list of insulting Shakespearean words that has been floating around the Internet practically since it was a twinkle in someone's eye (no, not Al Gore). There are two columns of adjectives and one column of nouns; the idea is to combine one word from each column. Our next step is to gather a few insulting words and add a Insulter class to encapsulate the serious business logic of contempt:
+
+[source,java]
+----
+package com.openshift.devcenter;
+
+import java.util.Random;
+
+public class Insulter {
+
+    private static String[] firsts = new String[] { "artless", "bawdy", "beslubbering", "bootless", "churlish" };
+    private static String[] seconds = new String[] { "base-court", "bat-fowling", "beef-witted", "beetle-headed",
+            "boil-brained" };
+    private static String[] nouns = new String[] { "apple-john", "baggage", "barnacle", "bladder", "boar-pig" };
+
+    private static String INSULT = "Thou %s !";
+    private static String NAMED = "%s, thou %s!";
+    private static String TEMPLATE = "%s %s %s";
+
+    public String insult() {
+        return String.format(INSULT, generateInsult());
+    }
+
+    public String namedInsult(String name) {
+        return String.format(NAMED, name, generateInsult());
+    }
+
+    private String generateInsult() {
+        int f = new Random().nextInt(firsts.length);
+        int s = new Random().nextInt(seconds.length);
+        int n = new Random().nextInt(nouns.length);
+
+        return String.format(TEMPLATE, firsts[f], seconds[s], nouns[n]);
+    }
+
+}
+----
+
+Next, we change the Servlet to make use of our new functions:
+
+[source,python]
+----
+package com.openshift.devcenter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(urlPatterns = "/*")
+public class Servlet extends HttpServlet {
+
+    private Insulter insulter = new Insulter();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        if(req.getPathInfo().equals("/")) {
+            resp.getWriter().write(insulter.insult());
+        } else {
+            String name = req.getPathInfo().substring(1);
+            resp.getWriter().write(insulter.namedInsult(name));
+        }
+
+    }
+
+}
+
+----
+
+Notice we use the two insult-constructing functions to generate our insults. You can also see that we are grabbing any text after the `/` and making it available to the function `namedInsult()` as a parameter called `name`. We added this function for cases when only a personalized insult will do.
+
+We add and commit those changes to the Git repository, and then the final step is to `git push` our latest two commits. The output from OpenShift shows that the server has not been stopped and restarted because hot deployment is enabled:
+
+----
+remote: Not stopping cartridge python because hot deploy is enabled
+...
+remote: Not starting cartridge python because hot deploy is enabled
+----
+
+Once the new code has hit the cloud, we can refresh the app for some random Shakespearean insult fun (see <<screenshot_randominsults>>).
+
+[[screenshot_randominsults]]
+.A random insult from the hot-deployed app
+image::gsos_0302.png["Screenshot of the modified application"]
+
+In this section we showed how to modify OpenShift application starter code, spicing up our Tomcat application with a basic Servlet. We achieved this with Git commands including `add`, `status`, `commit`, `push`, and, with the help of RHC, `clone`.

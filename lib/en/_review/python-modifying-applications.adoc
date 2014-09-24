@@ -1,32 +1,32 @@
 ---
-layout: base
-category: 
-breadcrumb: Getting Started
-parent_url:
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: overview-what-is-openshift.html
 nav_title: Modifying Applications
-nav_priority: 30
+nav_priority: 60
 ---
 = Modifying Applications
 
 [[top]]
 [float]
 = Modifying Applications
-[.lead]
+
 == Making Code Modifications
 
 In link:getting-started-creating-applications-python.html[the last section] we used OpenShift and a single RHC command to create a Python application running in the cloud. In a matter of seconds the application was live on the Internet; when we visited its URL we got back the OpenShift equivalent of a 'Hello World' page, including some useful information on what to do next. Spinning up an application quickly and easily like this is pretty cool, but a static page can only entertain for so long. In this section we will modify the default application to do something more exciting and deploy the changes to OpenShift.
 
 === Cloning Code to Your Local Machine
 
-When you create an OpenShift application with the RHC command-line tools, by default the new Git repository created on the OpenShift gear will be cloned to your local machine. The contents will end up in a new directory with the same name as the application, created inside the directory in which you ran the +rhc app create+ command. If you would like the repository to be cloned to a different location, specify this by adding the +--repo __repo_dir_path__+ option to your +rhc app create+ command; the repository contents will be cloned into the directory specified, which should either be empty or not yet exist. If you do not wish to clone the Git repository as part of the app creation process, you can add the +--no-git+ flag.
+When you create an OpenShift application with the RHC command-line tools, by default the new Git repository created on the OpenShift gear will be cloned to your local machine. The contents will end up in a new directory with the same name as the application, created inside the directory in which you ran the +rhc app create+ command. If you would like the repository to be cloned to a different location, specify this by adding the `--repo __repo_dir_path__` option to your +rhc app create+ command; the repository contents will be cloned into the directory specified, which should either be empty or not yet exist. If you do not wish to clone the Git repository as part of the app creation process, you can add the `--no-git` flag.
 
-If you choose not to clone the OpenShift application repository when you create the app, or something goes wrong and the clone fails, you can clone it later using the command +rhc git-clone+. This is a wrapper for the standard +git clone+ command that provides some extra benefits: you can specify what to clone by using the application's name, rather than its full Git URL, and it adds some RHC configuration data to the Git repository config. This means that you can run RHC commands from within the cloned directory without having to specify the application to which you wish them to apply with +-a __appname__+. Where RHC commands shown in this book omit the +-a __appname__+ option, it is because they are being run within an app repository cloned via RHC, either with +rhc app create+ or +rhc git-clone+.
+If you choose not to clone the OpenShift application repository when you create the app, or something goes wrong and the clone fails, you can clone it later using the command `rhc git-clone`. This is a wrapper for the standard +git clone+ command that provides some extra benefits: you can specify what to clone by using the application's name, rather than its full Git URL, and it adds some RHC configuration data to the Git repository config. This means that you can run RHC commands from within the cloned directory without having to specify the application to which you wish them to apply with `-a __appname__`. Where RHC commands shown in this book omit the `-a __appname__` option, it is because they are being run within an app repository cloned via RHC, either with +rhc app create+ or +rhc git-clone+.
 
-To view the Git URL for your OpenShift application, run the command +rhc app show -a __appname__+.
+To view the Git URL for your OpenShift application, run the command `rhc app show -a __appname__`.
 
 [TIP]
 ====
-In order to clone an application repository, you must have supplied OpenShift with an SSH public key for the machine on which you are working. If you have not yet done this, run the command pass:[<literal role="keep-together">rhc setup</literal>]. See link:getting-started-client-tools.html[modify our application] for more information.
+In order to clone an application repository, you must have supplied OpenShift with an SSH public key for the machine on which you are working. If you have not yet done this, run the command `rhc setup`. Go to link:managing-remote-connection.html[Remote Connection] for more information.
 ====
 
 [[modifying-application-code]]
@@ -80,13 +80,14 @@ if __name__ == "__main__":
     app.run()
 ----
 
-In _routes.py_ we create a Flask application type called +app+. From there we use annotations to define that HTTP requests to the root URL get handled by the function +insult+. The _application_ file loads the Python virtual environment (a mechanism for having different Python libraries on the same machine) and imports the +app+ from the +routes+ module defined in _routes.py_. 
+In _routes.py_ we create a Flask application type called +app+. From there we use annotations to define that HTTP requests to the root URL get handled by the function +insult+. The _application_ file loads the Python virtual environment (a mechanism for having different Python libraries on the same machine) and imports the +app+ from the +routes+ module defined in _routes.py_.
 
 
 Now that we have made some changes to the application code base, we should commit them to the local Git repository. We can do that with the following Git commands: +add+ to add the changes to the repository index, and +commit+ to record the new contents of the index. It is good practice to use the +git status+ command before each one to make sure you are clear on what is happening, although for brevity this is not shown here:
 
 
-++++
+[source]
+--
 <screen>
 [me@localhost ~/insultapp]$ <emphasis role="strong">git add -A</emphasis>
 [me@localhost ~/insultapp]$ <emphasis role="strong">git commit -m "Added Flask microframework"</emphasis>
@@ -95,16 +96,17 @@ Now that we have made some changes to the application code base, we should commi
  rewrite wsgi/application (99%)
  create mode 100644 wsgi/routes.py
 </screen>
-++++
+--
 
 The code changes are now committed on our local machine, but our OpenShift app remains unaffected. In the next section, we will push our modifications to the cloud.
 
 === Building and Deploying Your Code
 
-Once you have committed your code changes, you can deploy them to OpenShift with just one command: +git push+. There is no special binary or secret sauce involved; it is just pure Git and SSH. If we run the command +git status+, we can see that we have modifications ready and raring to go. The +git push+ command sends them on their merry way up into the cloud:
+Once you have committed your code changes, you can deploy them to OpenShift with just one command: +git push+. There is no special binary or secret sauce involved; it is just pure Git and SSH. If we run the command +git status+, we can see that we have modifications ready and raring to go. The `git push` command sends them on their merry way up into the cloud:
 
 
-++++
+[source]
+--
 <screen>
 [me@localhost ~/insultapp]$ <emphasis role="strong">git status</emphasis>
 # On branch master
@@ -114,7 +116,7 @@ Once you have committed your code changes, you can deploy them to OpenShift with
 nothing to commit, working directory clean
 [me@localhost ~/insultapp]$ <emphasis role="strong">git push</emphasis>
 </screen>
-++++
+--
 
 We have not included the full output of the +push+ command here as it was quite lengthy, but here are some choice snippets:
 
@@ -144,10 +146,10 @@ Note that each time new code is deployed, the directory on the gear containing t
 
 [TIP]
 ====
-By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed. See link:backing-up=application.html[backing up doc] to learn how.
+By default, pushing code changes to the OpenShift repository will also trigger a deployment; however, this behavior can be changed.
 ====
 
-As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections. Learn more about running custom code or tasks during the different phases of the build and cartridge lifecycle by reading the link:action-hooks.html[action hooks documentation]. 
+As we can see from the console output, when code is pushed to OpenShift it kicks off a build lifecycle, which has build and deployment phases. This lifecycle will differ slightly depending on the application cartridge in use, whether or not the app is scalable, and whether or not a builder cartridge such as Jenkins is included. In the case of our example app, the Python cartridge is stopped, the Git repository is cloned, a series of Python-specific processes occur to fetch dependencies and prepare the app, the resulting build is deployed, and the cartridge is restarted. You will learn more about most of these other pieces of application deployment in later sections.
 
 Once this cycle is complete, we can visit our application URL in a browser and are now greeted with "Hello, code monkey!" (see <<screenshot_hellocodemonkey>>).
 
@@ -157,7 +159,7 @@ image::helloCodeMonkeyScreenShot.png["Screenshot of the Flask application"]
 
 
 
-If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy. 
+If you don't need to start and stop the server with each git push, you can use a link:hot-deploy.html[hot deploy marker] to just build and deploy.
 
 Our app is looking pretty good now, but a single canned insult will get old fast. We will make things more entertaining by adding some randomization, Elizabethan style. There is a list of insulting Shakespearean words that has been floating around the Internet practically since it was a twinkle in someone's eye (no, not Al Gore). There are two columns of adjectives and one column of nouns; the idea is to combine one word from each column. Our next step is to gather a few insulting words and add a __insulter.py__ file to encapsulate the serious business logic of contempt:
 

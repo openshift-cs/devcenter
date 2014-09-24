@@ -24,7 +24,7 @@ You won't get automatic updates, but they're a great way to help someone
 understand a framework or try out an integration.
 
 To get started, read the
-link:overview-extend-openshift.html#create-a-quickstart[QuickStart
+link:get-involved-extend-openshift.html#create-a-quickstart[QuickStart
 Developer's Guide], which outlines the process for creating a new
 QuickStart as well as keeping it up-to-date and secure.
 
