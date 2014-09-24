@@ -171,7 +171,16 @@ By default, the three provided datastores: MySQL, Postgresql, and MongoDB have J
 
 === Configuring JVM properties
 
-You can also use environment variables to con
+You can also use environment variables to configure JVM properties. By setting the *JAVA_OPTS_EXT* environment variable, you can add extra JAVA_OPTS before the JVM is invoked. Here is an example setting the start memory for Tomcat to 256 Megabytes. 
+
+//TODO finish this
+[source, console]
+--
+
+$ rhc env-set JAVA_OPTS_EXT="-XX:+PrintGCDetails  -Xloggc:gc.log" --app mytomcatapp
+
+--
+
 
 [[next]]
 == Next Steps
