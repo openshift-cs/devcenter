@@ -6,4 +6,29 @@ parent_url:
 nav_title: Application Backup
 nav_priority: 20
 ---
-= TODO make this doc
+= Backing up your Application and Data
+
+[[top]]
+[float]
+= Backing up your Application and Database
+
+This document will cover how to back up 1) the data in your filesystem 2) your database, and 3) your entire application.
+
+== Backing up your file system.
+
+As pointed out in the [file system] document, there are only two places you can write "on disk" in OpenShift. For the purpose of this document, it is assumed you only want to back up data in your *$OPENSHIFT_DATA_DIR*. 
+
+
+== Backing up your Database
+
+== Backing up your Application
+
+=== Make a File Backup of Your Application
+
+rhc snapshot
+
+=== Making a Hot Swappable Version of Your Application
+
+[source, console]
+
+$ rhc app-create myHotSwapApp	 --from-app myappname
