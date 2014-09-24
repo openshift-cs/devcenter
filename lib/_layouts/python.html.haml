@@ -9,7 +9,7 @@
     %meta{ 'http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge' }
     %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
     %title
-      #{page.title} | OpenShift Dev Center
+      #{page.title} | OpenShift Developers
     = partial( 'styles.html.haml' )
     = partial( 'scripts.html.haml' )
   %body
@@ -18,7 +18,7 @@
       = partial( 'toggle.html.haml' )
       %ol.breadcrumb
         %li.sitename
-          %a{href: "/en"} Developer Center
+          %a{href: "/en"} Developers
         %li.hidden-xs
           %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
         %li.hidden-xs
