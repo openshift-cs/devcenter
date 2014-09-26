@@ -16,49 +16,106 @@ With OpenShift you can easily deploy and run Ruby applications using your favori
 
 Ruby is a dynamic, reflective, general-purpose object-oriented programming language. Popular development frameworks include Ruby on Rails and Sinatra.
 
-link:#simplify[Simplify Your Ruby Deployments] +
-link:#ruby[The Ruby Cartridge]
+link:#create[Create a Ruby Application] +
+link:#deploychanges[Make and Deploy Code Changes] +
+link:#ruby[Ruby Project Structure]
 
 image::ruby-logo.png[Ruby logo]
 
-[[simplify]]
-== Simplify Your Ruby Deployments
-Getting a Ruby app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
+[[create]]
+== Create a Ruby Application 
+
+
+[[prerequisites]]
+=== Prerequisites
+
+This guide assumes that you have:
+
+* Signed up for https://openshift.redhat.com/app/account/new[an OpenShift account] 
+* Installed the RHC link:getting-started-client-tools.html[command line tools]
+
+To create a new Ruby 2.0 application *myapp* using `rhc`, open a terminal window and enter the following command:
 
 [source]
 --
-$ rhc app create MyApp ruby-2.0
-$ rhc cartridge add mysql-5.5 -a MyApp
+$ rhc app create myapp ruby-2.0 
 --
 
-These two commands create your gear and install and configure Ruby, MySQL, and a git repository. You can now visit your application on the web at:
-
-[source]
---
-http://MyApp-MyDomain.rhcloud.com/
---
-
-Want to create a Ruby on Rails application next? It just takes a few more commands:
+OpenShift's default platform features include automatic DNS setup, SSH services, and a `git` server for publishing changes. The resulting output should contain a live URL where your application will be available:
 
 [source]
 --
-$ cd MyApp
-$ rails new app
-$ git commit -am 'message'
+http://MyApp-MyNamespace.rhcloud.com/
+--
+
+A Git repository created for your application and hosted on OpenShift will have been cloned to your local machine, into a directory with the same name as your app, *myapp*.
+
+[[dbadd]]
+=== Add a Database
+
+To add a cartridge to your application, use `rhc cartridge add`. The following command adds a PostgreSQL database:
+
+[source]
+--
+$ rhc cartridge add postgresql-9.2 -a myapp 
+--
+
+To view available cartridges, use the command `rhc cartridge list`. For community-supported cartridges, visit http://origin.ly[the OpenShift Origin Index].
+
+To create an application with additional cartridges in one command, append them to `rhc app create`. For example:
+
+[source]
+--
+$ rhc app create myapp ruby-2.0 postgresql-9.2 cron-1.4 
+--
+
+[[framework]]
+=== Add a Framework
+
+You can add a web framework or other template code to your OpenShift application using `git`. For example, the following command adds Rails 4 to the *myapp* Ruby application and deploys it to OpenShift. Note that this code requires a database cartridge, so you should add one now if you have not yet done so.
+
+[source]
+--
+$ cd myapp
+$ git pull -s recursive -X theirs https://github.com/openshift/rails4-example.git
 $ git push
 --
+
+You could also add the template code at the same time as creating your application, using the `--from-code` option:
+
+[source]
+--
+rhc app create myapp ruby-2.0 postgresql-9.2 --from-code=https://github.com/openshift/rails4-example.git -s
+--
+
+The `-s` option makes the application link:overview-platform-features.html#scaling[auto-scaling].
+
+[[deploychanges]]
+== Make and Deploy Code Changes
+
+To make and deploy code changes to your application, use the `git` commands `add`, `commit`, and `push`. For example, the following commands add and deploy a *hot_deploy* marker file to the OpenShift application. If this marker file is present, OpenShift will not restart the server when deploying code changes.
+
+[source]
+--
+$ touch .openshift/markers/hot_deploy
+$ git add .
+$ git commit -m "Adding hot deploy marker"
+$ git push
+--
+
+Other code changes can be added and deployed in the same manner.
 
 link:#top[Back to top]
 
 [[ruby]]
-== The Ruby Cartridge
+== Ruby Project Structure 
 The `ruby` cartridge provides a bare metal http://rack.github.io[Rack] application with http://www.ruby-lang.org[Ruby].
 
 === Template Repository Layout
 [source]
 --
 tmp/               Temporary storage
-public/            Content (images, css, etc. available to the public)
+public/            Content (images, CSS, etc. available to the public)
 config.ru          This file is used by Rack-based servers to start the application.
 .openshift/        Location for OpenShift specific files
     action_hooks/  See the Action Hooks documentation <1>
@@ -99,12 +156,11 @@ with
 remote: http://mirror.ops.rhcloud.com/mirror/ruby/
 --
 
-=== Rails 3.0
+=== Deploying Rails
 
 There are several approaches how to speed up deployment of your Rails application to OpenShift.
 
 ==== Gem installation
-
 
 There are two options for deploying a Rails application to OpenShift.
 
