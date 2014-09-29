@@ -59,3 +59,58 @@ At a minimum, the first several lines of a new .adoc document must follow this p
     <8> Title of page (only set once)
 
 For the rest of the document, make sure that you are following proper [AsciiDoc syntax](http://asciidoctor.org/docs/asciidoc-writers-guide/) and preview your document before submitting a pull request. There's no magic in how the documentation is built, so if it doesn't look right in your sandbox, it won't look right on the documentation site.
+
+
+### Contributing
+Detailed contribution guidelines are available here: https://engineering.redhat.com/trac/Libra/wiki/Github_Workflow
+
+To contribute changes, set up [your own local copy of this project](#building-the-manuals). Then, create a new branch (from `master`), to store your changes:
+
+```bash
+git checkout master
+git branch my-branch
+```
+
+After completing your changes, test and review them locally.  Then `add` and `commit` your changeset:
+
+```bash
+git status
+git diff
+git add lib/en/my-new-file.adoc lib/en/my-changed-file.adoc
+git commit -m "describe your changes here"
+```
+
+Next, push your new branch to `github`:
+
+```bash
+git push my-remote-repo my-branch
+```
+
+Finally, [send us a `Pull Request`](https://github.com/openshift-evangelists/devcenter/compare) comparing your new branch with `openshift-evangelists/devcenter:master`.
+
+#### Test and Review PRs
+
+To test PRs, switch to `master` and set up a local copy of the contributed code:
+
+```bash
+git checkout master
+git pull remote-name branch-name
+```
+
+If everything looks good, push the updated `master` branch back to `github`:
+
+```bash
+git push origin master
+```
+
+Mentioning PR numbers in commit messages will automatically generate links:
+
+```bash
+git commit -m 'merging pull request #123, thanks for contributing!'
+```
+
+If the proposed PR requires additional work, add a comment describing those changes, and reset your repo's local `master` branch to it's previous state:
+
+```bash
+git log #find latest stable commit hash (before the changes)
+git reset --hard LATEST_STABLE_COMMIT_HASH
