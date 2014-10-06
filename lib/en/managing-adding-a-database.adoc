@@ -49,7 +49,7 @@ link:#top[Back to Top]
 
 [[environment-variables]]
 == Database-specific Environment Variables
-These variables pertain to your database (if you have one) and are used to connect your application to your database. The exact variable names depend upon the database type; the value of +<database>+ will be +MONGODB+, +MYSQL+, or +POSTGRESQL+ as appropriate/
+These variables pertain to your database (if you have one) and are used to connect your application to your database. The exact variable names depend upon the database type; the value of +<database>+ will be +MONGODB+, +MYSQL+, or +POSTGRESQL+ as appropriate.
 
 |===
 |Variable Name|Example|Purpose
