@@ -17,6 +17,7 @@ All OpenShift applications are built around a *Git* source control workflow - yo
 
 link:#making-changes-to-your-application[Making Changes to your Application] +
 link:#continuous-delivery-with-jenkins[Continuous Delivery with Jenkins] +
+link:#hot-deployment[Hot Deployment] +
 
 TIP: Learn how to use Git by reviewing the basic concepts of Git version control. Try out this 15-minute introductory course by Code School and GitHub. link:https://www.codeschool.com/courses/try-git[START COURSE]
 
@@ -124,5 +125,71 @@ link:#top[Back to Top]
 Building with Jenkins uses dedicated application space that can be larger than the application runtime space. Because the build happens in its own dedicated gear, the running application is not shut down or changed in any way until after the build succeeds. If it fails, the running application code will not be changed. However, a failure during the deploy process such as missing dependencies, bad runtime code, or incorrect build output may leave the app partially deployed or inaccessible.
 
 -> link:/en/managing-continuous-integration.html[Learn more about building with Jenkins]
+
+link:#top[Back to Top]
+
+[[hot-deployment]]
+== Hot Deployment
+
+=== Introduction
+When the `git push` command is run to upload code modifications, OpenShift Online stops, builds, deploys, and restarts an application. This entire process takes time to complete and is unnecessary for many types of code changes. With hot deployment the changes to application code are applied without restarting the application cartridge, resulting in increased deployment speed and minimized application downtime.
+
+OpenShift Online provides support for hot deployment through a `hot_deploy` marker file. If the marker is present, supported application cartridges automatically hot deploy when the `git push` command is executed.
+
+=== Enabling and Disabling Hot Deployment
+
+==== Windows
+Enable hot deployment by creating the `hot_deploy` marker file in the application's root directory with the following command:
+
+[source]
+--
+C:\app_directory> copy NUL > .openshift\markers\hot_deploy
+--
+
+Disable hot deployment by deleting the `hot_deploy` marker file.
+
+==== Mac OS X and Linux
+Enable hot deployment by creating the `hot_deploy` marker file in the application's root directory:
+
+[source]
+--
+$ touch .openshift/markers/hot_deploy
+--
+
+Disable hot deployment by deleting the `hot_deploy` marker file.
+
+link:#top[Back to Top]
+
+=== Hot Deployment Build Details
+==== JBoss AS, JBoss EAP, Tomcat 6, and Tomcat 7
+When JBoss AS, JBoss EAP, Tomcat 6, and Tomcat 7 applications are hot deployed, the Maven build is executed (either with Jenkins or without), but the server does not restart. Following the build, the JBoss HDScanner notices any modifications and redeploys them. If previously deployed artifacts are removed as part of the update, they are undeployed automatically.
+
+==== PHP, Zend Server, Perl, Python, and Node.js
+When PHP, Zend Server, Perl, Python, and Node.js applications are hot deployed, the application code is built (dependencies are processed and user build action_hooks are run) and deployed to the application server. The server does not restart. This is true regardless of whether an application has Jenkins enabled or not. For applications that have Jenkins enabled, the build is performed on a Jenkins slave instance and then synced to the gear(s) where the application server is running.
+
+==== Ruby
+When a Ruby application is hot deployed, the Passenger `restart.txt` file is touched, and the application server serves the new code without requiring a full server restart. See the link:http://www.modrails.com/documentation/Users%20guide%20Apache.html#_redeploying_restarting_the_ruby_on_rails_application[Passenger Documentation] for more information.
+
+link:#top[Back to Top]
+
+=== Application Types That Can or Cannot Be Hot Deployed
+|===
+|Variable Name|Example
+
+|JBoss Application Server|Yes
+|JBoss Enterprise Application Platform|Yes
+|Tomcat 6 (JBoss Enterprise Web Server 1.0)|Yes
+|Tomcat 7 (JBoss Enterprise Web Server 2.0)|Yes
+|PHP|Yes
+|Perl|Yes
+|Ruby|Yes
+|Python|Yes
+|Node.js|Yes
+|Zend Server|Yes
+|Jenkins|No
+|HAProxy|No
+|DIY|No
+
+|===
 
 link:#top[Back to Top]
