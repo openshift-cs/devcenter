@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: tomcat
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: java-overview.html

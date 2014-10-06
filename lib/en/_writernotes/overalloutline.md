@@ -9,10 +9,10 @@ Note: Owners are not the sole content creators. Anyone can and should contribute
 
 [options="header"]
 |=======================
-|Section|Owner      
-|Project Owner    |Shawn    
-|Product Features    |GS    
-|Java    |Steve     
+|Section|Owner
+|Project Owner    |Shawn
+|Product Features    |GS
+|Java    |Steve
 |PHP    |MJ
 |Node.js    |RJ
 |Python    |SG
