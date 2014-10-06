@@ -1,6 +1,35 @@
 # OpenShift Online Developer Center
 This repo contains AsciiDoc versions of the OpenShift Online Developer Center.
 
+## Hosting on OpenShift 
+
+A hosted copy of these docs can be launched using the `rhc` command line tool.
+
+Since the GitHub repo is currently private, an alternate launch workflow is required.
+
+First, grab a copy of the project source and `cwd` into the repo folder:
+```bash
+git clone https://github.com/openshift-evangelists/devcenter
+cd devcenter
+```
+
+Then, create a remote `ruby-1.9` container, setup the resulting `git remote`, and `--force` `push` our local repo history into the new environment:
+
+```bash
+APP_NAME=devcenter
+NEW_GIT_REMOTE_URL=$(rhc app create $APP_NAME ruby-1.9 --no-git --no-dns | grep "Git remote:" | sed -e 's/.*Git remote: *\([^ ]*\)/\1/')
+git remote add $APP_NAME $NEW_GIT_REMOTE_URL
+git push -f $APP_NAME master
+```
+
+Rerun with different `APP_NAME` values to set up additional deployment targets.  Subsequent deployments can be made with `git push APP_NAME master`.
+
+By default, OpenShift will build your site using the `master` branch. To deploy an alternate branch, use `rhc app configure`:
+
+```bash
+rhc app configure -a APP_NAME --deployment-branch BRANCH_NAME
+```
+
 ## Building the Manuals
 The manuals themselves are .adoc files written in [AsciiDoc](http://asciidoc.org/), so they are easily human-readable. However, they are intended to be published in various formats, notably HTML.
 
@@ -67,8 +96,10 @@ Detailed contribution guidelines are available here: https://engineering.redhat.
 To contribute changes, set up [your own local copy of this project](#building-the-manuals). Then, create a new branch (from `master`), to store your changes:
 
 ```bash
-git checkout master
-git branch my-branch
+git checkout master # make sure you fork from the master branch
+git pull origin master # make sure the master branch is clean and up-to-date
+git branch my-branch # cut a new feature branch
+git checkout my-branch # switch to the new branch to make your changes
 ```
 
 After completing your changes, test and review them locally.  Then `add` and `commit` your changeset:
@@ -77,6 +108,7 @@ After completing your changes, test and review them locally.  Then `add` and `co
 git status
 git diff
 git add lib/en/my-new-file.adoc lib/en/my-changed-file.adoc
+git status
 git commit -m "describe your changes here"
 ```
 
@@ -96,12 +128,14 @@ To test PRs, switch to `master` and set up a local copy of the contributed code:
 git checkout master
 git pull remote-name branch-name
 ```
+In addition to local testing, the feature branch can also be [deployed to OpenShift](#hosting-on-openshift) for review.
 
 If everything looks good, push the updated `master` branch back to `github`:
 
 ```bash
 git push origin master
 ```
+Many pull requests can also be merged online, using GitHub's web-based tools.  
 
 Mentioning PR numbers in commit messages will automatically generate links:
 
@@ -109,8 +143,8 @@ Mentioning PR numbers in commit messages will automatically generate links:
 git commit -m 'merging pull request #123, thanks for contributing!'
 ```
 
-If the proposed PR requires additional work, add a comment describing those changes, and reset your repo's local `master` branch to it's previous state:
+If the Pull Request requires additional work, add a comment on GitHub describing the changes, and reset your repo's local `master` branch to it's previous state:
 
 ```bash
-git log #find latest stable commit hash (before the changes)
-git reset --hard LATEST_STABLE_COMMIT_HASH
+git reset --hard HEAD^
+```
