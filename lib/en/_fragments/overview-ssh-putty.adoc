@@ -89,11 +89,14 @@ key* item.
 
 image::/en/images/overview-ssh-putty-launch-2.png[]
 
+Alternatively, you can use the *Generate* button to create a new pair of keys. Just make sure to register any new public keys in link:https://openshift.redhat.com/app/console/settings[your openshift account setting page].
+
 *Step 3:* Select the SSH Key for Import
 
 A file dialog should pop up. Navigate to the *.ssh* directory in your
 user folder *C:&lt;user name>\.ssh* and select the *id_rsa* key that was
-generated for you by rhc setup.
+generated for you by `rhc setup`.
+
 
 image::/en/images/overview-ssh-putty-launch-3.png[]
 
