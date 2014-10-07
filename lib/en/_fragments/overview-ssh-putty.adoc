@@ -180,8 +180,8 @@ session in the list. Click on the *Load* button and then click on the
 image::/en/images/overview-ssh-putty-configure-5.png[]
 
 [[now-you-are-ready-to-connect-to-your-openshift-application-with-ssh-on-windows]]
-=== Now You Are Ready to Connect to Your OpenShift Application with SSH on
-Windows
+
+Now You Are Ready to Connect to Your OpenShift Application with SSH on Windows.
 
 link:/page/ssh[See the SSH page] for a list of commands and things you
 can inside of an SSH session using your Windows machine.

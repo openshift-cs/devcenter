@@ -19,14 +19,14 @@ To add this cartridge to your application, you can either add it when you create
 
 [source]
 --
-rhc app create <APP> ruby-1.9 cron
+$ rhc app create <APP> ruby-1.9 cron
 --
 
 Or add it to your existing application:
 
 [source]
 --
-rhc cartridge add cron -a <APP>
+$ rhc cartridge add cron -a <APP>
 --
 
 === Creating a job
