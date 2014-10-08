@@ -1,6 +1,6 @@
 ---
 layout: tomcat
-category: 02_Getting Started
+category:
 breadcrumb: Languages and Technologies
 parent_url: tomcat-overview.html
 nav_title: Getting Started
