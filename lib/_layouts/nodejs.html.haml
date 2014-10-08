@@ -1,0 +1,46 @@
+!!!5
+/[if IE 8]<html class="ie8">
+/[if IE 9]<html class="ie9">
+<!--[if gt IE 9]><!-->
+%html
+  <!--<![endif]-->
+  %head
+    %meta{ :charset=>'utf-8' }
+    %meta{ 'http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge' }
+    %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
+    %title
+      #{page.title} | OpenShift Developers
+    = partial( 'styles.html.haml' )
+    = partial( 'scripts.html.haml' )
+  %body
+    = partial( 'openshift-header.html.haml' )
+    .container
+      = partial( 'toggle.html.haml' )
+      %ol.breadcrumb
+        %li.sitename
+          %a{href: "/en"} Developers
+        %li.hidden-xs
+          %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
+        %li.hidden-xs
+          %a{href: "/en/node-js-overview.html"} Node.js
+        %li.hidden-xs
+          = page.nav_title == "Node.js" ? "Overview" : page.nav_title
+      .row.row-offcanvas.row-offcanvas-left
+        .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
+          %ul.nav.nav-sidebar
+            - site.pages.reject{|p| p.layout != "nodejs"}.group_by(&:breadcrumb).sort.each do |breadcrumb, pages|
+              %li.nav-header{ :class=>'page.breadcrumb =~ /#{breadcrumb}/i' ? 'active' : nil }
+                %a{"data-target" => "##{breadcrumb.gsub(/[^A-Z]/i, '').downcase}Menu", "data-toggle" => "collapse", href: "#"}
+                  %span{ :class=>page.breadcrumb=~ /#{breadcrumb}/i ? 'fa fa-angle-down' : 'fa fa-angle-right' }
+                  Node.js
+                %ul.collapse.list-unstyled{:class=>page.breadcrumb =~ /#{breadcrumb}/i ? 'in' : nil, "id" => "#{breadcrumb.gsub(/[^A-Z]/i, '').downcase}Menu"}
+                  - pages.sort_by{ |a| a.nav_priority }.each do |p|
+                    %li
+                      %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url }
+                        = p.nav_title == "Node.js" ? "Overview" : p.nav_title
+            %li.nav-header
+              %a{ href: "/en/overview-what-is-openshift.html" } Back to Main
+        .col-xs-12.col-sm-9.col-md-9.main
+          ~ content
+    = partial( 'analytics.html.haml' )
+    = partial( 'footer.html.haml' )
