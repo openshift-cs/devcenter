@@ -2,6 +2,7 @@
 This repo contains AsciiDoc versions of the OpenShift Online Developer Center.
 
 ## Hosting on OpenShift 
+[![Build Status](https://build-shifter.rhcloud.com/buildStatus/icon?job=devcenter-build)](https://devcenter-shifter.rhcloud.com/)
 
 A hosted copy of these docs can be launched using the `rhc` command line tool.
 
