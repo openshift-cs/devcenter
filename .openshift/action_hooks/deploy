@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pushd $OPENSHIFT_REPO_DIR 2>> /dev/null
+pushd lib
+rake deploy
+popd
+popd
