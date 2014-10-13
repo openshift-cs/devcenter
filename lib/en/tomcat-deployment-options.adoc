@@ -1,0 +1,83 @@
+---
+layout: tomcat
+category:
+breadcrumb: Languages and Technologies
+parent_url: tomcat-overview.html
+nav_title: Deployment Options
+nav_priority: 30
+meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS deployment options
+---
+= Tomcat Deployment Options
+
+[float]
+= Tomcat Deployment Options
+There are two options for deploying content to the Tomcat Server within OpenShift. Both options
+can be used together (i.e. build one archive from source and others pre-built)
+
+*Method 1 (Preferred)* +
+You can upload your content in a Maven src structure as in this sample project and on
+`git push` have the application built and deployed.
+
+For this to work you'll need your `pom.xml` at the
+root of your repository and a `maven-war-plugin` as in this example to move the output from the build to the `webapps` directory.
+
+By default the `warName` is `ROOT` within `pom.xml`.  This will cause the `webapp` contents to be rendered at `\http://app_name-namespace.rhcloud.com/`.  If you change the `warName` in
+`pom.xml` to *app_name*, your base url would then become `\http://app_name-namespace.rhcloud.com/app_name`.
+
+NOTE: If you are building locally you'll also want to add any output WARs under `webapps` from the build to your `.gitignore` file.
+
+NOTE: If you are running scaled EWS then you need an application deployed to the root context (i.e. `\http://app_name-namespace.rhcloud.com/`) for the HAProxy load-balancer to recognize that the EWS instance is active.
+
+*Method 2* +
+You can commit pre-built WARs into `webapps`. To do this with the default repo, first run:
+[source]
+--
+$ git rm -r src/ pom.xml
+--
+from the root of your repo.
+
+Basic workflows for deploying pre-built content (each operation will require associated Git `add`/`commit`/`push` operations to take effect):
+
+. Add new zipped content and deploy it:
++
+[source]
+--
+$ cp target/example.war webapps/
+--
++
+. Undeploy currently deployed content:
++
+[source]
+--
+$ git rm webapps/example.war
+--
++
+. Replace currently deployed zipped content with a new version and deploy it:
++
+[source]
+--
+$ cp target/example.war webapps/
+--
+
+NOTE: You can get the information in the URI above from running `rhc domain show`
+
+If you have already committed large files to your Git repo, you rewrite or reset the history of those files in Git
+to an earlier point in time and then run:
+[source]
+--
+git push --force
+--
+to apply those changes on the remote OpenShift server.  A
+`git gc` on the remote OpenShift repo can be forced with (Note: tidy also does other cleanup including clearing log
+files and tmp dirs):
+
+[source]
+--
+$ rhc app tidy -a appname
+--
+
+Whether you choose option 1) or 2) the end result will be the application
+deployed into the `webapps` directory. The `webapps` directory in the
+Tomcat distribution is the location end users can place
+their deployment content (e.g. WAR, EAR, JAR, SAR files) to have it
+automatically deployed into the server runtime.

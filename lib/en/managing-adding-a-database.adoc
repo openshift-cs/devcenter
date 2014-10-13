@@ -1,0 +1,67 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-adding-a-database.html
+nav_title: Adding a Database
+nav_priority: 42
+meta_desc: Adding a Database to Your OpenShift Application
+---
+= Adding a Database to Your Application
+
+[[top]]
+[float]
+= Adding a Database to Your Application
+[.lead]
+The main focus of this quick introduction is adding one of the OpenShift supported datastores, that is one of the datastore cartridges that runs on an OpenShift gear and that writes its data to the filesystem on the gear.
+
+== Adding the Database
+
+You can either add the database cartridge at application creation time or after the application is created. To add it at application creation time, just add it to the list of cartridges for your application:
+
+[source, console]
+--
+$ rhc app-create <myappname> <webcartridge> <dbcartridge>
+--
+
+In the example above you can replace _<webcartridge>_ with any web cartridge, like **php-5.4** or **tomcat7**, and _<dbcartridge>_ with any database cartridge, such as **postgresql-9.2** or **mongodb-2.4**. This will spin up your database server for your application and put link:#environment-variables[environment variables] in your application for the database connection parameters. If you want to use a downloadable cartridge for your datastore, you would replace _<dbcartridge>_ with the URL used to download the cartridge.
+
+If you want to add a database to an existing application the command is similar:
+
+[source, console]
+--
+$ rhc cartridge-add <dbcartridge> --app <myappname>
+--
+
+This command will also spin up your database server and insert the environment variables.
+
+TIP: Adding the database after application creation gives you more control over the gear size and environment variables for the cartridge.
+
+To use the datastore in your code, you just need to read in the environment variables for the database connection parameters. The name of the environment variables will be different based on the cartridge you choose.
+
+To see the username and password for your datastore you can use the command line tools:
+
+[source, console]
+--
+$ rhc app show <myappname> -v
+--
+link:#top[Back to Top]
+
+[[environment-variables]]
+== Database-specific Environment Variables
+These variables pertain to your database (if you have one) and are used to connect your application to your database. The exact variable names depend upon the database type; the value of +<database>+ will be +MONGODB+, +MYSQL+, or +POSTGRESQL+ as appropriate.
+
+|===
+|Variable Name|Example|Purpose
+
+|OPENSHIFT_<database>_DB_HOST|127.0.250.1|The hostname or IP address to use to connect to your database
+|OPENSHIFT_<database>_DB_PORT|3306|The port your database server is listening on
+|OPENSHIFT_<database>_DB_USERNAME|admin|Your database administrative username
+|OPENSHIFT_<database>_DB_PASSWORD|8ddTnst22X3Y|Your database administrative user's password
+|OPENSHIFT_<database>_DB_SOCKET|$OPENSHIFT_HOMEDIR/mysql-5.1/socket/mysql.sock|A AF socket you can use to connect to your database
+|OPENSHIFT_<database>_DB_URL|mysql://admin:8ddTnst22X3Y@127.0.250.1:3306/|Database connection URL you can use to connect to your database
+|===
+
+Read more about all of the available OpenShift Environment Variables link:managing-environment-variables.html[here].
+
+link:#top[Back to Top]
