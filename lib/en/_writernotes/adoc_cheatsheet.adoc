@@ -9,13 +9,13 @@
 . item 2
 
 // Internal link - just point to the document you want but instead of .adoc on the end put .html
-link:getting-started-client-tools.html[> Install the Client Tools]
+link:getting-started-client-tools.html[Install the Client Tools]
 
 // External Link
-link:https://openshift.redhat.com/app/console[> Enter the Web Console (login required)]
+link:https://openshift.redhat.com/app/console[Enter the Web Console (login required)]
 
-// putting in termina command or terminal output
-[source, console]
+// putting in terminal command or terminal output
+[source]
 --
 terminal command here
 --

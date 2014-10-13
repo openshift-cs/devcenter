@@ -4,7 +4,7 @@ category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: ruby-overview.html
 nav_title: Ruby
-nav_priority: 10
+nav_priority: 50
 meta_desc: Ruby Developers - OpenShift Resources to get your Ruby applications hosted in the cloud.
 ---
 = Ruby Application Hosting

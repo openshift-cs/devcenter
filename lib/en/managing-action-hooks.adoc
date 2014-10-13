@@ -1,0 +1,120 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-action-hooks.html
+nav_title: Action Hooks
+nav_priority: 45
+meta_desc: Understand and use action hooks on OpenShift Online
+---
+= Action Hooks
+
+[float]
+= Action Hook Scripts
+
+OpenShift cartridges are designed to take care of the major tasks required to build and deploy a web application. If there are actions you want to perform as part of the build lifecycle that go beyond the basics, you can include these in action hook scripts.
+
+Action hook scripts are included as part of your application Git repository, in the `.openshift/action_hooks` directory. Different cartridges may support different hooks, depending on their build lifecycles; however, they should all include the hooks listed below.
+
+To run code at a particular time in the lifecycle, place a script in the `action_hooks` directory with the same name as the phase when you want it to be executed. The script can be written in *Shell*, *Python*, *PHP*, *Ruby*, or any other scripting language installed in the OpenShift environment that you can reference. It does not matter what language you chose for your web application; all of these scripting environments are still available to run on your gear.
+
+IMPORTANT: The script needs to be executable; run the `chmod x <scriptname>` command to ensure this.
+
+[WARNING]
+====
+Windows users may find that permissions they set on their action hook scripts are lost when the scripts are pushed to OpenShift with Git. To fix this issue, run the following command and push the scripts again:
+[source]
+--
+$ git update-index --chmod=+x .openshift/action_hooks/*
+--
+====
+
+Action hook scripts need to be added and committed in Git just like any other repository file. When they are pushed to the cloud, you will see any effects as the build lifecycle runs. For example, if you delete files in the `/tmp` directory as part of an action hook, the +git push+ output will echo the result of that command unless you tell your script to swallow output.
+
+== Cartridge Control Action Hooks
+Cartridges implement a standard set of named control actions which allow them to function within OpenShift. Each time OpenShift invokes one of these cartridge actions, a standard set of application action hooks are executed to give the application developer an opportunity to integrate more closely with specific cartridges.
+
+To use these hooks in your application create a file in:
+
+----
+<repository>/.openshift/action_hooks
+----
+
+with the same name as the event you want to trigger.
+
+NOTE: Cartridge-scoped action hooks are special in that they are sourced in into the
+same shell environment used to execute the action they surround. This allows cartridge
+hooks to modify the environment the action executes within.
+
+All the hooks listed below are available to application developers as well cartridge developers. The order of execution will be first the platform/cartridge script and then the application developers.
+
+The following is a list of all possible action hooks executed in association with a single cartridge control action. For each control action, a set of `pre` and `post` action hooks surround the control action. In the action hook names, `{Name}` refers to the `Name` cartridge manifest element.
+
+* `start` control action:
+** `pre_start`
+** `pre_start_{Name}` footnoteref:[1,This hook is assumed to be a shell script which is sourced in the same execution as the action it relates to; this facilitates the modification of the control action's environment (e.g. via `export` statements).]
+** `post_start`
+** `post_start_{Name}` footnoteref:[1]
+* `stop` control action:
+** `pre_stop`
+** `pre_stop_{Name}` footnoteref:[1]
+** `post_stop`
+** `post_stop_{Name}` footnoteref:[1]
+* `reload` control action:
+** `pre_reload`
+** `pre_reload_{Name}` footnoteref:[1]
+** `post_reload`
+** `post_reload_{Name}` footnoteref:[1]
+* `restart` control action:
+** `pre_restart`
+** `pre_restart_{Name}` footnoteref:[1]
+** `post_restart`
+** `post_restart_{Name}` footnoteref:[1]
+* `tidy` control action:
+** `pre_tidy`
+** `pre_tidy_{Name}` footnoteref:[1]
+** `post_tidy`
+** `post_tidy_{Name}` footnoteref:[1]
+
+For details about the control actions (including what they represent and when they are called), refer to the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#bin-control[control script
+documentation] in the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+
+== Build Action Hooks
+During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+
+The list of action hooks supported during the default build lifecycle are:
+
+* `pre_build`
+* `build`
+* `deploy`
+* `post_deploy`
+
+Refer to the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] guide for details about when these action hooks are invoked.
+
+== Custom Cartridge Action Hooks
+Cartridges may support custom action hooks available to application developers. Consult the documentation for individual cartridges to learn which hooks are supported and how to correctly implement them.
+
+== Action Hook Script Example
+
+Here is an example action hooks that checks if there is a data in a MongoDB database and if not, it imports data from the git repository for the application:
+
+[source, console]
+--
+#!/bin/bash
+dbsize=$(mongo -quiet $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPENSHIFT_APP_NAME -u $OPENSHIFT_MONGODB_DB_USERNAME -p $OPENSHIFT_MONGODB_DB_PASSWORD --eval "db.placenames.count()")
+
+#If the query says that parkpoints has 0 documents then we import the data
+if [[ $dbsize = "0" ]]
+then
+
+	#import the data
+	mongoimport -d $OPENSHIFT_APP_NAME -c placenames --type json --file $OPENSHIFT_REPO_DIR/gnis.json -h $OPENSHIFT_MONGODB_DB_HOST --port $OPENSHIFT_MONGODB_DB_PORT -u admin -p $OPENSHIFT_MONGODB_DB_PASSWORD
+
+	#make the 2D index
+	mongo -quiet $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPENSHIFT_APP_NAME -u $OPENSHIFT_MONGODB_DB_USERNAME -p $OPENSHIFT_MONGODB_DB_PASSWORD --eval 'db.placenames.ensureIndex( { pos : "2dsphere" } );'
+	echo "imported the data"
+else
+	echo "There was already data in the database. Not importing"
+fi
+--
+
