@@ -37,19 +37,6 @@ rhc app create my2_7app python-2.7
 rhc app create my3_3app python-3.3
 --
 
-=== Cartridge Layout
-[source]
---
-run/           Various run configs (like httpd pid)
-env/           Environment variables
-logs/          Log data (like httpd access/error logs)
-lib/           Various libraries
-bin/setup      The script to setup the cartridge
-bin/build      Default build script
-bin/teardown   Called at cartridge descruction
-bin/control    Init script to start/stop httpd
-versions/      Version data to support multiple python versions (copied into place by setup
---
 
 === Markers
 Adding marker files to `.openshift/markers` will have the following effects:
