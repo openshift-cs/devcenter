@@ -48,6 +48,6 @@ Enable your application to react to changes in traffic and automatically allocat
 
 [[Vert.x-blog-posts]]
 == See also
-https://www.openshift.com/blogs/async-web-apps-for-the-masses-running-vertx-on-openshift[Async Web Apps for the Masses: Running Vert.x on OpenShift]
+https://blog.openshift.com/async-web-apps-for-the-masses-running-vertx-on-openshift[Async Web Apps for the Masses: Running Vert.x on OpenShift]
 
 link:#top[Back to Top]

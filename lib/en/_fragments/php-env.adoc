@@ -1,6 +1,6 @@
-To make your applications more portable, OpenShift shields it from the need to hard-code configuration into the source code. 
+To make your applications more portable, OpenShift shields it from the need to hard-code configuration into the source code.
 
-IMPORTANT: OpenShift provides environment variables that the application is supposed to consume as a way to configure itself -> link:overview-environment-variables.html[Environment variables]
+IMPORTANT: OpenShift provides link:managing-environment-variables.html[environment variables] that the application is supposed to consume as a way to configure itself.
 
 As mentioned, in the previous example MySQL was deployed for the application. OpenShift publicizes the environment variables as part of the (in this case MySQL) service deployment.
 

@@ -1,10 +1,10 @@
 ---
 layout: ruby
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: ruby-overview.html
 nav_title: Environment Variables
-nav_priority: 50
+nav_priority: 90
 meta_desc: Ruby Developers - Environment Variables
 ---
 = Ruby Application Hosting

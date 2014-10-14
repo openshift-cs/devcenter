@@ -77,4 +77,4 @@ fi
 --
 
 === See also
-https://www.openshift.com/blogs/getting-started-with-cron-jobs-on-openshift[Getting Started with Cron Jobs on OpenShift]
+https://blog.openshift.com/getting-started-with-cron-jobs-on-openshift[Getting Started with Cron Jobs on OpenShift]

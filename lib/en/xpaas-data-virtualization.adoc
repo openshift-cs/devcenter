@@ -167,9 +167,9 @@ image::xpaas/xpaas-data-virtualization-12.png[JBDS Teiid Instance Configuration]
 
 == Additional Resources
 === How-to Blogs
-* https://www.openshift.com/blogs/salesforce-as-a-rest-service-using-jboss-data-virtualization-on-openshift
-* https://www.openshift.com/blogs/how-to-add-mysql-databases-to-jboss-data-virtualization-instances
-* https://www.openshift.com/blogs/using-teiid-to-add-and-query-mysql-databases-in-jboss-data-virtualization-instances
+* https://blog.openshift.com/salesforce-as-a-rest-service-using-jboss-data-virtualization-on-openshift
+* https://blog.openshift.com/how-to-add-mysql-databases-to-jboss-data-virtualization-instances
+* https://blog.openshift.com/using-teiid-to-add-and-query-mysql-databases-in-jboss-data-virtualization-instances
 
 === JBoss Data Virtualization Cartridge
 * https://github.com/jboss-datavirtualization/openshift-cartridge-datavirtualization

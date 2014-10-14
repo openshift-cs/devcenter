@@ -162,8 +162,7 @@ paths. For instance, this
 link:https://github.com/openshift/cakephp-example/blob/master/php/app/Config/database.php#L86[CakePHP
 QuickStart] overrides its default database settings by reading in
 OpenShift variables at run time. More information about the available
-environment variables can be found
-link:/page/openshift-environment-variables[here].
+environment variables can be found link:managing-environment-variables.html[here].
 
 [[secure-your-quickstart]]
 ==== 6. Secure Your QuickStart
@@ -176,17 +175,13 @@ QuickStart code and modify it as necessary to replace these static
 security values with values that are established on a per-instance basis
 and are therefore much harder to guess at.
 
-Here are two examples of security libraries that you can copy into your
-QuickStarts:
+Here are three examples of security libraries that you can copy into your QuickStarts:
 
-*
-link:https://github.com/openshift/cakephp-example/blob/master/libs/openshift.inc[A
+* link:https://github.com/openshift/cakephp-example/blob/master/libs/openshift.inc[A
 PHP-based version]
-*
-link:https://github.com/openshift/django-example/blob/master/wsgi/openshift/openshiftlibs.py[A
+* link:https://github.com/openshift/django-example/blob/master/wsgi/openshift/openshiftlibs.py[A
 Python-based version]
-*
-link:https://github.com/fotioslindiakos/crankcase/blob/secure_functions/cartridges/ruby-1.8/template/libs/openshift_secret_generator.rb[A
+* link:https://github.com/fotioslindiakos/crankcase/blob/secure_functions/cartridges/ruby-1.8/template/libs/openshift_secret_generator.rb[A
 Ruby-based version]
 
 See link:#security-best-practices[Security Best Practices] below for a
