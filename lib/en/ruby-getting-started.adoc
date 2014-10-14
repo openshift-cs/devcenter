@@ -1,0 +1,241 @@
+---
+layout: ruby
+category: 
+breadcrumb: Languages and Technologies
+parent_url: ruby-overview.html
+nav_title: Getting started
+nav_priority: 15
+meta_desc: Ruby Developers - Getting started
+---
+= Ruby Application Hosting
+
+[float]
+= Getting started with Ruby
+
+[.lead]
+With OpenShift you can easily deploy and run `Ruby` applications.
+
+OpenShift Online currently supports `Ruby 1.8`, `Ruby 1.9`, and `Ruby 2.0`.
+
+link:#step1[Step 1: Create a Ruby Application] +
+link:#step2[Step 2: Make the First Change] +
+link:#step3[Step 3: Managing dependencies through Bundler] +
+link:#other[Other Tips] +
+link:#next[Next Steps]
+
+[[create]]
+== Step 1: Create a Ruby Application 
+
+This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
+
+To create a new Ruby 2.0 application *myapp* using `rhc`, open a terminal window and enter the following command:
+
+[source]
+--
+$ rhc app create myapp ruby-1.8
+--
+
+or
+
+[source]
+--
+$ rhc app create myapp ruby-1.9
+--
+
+or 
+
+[source]
+--
+$ rhc app create myapp ruby-2.0 
+--
+
+and you will see output similar to
+
+[source]
+--
+Application Options
+-------------------
+Domain:     mydomain
+Cartridges: ruby-2.0
+Gear Size:  default
+Scaling:    no
+
+Creating application 'myapp' ... done
+
+
+Waiting for your DNS name to be available ... done
+
+Cloning into 'myapp'...
+The authenticity of host 'myapp-mydomain.rhcloud.com (54.82.127.129)' can't be established.
+RSA key fingerprint is cf:ee:77:cb:0e:fc:02:d7:72:7e:ae:80:c0:90:88:a7.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'myapp-mydomain.rhcloud.com,54.82.127.129' (RSA) to the list of known hosts.
+
+Your application 'myapp' is now available.
+
+  URL:        http://myapp-mydomain.rhcloud.com/ <1>
+  SSH to:     543792c1e0b8cdbf940002eb@myapp-mydomain.rhcloud.com
+  Git remote: ssh://543792c1e0b8cdbf940002eb@myapp-mydomain.rhcloud.com/~/git/myapp.git/
+  Cloned to:  /home/mydomain/Projects/devcenter/lib/myapp <2>
+
+Run 'rhc show-app myapp' for more details about your app.
+--
+
+<1> Public URL of application
+<2> Location of local Git repository
+
+The application will now be running and accessible at the *URL (1)* listed in the output. A local git repository for your application was also created in the directory listed under *Cloned to (2)*.
+
+link:#top[Back to Top]
+
+[[step2]]
+== Step 2: Make the First Change
+A developer on OpenShift makes code changes on a local machine, checks those changes in locally, and then `push` those changes to OpenShift. One of the primary advantages of Git is that it does not require a continuous online presence in order to run. A developer can easily check in (in Git terminology, `commit`) and revert changes locally before deciding to upload those changes to OpenShift.
+
+=== Using the Git Repository
+
+To make the first change, edit `index.html` in the `myapp/config.ru` directory. Go to the file in the terminal and edit with a comand line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. Strip out everything between the `<body>` tags and change the content to look like this:
+
+[source, html]
+--
+<body>
+	<h1>Hello world!</h1>
+</body>
+--
+
+Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
+
+. If any new files were added to your local repo, the `add` command will tell Git to track new files as part of the repository:
++
+[source, console]
+--
+$ git add --all .
+--
++
+. Next `commit` all our local changes to the git repository and include a message for the commit:
++
+[source, console]
+--
+$ git commit -a -m "Your commit message"
+--
++
+. Finally, `push` these changes to the remote OpenShift application.
++
+[source, console]
+--
+$ git push
+--
+
+The output of the push command will first show the git push and then the build process and deployment for the OpenShift application. When the build is finished, go back to the application's URL (_myapp-mydomain.rhcloud.com_) and see a page which just says "Hello World" in nice big font.
+
+This is the basic process to follow when developing an application: `git add` (optional), code change, `git commit`, and finally `git push`.
+
+If you are curious about Git or would like to learn more, the link:http://git-scm.com/book[Pro Git book] is a great resource.
+
+link:#top[Back to Top]
+
+[[step3]]
+== Step 3: Managing dependencies using Bundler
+
+Probably the most sane way to manage dependencies for Ruby applications is Bundler. OpenShift comes with the build-in support for Bundler and you can simply start using it. No need to fiddle with anything, you can simply use it!
+
+Create a `Gemfile` in your application directory `myapp/Gemfile` and add some dependency (Sinatra in this example)
+
+[source, ruby]
+--
+source 'https://rubygems.org'
+
+gem 'sinatra'
+--
+
+and locally run `bundle install` to actually create `Gemfile.lock` file that provides current snapshot of dependencies of your application
+
+[source, console]
+--
+bundle install
+--
+
+and finally repeat the steps to push the code as you did before
+
+[source, console]
+--
+git add .
+git commit -m "Dependencies"
+git push
+--
+
+the output will look similar to the previous one, but will contain the output of Bundler that is being run inside OpenShift to fetch your dependencies. Your ouput may look like this
+
+[source, console]
+--
+remote: Building Ruby cartridge
+remote: bundle install --deployment --path ./app-root/repo/vendor/bundle
+remote: Fetching gem metadata from https://rubygems.org/..........
+remote: Installing rack (1.5.2) 
+remote: Installing rack-protection (1.5.3) 
+remote: Installing tilt (1.4.1) 
+remote: Installing sinatra (1.4.5) 
+remote: Using bundler (1.3.5) 
+remote: Your bundle is complete!
+remote: It was installed into ./vendor/bundle
+--
+
+OpenShift was asked to provide me with Sinatra as a dependies and it did.
+
+[[other]]
+== Other Tips
+
+=== Hot Deploy and Other Markers
+
+With a normal `git push` as outlined above, Openshift starts and stops the Ryby application on each deploy. For Ruby applications, the code can be deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this deployment style.
+
+link:ruby-markers.html[Ruby Markers]
+
+=== Adding a Database to an Appliction
+
+Find out how to add a database to your application by going to the link:managing-adding-a-database.html[Adding a Database] guide.
+
+IMPORTANT: You should only use link:managing-environment-variables.html[environment variables] to specify the connection parameters for your database. Using hard coded names, ports, or credentials limits the resusability of your app and can potentially break your app during OpenShift maintenance.
+
+=== Ruby Mirror
+
+OpenShift is mirroring rubygems.org at http://mirror.ops.rhcloud.com/mirror/ruby/
+This mirror is on the same network as your application, and your gem download should be faster.
+
+Edit your Gemfile and replace
+
+[source]
+--
+source 'https://rubygems.org'
+--
+
+with
+
+[source]
+--
+source 'http://mirror.ops.rhcloud.com/mirror/ruby/'
+--
+
+=== Environment Variables
+
+The `ruby` cartridge provides several environment variables to reference for ease of use:
+
+link:ruby-environment-variables.html[Ruby Environment Variables]
+
+=== `threaddump` command
+
+OpenShift's CLI tool, https://rubygems.org/gems/rhc[`rhc`], has a subcommand `threaddump`. Applications created by this cartridge respond to this command by looking for the appropriate `Rack` process, and sending `ABRT` signal to it. As explained in the http://www.modrails.com/documentation/Users%20guide%20Apache.html#debugging_frozen[Passenger User Guide], this signal will dump the current thread backtraces but also terminates the processes.
+
+NOTE: The `Rack` process may not exist if the application has just started and has not been accessed.
+
+[[next]]
+== Next Steps
+The best next step is to create an application using OpenShift.
+
+Look at the https://www.openshift.com/application-gallery[application gallery] and https://www.openshift.com/developer-spotlight[developer spotlight] to see what other developers have created on OpenShift.
+
+Browse our http://origin.ly/[quickstarts and community cartridges] to see other exciting technology you can use in your applications.
+
+Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
+
+link:#top[Back to Top]

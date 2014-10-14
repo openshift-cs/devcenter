@@ -1,0 +1,19 @@
+---
+layout: ruby
+category: 
+breadcrumb: Languages and Technologies
+parent_url: ruby-overview.html
+nav_title: Environment Variables
+nav_priority: 50
+meta_desc: Ruby Developers - Environment Variables
+---
+= Ruby Application Hosting
+
+[float]
+= Ruby Environment Variables
+
+The Ruby cartridge provides several environment variables to reference for ease of use:
+
+OPENSHIFT_RUBY_LOGDIR:: Log files go here.
+OPENSHIFT_RUBY_VERSION:: The Ruby language version. The valid values are `1.8` and `1.9` and `2.0`.
+BUNDLE_WITHOUT:: Prevents Bundler from installing certain groups specified in the Gemfile.

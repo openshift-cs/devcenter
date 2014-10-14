@@ -1,0 +1,28 @@
+---
+layout: ruby
+category: 
+breadcrumb: Languages and Technologies
+parent_url: ruby-overview.html
+nav_title: Repository Layout
+nav_priority: 30
+meta_desc: Ruby Developers - Repository Layout
+---
+= Ruby Application Hosting
+
+[float]
+= Ruby Template Repository Layout
+
+[.lead]
+The `ruby` cartridge provides a bare metal http://rack.github.io[Rack] application with http://www.ruby-lang.org[Ruby].
+
+== Template Repository Layout
+[source]
+--
+tmp/               Temporary storage
+public/            Content (images, CSS, etc. available to the public)
+config.ru          This file is used by Rack-based servers to start the application.
+.openshift/        Location for OpenShift specific files
+    action_hooks/  See the Action Hooks documentation <1>
+    markers/       See the Markers section below
+--
+<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
