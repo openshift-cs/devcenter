@@ -24,48 +24,18 @@ link:#python[The Python Cartridges]
 image::python-logo.png[Python logo]
 
 [[simplify]]
-== Simplify Your Python Deployments
-
-Getting a Python app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
-
-[source]
---
-$ rhc app create MyApp python-3.3
-$ rhc cartridge add mysql-5.5 -a MyApp
---
-
-These two commands create your "server" and install and configure Python, MySQL, and a git repository on the server. You can now visit your application on the web at:
-
-[source]
---
-http://MyApp-MyDomain.rhcloud.com/
---
-
-[[python]]
 == The Python Cartridges
 The `python` cartridges provide http://www.python.org/[Python] on OpenShift. Currently OpenShift Online supports Python 2.6, 2.7, and 3.3.
+Creating different versions is as easy as just changing the number on the cartridge:
 
-=== Template Repository Layout
 [source]
 --
-wsgi.py                Default WSGI entry-point <1>
-setup.py               Standard Setup Script <2>
-requirements.txt       Standard pip requirements file <3>
-.openshift/            Location for OpenShift specific files
-    action_hooks/      See the Action Hooks documentation <4>
-    markers/           See the Markers section below
+rhc app create my2_6app python-2.6
+
+rhc app create my2_7app python-2.7
+
+rhc app create my3_3app python-3.3
 --
-<1> For backward compatibility, the `wsgi/application` path is selected as default
-    WSGI entry-point with higher priority. You can customize the path using the
-    `OPENSHIFT_PYTHON_WSGI_APPLICATION` envirotnment variable. See the Environment
-    variables section below.
-<2> Adding dependencies to the `install_requires` section of `setup.py` file will
-    cause the cartridge to install those dependencies at git push time.
-<3> Adding dependencies to this file will cause the cartridge to run
-    `pip install -r requirements.txt` command at git push time. You can customize
-    the path using the `OPENSHIFT_PYTHON_REQUIREMENTS_PATH` variable. See the
-    Environment variables section below.
-<4> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
 
 === Cartridge Layout
 [source]
