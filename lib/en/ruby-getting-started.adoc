@@ -1,10 +1,10 @@
 ---
 layout: ruby
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: ruby-overview.html
 nav_title: Getting started
-nav_priority: 15
+nav_priority: 60
 meta_desc: Ruby Developers - Getting started
 ---
 = Ruby Application Hosting
@@ -24,7 +24,7 @@ link:#other[Other Tips] +
 link:#next[Next Steps]
 
 [[create]]
-== Step 1: Create a Ruby Application 
+== Step 1: Create a Ruby Application
 
 This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
 
@@ -42,11 +42,11 @@ or
 $ rhc app create myapp ruby-1.9
 --
 
-or 
+or
 
 [source]
 --
-$ rhc app create myapp ruby-2.0 
+$ rhc app create myapp ruby-2.0
 --
 
 and you will see output similar to
@@ -171,11 +171,11 @@ the output will look similar to the previous one, but will contain the output of
 remote: Building Ruby cartridge
 remote: bundle install --deployment --path ./app-root/repo/vendor/bundle
 remote: Fetching gem metadata from https://rubygems.org/..........
-remote: Installing rack (1.5.2) 
-remote: Installing rack-protection (1.5.3) 
-remote: Installing tilt (1.4.1) 
-remote: Installing sinatra (1.4.5) 
-remote: Using bundler (1.3.5) 
+remote: Installing rack (1.5.2)
+remote: Installing rack-protection (1.5.3)
+remote: Installing tilt (1.4.1)
+remote: Installing sinatra (1.4.5)
+remote: Using bundler (1.3.5)
 remote: Your bundle is complete!
 remote: It was installed into ./vendor/bundle
 --

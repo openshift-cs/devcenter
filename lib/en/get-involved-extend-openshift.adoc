@@ -39,9 +39,9 @@ OpenShift - anything that can run in Linux can run in your app.
 To start, follow this guided tour of building cartridges, using a simple
 Apache web server as an example.
 
-* link:http://www.openshift.com/blogs/new-openshift-cartridge-format-part-1[Part 1: Introduction
+* link:https://blog.openshift.com/new-openshift-cartridge-format-part-1[Part 1: Introduction
 and a simple web server]
-* link:http://www.openshift.com/blogs/new-openshift-cartridge-format-part-2[Part 2: Packaging
+* link:https://blog.openshift.com/new-openshift-cartridge-format-part-2[Part 2: Packaging
 the example as a cartridge]
 
 Then read the

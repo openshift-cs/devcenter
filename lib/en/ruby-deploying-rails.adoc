@@ -1,10 +1,10 @@
 ---
 layout: ruby
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: ruby-overview.html
 nav_title: Ruby on Rails
-nav_priority: 40
+nav_priority: 80
 meta_desc: Ruby Developers - Deploying Ruby on Rails
 ---
 = Ruby Application Hosting

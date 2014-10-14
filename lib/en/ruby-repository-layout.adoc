@@ -1,10 +1,10 @@
 ---
 layout: ruby
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: ruby-overview.html
 nav_title: Repository Layout
-nav_priority: 30
+nav_priority: 70
 meta_desc: Ruby Developers - Repository Layout
 ---
 = Ruby Application Hosting
