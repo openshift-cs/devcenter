@@ -1,0 +1,11 @@
+---
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: python-overview.html
+nav_title: Repository Layout
+nav_priority: 20
+meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 cartridge repository layout
+---
+
+

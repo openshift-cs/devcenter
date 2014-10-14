@@ -1,0 +1,9 @@
+---
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: python-overview.html
+nav_title: Environment Variables
+nav_priority: 40
+meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 environment variables
+---

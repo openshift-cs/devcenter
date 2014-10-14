@@ -1,10 +1,10 @@
 ---
-layout: base
+layout: python
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: python-overview.html
 nav_title: Python
-nav_priority: 40
+nav_priority: 1.7
 meta_desc: Python Developers - OpenShift Resources to get your Python applications hosted in the cloud.
 ---
 = Python Application Hosting
