@@ -9,6 +9,7 @@ meta_desc: Bring your favorite technologies to OpenShift as a QuickStart or make
 ---
 = Extend OpenShift
 
+[[top]]
 [float]
 = Extend OpenShift
 [.lead]
@@ -24,12 +25,9 @@ You won't get automatic updates, but they're a great way to help someone
 understand a framework or try out an integration.
 
 To get started, read the
-link:get-involved-extend-openshift.html#create-a-quickstart[QuickStart
+link:#create-a-quickstart[QuickStart
 Developer's Guide], which outlines the process for creating a new
 QuickStart as well as keeping it up-to-date and secure.
-
-link:https://www.openshift.com/node/add/quickstart[Add your own QuickStart now]
-[[build-a-cartridge]]
 
 == Build a Cartridge
 It's easy to add your own frameworks and backends to OpenShift. Through
@@ -45,15 +43,15 @@ and a simple web server]
 the example as a cartridge]
 
 Then read the
-http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge
+link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge
 Developer's Guide], which breaks down the Cartridge API and is the
 primary reference for building a cartridge.
 
 To make it easy to try your cartridge, learn how to
-link:/developers/download-cartridges[make your new cartridge
+link:#downloadable-cartridges[make your new cartridge
 downloadable] so you can install it to OpenShift Online.
 
-link:https://www.openshift.com/developers/download-cartridges#examples[Examples of custom cartridges from around the web]
+link:#examples[Examples of custom cartridges from around the web]
 
 [[get-involved-upstream]]
 == Get Involved Upstream
@@ -63,5 +61,12 @@ backend systems for authentication, add new security layers, expose
 custom platform logic, or go a step beyond a cartridge, you'll want to
 check out the http://openshift.github.io[Origin source and community].
 
-include::_fragments/overview-extend-downloadable-cartridges.adoc[]
+link:#top[Back to Top]
+
 include::_fragments/overview-extend-create-quickstart.adoc[]
+
+link:#top[Back to Top]
+
+include::_fragments/overview-extend-downloadable-cartridges.adoc[]
+
+link:#top[Back to Top]

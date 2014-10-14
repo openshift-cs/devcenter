@@ -54,7 +54,7 @@ $ rhc app create parks nodejs-0.10 postgresql-9.2 -s --from-code=https://github.
 
 By default, the `rhc app create` command will also attempt to create a local git repository (for development purposes).  This repo will contain a `git remote` address that can be used to push updates to your site.
 
-After creating your app, link:/en/managing-modifying-applications.html[try publishing an update with `git push`].
+After creating your app, link:managing-modifying-applications.html[try publishing an update with `git push`].
 
 link:#top[Back to Top]
 
