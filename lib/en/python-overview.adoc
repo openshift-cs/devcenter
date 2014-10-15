@@ -38,7 +38,7 @@ rhc app create my3_3app python-3.3
 --
 
 [.lead]
-link:python-getting-started.html[-> Get Started With Python on OpenShift
+link:python-getting-started.html[-> Get Started With Python on OpenShift]
 
 
 
