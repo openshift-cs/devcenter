@@ -3,7 +3,7 @@ This repo contains AsciiDoc versions of the OpenShift Online Developer Center.
 
 To get started, grab a copy of the upstream project source:
 ```bash
-git clone https://github.com/openshift-evangelists/devcenter.git
+git clone git@github.com/openshift-evangelists/devcenter.git
 ```
 
 ## Hosting on OpenShift 
