@@ -37,34 +37,9 @@ rhc app create my2_7app python-2.7
 rhc app create my3_3app python-3.3
 --
 
+[.lead]
+link:python-getting-started.html[-> Get Started With Python on OpenShift
 
-=== Markers
-Adding marker files to `.openshift/markers` will have the following effects:
 
-[cols="1,3",options="header"]
-|===
-|Marker |Effect
-
-|force_clean_build
-|Will cause virtualenv to recreated during builds.
-
-|hot_deploy
-|Will prevent shutdown and startup of the application during builds.
-|===
-
-=== Environment variables
-The `python` cartridge supports the following environment variables:
-
-OPENSHIFT_PYTHON_WSGI_APPLICATION:: Set custom path to the WSGI entry-point, eg.
-using the `rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=app/altenative-wsgi.py`
-command.
-OPENSHIFT_PYTHON_REQUIREMENTS_PATH:: Set custom path to the pip requirements file,
-eg. using the `rhc env set OPENSHIFT_PYTHON_REQUIREMENTS_PATH=requirements/production.txt`
-command.
-
-For some frameworks (such as Django) it is possible to set the `DEBUG` user
-environment variable using the `rhc env set DEBUG=True` command.
-In that case, Django will run in 'debug' mode, with more verbose logging and
-nice error reporting of HTTP 500 errors.
 
 link:#top[Back to top]
