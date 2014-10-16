@@ -23,9 +23,13 @@ Visit the official Java documentation to link:https://java.com[learn more].
 == Supported Technologies
 OpenShift provides several ways to deploy Java applications, including the following environments:
 
-=== link:jbossas-overview.html[JBossAS / Wildfly]
-OpenShift Online currently supports `JBossAS 7` and `8`. +
+=== link:jbossas-overview.html[JBossAS]
+OpenShift Online currently supports `JBossAS 7`. +
 link:/en/jbossas-overview.html[-> Learn More]
+
+=== link:wildfly-overview.html[Wildfly]
+OpenShift Online currently supports `Wildfly 8.1 Final`. +
+link:/en/wildfly-overview.html[-> Learn More]
 
 === link:tomcat-overview.html[Apache Tomcat (JBossEWS)]
 OpenShift Online currently supports `Tomcat 6` and `7`. +
