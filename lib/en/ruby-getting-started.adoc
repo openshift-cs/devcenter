@@ -105,18 +105,18 @@ To make the first change, edit `index.html` in the `myapp/config.ru` directory. 
 
 Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
 
-. If any new files were added to your local repo, the `add` command will tell Git to track new files as part of the repository:
+. If any changes were added to your local repo, the `add` command will tell Git to track new changes as part of the next commit:
 +
 [source, console]
 --
 $ git add --all .
 --
 +
-. Next `commit` all our local changes to the git repository and include a message for the commit:
+. Next `commit` our local changes to the git repository and include a message for the commit:
 +
 [source, console]
 --
-$ git commit -a -m "Your commit message"
+$ git commit -m "Your commit message"
 --
 +
 . Finally, `push` these changes to the remote OpenShift application.
@@ -128,7 +128,7 @@ $ git push
 
 The output of the push command will first show the git push and then the build process and deployment for the OpenShift application. When the build is finished, go back to the application's URL (_myapp-mydomain.rhcloud.com_) and see a page which just says "Hello World" in nice big font.
 
-This is the basic process to follow when developing an application: `git add` (optional), code change, `git commit`, and finally `git push`.
+This is the basic process to follow when developing an application: `git add`, code change, `git commit`, and finally `git push`.
 
 If you are curious about Git or would like to learn more, the link:http://git-scm.com/book[Pro Git book] is a great resource.
 
