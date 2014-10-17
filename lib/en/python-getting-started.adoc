@@ -21,7 +21,7 @@ link:#step1[Step 1: Create a Tomcat Application] +
 link:#step2[Step 2: Make the First Change] +
 // TODO link:#step3[Step 3: Using a Different Server than Mod_WSGI] +
 // TODO link:#other[Other Tips] +
-// TODO link:#next[Next Steps]  
+link:#next[Next Steps]  
 
 [[step1]]
 == Step 1: Create a Python Application
@@ -113,6 +113,35 @@ The output of the push command will first show the git push and then the build p
 This is the basic process to follow when developing an application: `git add` (optional), code change, `git commit`, and finally `git push`.
 
 If you are curious about Git or would like to learn more, the link:http://git-scm.com/book[Pro Git book] is a great resource.
+
+link:#top[Back to Top]
+
+
+
+== Other Tips
+
+=== Managing Application Package Dependencies
+
+=== Hot Deploy and Other Markers
+
+==== Other Markers
+
+=== Adding a Database to an Appliction
+
+Find out how to add a database to your application by going to the link:managing-adding-a-database.html[Adding a Database] guide.
+
+IMPORTANT: You should only use link:managing-environment-variables.html[environment variables] to specify the connection parameters for your database. Using hard coded names, ports, or credentials limits the resusability of your app and can potentially break your app during OpenShift maintenance.
+
+
+[[next]]
+== Next Steps
+The best next step is to create an application using OpenShift.
+
+Look at the https://www.openshift.com/application-gallery[application gallery] and https://www.openshift.com/developer-spotlight[developer spotlight] to see what other developers have created on OpenShift.
+
+Browse our http://origin.ly/[quickstarts and community cartridges] to see other exciting technology you can use in your applications.
+
+Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
 
 link:#top[Back to Top]
 
