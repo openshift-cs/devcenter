@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: php 
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: php-overview.html
@@ -15,100 +15,19 @@ meta_desc: PHP Developers - OpenShift Resources to get your PHP applications hos
 = PHP Application Hosting
 
 [.lead]
-With OpenShift you can easily deploy and run PHP applications using your favorite frameworks and databases. OpenShift Online currently supports `PHP 5.3` and `5.4`.
+OpenShift Online currently supports `PHP 5.3` and `5.4`.
 
-PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. +
-link:http://php.net/[-> Learn More]
+TIP: PHP is a general-purpose server-side scripting language originally designed to produce dynamic web pages.
 
-link:#simplify[Simplify Your PHP deployments] +
-link:#php[The PHP Cartridge] +
-link:php-zend.html[Go Enterprise with Zend] +
+Learn more at the link:http://php.net/[PHP home page].
 
 image::php-logo.png[PHP logo]
 
-[[simplify]]
-== Simplify your PHP deployments
-
-Getting a PHP app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:
-
-[source]
---
-$ rhc app create MyApp php-5.4
-$ rhc cartridge add mysql-5.5 -a MyApp
---
-
-These two commands create your "server" and install and configure PHP, MySQL, and a git repository on the server. You can now visit your application on the web at:
-
-[source]
---
-http://MyApp-MyDomain.rhcloud.com/
---
-
-As MySQL was deployed for you by the platform, you can connect to it by using connection parameters exposed in the environment variables.
-
-link:#top[Back to Top]
-
-[[php]]
 == The PHP Cartridge
 
-The `php` cartridge provides http://www.php.net[PHP] on OpenShift.
+The `php` cartridge provides support for deploying http://www.php.net[PHP] applications on OpenShift, using the Apache web server. A link:php-zend.html[Zend Server] cartridge is also available. OpenShift-maintained QuickStarts using the `php` cartridge include https://openshift.redhat.com/app/console/application_type/quickstart!12731[CakePHP], https://openshift.redhat.com/app/console/application_type/quickstart!12724[WordPress], and https://openshift.redhat.com/app/console/application_type/quickstart!13145[Drupal]. Popular community-created PHP QuickStarts include https://openshift.redhat.com/app/console/application_type/quickstart!17643[Laravel 4.1], https://openshift.redhat.com/app/console/application_type/quickstart!14232[CodeIgniter], https://openshift.redhat.com/app/console/application_type/quickstart!16136[Symfony 2.3.6], and https://openshift.redhat.com/app/console/application_type/quickstart!13894[Piwik].
 
-=== Template Repository Layout
-[source]
-----
-index.php              Template PHP index page
-.openshift/            Location for OpenShift specific files
-    action_hooks/      See the Action Hooks documentation <1>
-    markers/           See the Markers section below
-    pear.txt           List of pears to install <2>
-----
-<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
-<2> A list of pears to install, line by line on the server. This will happen when the user git pushes.
-
-=== Document root
-http://httpd.apache.org/docs/current/mod/core.html#documentroot[Apache DocumentRoot],
-the directory that forms the main document tree visible from the web, is selected based
-on the existence of a common directory in the repository code in the following order:
-[source]
-----
-1. php/          # for backward compatibility with OpenShift Origin v1/v2
-2. public/       # Zend Framework v1/v2, Laravel, FuelPHP, Surebert etc.
-3. public_html/  # Apache per-user web directories, Slim Framework etc.
-4. web/          # Symfony etc.
-5. www/          # Nette etc.
-6. ./            # Drupal, Wordpress, CakePHP, CodeIgniter, Joomla, Kohana, PIP etc.
-----
-
-=== PHP include_path
-The following application directories, that might exist in the repository code, are added
-to the http://php.net/manual/en/ini.core.php#ini.include-path[PHP include_path] and thus
-automatically searched when calling require(), include() and other file I/O functions:
-[source]
-----
-- lib/
-- libs/
-- libraries/
-- src/
-- misc/
-- vendor/
-- vendors/
-----
-
-=== Markers
-Adding marker files to `.openshift/markers` will have the following effects:
-
-[cols="1,3",options="header"]
-|===
-|Marker |Effect
-
-|force_clean_build
-|Will remove all previous deps and start installing required deps from scratch
-
-|hot_deploy
-|Will prevent the apache process from being restarted during build/deployment
-
-|disable_auto_scaling
-|Will prevent scalable applications from scaling up or down according to application load.
-|===
+[.lead]
+link:php-getting-started.html[-> Get Started With PHP on OpenShift]
 
 link:#top[Back to Top]

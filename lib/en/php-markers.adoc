@@ -1,0 +1,29 @@
+---
+layout: php 
+category:
+breadcrumb: Languages and Technologies
+parent_url: php-overview.html
+nav_title: Markers
+nav_priority: 50
+meta_desc: PHP developers - OpenShift Online PHP marker files
+---
+= PHP Markers
+
+[float]
+= PHP Markers
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will remove all previous deps and start installing required deps from scratch
+
+|hot_deploy
+|Will prevent the apache process from being restarted during build/deployment
+
+|disable_auto_scaling
+|Will prevent scalable applications from scaling up or down according to application load.
+|===
+

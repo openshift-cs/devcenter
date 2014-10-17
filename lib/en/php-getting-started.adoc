@@ -1,0 +1,170 @@
+---
+layout: php 
+category:
+breadcrumb: Languages and Technologies
+parent_url: php-overview.html
+nav_title: Getting Started
+nav_priority: 10
+meta_desc: Get started with PHP on OpenShift.
+---
+= Getting Started
+
+[[top]]
+[float]
+= Getting Started with PHP
+
+It's easy to get up and running with PHP on OpenShift.
+
+link:#step1[Step 1: Create a PHP Application] +
+link:#step2[Step 2: Make the First Change] +
+link:#step3[Step 3: Manage Dependencies] +
+link:#other[Other Tips] +
+link:#next[Next Steps]
+
+[[step1]]
+== Step 1: Create a PHP Application
+
+This tutorial walks through the creation of an application titled *myphpapp* under the domain *mydomain*. Before going through the rest of the tutorial, be sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
+
+Once that is completed, open a terminal on a local machine and change into the directory where you would like the OpenShift application source code to be located. At the command prompt, enter the following command to create a PHP application:
+
+[source, console]
+--
+$ rhc app create myphpapp php-5.4
+--
+
+or
+
+[source, console]
+--
+$ rhc app create myphpapp php-5.3 
+--
+
+The output will look something like this:
+
+[source, console]
+--
+Application Options
+-------------------
+Domain:     mydomain 
+Cartridges: php-5.4
+Gear Size:  default
+Scaling:    no
+
+Creating application 'myphpapp' ... done
+
+
+Waiting for your DNS name to be available ... done
+
+Cloning into 'myphpapp'...
+Warning: Permanently added the RSA host key for IP address '54.224.97.114' to the list of known hosts.
+
+Your application 'myphpapp' is now available.
+
+  URL:        http://myphpapp-mydomain.rhcloud.com/ <1>
+  SSH to:     5330abc150044678dc000029@myphpapp-mydomain.rhcloud.com
+  Git remote: ssh://5330abc150044678dc000029@myphpapp-mydomain.rhcloud.com/~/git/myphpapp.git/
+  Cloned to:  /home/me/git_demo/myphpapp <2>
+
+Run 'rhc show-app myphpapp' for more details about your app.
+
+--
+<1> Public URL of application
+<2> Location of local Git repository
+
+The application will now be running and accessible at the *URL (1)* listed in the output. A local Git repository for your application was also created in the directory listed under *Cloned to (2)*.
+
+link:#top[Back to Top]
+
+[[step2]]
+== Step 2: Make the First Change
+A developer on OpenShift can make code changes on a local machine, check those changes in locally, and then `git push` those changes to OpenShift. One of the primary advantages of the Git version control system is that it does not require a continuous online presence in order to run. A developer can easily check in (`commit`, in Git terminology) and revert changes locally before deciding to upload those changes to OpenShift.
+
+=== Using the Git Repository
+
+To make the first change, edit `index.php` in the `myphpapp` directory. Go to the file in the terminal and edit with a command line editor such as *Vim* or *Emacs*. Alternatively, edit the file using any text editor or IDE. Strip out everything between the two `<body>` tags and change the content to look like this:
+
+[source, html]
+--
+<body>
+	<h1>Hello world!</h1>
+</body>
+--
+
+Now that you have made this incredibly complicated code change, the new code must be deployed to the server. You can accomplish this task using *Git*.
+
+. To add the change to the Git repository's index and stage it for the next commit, use the command `git add`:
++
+[source, console]
+--
+$ git add --all .
+--
++
+. Next `commit` the staged changes to the Git repository, with a log message to explain the changes:
++
+[source, console]
+--
+$ git commit -m "Your commit message"
+--
++
+. Finally, `push` these changes to the remote OpenShift application.
++
+[source, console]
+--
+$ git push
+--
+
+The output of the `push` command will first show the `git push`, and then the build process and deployment of the code on OpenShift. When the build is finished, go back to the application's URL (_myphpapp-mydomain.rhcloud.com_) and you should see a page that simply says "Hello World".
+
+This is the basic process to follow when developing an application: `git add`, `git commit`, and finally `git push`.
+
+If you are curious about Git or would like to learn more, the link:http://git-scm.com/book[Pro Git book] is a great resource.
+
+link:#top[Back to Top]
+
+[[step3]]
+== Step 3: Managing Dependencies 
+
+Your PHP application code may rely on third-party libraries that you wish to include in your build. To add dependencies using the PHP Extension and Application Repository (PEAR), add the names of the libraries in *.openshift/pear.txt*. For example, the contents of your *pear.txt* file could be the following:
+
+[source, console]
+--
+net_url
+auth_sasl
+--
+
+Use Git to add, commit, and push your changes to *pear.txt* to OpenShift.
+
+To use an alternative dependency manager, such as Composer, add any commands you would like to be executed at build time on OpenShift into an link:managing-action-hooks.html[action hook script] at *.openshift/action_hooks/build*.
+
+link:#top[Back to Top]
+
+[[other]]
+== Other Tips
+
+To find out how OpenShift selects the Apache document root for your PHP application code, see the link:php-repository-layout.html#document_root[Repository Layout section]. A list of directories automatically added to the link:php-repository-layout.html#include_path[include_path] is also included in the link:php-repository-layout.html[Repository Layout guide].
+
+=== Hot Deploy and Other Markers
+
+By default, when a `git push` occurs as outlined above, OpenShift starts and stops the Apache server to deploy the new build. However, it is possible to deploy code without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how a marker file in the Git repository can be used to turn on this build style.
+
+More PHP marker files are listed in the link:php-markers.html[Markers section].
+
+=== Adding a Database to an Application
+
+Find out how to add a database to your application by going to the link:managing-adding-a-database.html[Adding a Database] guide.
+
+IMPORTANT: You should only use link:managing-environment-variables.html[environment variables] to specify the connection parameters for your database. Using hard coded names, ports, or credentials limits the resusability of your app and can potentially break your app during OpenShift maintenance.
+
+[[next]]
+== Next Steps
+The best next step is to create an application using OpenShift.
+
+Look at the https://www.openshift.com/application-gallery[Application Gallery] and https://www.openshift.com/developer-spotlight[Developer Spotlight] to see what other developers have created on OpenShift.
+
+Browse the http://origin.ly/[QuickStarts and community cartridges] to see other exciting technologies you can use in your applications.
+
+Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
+
+link:#top[Back to Top]
+
