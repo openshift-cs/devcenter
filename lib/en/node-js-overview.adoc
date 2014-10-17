@@ -13,9 +13,9 @@ meta_desc: Node.js Developers - OpenShift Resources to get your Node.js applicat
 [float]
 = Node.js Application Hosting
 [.lead]
-OpenShift provides a trusted platform for link:#build[building], link:#launch[hosting], and link:#scale[scaling] Node.js applications using proven, open source technologies. Want to run link:https://www.openshift.com/quickstarts/ghost-with-mysql-on-openshift[a Ghost blog backed by MySQL]? Or, maybe you're looking for link:#launch[Express and MongoDB]? link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps[Scale your solutions on an open source cloud by adapting your code to take advantage of OpenShift's] link:https://www.openshift.com/developers/technologies[`nodejs-0.10` web runtime cartridge].
+OpenShift provides a trusted platform for link:#build[building], link:#launch[hosting], and link:#scale[scaling] Node.js applications using proven, open source technologies. Want to run link:https://www.openshift.com/quickstarts/ghost-with-mysql-on-openshift[a Ghost blog backed by MySQL]? Or, maybe you're looking for link:#launch[Express and MongoDB]? link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps[Scale your solutions on an open source cloud by adapting your code to take advantage of OpenShift's] link:https://www.openshift.com/developers/technologies[`nodejs-0.10` web runtime cartridge].
 
-Node.js relies on Chrome's V8 engine for a fast and reliable Javascript runtime.  It's event-driven, non-blocking I/O model is lightweight and efficient - a perfect choice for link:https://www.openshift.com/blogs/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app[highly-concurrent, real-time applications].
+Node.js relies on Chrome's V8 engine for a fast and reliable Javascript runtime.  It's event-driven, non-blocking I/O model is lightweight and efficient - a perfect choice for link:https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app[highly-concurrent, real-time applications].
 
 [float]
 image::nodejs-logo.png[Node.js logo]
@@ -23,11 +23,11 @@ image::nodejs-logo.png[Node.js logo]
 link:#launch[Create your first Node.js application] +
 link:#structure[Node.js project structure] +
 link:#run[Local Development] +
-link:#env-vars[Environment Variables] 
+link:#env-vars[Environment Variables]
 
 [[launch]]
 == Server-Side JavaScript On-Demand, with the Nodejs Cartridge
-The `rhc` command-line tool makes it easy to provision new application environments.  
+The `rhc` command-line tool makes it easy to provision new application environments.
 
 Launch a new application ("myapp") using the `nodejs-0.10` web runtime cartridge:
 [source]
@@ -42,9 +42,9 @@ OpenShift's default platform features include automatic DNS setup, SSH services,
 http://MyApp-MyNamespace.rhcloud.com/
 --
 
-OpenShift also provides link:https://www.openshift.com/blogs/launching-applications-with-openshifts-web-based-workflow[browser-based workflows for launching new hosted environments right from the Web].
+OpenShift also provides link:https://blog.openshift.com/launching-applications-with-openshifts-web-based-workflow[browser-based workflows for launching new hosted environments right from the Web].
 
-Running `rhc help app create` provides an excellent reference of optional flags.  For example, the `--from-code` argument makes it easy to deploy existing projects, link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps[as long as they've been adapted to run on OpenShift]. 
+Running `rhc help app create` provides an excellent reference of optional flags.  For example, the `--from-code` argument makes it easy to deploy existing projects, link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps[as long as they've been adapted to run on OpenShift].
 
 This command creates a new horizontally scalable "parks" application from an existing project repo, using the `nodejs-1.0` and `postgresql-9.2` cartridges:
 [source]
@@ -54,7 +54,7 @@ $ rhc app create parks nodejs-0.10 postgresql-9.2 -s --from-code=https://github.
 
 By default, the `rhc app create` command will also attempt to create a local git repository (for development purposes).  This repo will contain a `git remote` address that can be used to push updates to your site.
 
-After creating your app, link:/en/managing-modifying-applications.html[try publishing an update with `git push`].
+After creating your app, link:managing-modifying-applications.html[try publishing an update with `git push`].
 
 link:#top[Back to Top]
 
@@ -63,25 +63,25 @@ link:#top[Back to Top]
 Nodejs application should incorporate the following project structure:
 
 [source]
-----
-server.js                Your main application script 
-package.json             Npm package descriptor 
+--
+server.js                Your main application script
+package.json             Npm package descriptor
 node_modules/            Locally installed module dependencies
 .openshift/              Optional, OpenShift-specific files:
     action_hooks/        Custom build scripts, or "Action Hooks"
     markers/             Optional marker flags
-----
+--
 
-==== `server.js`
-By default, OpenShift and npm are both designed to look for a file named "`server.js`" in order to launch your app.  You can specify an alternative filename in your project's `package.json` file link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[includes accurate information on how to start your project].
+=== `server.js`
+By default, OpenShift and npm are both designed to look for a file named "`server.js`" in order to launch your app.  You can specify an alternative filename in your project's `package.json` file link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[includes accurate information on how to start your project].
 
-You'll need to link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps#env_vars[include a small check to test for the presence of environment variables] that are commonly link:#env-vars[published by the `nodejs` cartridge]:
+You'll need to link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#env_vars[include a small check to test for the presence of environment variables] that are commonly link:#env-vars[published by the `nodejs` cartridge]:
 
 [source,javascript]
 ----
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
- 
+
 server.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + port )
 });
@@ -89,8 +89,8 @@ server.listen(server_port, server_ip_address, function () {
 
 The above code provides sensible default values that will allow the application to run in local development environments, while taking advantage of link:#env-vars[OpenShift-provided configuration details when they are available].
 
-==== `package.json`
-Every nodejs application should include a `package.json` file to document the project's link:https://www.openshift.com/blogs/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and list of dependencies.  
+=== `package.json`
+Every nodejs application should include a `package.json` file to document the project's link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and list of dependencies.
 
 You can specify an alternative server init file by updating your `package.json` file's link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] fields for information on how to start your project:
 
@@ -105,13 +105,13 @@ You can specify an alternative server init file by updating your `package.json` 
 Check the link:#markers[Markers] section for specifics on how OpenShift uses this information.
 
 [[node_modules]]
-==== `node_modules`
+=== `node_modules`
 
 This optional folder can be generated automatically during your project's build process, but link:http://www.futurealoof.com/posts/nodemodules-in-git.html[it's generally considered a best-practice to keep this folder's contents under version control].
 
 This is also a resonable place to store custom modules.
 
-==== `deplist.txt`
+=== `deplist.txt`
 This file was previously used to document an application's dependency list on OpenShift.  You should be using `package.json` instead.
 
 [[build]]
@@ -119,7 +119,7 @@ This file was previously used to document an application's dependency list on Op
 OpenShift will automatically install any package dependencies that are described in your `package.json` file.
 
 === Action Hooks
-link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Customize your OpenShift build process with "Action Hooks"] 
+link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Customize your OpenShift build process with "Action Hooks"]
 
 [[markers]]
 === Marker Files

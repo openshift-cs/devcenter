@@ -8,7 +8,7 @@
 |
 link:jbossas-overview.html[JBossAS/Wildfly] +
 link:jbosseap-overview.html[JBoss EAP] +
-link:tomcat-overview.html[Tomcat] +
+link:tomcat-getting-started.html[Tomcat] +
 
 |link:php-overview.html[PHP]
 |
@@ -20,15 +20,15 @@ link:php-zend.html[Zend Server]
 |link:python-overview.html[Python]
 |Coming Soon
 
-|link:ruby-overview.html[Ruby]
+|link:ruby-getting-started.html[Ruby]
 |Coming Soon
 
 |link:perl-overview.html[Perl]
 |Coming Soon
 
-|link:jenkins-overview.html[Jenkins]
+|link:managing-continuous-integration.html[Jenkins]
 |Coming Soon
 
-|link:vert-x-overview.html[Vert.x]
+|link:vertx-overview.html[Vert.x]
 |Coming Soon
 |===

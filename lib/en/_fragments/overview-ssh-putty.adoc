@@ -17,7 +17,7 @@ video::dZwngyEtWmU[youtube, width=640, height=480]
 === Download the PuTTY Installer
 
 Get the installer from the
-http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[PuTTY
+link:http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[PuTTY
 download page]
 
 Make sure you download the latest stable release under the headers
@@ -33,34 +33,34 @@ you downloaded it to and double click on the icon to run the installer.
 *Step 1:* You are greeted by the Welcome dialog. Click the *Next >*
 button to continue
 
-image::/en/images/overview-ssh-putty-wizard-1.png[]
+image::overview-ssh-putty-wizard-1.png[]
 
 *Step 2:* The wizard asks you to select a directory to install PuTTY to.
 Use the default and click the *Next >* button to continue.
 
-image::/en/images/overview-ssh-putty-wizard-2.png[]
+image::overview-ssh-putty-wizard-2.png[]
 
 *Step 3:* The wizard asks which folder you wish to put PuTTY into on the
 Start Menu. Use the default and click the *Next >* button to continue.
 
-image::/en/images/overview-ssh-putty-wizard-3.png[]
+image::overview-ssh-putty-wizard-3.png[]
 
 *Step 4:* You are asked additional questions. You can choose to have an
 icon placed on your desktop or on the Panel as a quick start button for
 easier access to PuTTY if you wish. We recommend keeping the option for
 associating .ppk files checked. Click the *Next >* button to continue.
 
-image::/en/images/overview-ssh-putty-wizard-4.png[]
+image::overview-ssh-putty-wizard-4.png[]
 
 *Step 5:* PuTTY is ready to install. Click the *Install* button to start
 the installation process.
 
-image::/en/images/overview-ssh-putty-wizard-5.png[]
+image::overview-ssh-putty-wizard-5.png[]
 
 *Step 6:* Click the *Finish* button to exit the installer. We recommend
 reading the README file for further information about PuTTY.
 
-image::/en/images/overview-ssh-putty-wizard-6.png[]
+image::overview-ssh-putty-wizard-6.png[]
 
 [[importing-your-ssh-key]]
 === Importing Your SSH Key
@@ -70,7 +70,7 @@ alternate steps to create an SSH key pair for use with OpenShift. We
 want to import that key for use with PuTTY.
 
 If you have not run rhc setup, visit the
-https://www.openshift.com/get-started[Getting Started] page and complete
+link:getting-started-overview.html[Getting Started] page and complete
 the Command Line setup steps before continuing.
 
 *Step 1:* Launch PuTTYgen
@@ -80,29 +80,31 @@ in the search box. A list of putty applications shows up. Click on
 PuTTYgen. On older versions of Windows navigate to the PuTTY folder and
 launch it from there.
 
-image::/en/images/overview-ssh-putty-launch-1.png[]
+image::overview-ssh-putty-launch-1.png[]
 
 *Step 2:* Import the SSH Key
 
 Once PuTTYgen starts go to the *Conversions* menu and select the *Import
 key* item.
 
-image::/en/images/overview-ssh-putty-launch-2.png[]
+image::overview-ssh-putty-launch-2.png[]
+
+Alternatively, you can use the *Generate* button to create a new pair of keys. Just make sure to register any new public keys in link:https://openshift.redhat.com/app/console/settings[your openshift account setting page].
 
 *Step 3:* Select the SSH Key for Import
 
 A file dialog should pop up. Navigate to the *.ssh* directory in your
 user folder *C:&lt;user name>\.ssh* and select the *id_rsa* key that was
-generated for you by rhc setup.
+generated for you by `rhc setup`.
 
-image::/en/images/overview-ssh-putty-launch-3.png[]
+image::overview-ssh-putty-launch-3.png[]
 
 *Step 4:* Save the Private Key as a .PPK File
 
 PuTTYgen loads your key and displays it. Click the *Save private key*
 button in this dialog.
 
-image::/en/images/overview-ssh-putty-launch-4.png[]
+image::overview-ssh-putty-launch-4.png[]
 
 *Step 5:* Select a Key Name
 
@@ -112,7 +114,7 @@ key. Again navigate to the *.ssh* directory in your user folder
 make sure you do not overwrite any files in this directory. Good names
 to use are *default.ppk* or *id_rsa.ppk*.
 
-image::/en/images/overview-ssh-putty-launch-5.png[]
+image::overview-ssh-putty-launch-5.png[]
 
 You've imported your SSH key and may close the PuTTYgen application.
 
@@ -130,7 +132,7 @@ and in the search box type in *putty*. Select the PuTTY application to
 run. On older versions of windows you may need to navigate to the
 *PuTTY* directory in the Start Menu and launch it from there.
 
-image::/en/images/overview-ssh-putty-configure-1.png[]
+image::overview-ssh-putty-configure-1.png[]
 
 *Step 2:* Get the SSH Address
 
@@ -143,7 +145,7 @@ your application?* link to expand the text. This text includes the ssh
 command and the address. In the next step, copy this text, _removing_
 the *ssh* command from the front of the string.
 
-image::/en/images/overview-ssh-putty-configure-2.png[]
+image::overview-ssh-putty-configure-2.png[]
 
 *Step 3:* Enter the Address into PuTTY
 
@@ -151,7 +153,7 @@ In the *Session* category, under the *Host Name* form, paste the text
 you copied from the previous step, remembering to remove the *ssh*
 command from the begining of the string.
 
-image::/en/images/overview-ssh-putty-configure-3.png[]
+image::overview-ssh-putty-configure-3.png[]
 
 *Step 4:* Associate Your SSH Key with the Session
 
@@ -160,7 +162,7 @@ categories and select *Auth*. Click on the *Browse* button and navigate
 to the *.ssh* directory in your user folder *C:&lt;user name>\.ssh* and
 select the .ppk file you saved there.
 
-image::/en/images/overview-ssh-putty-configure-4.png[]
+image::overview-ssh-putty-configure-4.png[]
 
 *Step 5:* Save Your Session
 
@@ -174,11 +176,13 @@ Whenever you wish to connect to your application, simply select your
 session in the list. Click on the *Load* button and then click on the
 *Open* button.
 
-image::/en/images/overview-ssh-putty-configure-5.png[]
+image::overview-ssh-putty-configure-5.png[]
 
 [[now-you-are-ready-to-connect-to-your-openshift-application-with-ssh-on-windows]]
-=== Now You Are Ready to Connect to Your OpenShift Application with SSH on
-Windows
 
-link:/page/ssh[See the SSH page] for a list of commands and things you
+Now You Are Ready to Connect to Your OpenShift Application with SSH on Windows.
+
+link:#common-commands[Click here] for a list of commands and things you
 can inside of an SSH session using your Windows machine.
+
+link:#top[Back to Top]

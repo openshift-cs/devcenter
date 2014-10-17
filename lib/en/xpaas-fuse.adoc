@@ -57,7 +57,7 @@ https://myApp-MyDomain.rhcloud.com/
 For important information on setting up your JBoss Fuse cartridge, check out our link:#getting-started[Getting Started] section.
 
 == Rapid Development with an IDE
-Don't like the command line or web console for designing connections between applications and data? No problem! Use link:https://www.openshift.com/blogs/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your connections.
+Don't like the command line or web console for designing connections between applications and data? No problem! Use link:https://blog.openshift.com/getting-started-with-eclipse-paas-integration[JBoss Tools with Eclipse] to create and work with your connections.
 
 == Scale to Meet Your Needs
 Enable your integration solution to react to changes in message volume and frequency and automatically scale the resources used to handle the current volume.

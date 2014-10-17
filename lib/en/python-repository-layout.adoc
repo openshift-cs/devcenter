@@ -1,0 +1,35 @@
+---
+layout: python
+category:
+breadcrumb: Languages and Technologies
+parent_url: python-overview.html
+nav_title: Repository Layout
+nav_priority: 20
+meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 cartridge repository layout
+---
+= Python Repository Layout
+
+[float]
+= Python Template Repository Layout
+[source]
+--
+wsgi.py                Default WSGI entry-point <1>
+setup.py               Standard Setup Script <2>
+requirements.txt       Standard pip requirements file <3>
+.openshift/            Location for OpenShift specific files
+    action_hooks/      See the Action Hooks documentation <4>
+    markers/           See the Markers section below
+--
+<1> For backward compatibility, the `wsgi/application` path is selected as default
+    WSGI entry-point with higher priority. You can customize the path using the
+    `OPENSHIFT_PYTHON_WSGI_APPLICATION` envirotnment variable. See link:python-environment-variables.html[the environment
+    variables] page for more information.
+<2> Adding dependencies to the `install_requires` section of `setup.py` file will
+    cause the cartridge to install those dependencies at git push time.
+<3> Adding dependencies to this file will cause the cartridge to run
+    `pip install -r requirements.txt` command at git push time. You can customize
+    the path using the `OPENSHIFT_PYTHON_REQUIREMENTS_PATH` variable. See link:python-environment-variables.html[the environment
+    variables] page for more information.
+<4> link:managing-action-hooks.html[Action Hooks]] documentation
+
+

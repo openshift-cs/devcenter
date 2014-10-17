@@ -9,6 +9,7 @@ meta_desc: Connect to your OpenShift application remotely using SSH. This page s
 ---
 = Remote Connection
 
+[[top]]
 [float]
 = Remote Connection
 [.lead]
@@ -70,9 +71,10 @@ connect and download the application source code via Git. If you have
 multiple computers, repeat the above procedure so that each computer has
 access to the application.
 
+link:#top[Back to Top]
+
 [[installing-an-ssh-client]]
 == Installing an SSH Client
-
 
 Most UNIX like platforms like Mac OS X and Linux have SSH installed by
 default. However, Windows does not. Many third party SSH clients for
@@ -81,6 +83,8 @@ windows are available, however we prefer PuTTY, which is free to use.
 * Install and Configure PuTTY for
 link:#using-ssh-on-windows[SSH on
 Windows]
+
+link:#top[Back to Top]
 
 [[connecting-to-your-application-from-windows]]
 == Connecting to Your Application from Windows
@@ -100,7 +104,7 @@ Once you have an application up and running and your keys are uploaded
 to the server you can now SSH into the remote server from your computer.
 For all platforms, the easiest way to find the specific SSH command that
 you will need to connect to your application is to go to the
-https://openshift.redhat.com/app/console/applications[applications list
+link:https://openshift.redhat.com/app/console/applications[applications list
 page] in the web console and click on your application to go to the
 Details page.
 
@@ -133,6 +137,8 @@ Type "help" for more info.
 
 You are now connected to your application and can start debugging or
 monitoring it. SSH access is only recommended for advanced users.
+
+link:#top[Back to Top]
 
 [[common-commands]]
 == Common Commands
@@ -216,9 +222,10 @@ Remove a directory and all files and directories under it:
 === Troubleshooting
 
 * How to resolve
-https://www.openshift.com/kb/kb-e1015-how-to-resolve-permission-denied-errors-permission-denied-publickeygssapi-keyexgssapi-wi[permission
+https://help.openshift.com/hc/en-us/articles/202398530[permission
 denied errors (Permission denied
 (publickey,gssapi-keyex,gssapi-with-mic)]
 
-include::_fragments/overview-ssh-putty.adoc[]
+link:#top[Back to Top]
 
+include::_fragments/overview-ssh-putty.adoc[]

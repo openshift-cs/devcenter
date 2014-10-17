@@ -9,15 +9,15 @@ Note: Owners are not the sole content creators. Anyone can and should contribute
 
 [options="header"]
 |=======================
-|Section|Owner      
-|Project Owner    |Shawn    
-|Product Features    |GS    
-|Java    |Steve     
-|PHP    |MJ
+|Section|Owner
+|Project Owner    |Shawn
+|Product Features    |GS
+|Java    |SP
+|PHP    |KM
 |Node.js    |RJ
-|Python    |SG
+|Python    |SP
 |Ruby    |MJ
-|Perl    |KM
+|Perl    |
 |Jenkins     |SG
 |More Languages and Runtimes    |all
 |=======================

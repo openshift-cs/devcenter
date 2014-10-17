@@ -1,0 +1,29 @@
+---
+layout: ruby
+category:
+breadcrumb: Languages and Technologies
+parent_url: ruby-overview.html
+nav_title: Markers
+nav_priority: 100
+meta_desc: Ruby Developers - Markers
+---
+= Ruby Application Hosting
+
+[float]
+= Ruby Markers
+
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will trigger a clean re-bundle during the build cycle.
+
+|hot_deploy
+|Will prevent shutdown and startup of the application during builds. The Passenger `restart.txt` file will be used to reload the application.
+
+|disable_asset_compilation
+|Will prevent assets to be compiled upon application deployment. This marker should be used when deploying application with assets which are already compiled.
+|===
