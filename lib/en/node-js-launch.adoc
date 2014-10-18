@@ -1,0 +1,43 @@
+---
+layout: nodejs
+category: 
+breadcrumb: Languages and Technologies
+parent_url: node-js-overview.html
+nav_title: Launch
+nav_priority: 24
+meta_desc: Creating hosted Node.js environments on OpenShift
+---
+
+[float]
+= Launching Nodejs Applications on OpenShift
+
+The link:/en/getting-started-client-tools.html[`rhc` command-line tool] makes it easy to link:/en/getting-started-creating-applications.html[provision new hosted application environments] - complete with DNS, ssh, and git services.
+
+To launch a new application named "myapp", using the `nodejs-0.10` web runtime cartridge:
+[source, console]
+--
+$ rhc app create myapp nodejs-0.10
+--
+
+OpenShift's default platform features include automatic DNS setup, SSH services, and a git server (for publishing changes). The resulting output should contain a live URL where your application will be available:
+
+[source]
+--
+https://MyApp-MyNamespace.rhcloud.com/
+--
+
+By default, the `rhc app create` command will also attempt to create a local git repository (for development purposes).  This repo will contain a `git remote` address that can be used to push updates to your site.
+
+
+After creating your app, link:managing-modifying-applications.html[try publishing an update with `git push`], or link:/en/managing-adding-a-database.html[adding a database with `rhc cartridge add`].
+
+== Advanced App Creation 
+Running `rhc help app create` provides an excellent reference of optional flags.  For example, the `--from-code` argument makes it easy to deploy existing projects, link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps[as long as they've been adapted to run on OpenShift].
+
+This command creates a new horizontally scalable "parks" application from an existing project repo, using the `nodejs-0.10` and `postgresql-9.2` cartridges as runtime dependencies, while setting an env variable named "FOO" to the value of "BAR" in the resulting system envonment:
+[source]
+--
+$ rhc app create parks nodejs-0.10 postgresql-9.2 -s --from-code=https://github.com/ryanj/restify-postGIS.git FOO=BAR
+--
+
+OpenShift also provides link:https://blog.openshift.com/launching-applications-with-openshifts-web-based-workflow[browser-based workflows for launching new hosted environments right from the Web].

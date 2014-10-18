@@ -1,0 +1,48 @@
+---
+layout: nodejs
+category: 
+breadcrumb: Languages and Technologies
+parent_url: node-js-overview.html
+nav_title: Getting Started
+nav_priority: 23
+meta_desc: Getting Started with Node.js on OpenShift
+---
+
+[float]
+= Getting Started with Nodejs
+In addition to the usual `git` and the `rhc` command-line tools, you'll need to install Nodejs as a local development dependency.  The `npm` package manager comes bundled with all recent releases of Nodejs.
+
+[[run]]
+== Local Development
+
+Most link:/en/node-js-project-structure.html[Nodejs projects] can be initialized by runing `npm install` followed by `npm start`.
+
+`npm install` will attempt to resolve any npm module dependencies that have been declaired in the project's `package.json` file, installing them into the `node_modules` folder.
+
+[source, console]
+--
+npm install
+--
+
+If the project's link:/en/node-js-project-structure.html#package.json[`package.json`] file has been link:/en/node-js-project-structure.html#package.json[configured correctly], running `npm start` should allow you to start a local webserver:
+
+[source, console]
+--
+npm start
+--
+
+[[dependencies]]
+== NPM Module Dependencies
+Installing new module dependencies using the `--save` flag will help keep your project's link:/en/node-js-project-structure.html#package.json[`package.json` file] up to date:
+
+[source, console]
+--
+npm install --save cloud-env
+--
+
+Any dependencies that are link:https://www.npmjs.org/doc/files/package.json.html#dependencies[correctly documented in your project's `package.json` file] can be link:/en/node-js-project-structure.html#node_modules[automatically installed as a part of OpenShift's automated build process].
+
+[NOTE]
+====
+Command line utilities that are usually installed using the `-g` or `--global` flag will be automatically be added to the system `$PATH`, as long as they are included in the `dependencies` or `devDependencies` sections of the project's `package.json` file.
+====
