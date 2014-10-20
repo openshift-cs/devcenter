@@ -19,9 +19,9 @@ This tutorial will start with showing you how to create an application using the
 
 link:#step1[Step 1: Create a Tomcat Application] + 
 link:#step2[Step 2: Make the First Change] +
-// TODO link:#step3[Step 3: Managing Application Package Dependencies]
-// TODO link:#step4[Step 4: Using a Different Server than Mod_WSGI] +
-// TODO link:#other[Other Tips] +
+link:#step3[Step 3: Managing Application Package Dependencies]
+link:#step4[Step 4: Using a Different Server than Mod_WSGI] +
+link:#other[Other Tips] +
 link:#next[Next Steps]  
 
 [[step1]]
