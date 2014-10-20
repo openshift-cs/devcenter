@@ -1,6 +1,6 @@
 ---
 layout: nodejs
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: node-js-overview.html
 nav_title: Project Structure
@@ -66,13 +66,13 @@ This file was previously used to document an application's dependency list on Op
 
 [[action_hooks]]
 == Action Hooks
-link:http://openshift.github.io/documentation/oo_user_guide.html#cartridge-control-action-hooks[OpenShift Action Hooks] are optional automation scripts that allow for additional customization during the application build and deployment process.
+link:managing-action-hooks.html[OpenShift Action Hooks] are optional automation scripts that allow for additional customization during the application build and deployment process.
 
-See the link:/en/getting-started-modifying-applications.html#customizing-openshift-build-process[related action_hook documentation] for detailed usage notes.
+See the link:managing-action-hooks.html[related action_hook documentation] for detailed usage notes.
 
 [[markers]]
 == Marker Files
-Marker files can be used to customize various aspects of the Nodejs build and deployment process.  
+Marker files can be used to customize various aspects of the Nodejs build and deployment process.
 
 Adding the following empty files to your project's `.openshift/markers` folder allows you to customize the runtime experience:
 
