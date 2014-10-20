@@ -10,41 +10,41 @@ meta_desc: Node.js Project Structure
 
 [float]
 = Node.js Project Structure
-Nodejs application should incorporate the following project structure:
+Nodejs applications should include the following basic project structure:
 
 [source]
 --
-server.js                Your main application script
-package.json             Npm package descriptor
-node_modules/            Locally installed module dependencies
-.openshift/              Optional, OpenShift-specific files:
-    action_hooks/        Custom build scripts, or "Action Hooks"
-    markers/             Optional marker flags
+server.js                The default server script name
+package.json             Npm package descriptor: dependency list, init config
+node_modules/            Locally bundled module dependencies (Recommended)
+.openshift/              OpenShift-specific files (Optional)
+    markers/             OpenShift configuration flags, see "Marker Files"
+    action_hooks/        Custom build scripts, see "Action Hooks"
 --
 
 [[server.js]]
-=== `server.js`
-By default, OpenShift and npm are both designed to look for a file named "`server.js`" in order to launch your app.  You can specify an alternative filename in your project's `package.json` file link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[includes accurate information on how to start your project].
+=== `server.js` 
+By default, OpenShift and npm both look for a file named `server.js` to initialize your application.  You can specify an alternate server filename by link:#package.json[configuring the `main` and `scripts.start` sections of your `package.json` file].
 
-You'll need to link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#env_vars[include a small check to test for the presence of environment variables] that are commonly link:#env-vars[published by the `nodejs` cartridge]:
+You'll need to link:node-js-environment-variables.html#listen[include a small check to test for the presence of environment variables] that are commonly link:node-js-environment-variables.html[published by the `nodejs` cartridge]:
 
 [source,javascript]
 ----
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
-server.listen(server_port, server_ip_address, function () {
-  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+server.listen(server_port, server_ip_address, function(){
+  console.log("Listening on " + server_ip_address + ", server_port " + port)
 });
 ----
 
-The above code provides sensible default values that will allow the application to run in local development environments, while taking advantage of link:#env-vars[OpenShift-provided configuration details when they are available].
+The above code provides sensible default values that will allow the application to run in local development environments, while taking advantage of link:node-js-environment-variables.html[OpenShift-provided configuration details when they are available].
 
 [[package.json]]
 === `package.json`
-Every nodejs application should include a `package.json` file to document the project's link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and list of dependencies.
+Every nodejs application should include a `package.json` file to document the project's link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and link:/en/node-js-dependency-management.html[list of dependencies].
 
-You can specify an alternative server init file by updating your `package.json` file's link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] fields for information on how to start your project:
+Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] sections of your `package.json` file contain accururate information on how to start your project:
 
 [source,json]
 ----
@@ -54,7 +54,7 @@ You can specify an alternative server init file by updating your `package.json` 
 "main": "server.js"
 ----
 
-Check the link:#markers[Markers] section for specifics on how OpenShift uses this information.
+Check the link:#markers[Markers] section for specifics on how OpenShift uses this information to manage your server.
 
 [[node_modules]]
 === `node_modules`
@@ -62,13 +62,7 @@ Check the link:#markers[Markers] section for specifics on how OpenShift uses thi
 Npm module dependencies are cached locally within this folder.  The folder contents can be generated automatically during your project's build process, but link:http://www.futurealoof.com/posts/nodemodules-in-git.html[it's generally considered a best-practice to keep this folder's contents under version control] since it speeds up builds, and help make deployments easier to audit.
 
 ==== `deplist.txt`
-This file was previously used to document an application's dependency list on OpenShift.  You should be using `package.json` instead.
-
-[[action_hooks]]
-== Action Hooks
-link:managing-action-hooks.html[OpenShift Action Hooks] are optional automation scripts that allow for additional customization during the application build and deployment process.
-
-See the link:managing-action-hooks.html[related action_hook documentation] for detailed usage notes.
+This file was previously used to document an application's dependency list.  The standard `package.json` file should be used instead. See link:node-js-dependency-management.html[Dependency Management with NPM].
 
 [[markers]]
 == Marker Files
@@ -79,9 +73,14 @@ Adding the following empty files to your project's `.openshift/markers` folder a
 [cols="1,3",options="header"]
 |===
 |Marker File | Effect
-
-|hot_deploy
-|Push code updates without waiting for a full application restart. link:/en/getting-started-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
 |use_npm
 |Initialize your application or service using `npm start` instead of `supervisor servername.js` (where `servername.js` is based on the value of your `package.json`'s `main` attribute).
+|hot_deploy
+|Push code updates without waiting for a full application restart. link:/en/getting-started-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
 |===
+
+[[action_hooks]]
+== Action Hooks
+link:managing-action-hooks.html[OpenShift Action Hooks] are optional automation scripts that allow for additional customization during the application build and deployment process.
+
+See the link:managing-action-hooks.html[related action_hook documentation] for detailed usage notes.

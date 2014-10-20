@@ -30,6 +30,7 @@ See the master index of link:/en/managing-environment-variables.html[Environment
 
 Developers can safely store API keys and other credentials in the system environment by using `rhc env set`, allowing for clean and portable application sources.
 
+[[listen]]
 == Listen Up!
 You'll need to link:/en/node-js-project-structure.html#server.js[include a small check to test for the presence of OpenShift-provided environment variables] in your server's `listen()` call:
 
@@ -38,8 +39,8 @@ You'll need to link:/en/node-js-project-structure.html#server.js[include a small
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
-server.listen(server_port, server_ip_address, function () {
-  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+server.listen(server_port, server_ip_address, function(){
+  console.log("Listening on " + server_ip_address + ", server_port " + port)
 });
 ----
 
