@@ -62,13 +62,13 @@ Creating application 'mytomcatapp' ... done
 Waiting for your DNS name to be available ... done
 
 Cloning into 'mytomcatapp'...
-Warning: Permanently added 'mytomcatapp-mydomain.rhcloud.com,54.237.129.193' (RSA) to the list of known hosts.
+Warning: Permanently added 'mytomcatapp-mydomain.rhcloud.com,54.0.0.193' (RSA) to the list of known hosts.
 
 Your application 'mytomcatapp' is now available.
 
   URL:        http://mytomcatapp-mydomain.rhcloud.com/ <1>
-  SSH to:     541a13a04382ec1b7b0002f3@mytomcatapp-mydomain.rhcloud.com
-  Git remote: ssh://541a13a04382ec1b7b0002f3@mytomcatapp-mydomain.rhcloud.com/~/git/mytomcatapp.git/
+  SSH to:     541a13a04382ec00000002f3@mytomcatapp-mydomain.rhcloud.com
+  Git remote: ssh://541a13a04382ec00000002f3@mytomcatapp-mydomain.rhcloud.com/~/git/mytomcatapp.git/
   Cloned to:  /home/me/git_demo/mytomcatapp <2>
 
 Run 'rhc show-app mytomcatapp' for more details about your app.
@@ -86,7 +86,7 @@ A developer on OpenShift can make code changes on a local machine, check those c
 
 === Using the Git Repository
 
-To make the first change, edit `index.html` in the `mytomcatapp/src/main/webapp` directory. Go to the file in the terminal and edit with a comand line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. Strip out everything between the two `<body>` tags and change the content to look like this:
+To make the first change, edit `index.html` in the `mytomcatapp/src/main/webapp` directory of the local Git repository. Go to the file in the terminal and edit with a comand line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. Strip out everything between the two `<body>` tags and change the content to look like this:
 
 [source, html]
 --
@@ -97,18 +97,12 @@ To make the first change, edit `index.html` in the `mytomcatapp/src/main/webapp`
 
 Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
 
-. If any new files were added to your local repo, the `add` command will tell Git to track new files as part of the repository:
+
+. First `commit` our local changes to the git repository and include a message for the commit:
 +
 [source, console]
 --
-$ git add --all .
---
-+
-. Next `commit` all our local changes to the git repository and include a message for the commit:
-+
-[source, console]
---
-$ git commit -a -m "Your commit message"
+$ git commit -a -m "code ninja skillz"
 --
 +
 . Finally, `push` these changes to the remote OpenShift application.
@@ -117,6 +111,13 @@ $ git commit -a -m "Your commit message"
 --
 $ git push
 --
+
+NOTE: If any new files were added to your local repo, the use the git  `add --all` command to track new files as part of the repository:
+[source, console]
+--
+$ git add --all .
+--
+
 
 The output of the push command will first show the git push and then the build process and deployment for the OpenShift application. When the build is finished, go back to the application's URL (_mytomcatapp-mydomain.rhcloud.com_) and see a page which just says "Hello World" in nice big font.
 
