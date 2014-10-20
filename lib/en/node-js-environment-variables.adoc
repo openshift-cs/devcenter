@@ -1,0 +1,48 @@
+---
+layout: nodejs
+category: 
+breadcrumb: Languages and Technologies
+parent_url: nodejs-overview.html
+nav_title: Environment Variables
+nav_priority: 32
+meta_desc: Node.js Runtime Environment on OpenShift
+---
+
+[float]
+= Environment Variables
+OpenShift's Nodejs cartridge uses the following system environment variables to publish router connection details, and to customize the application's build, hosting, and scaling routines:
+
+[cols="1,3",options="header"]
+|===
+|Environment Variable | Use
+
+|OPENSHIFT_NODEJS_IP
+|Bind to this IP address in order to recieve traffic from the routing layer
+|OPENSHIFT_NODEJS_PORT
+|Listen on this port to recieve traffic from the routing layer
+|OPENSHIFT_NODEJS_POLL_INTERVAL
+|This integer value may be set as an environment variable (default is 1 second)
+|NPM_CONFIG_PRODUCTION
+|OpenShift will not install `devDependencies` link:http://stackoverflow.com/a/23749201/754025[when `NPM_CONFIG_PRODUCTION` is set to "true"]
+|===
+
+See the master index of link:/en/managing-environment-variables.html[Environment Variables] for more information. 
+
+Developers can safely store API keys and other credentials in the system environment by using `rhc env set`, allowing for clean and portable application sources.
+
+== Listen Up!
+You'll need to link:/en/node-js-project-structure.html#server.js[include a small check to test for the presence of OpenShift-provided environment variables] in your server's `listen()` call:
+
+[source,javascript]
+----
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
+server.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+});
+----
+
+The above code provides sensible defaults that will allow the application to run in local development environments, while taking advantage of OpenShift-provided configuration details when they are available.
+
+See link:https://www.npmjs.org/package/cloud-env[`cloud-env`] and link:https://www.npmjs.org/package/config-multipaas[`config-multipaas`] for tools that can help manage your application's autoconfiguration in cloud hosting environments.
