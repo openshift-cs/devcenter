@@ -1,0 +1,89 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-domain-names-and-ssl.html
+nav_title: Domain Names and SSL
+nav_priority: 71
+meta_desc: Step-by-step how to build your application with Jenkins to run builds tests and other scheduled tasks with an OpenShift application.
+---
+
+[float]
+= Domain Names and SSL
+
+OpenShift automatically generates a unique host url for every managed application.  Basic SSL support is included on each of these host connections at no additional cost.
+
+OpenShift applications can also be link:#Domain-Names[configured to respond on additional host alias urls].  You'll need access to the host's DNS record configuration in order to reconfigure it for use with OpenShift.
+
+On OpenShift Online, Bronze and Silver plan users are allowed to link:#SSL[upload their own SSL certificate information], providing an easy way to enable secure network access to applications via their Host alias urls.
+
+[[Domain-Names]]
+== Domain Names
+To configure your own domain name alias, link:https://openshift.redhat.com/app/console/applications[open your OpenShift web console] and select an existing application to modify.  
+
+On the application's settings page, there should be a "**change**" link next to the initial OpenShift-provided hostname:
+
+image::openshift-console-change-name.png[Change your application's domain name]
+
+Click to open the host alias configuration page:
+
+image::openshift-console-domain-input.png[Configure OpenShift to field requests addressed to your domain]
+
+Here you can enter the domain name that you would like to associate with your application.  I've decided to make my **link:https://www.openshift.com/blogs/instant-mapping-applications-with-postgis-and-nodejs[parks]** application available at "link:http://parks.ryanjarvinen.com/[http://parks.ryanjarvinen.com/]".
+
+Configuring your application to be available on a subdomain is generally easier, link:#Advanced-DNS-configuration[as explained in the next section].
+
+Click "**Save**", at the bottom of the page when you're ready to save your settings.
+
+You should see a confirmation message if the host alias was configured successfully:
+
+image::openshift-console-domain-name-added.png[OpenShift console domain configuration success message]
+
+Additional host aliases can be added as needed.
+
+[[Configure-DNS-records]]
+== Configure your DNS Host Records
+OpenShift takes advantage of **CNAME** records to route requests to your application instance.
+
+CNAME records are nice because they can defer to OpenShift's DNS system for IP address resolution, allowing OpenShift to move your application when needed.  However, CNAME records also come with a few hidden limitations:
+
+1. Not all Domain registrars allow you to set your base host name as a CNAME ("www.foo.com" is allowed, while "foo.com" may not be).
+2. If your registrar does allow you to configure a root-level CNAME record, then link:http://tools.ietf.org/search/rfc1912#section-2.4[all additional Host records will like be limited to the CNAME record type as well]. This means that you would not be able to configure MX records on any host that uses a CNAME for it's root host record ("**@**").
+
+The simplest solution is to make your app available on a subdomain, as in my example ("link:http://parks.ryanjarvinen.com/[http://parks.ryanjarvinen.com/]").  This configuration is supported by all domain registrars, and it doesn't limit your ability to set up MX records for working with external email providers.
+
+Here is a screenshot of my "link:http://parks.ryanjarvinen.com/[parks.ryanjarvinen.com]" subdomain being tied to the Red Hat-hosted "link:http://parks-shifter.rhcloud.com/[parks-shifter.rhcloud.com]":
+
+image::Adding-a-CNAME-record.png[Add a CNAME record]
+
+*Remember: when in doubt, check your domain registrar's support documents for DNS Host record configuration assistance*
+
+After adding the CNAME record and waiting for the DNS updates to apply, the application should be accessible via link:http://parks.ryanjarvinen.com/[the new hostname URL]:
+
+[[Advanced-DNS-configuration]]
+=== Advanced Host Record Configuration
+If your Domain registrar allows root-level CNAMEs, *and* if you are absolutely sure that you do not need support for MX records (email), or other record types - then you should be able to make your application available on your root domain by setting your primary Host record's `Hostname` to `@`.
+
+Another advanced configuration option involves creating an "A" Host record at the root level of your domain that points to the IP address of another machine which is responsible for issuing redirects.  Some DNS providers even offer services to help issue these redirects, or even workflows to assist developers in configuring the related DNS Host records.
+
+My registrar provided a redirect that automatically prepend a "www." before the host address, allowing me to handle requests which were initially targeted for the base domain via the **www** subdomain, link:http://tools.ietf.org/search/rfc1912#section-2.4[without introducing any additional DNS configuration limitations]. MX records are still supported in this configuration, and the need for root-level CNAMEs is avoided. 
+
+[[SSL]]
+== SSL Certificates
+OpenShift includes support for link:http://en.wikipedia.org/wiki/Server_Name_Indication[Server Name Identification], which link:http://en.wikipedia.org/wiki/Server_Name_Indication#How_SNI_fixes_the_problem[improves support for TLS] by sending your OpenShift-configured domain alias as a part of the handshake.
+
+You can always take advantage of our ***.rhcloud.com** wildcard certificate in order to securely connect to any application via it's original, OpenShift-provided hostname URL.  
+
+Support for enabling **HTTPS** connections to custom, aliased hostnames is available for users of link:https://www.openshift.com/products/pricing[OpenShift Online's **Bronze** and **Silver** plans].  
+
+If you are still getting by on link:https://www.openshift.com/products/pricing[OpenShift Online's generous Free plan], you'll see the following warning message at the top of your application's SSL configuration area.  Upgrading to the $0/month Bronze plan adds support for providing your own SSL cert:
+
+image::openshift-console-ssl-config.png[SSL configuration]
+
+After saving, you should be able to make HTTPS-based connections to your hosted application on your custom domain.
+
+[[command-line]]
+== Manage Domains via the Command Line
+The latest `rhc` command-line utility also includes support for configuring domain names and SSL.  To update to the latest version of rhc, type `sudo gem update rhc` (or `gem update rhc`).
+
+If your copy of rhc is up to date, then you should be able to run `rhc help alias` to read the command-line usage notes.
