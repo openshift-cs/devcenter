@@ -1,0 +1,40 @@
+---
+layout: base
+category: 05_Managing Your Application
+breadcrumb: Managing Your Applications
+parent_url: managing-reading-environment-vars.html
+nav_title: Reading Env. Vars.
+nav_priority:
+meta_desc: Code examples to read environment variables in all OpenShift supported languages
+---
+= Examples of reading environment variables
+
+[float]
+= Examples of reading environment variables
+
+This table gives you examples of reading an environment variables for each of the official supported languages on OpenShift.
+
+
+[cols="1,3",options="header"]
+|===
+|Language |Example
+
+|Java
+|*String envVar = System.getenv("OPENSHIFT_ENV_VAR");* 
+
+
+|JavaScript
+|*envVar = process.env.OPENSHIFT_ENV_VAR;*
+
+|Perl
+|*$envVar = $ENV{'OPENSHIFT_ENV_VAR'};*
+
+|PHP
+|*$env_var = = getenv('OPENSHIFT_ENV_VAR');*
+
+|Python
+|*env_var = os.environ['OPENSHIFT_ENV_VAR']*
+
+|Ruby
+|*:env_var => ENV['OPENSHIFT_ENV_VAR']*
+|===
