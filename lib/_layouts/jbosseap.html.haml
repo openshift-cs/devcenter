@@ -29,9 +29,9 @@
         .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
           %ul.nav.nav-sidebar
             - site.pages.reject{|p| p.layout != "jbosseap"}.group_by(&:breadcrumb).sort.each do |breadcrumb, pages|
-              %li.nav-header{ :class=>'page.breadcrumb =~ /#{breadcrumb}/i' ? 'active' : nil }
+              %li.nav-header{ :class=>page.breadcrumb =~ /#{breadcrumb}/i ? 'active' : nil }
                 %a{"data-target" => "##{breadcrumb.gsub(/[^A-Z]/i, '').downcase}Menu", "data-toggle" => "collapse", href: "#"}
-                  %span{ :class=>page.breadcrumb=~ /#{breadcrumb}/i ? 'fa fa-angle-down' : 'fa fa-angle-right' }
+                  %span{ :class=>page.breadcrumb =~ /#{breadcrumb}/i ? 'fa fa-angle-down' : 'fa fa-angle-right' }
                   JBoss EAP
                 %ul.collapse.list-unstyled{:class=>page.breadcrumb =~ /#{breadcrumb}/i ? 'in' : nil, "id" => "#{breadcrumb.gsub(/[^A-Z]/i, '').downcase}Menu"}
                   - pages.sort_by{ |a| a.nav_priority }.each do |p|
@@ -39,7 +39,7 @@
                       %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url }
                         = p.nav_title == "JBoss EAP" ? "Overview" : p.nav_title
             %li.nav-header
-              %a{ href: "/en/overview-what-is-openshift.html" } Back to Main
+              %a{ href: "/en/languages-overview.html" } Back to Main
         .col-xs-12.col-sm-9.col-md-9.main
           ~ content
     = partial( 'analytics.html.haml' )
