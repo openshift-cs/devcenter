@@ -2,7 +2,7 @@
 layout: python
 category:
 breadcrumb: Languages and Technologies
-parent_url: python-overview.html
+parent_url: languages-overview.html
 nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with Python 2.6, 2.7, or 3.3 on OpenShift.
@@ -13,33 +13,32 @@ meta_desc: Get started with Python 2.6, 2.7, or 3.3 on OpenShift.
 [[top]]
 [float]
 = Getting Started with Python 2.6, 2.7, and 3.3
-
-By default, OpenShift comes with all 3 versions of Python and the pattern of building and deploying applications is the same for all three. The Python cartridges are based on a link:http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface[WSGI server model] of Python web creation. 
+By default, OpenShift comes with all 3 versions of Python and the pattern of building and deploying applications is the same for all three. The Python cartridges are based on a link:http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface[WSGI server model] of Python web creation.
 This tutorial will start with showing you how to create an application using the default, Apache with Mod_WSGI, but it will also show you to use link:http://www.cherrypy.org//[CherryPy] as an example of using a different WSGI server.
 
-link:#step1[Step 1: Create a Tomcat Application] + 
+link:#step1[Step 1: Create a Tomcat Application] +
 link:#step2[Step 2: Make the First Change] +
 link:#step3[Step 3: Managing Application Package Dependencies]
 link:#step4[Step 4: Using a Different Server than Mod_WSGI] +
 link:#other[Other Tips] +
-link:#next[Next Steps]  
+link:#next[Next Steps]
 
 [[step1]]
 == Step 1: Create a Python Application
 
-This tutorial walks through the creation of an application titled *mypythonapp* under the domain *mydomain*. We will use Python 2.7 but you can substitute in Python 2.6 or 3.3 and use them in the same way. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].  
+This tutorial walks through the creation of an application titled *mypythonapp* under the domain *mydomain*. We will use Python 2.7 but you can substitute in Python 2.6 or 3.3 and use them in the same way. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
 
 Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  Then at the command prompt enter the follwing command to create a Python application:
 
 [source, console]
---
+----
 $ rhc app-create mypythonapp python-2.7
---
+----
 
 The output will look something like this:
 
 [source, console]
---
+----
 Application Options
 -------------------
 Domain:     mydomain
@@ -59,11 +58,11 @@ Your application 'mypythonapp' is now available.
 
   URL:        http://mypythonapp-mydomain.rhcloud.com/ <1>
   SSH to:     541a13a04382ec00000002f3@mypythonapp-mydomain.rhcloud.com
-  Git remote: ssh://541a13a04382ec00000002f3@mypythonapp-mydomain.rhcloud.com/~/git/mypythonapp.git/ 
+  Git remote: ssh://541a13a04382ec00000002f3@mypythonapp-mydomain.rhcloud.com/~/git/mypythonapp.git/
   Cloned to:  /home/me/git_demo/mypythonapp <2>
 
 Run 'rhc show-app mypythonapp' for more details about your app.
---
+----
 <1> Public URL of application
 <2> Location of local Git repository
 
@@ -80,33 +79,33 @@ A developer on OpenShift can make code changes on a local machine, check those c
 To make the first change, edit `wsgi.py` in the base of the local git repository. Go to the file in the terminal and edit with a comand line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. The beginning of this file starts a basic WSGI application with some URL routing. Strip out everything between the two `<body>` tags and change the content to look like this:
 
 [source, html]
---
+----
 <body>
 	<h1>Hello world!</h1>
 </body>
---
+----
 
 Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
 
 . First `commit` our local changes to the git repository and include a message for the commit:
 +
-[source, console]
---
+[source]
+----
 $ git commit -a -m "code ninja skillz"
---
+----
 +
 . Finally, `push` these changes to the remote OpenShift application.
 +
-[source, console]
---
+[source]
+----
 $ git push
---
+----
 
 NOTE: If any new files were added to your local repo, the use the git  `add --all` command to track new files as part of the repository:
-[source, console]
---
+[source]
+----
 $ git add --all .
---
+----
 
 
 The output of the push command will first show the git push and then the build process and deployment for the OpenShift application. When the build is finished, go back to the application's URL (_mypythonapp-mydomain.rhcloud.com_) and see a page which just says "Hello World" in nice big font.
@@ -125,7 +124,7 @@ When you look in the git repository you will notice there is both a *setup.py* a
 OpenShift runs **pip install -r requirements.txt** on build and adds the packages to the applications virtualenv. If you are unfamiliar with virtualenv you should read some of the link:http://virtualenv.readthedocs.org/en/latest/virtualenv.html[documentation].  For Python 3.3 applications the proper way to load the virtualenv should look like this:
 
 [source, python]
---
+----
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
 try:
@@ -140,44 +139,37 @@ try:
   exec(compiled_code, exec_namespace)
 except IOError:
   pass
---
+----
 
-As you can see there are instructions here to make this work in Python 2.7. 
+As you can see there are instructions here to make this work in Python 2.7.
 
 [[step4]]
 == Step 4: Using a Different Server than Mod_WSGI
 
 As noted above, by default OpenShift uses Mod_WSGI as the default WSGI server but it is quite easy to use a different WSGI server. Let's go ahead and start CherryPy instead of Mod_WSGI.
 
-1. In the **requirements.txt** be sure to add the dependecy on CherryPy
-
-[source, console]
---
-
+. In the **requirements.txt** be sure to add the dependecy on CherryPy:
++
+[source]
+----
 cherrypy==3.6.0
-
---
-
-1. You need to create a file named **app.py** in the base of your local repository. Don't forget to add it to the git index by entering:
-
-[source, console]
---
-
+----
++
+. You need to create a file named **app.py** in the base of your local repository. Don't forget to add it to the git index by entering:
++
+[source]
+----
 $ git add app.py
-
---
-
-2. Remove the virtualenv statements that you find in **wsgi.py** and add them to the top of this file. If you are using Python 3m please make sure it matches the statements under managing dependencies. 
-
-3. Add code to start your WSGI server. Please be aware you need to use the OpenShift environment variables that give you the IP and port. 
-
-4. Load up the *app* class, which in this example will be in **wsgi.py**. 
+----
++
+. Remove the virtualenv statements that you find in **wsgi.py** and add them to the top of this file. If you are using Python 3m please make sure it matches the statements under managing dependencies.
+. Add code to start your WSGI server. Please be aware you need to use the OpenShift environment variables that give you the IP and port.
+. Load up the *app* class, which in this example will be in **wsgi.py**.
 
 Here is the code in **app.py**:
 
 [source, python]
---
-
+----
 #!/usr/bin/python
 import os
 import sys
@@ -200,9 +192,9 @@ try:
   exec(compiled_code, exec_namespace)
 except IOError:
   pass
- 
- 
-# Get the environment information we need to start the server  
+
+
+# Get the environment information we need to start the server
 ip = os.environ['OPENSHIFT_PYTHON_IP']
 port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
 host_name = os.environ['OPENSHIFT_GEAR_DNS']
@@ -210,10 +202,9 @@ host_name = os.environ['OPENSHIFT_GEAR_DNS']
 
 server = wsgiserver.CherryPyWSGIServer((ip, port), wsgi.application, server_name=host_name)
 server.start()
+----
 
---
-
-For **wsgi.py** you just need to remove the code that loads the virtual environment and it will work like before. 
+For **wsgi.py** you just need to remove the code that loads the virtual environment and it will work like before.
 
 
 [[other]]
@@ -221,14 +212,14 @@ For **wsgi.py** you just need to remove the code that loads the virtual environm
 
 === Environmental Variables
 
-While there are standard link:managing-environment-variables.html[environment variables] that can help to manage your Python application, there are also some which are specifc to just Python. You can use them to manage the entry-point for WSGI or where your requirements files is located. They are discussed more fully in their link:python-environment-variables.html[own document]. They can be helpful when you have your own format for a git repository or you are using a framework, such as Django, that expects files in a certain location. 
+While there are standard link:managing-environment-variables.html[environment variables] that can help to manage your Python application, there are also some which are specifc to just Python. You can use them to manage the entry-point for WSGI or where your requirements files is located. They are discussed more fully in their link:python-environment-variables.html[own document]. They can be helpful when you have your own format for a git repository or you are using a framework, such as Django, that expects files in a certain location.
 
 === Hot Deploy and Other Markers
-With a normal `git push` as outlined above, Openshift starts and stops the Python server on each build. For Python applications, your code can be built and deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style. Please be aware that there may be times, such as loading a new library, that you want to restart the server. Either rename or remove the file from your git repository to get the server to restart. 
+With a normal `git push` as outlined above, Openshift starts and stops the Python server on each build. For Python applications, your code can be built and deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style. Please be aware that there may be times, such as loading a new library, that you want to restart the server. Either rename or remove the file from your git repository to get the server to restart.
 
 ==== Other Markers
 
-You can also force the rebuild of the virtual environment by adding a *force_clean_build* into your git repo under .openshift/markers. Don't forget to add this to your git index. 
+You can also force the rebuild of the virtual environment by adding a *force_clean_build* into your git repo under .openshift/markers. Don't forget to add this to your git index.
 
 === Adding a Database to an Appliction
 
@@ -248,4 +239,3 @@ Browse our http://origin.ly/[quickstarts and community cartridges] to see other 
 Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
 
 link:#top[Back to Top]
-

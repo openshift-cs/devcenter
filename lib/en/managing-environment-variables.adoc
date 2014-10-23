@@ -14,7 +14,7 @@ meta_desc: OpenShift has several environment variables to make it easy for your 
 [.lead]
 OpenShift has several environment variables to make it easy for your to configure your application to run properly.
 
-The following tables show the variables, some examples of what the value would be, and what you might use them for. Depending on what extra cartridges you have enabled in your application, you may have more or less available variables. Also, values
+The following tables show the variables, some examples of what the value would be, and what you might use them for. Depending on what extra cartridges you have enabled in your application, you may have more or fewer available variables. Also, values
 may be slightly different for similar types of cartridges (for instance,
 if you have a PostgreSQL database as opposed to MySQL).
 
@@ -92,3 +92,5 @@ These variables will be used if you have a scaling application.
 |OPENSHIFT_GEAR_NAME|gearname|This gear's name
 |OPENSHIFT_GEAR_UUID|0123456789abcdef0123456789abcdef|The UUID for this gear
 |===
+
+include::_fragments/managing-reading-environment-variables.adoc[]

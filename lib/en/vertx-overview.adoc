@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: java-overview.html
+parent_url: languages-overview.html
 nav_title: Vert.x
 nav_priority: 100
 meta_desc: Vert.x Developers - OpenShift Resources to host your Vert.x applications in the cloud.

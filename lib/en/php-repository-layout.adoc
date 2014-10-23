@@ -1,8 +1,8 @@
 ---
-layout: php 
+layout: php
 category:
 breadcrumb: Languages and Technologies
-parent_url: php-overview.html
+parent_url: languages-overview.html
 nav_title: Repository Layout
 nav_priority: 20
 meta_desc: PHP developers - OpenShift Online PHP cartridge repository layout
@@ -23,7 +23,7 @@ index.php              Template PHP index page
 <2> A list of pears to install, line by line on the server. This will happen when the user does a `git push`.
 
 [[document_root]]
-=== Document root
+== Document root
 http://httpd.apache.org/docs/current/mod/core.html#documentroot[Apache DocumentRoot],
 the directory that forms the main document tree visible from the web, is selected based
 on the existence of a common directory in the repository code in the following order:
@@ -38,10 +38,10 @@ on the existence of a common directory in the repository code in the following o
 ----
 
 [[include_path]]
-=== PHP include_path
+== PHP `include_path`
 The following application directories, that might exist in the repository code, are added
 to the http://php.net/manual/en/ini.core.php#ini.include-path[PHP include_path] and thus
-automatically searched when calling require(), include() and other file I/O functions:
+automatically searched when calling `require()`, `include()` and other file I/O functions:
 [source]
 ----
 - lib/

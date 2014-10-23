@@ -2,7 +2,7 @@
 layout: python
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: python-overview.html
+parent_url: languages-overview.html
 nav_title: Python
 nav_priority: 1.7
 meta_desc: Python Developers - OpenShift Resources to get your Python applications hosted in the cloud.
@@ -30,16 +30,14 @@ Creating different versions is as easy as just changing the number on the cartri
 
 [source]
 --
-rhc app create my2_6app python-2.6
+$ rhc app create my2_6app python-2.6
 
-rhc app create my2_7app python-2.7
+$ rhc app create my2_7app python-2.7
 
-rhc app create my3_3app python-3.3
+$ rhc app create my3_3app python-3.3
 --
 
 [.lead]
 link:python-getting-started.html[-> Get Started With Python on OpenShift]
-
-
 
 link:#top[Back to top]

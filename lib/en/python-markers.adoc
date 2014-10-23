@@ -2,7 +2,7 @@
 layout: python
 category:
 breadcrumb: Languages and Technologies
-parent_url: python-overview.html
+parent_url: languages-overview.html
 nav_title: Markers
 nav_priority: 50
 meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 markers

@@ -2,11 +2,12 @@
 layout: nodejs
 category:
 breadcrumb: Languages and Technologies
-parent_url: node-js-overview.html
+parent_url: languages-overview.html
 nav_title: Project Structure
 nav_priority: 29
 meta_desc: Node.js Project Structure
 ---
+= Node.js Project Structure
 
 [float]
 = Node.js Project Structure
@@ -23,7 +24,7 @@ node_modules/            Locally bundled module dependencies (Recommended)
 --
 
 [[server.js]]
-=== `server.js` 
+== `server.js`
 By default, OpenShift and npm both look for a file named `server.js` to initialize your application.  You can specify an alternate server filename by link:#package.json[configuring the `main` and `scripts.start` sections of your `package.json` file].
 
 You'll need to link:node-js-environment-variables.html#listen[include a small check to test for the presence of environment variables] that are commonly link:node-js-environment-variables.html[published by the `nodejs` cartridge]:
@@ -41,7 +42,7 @@ server.listen(server_port, server_ip_address, function(){
 The above code provides sensible default values that will allow the application to run in local development environments, while taking advantage of link:node-js-environment-variables.html[OpenShift-provided configuration details when they are available].
 
 [[package.json]]
-=== `package.json`
+== `package.json`
 Every nodejs application should include a `package.json` file to document the project's link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and link:/en/node-js-dependency-management.html[list of dependencies].
 
 Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] sections of your `package.json` file contain accururate information on how to start your project:
@@ -57,11 +58,11 @@ Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-
 Check the link:#markers[Markers] section for specifics on how OpenShift uses this information to manage your server.
 
 [[node_modules]]
-=== `node_modules`
+== `node_modules`
 
 Npm module dependencies are cached locally within this folder.  The folder contents can be generated automatically during your project's build process, but link:http://www.futurealoof.com/posts/nodemodules-in-git.html[it's generally considered a best-practice to keep this folder's contents under version control] since it speeds up builds, and help make deployments easier to audit.
 
-==== `deplist.txt`
+=== `deplist.txt`
 This file was previously used to document an application's dependency list.  The standard `package.json` file should be used instead. See link:node-js-dependency-management.html[Dependency Management with NPM].
 
 [[markers]]

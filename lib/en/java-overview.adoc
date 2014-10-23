@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: java-overview.html
+parent_url: languages-overview.html
 nav_title: Java
 nav_priority: 1
 meta_desc: Java Developers - OpenShift Resources to get your Java applications hosted in the cloud.

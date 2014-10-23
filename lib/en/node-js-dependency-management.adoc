@@ -1,8 +1,8 @@
 ---
 layout: nodejs
-category: 
+category:
 breadcrumb: Languages and Technologies
-parent_url: node-js-overview.html
+parent_url: languages-overview.html
 nav_title: Dependency Management
 nav_priority: 37
 meta_desc: Manage Javascript dependencies with NPM

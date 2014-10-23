@@ -2,7 +2,7 @@
 layout: python
 category:
 breadcrumb: Languages and Technologies
-parent_url: python-overview.html
+parent_url: languages-overview.html
 nav_title: Repository Layout
 nav_priority: 20
 meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 cartridge repository layout
@@ -30,6 +30,4 @@ requirements.txt       Standard pip requirements file <3>
     `pip install -r requirements.txt` command at git push time. You can customize
     the path using the `OPENSHIFT_PYTHON_REQUIREMENTS_PATH` variable. See link:python-environment-variables.html[the environment
     variables] page for more information.
-<4> link:managing-action-hooks.html[Action Hooks]] documentation
-
-
+<4> link:managing-action-hooks.html[Action Hooks] documentation

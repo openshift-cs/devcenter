@@ -2,7 +2,7 @@
 layout: ruby
 category:
 breadcrumb: Languages and Technologies
-parent_url: ruby-overview.html
+parent_url: languages-overview.html
 nav_title: Repository Layout
 nav_priority: 70
 meta_desc: Ruby Developers - Repository Layout

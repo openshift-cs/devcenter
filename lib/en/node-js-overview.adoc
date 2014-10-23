@@ -2,7 +2,7 @@
 layout: nodejs
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: node-js-overview.html
+parent_url: languages-overview.html
 nav_title: Node.js
 nav_priority: 1.6
 meta_desc: Node.js application hosting
@@ -11,7 +11,7 @@ meta_desc: Node.js application hosting
 = Node.js Application Hosting
 
 [.lead]
-OpenShift's link:https://www.openshift.com/products/technologies[`nodejs-0.10`] cartridge provides a trusted platform for building, hosting, and scaling Javascript applications using proven, open source technologies. 
+OpenShift's link:https://www.openshift.com/products/technologies[`nodejs-0.10`] cartridge provides a trusted platform for building, hosting, and scaling Javascript applications using proven, open source technologies.
 
 TIP: Node.js uses on Chrome's V8 javascript engine for a fast and reliable runtime environment.  It's event-driven, non-blocking I/O model is lightweight and efficient - a perfect choice for link:https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app[highly-concurrent, real-time applications].
 
@@ -31,7 +31,7 @@ link:node-js-getting-started.html#launch[-> Create your first Node.js applicatio
 link:node-js-project-structure.html[-> Learn about basic Node.js project structure] +
 link:node-js-dependency-management.html[-> Manage Javascript dependencies with NPM] +
 link:node-js-environment-variables.html[-> Configure your application using Environment Variables] +
-link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps/[-> Find out how to adapt existing Nodejs applications to run on OpenShift] 
+link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps/[-> Find out how to adapt existing Nodejs applications to run on OpenShift]
 
 === Cartridge Integrations
 The `nodejs` cart has out-of-the-box integration support with RedHat add-on cartridges.
