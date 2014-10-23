@@ -9,8 +9,8 @@ The manuals themselves are .adoc files written in [AsciiDoc](http://asciidoc.org
 Get started by adding a few remotes to your local copy of the upstream project source:
 
 ```bash
-git clone git@github.com:openshift-evangelists/devcenter.git
-git remote add upstream git@github.com:openshift-evangelists/devcenter.git
+git clone git@github.com:openshift/devcenter.git
+git remote add upstream git@github.com:openshift/devcenter.git
 git remote add MY_GH_USERNAME git@github.com:MY_GH_USERNAME/devcenter.git
 git checkout master
 git fetch upstream master
@@ -55,8 +55,8 @@ To contribute changes, [setup your own local copy of this project](#setup). Then
 ```bash
 git checkout master # make sure you fork from the master branch
 git pull upstream master # make sure the master branch is clean and up-to-date
-git branch my-branch # cut a new feature branch from master
-git checkout my-branch # switch to the new branch to make your changes
+git branch my-feature-branch # cut a new branch FROM MASTER, name it after your feature
+git checkout my-feature-branch # switch to the new branch to make your changes
 ```
 
 After completing your changes, test and review them locally.  Then `add` and `commit` your changeset:
@@ -72,11 +72,11 @@ git commit -m "describe your changes here"
 Next, push your new branch to your remote fork on `github`:
 
 ```bash
-git remote -v # find the name for your remote fork
-git push my-remote-repo my-branch
+git remote -v # find the git remote name for your fork
+git push MY_GH_USERNAME MY_FEATURE_BRANCH_NAME
 ```
 
-Finally, [send us a `Pull Request`](https://github.com/openshift-evangelists/devcenter/compare) comparing your new branch with `openshift-evangelists/devcenter:master`.
+Finally, [send us a `Pull Request`](https://github.com/openshift/devcenter/compare) comparing your new branch with `openshift/devcenter:master`.
 
 When you're done, repeat the steps in this section to switch back to master, update your repo, and cut a new feature branch (from `master`).
 
