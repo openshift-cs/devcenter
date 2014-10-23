@@ -2,7 +2,7 @@
 layout: ruby
 category:
 breadcrumb: Languages and Technologies
-parent_url: ruby-overview.html
+parent_url: languages-overview.html
 nav_title: Ruby on Rails
 nav_priority: 80
 meta_desc: Ruby Developers - Deploying Ruby on Rails

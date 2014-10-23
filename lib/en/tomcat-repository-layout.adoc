@@ -2,7 +2,7 @@
 layout: tomcat
 category:
 breadcrumb: Languages and Technologies
-parent_url: tomcat-overview.html
+parent_url: languages-overview.html
 nav_title: Repository Layout
 nav_priority: 20
 meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS cartridge repository layout

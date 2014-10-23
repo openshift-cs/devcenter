@@ -1,8 +1,8 @@
 ---
 layout: nodejs
-category: 
+category:
 breadcrumb: Languages and Technologies
-parent_url: node-js-overview.html
+parent_url: languages-overview.html
 nav_title: Getting Started
 nav_priority: 24
 meta_desc: Getting Started with Node.js hosting on OpenShift
@@ -67,7 +67,7 @@ The application will now be running and accessible at the *URL (1)* listed in th
 
 After creating your app, link:managing-modifying-applications.html[try publishing an update with `git push`], or link:/en/managing-adding-a-database.html[adding a database with `rhc cartridge add`].
 
-== Advanced App Creation 
+== Advanced App Creation
 Running `rhc help app create` provides an excellent reference of optional flags.  For example, the `--from-code` argument makes it easy to deploy existing projects, link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps[as long as they've been adapted to run on OpenShift].
 
 This command creates a new horizontally scalable "parks" application from an existing project repo, using the `nodejs-0.10` and `postgresql-9.2` cartridges as runtime dependencies, while setting an env variable named "FOO" to the value of "BAR" in the resulting system envonment:
@@ -86,7 +86,7 @@ OpenShift's Nodejs cartridge uses the following system environment variables to 
 
 [cols="1,3",options="header"]
 |===
-|Environment Variable | Use 
+|Environment Variable | Use
 
 |OPENSHIFT_NODEJS_IP
 |Bind to this IP address in order to recieve traffic from the routing layer
@@ -95,7 +95,7 @@ OpenShift's Nodejs cartridge uses the following system environment variables to 
 |OPENSHIFT_NODEJS_POLL_INTERVAL
 |This integer value may be set as an environment variable (default is 1 second)
 |NPM_CONFIG_PRODUCTION
-|OpenShift will not install `devDependencies` link:http://stackoverflow.com/a/23749201/754025[when `NPM_CONFIG_PRODUCTION` is set to "true"] 
+|OpenShift will not install `devDependencies` link:http://stackoverflow.com/a/23749201/754025[when `NPM_CONFIG_PRODUCTION` is set to "true"]
 |===
 
 See the master index of link:/en/managing-environment-variables.html[Environment Variables] for more information.

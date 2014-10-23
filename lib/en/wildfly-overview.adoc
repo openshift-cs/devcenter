@@ -2,7 +2,7 @@
 layout: base
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: java-overview.html
+parent_url: languages-overview.html
 nav_title: WildFly
 nav_priority: 1.4
 meta_desc: WildFly Developers - OpenShift Resources to host your Java applications in the cloud.

@@ -1,8 +1,8 @@
 ---
 layout: nodejs
-category: 
+category:
 breadcrumb: Languages and Technologies
-parent_url: nodejs-overview.html
+parent_url: languages-overview.html
 nav_title: Environment Variables
 nav_priority: 32
 meta_desc: Node.js Runtime Environment on OpenShift
@@ -26,7 +26,7 @@ OpenShift's Nodejs cartridge uses the following system environment variables to 
 |OpenShift will not install `devDependencies` link:http://stackoverflow.com/a/23749201/754025[when `NPM_CONFIG_PRODUCTION` is set to "true"]
 |===
 
-See the master index of link:/en/managing-environment-variables.html[Environment Variables] for more information. 
+See the master index of link:/en/managing-environment-variables.html[Environment Variables] for more information.
 
 Developers can safely store API keys and other credentials in the system environment by using `rhc env set`, allowing for clean and portable application sources.
 

@@ -1,8 +1,8 @@
 ---
-layout: php 
+layout: php
 category:
 breadcrumb: Languages and Technologies
-parent_url: php-overview.html
+parent_url: languages-overview.html
 nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with PHP on OpenShift.
@@ -37,7 +37,7 @@ or
 
 [source, console]
 --
-$ rhc app create myphpapp php-5.3 
+$ rhc app create myphpapp php-5.3
 --
 
 The output will look something like this:
@@ -46,7 +46,7 @@ The output will look something like this:
 --
 Application Options
 -------------------
-Domain:     mydomain 
+Domain:     mydomain
 Cartridges: php-5.4
 Gear Size:  default
 Scaling:    no
@@ -123,7 +123,7 @@ If you are curious about Git or would like to learn more, the link:http://git-sc
 link:#top[Back to Top]
 
 [[step3]]
-== Step 3: Managing Dependencies 
+== Step 3: Managing Dependencies
 
 Your PHP application code may rely on third-party libraries that you wish to include in your build. To add dependencies using the PHP Extension and Application Repository (PEAR), add the names of the libraries in *.openshift/pear.txt*. For example, the contents of your *pear.txt* file could be the following:
 
@@ -167,4 +167,3 @@ Browse the http://origin.ly/[QuickStarts and community cartridges] to see other 
 Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
 
 link:#top[Back to Top]
-

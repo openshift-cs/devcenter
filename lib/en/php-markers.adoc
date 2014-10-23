@@ -1,8 +1,8 @@
 ---
-layout: php 
+layout: php
 category:
 breadcrumb: Languages and Technologies
-parent_url: php-overview.html
+parent_url: languages-overview.html
 nav_title: Markers
 nav_priority: 50
 meta_desc: PHP developers - OpenShift Online PHP marker files
@@ -26,4 +26,3 @@ Adding marker files to `.openshift/markers` will have the following effects:
 |disable_auto_scaling
 |Will prevent scalable applications from scaling up or down according to application load.
 |===
-

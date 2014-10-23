@@ -2,7 +2,7 @@
 layout: tomcat
 category:
 breadcrumb: Languages and Technologies
-parent_url: tomcat-overview.html
+parent_url: languages-overview.html
 nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with Tomcat 6 and 7 on OpenShift.

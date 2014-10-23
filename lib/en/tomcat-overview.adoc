@@ -2,7 +2,7 @@
 layout: tomcat
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
-parent_url: java-overview.html
+parent_url: languages-overview.html
 nav_title: Tomcat
 nav_priority: 1.4
 meta_desc: Tomcat Developers - OpenShift Resources to host your Java applications in the cloud.
@@ -36,4 +36,3 @@ The `jbossews` cart has out-of-the-box integration support with the RedHat `post
 configured to work with their respective cartridges if installed into your application.
 
 link:#top[Back to Top]
-

@@ -2,7 +2,7 @@
 layout: tomcat
 category:
 breadcrumb: Languages and Technologies
-parent_url: tomcat-overview.html
+parent_url: languages-overview.html
 nav_title: Deployment Options
 nav_priority: 30
 meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS deployment options
