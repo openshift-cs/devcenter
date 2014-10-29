@@ -25,4 +25,11 @@ Adding marker files to `.openshift/markers` will have the following effects:
 
 |disable_auto_scaling
 |Will prevent scalable applications from scaling up or down according to application load.
+
+|use_composer
+|Will enable running composer install on each build automatically. See the link:https://getcomposer.org/[Composer].
+
+|enable_public_server_status
+|Will enable server-status application path to be publicly available.
+
 |===
