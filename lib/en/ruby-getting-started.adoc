@@ -105,14 +105,14 @@ To make the first change, edit `index.html` in the `myapp/config.ru` directory. 
 
 Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
 
-. If any changes were added to your local repo, the `add` command will tell Git to track new changes as part of the next commit:
+. If any changes were made in your local repo, the `add` command will tell Git to track these changes as part of the next commit:
 +
 [source, console]
 --
 $ git add --all .
 --
 +
-. Next `commit` our local changes to the git repository and include a message for the commit:
+. Next `commit` the local changes to the git repository and include a message for the commit:
 +
 [source, console]
 --
