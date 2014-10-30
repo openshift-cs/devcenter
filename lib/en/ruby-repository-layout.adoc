@@ -7,7 +7,7 @@ nav_title: Repository Layout
 nav_priority: 70
 meta_desc: Ruby Developers - Repository Layout
 ---
-= Ruby Application Hosting
+= Ruby Repository Layout
 
 [float]
 = Ruby Template Repository Layout

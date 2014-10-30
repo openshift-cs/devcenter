@@ -7,7 +7,7 @@ nav_title: Getting started
 nav_priority: 60
 meta_desc: Ruby Developers - Getting started
 ---
-= Ruby Application Hosting
+= Ruby Getting Started
 
 [float]
 = Getting started with Ruby

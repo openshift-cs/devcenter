@@ -7,6 +7,8 @@ nav_title: Node.js
 nav_priority: 1.6
 meta_desc: Node.js application hosting
 ---
+= Node.js Application Hosting
+
 [float]
 = Node.js Application Hosting
 

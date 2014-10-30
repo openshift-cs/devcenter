@@ -7,7 +7,7 @@ nav_title: Environment Variables
 nav_priority: 90
 meta_desc: Ruby Developers - Environment Variables
 ---
-= Ruby Application Hosting
+= Ruby Environment Variables
 
 [float]
 = Ruby Environment Variables
