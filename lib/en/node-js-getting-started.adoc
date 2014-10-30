@@ -7,6 +7,7 @@ nav_title: Getting Started
 nav_priority: 24
 meta_desc: Getting Started with Node.js hosting on OpenShift
 ---
+= Node.js Getting Started
 
 [float]
 = Getting Started with Nodejs

@@ -7,7 +7,7 @@ nav_title: Markers
 nav_priority: 100
 meta_desc: Ruby Developers - Markers
 ---
-= Ruby Application Hosting
+= Ruby Markers
 
 [float]
 = Ruby Markers
