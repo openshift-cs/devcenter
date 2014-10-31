@@ -28,7 +28,7 @@ link:/en/java-overview.html#jboss[Learn More]
 Modern applications are designed to connect with other applications and data to enhance their functionality without having duplication. Better to connect and consume than to replicate; Integration Services allow developers to connect to applications and data, send and receive messages - all with the reliability and precision of enterprise grade technology.
 
 === Fuse
-The JBoss Fuse enterprise service bus is technology for building and implementing communication between different applications, services, and data. It is specifically designed for extensive connectivity.
+JBoss Fuse for xPaaS is an enterprise service bus technology for building and implementing communication between different applications, services, and data. It is specifically designed for extensive connectivity. It includes JBoss A-MQ for xPaaS, a messaging service to connect applications and devices using notifications and messages.
 
 link:/en/xpaas-fuse.html[Learn More] +
 
