@@ -1,0 +1,41 @@
+---
+layout: php
+category:
+breadcrumb: Languages and Technologies
+parent_url: languages-overview.html
+nav_title: Deploying Laravel on OpenShift
+nav_priority: 50
+meta_desc: PHP developers - Deploying Laravel on OpenShift
+---
+= Deploying Laravel on OpenShift
+
+[float]
+= Deploying Laravel on OpenShift
+
+Laravel is a one of the younger PHP frameworks that has been recently gaining huge popularity. Build on Symphony components, it inherits proven codebase, but gives developers a new way of writing PHP applications, by the words of the Laravel itself "does not hurt".
+
+IMPORTANT: This target of this tutorial is not to teach Laravel as a framework. To do that, you should follow the link:http://laravel.com/docs/4.2[official documentation]. This tutorial expects you to be familiar with Laravel and you having an application you want to deploy on OpenShift.
+
+== Database
+
+Configure the database configuration file `app/config/database.php` to consumer the information published by OpenShift using the environment variables.
+
+[source,php]
+-----
+'mysql' => array(
+    'host' => getenv('OPENSHIFT_MYSQL_DB_HOST'),
+    'port' => getenv('OPENSHIFT_MYSQL_DB_PORT'),
+    'driver'    => 'mysql',
+    'database'  => getenv('OPENSHIFT_APP_NAME'),
+    'username'  => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
+    'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+),
+-----
+
+Similarly you can configure your application to connect to other database.
+
+[.lead]
+link:http://localhost:4242/en/managing-adding-a-database.html[Read more on databases with OpenShift]
