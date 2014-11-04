@@ -1,38 +1,25 @@
 [[fedora]]
 == Setting up the OpenShift Environment on Fedora
-
-RHC client tools are available as an RPM and can be installed with the
-YUM package manager on Fedora. Keep in mind that this version is not
-updated as frequently as the the Ruby gem version.
+RHC client tools are available as an *RPM* and can be installed with the *YUM package manager* on Fedora. Keep in mind that this version is not updated as frequently as the the Ruby gem version.
 
 To install using yum on Fedora:
 [source]
-------------------------------
+----
 $ sudo yum install rubygem-rhc
-------------------------------
+----
 
-This installs Ruby, Git, and the other dependencies required to run the
-OpenShift client tools..
+This installs *Ruby*, *Git*, and the other dependencies required to run the OpenShift client tools.
 
 After the rhc client tools are installed, run:
 [source]
------------
+----
 $ rhc setup
------------
+----
 
-The OpenShift interactive setup wizard displays and prompts you to complete the rest
-of the process. If you cannot run OpenShift client tools at this point,
-please contact us on
-https://www.openshift.com/irc[IRC] or visit the
-https://help.openshift.com[Help Center] for more assistance.
+The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process. If you cannot run OpenShift client tools at this point, please visit the link:https://help.openshift.com[Help Center] for more assistance.
 
-To update the OpenShift client tools to the latest version provided by
-the OpenShift team outside of yum, run:
+To update the OpenShift client tools to the latest version provided by the OpenShift team outside of yum, run:
 [source]
----------------------
+----
 $ sudo gem update rhc
----------------------
-
-The most recent version is downloaded and updated.
-
-
+----

@@ -10,16 +10,12 @@ meta_desc: OpenShift Online offers many powerful application management options 
 = OpenShift Features
 
 [[top]]
-[[platform-features]]
 [float]
 = OpenShift Features
 [.lead]
-OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features. For more in-depth documentation, please refer to the https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html-single/User_Guide/index.html[OpenShift Online User's Guide].
+OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features.
 
 IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
-
-[.lead]
-https://www.openshift.com/products/pricing/geo-request-form[-> Request OpenShift Online in your country]
 
 == Feature List
 link:#regions-and-zones[Region and Zone Management] +
@@ -32,36 +28,38 @@ link:#support[Support] +
 
 [[regions-and-zones]]
 == Region and Zone Management
-All applications on the Free Plan are created on gears within the `us-east-1` Amazon EC2 region.
+All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region.
 
-Bronze and Silver plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region.
+*Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region.
 
-NOTE: Only applications using Small.highcpu, Medium, or Large gears can use additional regions.
+link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer the ability to host applications in any Amazon EC2 region.
+
+NOTE: Only applications using Small.highcpu, Medium, or Large gears can use additional regions. Small gears can only be created within the `us-east-1` AWS EC2 region.
 
 === Command Line Tools (RHC)
-To view available regions or create an application using a specific region, you can use the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please link:getting-started-client-tools.html[visit this installation guide] first and make sure your version is up to date with the following command:
+To view available regions or create an application using a specific region, you can use the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please visit the link:getting-started-client-tools.html[installation guide] first and make sure your version is up to date with the following command:
 [source]
---
+----
 $ sudo gem update rhc
---
+----
 
 === Listing Available Regions and Zones
 The `region` command is used to list and manage regions and zones.
 
 To list all available regions and zones, use the following command:
 [source]
---
+----
 $ rhc region list
---
+----
 
 TIP: You can also list available regions using the `rhc regions` command.
 
 To see where an existing application is being hosting, use the following command:
 
 [source]
---
+----
 $ rhc app show --gears -a <name>
---
+----
 
 image::overview-multiregion-app-graphic2.png[Multiregion Application Hosting Flowchart]
 
@@ -69,16 +67,16 @@ image::overview-multiregion-app-graphic2.png[Multiregion Application Hosting Flo
 If you have a Bronze or Silver account, you can create an application with Small.highcpu, Medium, or Large gears in a region other than `us-east-1` using the `--region` option:
 
 [source]
---
+----
 $ rhc create-app <name> <cartridge> --gear-size <size> --region <region> --scaling
---
+----
 
 For example:
 
 [source]
---
+----
 $ rhc create-app racer php-5.4 --gear-size medium --region aws-eu-west-1a --scaling
---
+----
 
 TIP: `create-app` is the same as `app create`.
 
@@ -86,19 +84,19 @@ TIP: `create-app` is the same as `app create`.
 The following command will let you migrate an existing app to a different region or zone by creating a copy of your application:
 
 [source]
---
+----
 $ rhc create-app <new app name> --from-app <existing app name> --region <region>
---
+----
 
 === Hosting an Application across Specific Regions or Zones
 While OpenShift Online does not directly support multi-region hosting for a single application, it is possible to configure two identical applications to take advantage of multi-region hosting.
 
-NOTE: Using this method requires a Bronze or Silver Plan, along with a shared database service and knowledge of DNS configuration.
+IMPORTANT: Using this method requires a Bronze or Silver Plan, along with a shared database service and knowledge of DNS configuration.
 
 ==== Step 1: Create two separate identical applications
-Create the first application in Amazon us-east - this is the default region.
+Create the first application in Amazon `us-east` - this is the default region.
 
-Create the second application in Amazon eu-west using the `region` option. For example:
+Create the second application in Amazon `eu-west` using the `region` option. For example:
 
 [source]
 --
@@ -111,7 +109,6 @@ You can also use the `--from-app` flag to copy an existing application:
 --
 $ rhc create-app <new app name> --from-app <existing app name> --region <region>
 --
-
 
 ==== Step 2: Configure a shared external database
 Both applications need to be configured to use the same external database or database service, such as link:https://mongolab.com/[MongoLab] or link:databases-amazon-rds.html[Amazon RDS].
@@ -149,6 +146,8 @@ The following gear prices are in USD. For CAD or EUR pricing, please refer to th
 
 |===
 
+NOTE: Custom gear sizes are avaiable through link:https://www.openshift.com/dedicatednode[Dedicated Node Services].
+
 You can define the gear size of an application during creation through either the web console or the command line tools.
 
 ==== Web Console
@@ -173,14 +172,14 @@ or
 $ rhc app create mediumgearexample php-5.4 --g medium
 ----
 
-https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[Learn more about creating and configuring applications with rhc]
+link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[-> Learn more about creating and configuring applications with rhc]
 
 [[additional-gear-storage]]
 === Additional Gear Storage
 
 For Free plan users, each small gear has 1GB of storage, which is not expandable. Silver Plan users can expand all gears to 6GB of storage per gear at no additional cost. Bronze and Silver users may add more storage to any gear at a rate of $1.00 / GB / month, up to 30GB per gear.
 
-IMPORTANT: Application storage size can be changed through either the web console or the command line tools.
+TIP: Application storage size can be changed through either the web console or the command line tools.
 
 ==== Web Console
 
@@ -194,14 +193,19 @@ image::overview-platform-features-2.png[Adding Storage to an Application Cartrid
 
 ==== Command Line (rhc)
 
-With the command line, you can add, set, or remove additional storage for your applications.
+With the command line, you can `--add`, `--set`, or `--remove` additional storage for your applications. You can also view the existing storage allocated to an application:
+
+[source]
+----
+$ rhc cartridge storage --show -a <app_name>
+----
 
 *To set storage:*
 
 [source]
---
-$ rhc cartridge storage php-5 -a App_Name --set Storage_Amount(GB)
---
+----
+$ rhc cartridge storage php-5 -a <app_name> --set <Storage_Amount(GB)>
+----
 
 For example:
 
@@ -210,7 +214,7 @@ For example:
 $ rhc cartridge storage php-5 -a racer --set 5gb
 --
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Gear_Storage_and_Disk_Space_Management.html[Learn more about managing disk space with rhc]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Gear_Storage_and_Disk_Space_Management.html[-> Learn more about managing disk space with rhc]
 
 link:#top[Back to Top]
 
@@ -220,7 +224,7 @@ Application scaling enables your application to react to changes in traffic and 
 
 All plans allow the creation and management of scalable applications on OpenShift, but the free plan is limited to three small gears. Premium plans allow applications to be scaled from 1 to 16 gears (and beyond), and offers you full control over the minimum and maximum gears available to an application.
 
-IMPORTANT: Applications on premium plans will never idle.
+NOTE: Applications on premium plans will never idle.
 
 === In this section
 link:#creating-a-scalable-application[Creating a Scalable Application] +
@@ -231,9 +235,11 @@ link:#supported-cartridges[Supported Cartridges] +
 
 [[creating-a-scalable-application]]
 === Creating a Scalable Application
-You must specify whether or not an application can scale when you create the application. By default, applications created on OpenShift Online are not scalable.
+You must specify whether or not an application can scale when you create the application.
 
-If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[the OpenShift Online User Guide], "Cloning an Existing Application" for more information.
+NOTE: By default, applications created on OpenShift Online are not scalable.
+
+If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See the link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[OpenShift Online User Guide] for more information on cloning an application.
 
 ==== Web Console
 
@@ -243,52 +249,54 @@ image::overview-platform-features-4.png[Creating a Scalable Application]
 
 ==== Command Line (rhc)
 
-When creating an application, the +-s+ flag instructs OpenShift to enable scaling.
+When creating an application, the `-s` flag instructs OpenShift to enable scaling.
 
-_For example:_
+For example:
 
 [source]
+----
 rhc app create scaledappexample php-5.4 -s
+----
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[Learn more about creating scalable applications on OpenShift]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[-> Learn more about creating scalable applications on OpenShift]
 
 [[managing-application-scaling]]
 === Managing Application Scaling
 A scalable application defaults to using one gear at a minimum and will use as many gears as you have available on your account. OpenShift allows you to set a minimum and maximum scale via the web console or the CLI.
 
 ==== Web Console
-First, select the application you wish to scale from the list of existing applications. In the screen for the individual application, you can see what the current scaling settings are for each cartridge associated with the application. Click on the current scaling settings of a specific cartridge (in the following shot, '1-15' in the 'Scales' section of the php-5.4 cartridge) to update the minimum and maximum number of gears:
+First, select the application you wish to scale from the list of existing applications. In the screen for the individual application, you can see what the current scaling settings are for each cartridge associated with the application. Click on the current scaling settings of a specific cartridge (in the following shot, *1-15* in the *Scales* section of the php-5.4 cartridge) to update the minimum and maximum number of gears:
 
 image::overview-platform-features-5.png[Changing Scaling Settings Part 1]
 
-Next, define the new minimum and maximum gear amount for the cartridge:
+Next, define the new *Minimum* and *Maximum* gear amount for the cartridge:
 
 image::overview-platform-features-6.png[Changing Scaling Settings Part 2]
 
-If your new minimum is different than you old minimum, the application cartridge will immediately scale up or down when you click 'Save'.
+NOTE: If your new minimum is different than you old minimum, the application cartridge will immediately scale up or down when you click *Save*.
 
 ==== Command Line (rhc)
 You can change the default scaling settings with the following command:
 
 [source]
---
-rhc cartridge scale <your web cart> -a <your app> --min <minimum> --max <maximum>
---
+----
+$ rhc cartridge scale <your web cart> -a <app_name> --min <minimum> --max <maximum>
+----
 
-_For example:_
+For example:
 
 [source]
---
-rhc cartridge scale php-5.4 -a scaledappexample --min 1 --max 3
---
+----
+$ rhc cartridge scale php-5.4 -a scaledappexample --min 1 --max 3
+----
 
 If you set the minimum scale above the current minimum, OpenShift will begin scaling up your application, and the operation won't finish until all of your gears are created.
 
-NOTE: If you specify +-1+ as the +max+ you'll scale up to your account limit.
+NOTE: If you specify `-1` as the `max` you'll scale up to your account limit.
 
-CAUTION: In rhc, sometimes your scale up request will return a timeout error, but the operation will continue on the server.
+CAUTION: Sometimes your scale up request will return a timeout error, but the operation will continue on the server.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Scaling_an_Application_Manually.html[Learn more about managing application scaling on OpenShift Online]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Scaling_an_Application_Manually.html[-> Learn more about managing application scaling on OpenShift Online]
 
 [[scalable-vs-non-scalable]]
 === Scalable Versus Non-scalable Applications
@@ -296,7 +304,7 @@ If you create a *non-scalable* application, which is the default, the web cartri
 
 When you create a *scalable* application, the HAProxy cartridge is added as a load balancer to your first web cartridge gear. If you add other cartridges like MongoDB or MySQL to your application, they are installed on their own dedicated gears.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Applications.html#Scaled_and_Non-Scaled_Applications1[Learn more about scalable vs. non-scalable applications]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Applications.html#Scaled_and_Non-Scaled_Applications1[-> Learn more about scalable vs. non-scalable applications]
 
 [[how-scaling-works]]
 === How Scaling Works
@@ -306,19 +314,19 @@ The first web gear in a scaling application has HAProxy installed, but also your
 
 The algorithm for scaling up and scaling down is based on the number of concurrent requests to your application. OpenShift allocates 16 connections per gear - if HAProxy sees that you're sustaining 90% of your total connections, it adds another gear. If your demand falls to 50% of your total connections for several minutes, HAProxy removes that gear.
 
-Because each cartridge is "shared-nothing", if you want to share data between cartridges you can use a database cartridge. Each of the gears created during scaling has access to the database and can read and write consistent data.
+Because each cartridge is 'shared-nothing', if you want to share data between cartridges you can use a database cartridge. Each of the gears created during scaling has access to the database and can read and write consistent data.
 
 The OpenShift web console shows you how many gears are currently being consumed by your application.
 
 [[supported-cartridges]]
 === Supported Scaling Web Cartridges
-Most of the standard OpenShift link:overview-what-is-openshift.html[web cartridges] are scalable using HAProxy, with the exception of the Do-It-Yourself, Jenkins, and Zend cartridges.
+Most of the standard OpenShift link:languages-overview.html[web cartridges] are scalable using HAProxy, with the exception of the *Do-It-Yourself*, *Jenkins*, and *Zend* cartridges.
 
 link:#top[Back to Top]
 
 [[domain-management]]
 == Domain Management
-All OpenShift Online plans allow you to create and use a custom rhcloud.com subdomain, along with the ability to use your own custom domain name. All applications can also utilize a shared SSL certificate. Premium plans allow the creation and management of more than one domain and the ability to use a custom SSL certificate.
+All OpenShift Online plans allow you to create and use a custom _rhcloud.com_ subdomain, along with the ability to use your own custom domain name. All applications can also utilize a shared SSL certificate. Premium plans allow the creation and management of more than one domain and the ability to use a custom SSL certificate.
 
 === In this section
 link:#creating-additional-domains[Creating Additional Domains] +
@@ -327,12 +335,10 @@ link:#using-a-custom-ssl-certificate[Using a Custom SSL Certificate] +
 
 [[creating-additional-domains]]
 === Creating Additional Domains
-
 Premium plan users can create a new domain in either the web console or by using the command line (rhc).
 
 ==== Web Console
-
-If you have already created an application on OpenShift Online, you will see a list of your existing applications. If you are a premium plan user, click on the *Create* link in the applications list as highlighted in the screenshot below. You can also create and manage domains from the Settings tab in the top navigation:
+If you have already created an application on OpenShift Online, you will see a list of your existing applications. If you are a premium plan user, click on the *Create* link in the applications list as highlighted in the screenshot below. You can also create and manage domains from the *Settings* tab in the top navigation:
 
 image::overview-platform-features-7.png[Creating a new domain part 1]
 
@@ -340,7 +346,7 @@ Next, provide your desired domain name:
 
 image::overview-platform-features-8.png[Creating a new domain part 2]
 
-The additional domain is then ready to use. On the Applications screen, you can see an empty domain has been created:
+The additional domain is then ready to use. On the *Applications* screen, you can see an empty domain has been created:
 
 image::overview-platform-features-9.png[Creating a new domain part 3]
 
@@ -351,20 +357,20 @@ image::overview-platform-features-10.png[Creating a new domain part 4]
 ==== Command Line (rhc)
 
 [source]
---
-rhc domain create <domain name>
---
+----
+rhc domain create <domain_name>
+----
 
-IMPORTANT: If you are using the command line with multiple domains to create and manage applications, you will need to use the +-n <domain>+ flag for most commands to identify the domain you are referencing.
+IMPORTANT: If you are using the command line with multiple domains to create and manage applications, you will need to use the `-n <domain>` flag for most commands to identify the domain you are referencing.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Domains.html[Learn more about managing domains on OpenShift Online]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Domains.html[-> Learn more about managing domains on OpenShift Online]
 
 [[using-a-custom-domain]]
 === Using a Custom Domain
-The web console now allows you to configure your application's hostname, and set up secure access to custom domains through a new SSL certificate configuration area. Once you have your own domain name and at least one application, you can start the configuration process.
+The web console allows you to configure your application's hostname, and set up secure access to custom domains through the SSL certificate configuration area. Once you have your own domain name and at least one application, you can start the configuration process.
 
 ==== Step 1: Configure a Domain Alias in the OpenShift Web Console or Command Line (rhc)
-First, open your OpenShift web console, and select the app that you would like to modify. On the application's settings page, there is a "Change" link next to your initial OpenShift-provided hostname:
+First, open your OpenShift web console, and select the app that you would like to modify. On the application's settings page, there is a *Change* link next to your initial OpenShift-provided hostname:
 
 image::overview-platform-features-11.png[Adding a domain alias]
 
@@ -372,7 +378,7 @@ Clicking this link will open up the new hostname configuration page:
 
 image::overview-platform-features-12.png[Adding a domain alias part 2]
 
-Here you can enter the domain name that you would like to associate with your application. The above example uses *http://parks.ryanjarvinen.com/*.
+Here you can enter the domain name that you would like to associate with your application. The above example uses _\http://parks.ryanjarvinen.com/_.
 
 Configuring your application to be available on a subdomain is generally easier.
 
@@ -386,43 +392,43 @@ image::overview-platform-features-13.png[Adding a domain alias success]
 You can add a custom domain name to an existing application with the following command, specifying the application name and custom domain name:
 
 [source]
---
+----
 $ rhc alias add <application name> <custom domain name>
---
+----
 
 Additional host aliases can be added as needed.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[Learn more about custom domains and SSL certificates on OpenShift Online]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[-> Learn more about custom domains and SSL certificates on OpenShift Online]
 
 ==== Step 2: Configure your DNS Host Records
-OpenShift takes advantage of CNAME records to route requests to your application instance.
+OpenShift takes advantage of *CNAME* records to route requests to your application instance.
 
 CNAME records are nice because they can defer to OpenShift's DNS system for IP address resolution (which isn't guaranteed to be static in OpenShift Online). However, CNAME records can also come with a few hidden limitations:
 
-. Not all Domain registrars allow you to set your base host name as a CNAME ("www.foo.com" is allowed, while "foo.com" may not be).
-. If your registrar does allow you to configure a root-level CNAME record, then http://tools.ietf.org/search/rfc1912#section-2.4[all additional Host records will like be limited to the CNAME record type as well]. This means that you would not be able to configure MX records on any host that uses a CNAME for it's root host record ("@").
+. Not all Domain registrars allow you to set your base host name as a CNAME (_www.foo.com_ is allowed, while _foo.com_ may not be).
+. If your registrar does allow you to configure a root-level CNAME record, then link:http://tools.ietf.org/search/rfc1912#section-2.4[all additional Host records will like be limited to the CNAME record type as well]. This means that you would not be able to configure MX records on any host that uses a CNAME for it's root host record ("@").
 
-The simplest solution is to make your app available on a subdomain, as in the above example (*http://parks.ryanjarvinen.com/*). This configuration is supported by all domain registrars, and it doesn't limit your ability to set up an external mail provider.
+The simplest solution is to make your app available on a subdomain, as in the above example (_\http://parks.ryanjarvinen.com/_). This configuration is supported by all domain registrars, and it doesn't limit your ability to set up an external mail provider.
 
-Here is a screenshot of the *parks.ryanjarvinen.com* subdomain being tied to the Red Hat-hosted *parks-shifter.rhcloud.com*:
+Here is a screenshot of the _parks.ryanjarvinen.com_ subdomain being tied to the Red Hat-hosted _parks-shifter.rhcloud.com_:
 
 image::overview-platform-features-14.png[Configuring DNS]
 
-IMPORTANT: Remember: when in doubt, check your domain registrar's support documents for DNS Host record configuration assistance.
+NOTE: When in doubt, check your domain registrar's support documents for DNS Host record configuration assistance.
 
 Shortly after adding the CNAME record, you will be able to connect to your application via the new hostname URL.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[Learn more about custom domains and SSL certificates on OpenShift Online]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[-> Learn more about custom domains and SSL certificates on OpenShift Online]
 
 [[using-a-custom-ssl-certificate]]
 === Using a Custom SSL Certificate
-OpenShift includes support for http://en.wikipedia.org/wiki/Server_Name_Indication[Server Name Identification], which improves support for http://en.wikipedia.org/wiki/Server_Name_Indication#How_SNI_fixes_the_problem[TLS] by sending your OpenShift-configured domain alias as a part of the handshake.
+OpenShift includes support for link:http://en.wikipedia.org/wiki/Server_Name_Indication[Server Name Identification], which improves support for link:http://en.wikipedia.org/wiki/Server_Name_Indication#How_SNI_fixes_the_problem[TLS] by sending your OpenShift-configured domain alias as a part of the handshake.
 
 You can always take advantage of our **.rhcloud.com* wildcard certificate in order to securely connect to any application via it's original, OpenShift-provided hostname URL.
 
-Support for enabling *HTTPS* connections to custom, aliased hostnames is available for users of https://www.openshift.com/products/pricing[OpenShift Online's Premium plans].
+Support for enabling *HTTPS* connections to custom, aliased hostnames is available for users of https://www.openshift.com/products/pricing[OpenShift Online's premium plans].
 
-If you are still getting by on the https://www.openshift.com/products/pricing[Free Plan], you'll see the following warning message at the top of your application's SSL configuration area. Upgrading to the Bronze or Silver plan adds support for providing your own SSL cert.
+If you are still getting by on the link:https://www.openshift.com/products/pricing[Free Plan], you'll see a warning message at the top of your application's SSL configuration area. Upgrading to the Bronze or Silver plan adds support for providing your own SSL cert.
 
 ==== Web Console
 
@@ -431,16 +437,16 @@ image::overview-platform-features-14.png[SSL Certificate]
 After saving, you should be able to make HTTPS-based connections to your hosted application on your custom domain.
 
 ==== Command Line (rhc)
-You can add a a custom SSL certificate to an alias with the following command:
+You can add a custom SSL certificate to an alias with the following command:
 
 [source]
---
-$ rhc alias update-cert <application name> <domain name> --certificate <cert file> --private-key <key file>
---
+----
+$ rhc alias update-cert <application_name> <domain_name> --certificate <cert_file> --private-key <key_file>
+----
 
 If the private key is encrypted, specify the passphrase with the --passphrase option.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[Learn more about custom domains and SSL certificates on OpenShift Online]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[-> Learn more about custom domains and SSL certificates on OpenShift Online]
 
 link:#top[Back to Top]
 
@@ -454,22 +460,22 @@ link:#team-management[Team Management] +
 
 [[managing-domain-membership]]
 === Managing Domain Membership
-All OpenShift Online users have the ability to add collaborators at the domain level. Other OpenShift users can be given access to either View, Edit, or Administer applications associated with a shared domain. The default role for additional members is +edit+.
+All OpenShift Online users have the ability to add collaborators at the domain level. Other OpenShift users can be given access to either View, Edit, or Administer applications associated with a shared domain. The default role for additional members is `edit`.
 
 ==== Web Console
-After logging into the web console, you will see a list of your current domains and applications. Click on the domain you would like to share. You can also select the domain from the *Settings* tab in the top navigation. In the below example, the domain _brutusbeefcake_ is selected from the Applications list:
+After logging into the web console, you will see a list of your current domains and applications. Click on the domain you would like to share. You can also select the domain from the *Settings* tab in the top navigation. In the below example, the domain *brutusbeefcake* is selected from the Applications list:
 
 image::overview-platform-features-16.png[Managing domain membership step 1]
 
-Next, you will see the details of the domain you've selected. All current OpenShift users that have access to this domain will be listed under the Members section. If there are no members, as in the example below, you can click on *Add members...*
+Next, you will see the details of the domain you've selected. All current OpenShift users that have access to this domain will be listed under the *Members* section. If there are no members, as in the example below, you can click on *Add members...*
 
 image::overview-platform-features-17.png[Managing domain membership step 2]
 
-You can then add new users to the domain, granting either view, edit, or administer access for the user. The user will have access to all applications associated with this domain. Bronze and Silver users will also have the option of adding a team to the domain (see below).
+You can then add new users to the domain, granting either *view*, *edit*, or *administer* access for the user. The user will have access to all applications associated with this domain. Bronze and Silver users will also have the option of adding a team to the domain (see below).
 
 image::overview-platform-features-18.png[Managing domain membership step 3]
 
-Once the new user is added, he/she will be able to access applications in the shared domain by logging into their own individual OpenShift Online account.
+Once the new user is added, they will be able to access applications in the shared domain by logging into their own individual OpenShift Online account.
 
 ==== Command Line (rhc)
 Add a user to a domain with the following command, specifying the user login and domain name.
@@ -477,24 +483,24 @@ Add a user to a domain with the following command, specifying the user login and
 TIP: The user login must be a registered OpenShift Online user.
 
 [source]
---
-$ rhc member add <openshift user name> -n <domain name>
---
+----
+$ rhc member add <openshift_username> -n <domain_name>
+----
 
 When a member is added to a domain, they receive the default role of edit. Use the --role option when adding a member to specify a different role:
 
 [source]
---
-$ rhc member add <openshift user name> -n <domain name> --role <member role>
---
+----
+$ rhc member add <openshift_username> -n <domain_name> --role <member_role>
+----
 
 TIP: The three roles available are +view+, +edit+, and +administer+.
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Domain_Membership.html[Learn more about managing domain membership]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Domain_Membership.html[-> Learn more about managing domain membership]
 
 [[team-management]]
 === Team Management
-After logging into the web console, you will see a list of your current domains and applications. Click on the Settings Tab in the top navigation:
+After logging into the web console, you will see a list of your current domains and applications. Click on the *Settings* tab in the top navigation:
 
 image::overview-platform-features-19.png[Team Management Step 1]
 
@@ -502,7 +508,9 @@ If you have any existing domains or teams, you will see them listed here. If not
 
 image::overview-platform-features-20.png[Team Management Step 2]
 
-Enter the name of the team you would like to create. A team name must be a unique name between 2 and 250 characters, and cannot be modified once created:
+Enter the name of the team you would like to create:
+
+NOTE: A team name must be a unique name between 2 and 250 characters, and cannot be modified once created.
 
 image::overview-platform-features-21.png[Team Management Step 3]
 
@@ -510,19 +518,19 @@ Once the team is created, you can add members to the team:
 
 image::overview-platform-features-22.png[Team Management Step 4]
 
-You can then add or remove existing OpenShift Online users to the new team.
+You can then add or remove existing OpenShift Online users to the new team:
 
 image::overview-platform-features-23.png[Team Management Step 5]
 
-Once the team is created, you can then give the team access to one or more of your existing domains. First from either the Applications list (shown below), or the Settings tab, select the domain you wish to share:
+Once the team is created, you can then give the team access to one or more of your existing domains. First from either the *Applications* list (shown below), or the *Settings* tab, select the domain you wish to share:
 
 image::overview-platform-features-24.png[Team Management Step 6]
 
-On the domain settings screen, you can choose to add members to the domain. A member can be either an individual user or a team that you've created.
+On the domain settings screen, you can choose to add members to the domain. A member can be either an individual user or a team that you've created:
 
 image::overview-platform-features-25.png[Team Management Step 7]
 
-Select *Add a team...*
+Select *Add a team...*:
 
 image::overview-platform-features-26.png[Team Management Step 8]
 
@@ -534,27 +542,27 @@ image::overview-platform-features-27.png[Team Management Step 9]
 You can create a team with the following command:
 
 [source]
---
-$ rhc team create <team name>
---
+----
+$ rhc team create <team_name>
+----
 
-CAUTION: A team name must be a unique name between 2 and 250 characters, and cannot be modified once created.
+NOTE: A team name must be a unique name between 2 and 250 characters, and cannot be modified once created.
 
 You can add a member to a team by using the following command:
 
 [source]
---
-$ rhc member add <user name> -t <team name>
---
+----
+$ rhc member add <user_name> -t <team_name>
+----
 
-When adding a team to a domain, use the +--type+ option with team specified:
+When adding a team to a domain, use the `--type` option with team specified:
 
 [source]
---
-$ rhc member add <team name> -n <domain name> --type team  --role <member role>
---
+----
+$ rhc member add <team_name> -n <domain_name> --type team  --role <member_role>
+----
 
-https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Teams.html#Introduction_to_Teams[Learn more about creating and managing teams]
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Teams.html#Introduction_to_Teams[-> Learn more about creating and managing teams]
 
 link:#top[Back to Top]
 
@@ -562,7 +570,7 @@ link:#top[Back to Top]
 == Marketplace
 OpenShift Online offers integrations with partner services through the ever-expanding OpenShift Marketplace.
 
-https://marketplace.openshift.com/home[Visit the OpenShift Marketplace]
+link:https://marketplace.openshift.com/home[Visit the OpenShift Marketplace]
 
 link:#top[Back to Top]
 
@@ -570,6 +578,6 @@ link:#top[Back to Top]
 == Support
 There are several support options available to all users of OpenShift Online, however the Silver Plan includes access to award-winning Red Hat support through a dedicated ticketing system.
 
-https://help.openshift.com[Learn more about OpenShift support options]
+link:https://help.openshift.com[Learn more about OpenShift support options]
 
 link:#top[Back to Top]

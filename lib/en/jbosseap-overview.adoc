@@ -109,10 +109,10 @@ of use:
 |Variable |Description
 
 |OPENSHIFT_JBOSSEAP_IP
-|The IP address used to bind JBossAS
+|The IP address used to bind JBoss AS
 
 |OPENSHIFT_JBOSSEAP_HTTP_PORT
-|The JBossAS listening port
+|The JBoss AS listening port
 
 |OPENSHIFT_JBOSSEAP_CLUSTER_PORT
 |TODO
