@@ -1,0 +1,208 @@
+The following styleguide is meant for use in the creation and editing of OpenShift Online developer documents.
+
+== General Points of Emphasis
+* Be as clear and concise as possible.
+* Avoid unnecessary or overly-casual language.
+* Use active voice and avoid passive voice.
+* Use example code, commands, or screenshots whenever possible. Avoid long blocks of text whenever possible.
+* Use 'you' and 'your', but avoid first-person pronouns such as 'we' and 'our'.
+
+== Page Titles
+All documents have a page title (denoted by a '=') located just below the front-matter.
+
+  OTHER FRONT-MATTER HERE...
+  meta_desc: MySQL Developers - OpenShift Resources to get your MySQL applications hosted in the cloud.
+  ---
+  = MySQL Overview //this is the page title
+
+The page title is not to be confused with a headline (see below).
+
+== Headlines
+Headlines should use title case (capitalize principle words) except when the title is a filename, command, proper noun or similar word or phrase.
+
+Always start with a first-level headline, which requires a [float] tag in order to render properly:
+
+  [float]
+  = MySQL on OpenShift
+
+Do not use more than one first-level headline in a single doc. This first-level headline is typically followed by a [.lead] paragraph, which if used should be a short introduction or summary of the page content. For example:
+
+  [float]
+  = What is OpenShift?
+  [.lead]
+  OpenShift Online is Red Hat's public cloud application development...
+
+The second-level headline will include a horizonal line before it to delimit sections.
+
+  //Horizonal line will render here
+  == OpenShift Runtime Environments
+
+Headlines should be in order - avoid using a third-level headline (===) if you haven't used the second-level headline (==). This will not trigger an error, but it will generate a warning and is generally considered poor form.
+
+== In-page Navigation and Anchors
+For longer documents or documents with multiple sections, use an in-page table of contents at the top of the document that points to relevant sections. For example:
+
+  link:#step1[Step 1: Sign Up for a Free Account] +
+  link:#step2[Step 2: Set up the OpenShift Environment] +
+  link:#step3[Step 3: Create Your First Application] +
+  link:#step4[Step 4: Make Your First Change] +
+  link:#tutorials[Language-Specific Tutorials] +
+
+The first link points to the following anchor in the document:
+
+  [[step1]]
+  == Step 1: Sign Up for a Free Account
+
+If you use the above list, also include a [[top]] anchor at the beginning of the document:
+
+  [[top]] //Here is the top anchor that's required
+  [float]
+  = Getting Started with OpenShift Online
+  [.lead]
+  It's easy to get up and running on OpenShift...
+
+Add the following link to the end of each section, linking back to the top of the document:
+
+  link:#top[Back to Top]
+
+== Links
+Internal links have the following format:
+
+  link:page-name.html[Link Text]
+
+For example:
+
+  link:getting-started-overview.html[Getting Started]
+
+External links are similar but require the http(s) protocol:
+
+  link:http://www.espn.com[ESPN]
+
+Summary or call-to-action links should be preceeded with a '->':
+
+  link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[-> Learn more about creating and configuring applications with rhc]
+
+Keep link text as short as possible and avoid linking long phrases.
+
+WARNING: If you need to display a URL that begins with http(s): that should NOT be linked, use a preceeding '\' and italicize the URL:
+
+  _\http://appname-namespace.rhcloud.com_
+
+== Including Code (Inline and Code Blocks)
+If possible, avoid in-line code. All code should be presented in a code block unless referencing single command names, attributes, variables, filenames, or similar construct.
+
+Normal Code Block:
+
+  [source]
+  ----
+  $ rhc app create <app_name> <web_language>
+  ----
+
+NOTE: For command line source code (as in rhc or git), use a preceeding '$' as in the above example.
+
+NOTE: Placeholders should be enclosed in <>, such as <app_name> in the above example.
+
+Language-specific Code Block:å
+
+  [source, html]
+  ----
+  <body>
+    <h1>Hello world!</h1>
+  </body>
+  ----
+
+Code Block with Notes:
+
+  [source]
+  ----
+  index.php              Template PHP index page
+  .openshift/            Location for OpenShift specific files
+      action_hooks/      See the Action Hooks documentation <1>
+      markers/           See the Markers section below
+      pear.txt           List of pears to install <2>
+  ----
+  <1> Note for action hooks
+  <2> Note for pear.txt
+
+== Admonition Paragraphs/Blocks
+An admonition paragraph draws the reader's attention to auxiliary information. Its purpose is determined by the label at the beginning of the paragraph.
+
+The following admonition blocks are supported:
+
+  NOTE: A note about the preceeding information or relevant aside.
+
+  TIP: A helpful hint or resource.
+
+  IMPORTANT: A crucial piece of information or emphasized point.
+
+  WARNING: A severe warning - missing this point could result in serious errors or complete failure.
+
+  CAUTION: A less-severe point of emphasis, intended to help a user avoid minor gotchas or mild warnings.
+
+A multi-line admonition block can include source code or other asciidoc - USE SPARINGLY:
+
+  NOTE: Some note here...
+  ===
+  [source]
+  ----
+  $rhc something amazing
+  ----
+  ===
+
+== Italics
+Use for URLs:
+
+  _\http://appname-namespace.rhcloud.com_
+
+NOTE: The leading '\' prevents a URL beginning with http(s) from being rendered as a link.
+
+== Bold
+Use for emphasis or placeholder names:
+
+  ...creates an application titled *mytomcatapp* under the domain *mydomain*.
+
+Use for new vocabulary you are introducing or explaining:
+
+  If you create a *non-scalable* application, which is the default...
+
+Use for mentioning dropdown options, buttons, or interactive page elements:
+
+  In the web console, you can choose the gear size from the *Gears* dropdown:
+
+Use for general emphasis where needed inline:
+
+  Next, select the amount of additional storage you would like to set for *all gears of the specified application cartridge*.
+
+== Monospace or Inline Source Code
+Use for inline commands:
+
+  ...perform a `git push`...
+
+Use for variable names, action hooks, markers, etc:
+
+  `OPENSHIFT_JBOSSEWS_IP`
+
+Use for directory and filenames:
+  ...`webapps` directory...
+  ...modify the `server.xml` file...
+
+Use for cartridge names or language versions:
+
+  ...uses the `JBossEWS` cart...
+  `tomcat7` cartridge
+
+== Common Words and Phrases
+[options="header"]
+Common words and phrases
+|===
+|Use This |Avoid This
+
+|JBoss AS
+|JBossAS
+
+|application
+|app
+
+|sign up (verb)
+|signup (verb)
+|===
