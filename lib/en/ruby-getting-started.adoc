@@ -28,7 +28,7 @@ link:#next[Next Steps]
 
 This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
 
-To create a new Ruby 2.0 application *myapp* using `rhc`, open a terminal window and enter the following command:
+To create a new *Ruby* application *myapp* using `rhc`, open a terminal window and enter the following command:
 
 [source]
 --

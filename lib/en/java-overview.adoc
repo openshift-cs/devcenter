@@ -23,8 +23,8 @@ Visit the official Java documentation to link:https://java.com[learn more].
 == Supported Technologies
 OpenShift provides several ways to deploy Java applications, including the following environments:
 
-=== link:jbossas-overview.html[JBossAS]
-OpenShift Online currently supports `JBossAS 7`. +
+=== link:jbossas-overview.html[JBoss AS]
+OpenShift Online currently supports `JBoss AS 7`. +
 link:/en/jbossas-overview.html[-> Learn More]
 
 === link:wildfly-overview.html[Wildfly]
@@ -40,7 +40,7 @@ OpenShift Online currently supports `JBoss EAP 6.2`.  +
 link:/en/jbosseap-overview.html[-> Learn More]
 
 === link:vertx-overview.html[Vert.x]
-http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. OpenShift Online currently supports `Vert.x 2.1`. +
+link:http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. OpenShift Online currently supports `Vert.x 2.1`. +
 link:/en/vertx-overview.html[-> Learn More]
 
 === link:xpaas.html[JBoss xPaaS Services]

@@ -20,7 +20,7 @@ For a full list of currently supported cartridge technologies, please visit the 
 OpenShift Online supports a variety of programming languages and runtimes.
 
 === Java
-OpenShift allows extreme flexibility in working with your preferred runtime and framework, with support for *JBossAS*, *Wildfly*, *JBoss EAP*, *Apache Tomcat*, and *Spring*. You can also extend your applications with a number of JBoss xPaaS services, such as *Fuse*, *Data Virtualization*, *BPM Suite*, or *Aerogear Push*. +
+OpenShift allows extreme flexibility in working with your preferred runtime and framework, with support for *JBoss AS*, *Wildfly*, *JBoss EAP*, *Apache Tomcat*, and *Spring*. You can also extend your applications with a number of JBoss xPaaS services, such as *Fuse*, *Data Virtualization*, *BPM Suite*, or *Aerogear Push*. +
 link:java-overview.html[-> Learn More]
 
 === PHP

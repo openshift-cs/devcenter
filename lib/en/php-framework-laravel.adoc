@@ -3,25 +3,26 @@ layout: php
 category:
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
-nav_title: Deploying Laravel on OpenShift
+nav_title: Framework - Laravel
 nav_priority: 50
 meta_desc: PHP developers - Deploying Laravel on OpenShift
 ---
-= Deploying Laravel on OpenShift
+= Laravel PHP Framework on OpenShift
 
 [float]
-= Deploying Laravel on OpenShift
+= Deploying the Laravel PHP Framework on OpenShift
 
-Laravel is a one of the younger PHP frameworks that has been recently gaining huge popularity. Build on Symphony components, it inherits proven codebase, but gives developers a new way of writing PHP applications, by the words of the Laravel itself "does not hurt".
+Laravel is a one of the younger PHP frameworks and has recently become much more popular. Built on link:http://symfony.com[Symphony] components, it inherits a proven codebase, but gives developers a new way of writing PHP applications.
 
-IMPORTANT: This target of this tutorial is not to teach Laravel as a framework. To do that, you should follow the link:http://laravel.com/docs/4.2[official documentation]. This tutorial expects you to be familiar with Laravel and you having an application you want to deploy on OpenShift.
+IMPORTANT: This purpose of this tutorial is not to teach Laravel as a framework. To do that, you should follow the link:http://laravel.com/docs/4.2[official documentation]. This tutorial expects you to be familiar with Laravel and to already have an application you want to deploy on OpenShift.
 
-== Database
+== Connecting to a Database
+Configure the database configuration file `app/config/database.php` to integrate with OpenShift using the appropriate link:managing-environment-variables.html[environment variables].
 
-Configure the database configuration file `app/config/database.php` to consumer the information published by OpenShift using the environment variables.
+For example, if using MySQL:
 
 [source,php]
------
+----
 'mysql' => array(
     'host' => getenv('OPENSHIFT_MYSQL_DB_HOST'),
     'port' => getenv('OPENSHIFT_MYSQL_DB_PORT'),
@@ -33,9 +34,8 @@ Configure the database configuration file `app/config/database.php` to consumer 
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
 ),
------
+----
 
-Similarly you can configure your application to connect to other database.
+Similarly you can configure your application to connect to other databases.
 
-[.lead]
-link:http://localhost:4242/en/managing-adding-a-database.html[Read more on databases with OpenShift]
+link:http://localhost:4242/en/managing-adding-a-database.html[-> Read more about managing databases on OpenShift]

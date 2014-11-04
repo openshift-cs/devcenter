@@ -13,7 +13,7 @@ meta_desc: What follows is a step by step guide for walking through the JBoss De
 [float]
 = Installing JBoss Developer Studio
 [.lead]
-Installing the JBoss Developer Studio executable .jar file requires you already have Java version 6 or higher installed for your platform. What follows is a step by step guide for walking through the JBoss Developer Studio installation wizard.
+Installing the JBoss Developer Studio executable *.jar* file requires you already have Java version 6 or higher installed for your platform. What follows is a step by step guide for walking through the JBoss Developer Studio installation wizard.
 
 == Starting the Installer
 After link:https://devstudio.jboss.com/download/[downloading] the installer .jar file you need to start the installer. This can be slightly different depending on which platform you are running and what version of Java you have installed.
@@ -25,9 +25,9 @@ link:#installation-wizard[Stepping Through the Installation Wizard]
 
 [[windows]]
 === Windows
-In Windows File Explorer open the folder you downloaded the installer to. You may be able to double click on the file to get it to run but if this does not work you can follow these steps:
+In Windows File Explorer open the folder you downloaded the installer to. You may be able to double-click on the file to get it to run but if this does not work you can follow these steps:
 
-Right click on the file and select _Open with..._ from the context menu
+Right click on the file and select *Open with...* from the context menu
 
 image::jboss/developer-studio-1.jpg[JBoss DS Windows Step 1]
 
@@ -48,9 +48,9 @@ link:#top[Back to Top]
 From the terminal run this command:
 
 [source]
---
+----
 java --jar <path to installer>
---
+----
 
 link:#top[Back to Top]
 

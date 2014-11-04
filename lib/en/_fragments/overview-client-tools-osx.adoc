@@ -9,31 +9,31 @@ link:http://www.ruby-lang.org/en/downloads/[Ruby installation page] for help ins
 
 To verify that Ruby is correctly installed run:
 [source]
-----------------------------------
+----
 $ ruby -e 'puts "Welcome to Ruby"'
 Welcome to Ruby
-----------------------------------
+----
 
 There are a number of options on Mac OS X for Git. We recommend the link:http://code.google.com/p/git-osx-installer/[Git for OS X installer] - download and run the latest version of the dmg file on your system.
 
 To verify the Git for OS X installation, run:
 [source]
---------------------
+----
 $ git --version
 git version 1.7.11.1
---------------------
+----
 
 With Ruby and Git installed, use the RubyGems library system to install and run the OpenShift gem (rhc). Run:
 [source]
-----------------------
+----
 $ sudo gem install rhc
-----------------------
+----
 
 After the installation is complete, run:
 [source]
------------
+----
 $ rhc setup
------------
+----
 
 The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process. If you cannot run OpenShift client tools at this point, please contact us on link:https://www.openshift.com/irc[IRC] or visit the link:https://help.openshift.com[Help Center] for more assistance.
 
