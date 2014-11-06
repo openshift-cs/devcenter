@@ -185,11 +185,11 @@ TIP: Application storage size can be changed through either the web console or t
 
 In the web console, first click on the existing storage amount for the application catridge you want to change:
 
-image::overview-platform-features-1.png[Adding Storage to an Application Cartridge]
+image::overview-platform-features-2.png[Adding Storage to an Application Cartridge]
 
 Next, select the amount of additional storage you would like to set for *all gears of the specified  application cartridge*.
 
-image::overview-platform-features-2.png[Adding Storage to an Application Cartridge Part 2]
+image::overview-platform-features-3.png[Adding Storage to an Application Cartridge Part 2]
 
 ==== Command Line (rhc)
 
