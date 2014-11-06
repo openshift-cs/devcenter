@@ -185,7 +185,7 @@ TIP: Application storage size can be changed through either the web console or t
 
 In the web console, first click on the existing storage amount for the application catridge you want to change:
 
-image::overview-platform-features-2.png[Adding Storage to an Application Cartridge]
+image::overview-platform-features-1.png[Adding Storage to an Application Cartridge]
 
 Next, select the amount of additional storage you would like to set for *all gears of the specified  application cartridge*.
 
@@ -210,9 +210,9 @@ $ rhc cartridge storage php-5 -a <app_name> --set <Storage_Amount(GB)>
 For example:
 
 [source]
---
+----
 $ rhc cartridge storage php-5 -a racer --set 5gb
---
+----
 
 link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Gear_Storage_and_Disk_Space_Management.html[-> Learn more about managing disk space with rhc]
 
@@ -463,7 +463,7 @@ link:#team-management[Team Management] +
 All OpenShift Online users have the ability to add collaborators at the domain level. Other OpenShift users can be given access to either View, Edit, or Administer applications associated with a shared domain. The default role for additional members is `edit`.
 
 ==== Web Console
-After logging into the web console, you will see a list of your current domains and applications. Click on the domain you would like to share. You can also select the domain from the *Settings* tab in the top navigation. In the below example, the domain *brutusbeefcake* is selected from the Applications list:
+After logging into the web console, you will see a list of your current domains and applications. Click on the domain you would like to share. You can also select the domain from the *Settings* tab in the top navigation. In the below example, the domain *exampledomainone* is selected from the *Applications* list:
 
 image::overview-platform-features-16.png[Managing domain membership step 1]
 
