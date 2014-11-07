@@ -1,0 +1,30 @@
+---
+layout: jbosseap
+category:
+breadcrumb: Languages and Technologies
+parent_url: languages-overview.html
+nav_title: Server Management
+nav_priority: 30
+meta_desc: JBoss EAP OpenShift Server Management
+---
+= JBoss EAP Server Management
+
+[float]
+= JBoss EAP Server Management
+
+There are two methods you can use to connect to your JBoss EAP instance for managment purposes. You can either use the JBoss EAP CLI tools or you can connect to the JBoss EAP web console.
+
+== JBoss CLI
+The `jbosseap` cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on the gear `PATH`, located at
+`$OPENSHIFT_JBOSSEAP_DIR/tools/jboss-cli.sh`. After SSHing into your application you can use the following command to connect to the JBoss instance with the
+CLI tool:
+
+[source]
+--
+jboss-cli.sh -c --controller=${OPENSHIFT_JBOSSEAP_IP}:${OPENSHIFT_JBOSSEAP_MANAGEMENT_NATIVE_PORT}
+--
+
+Please read link:managing-remote-connection.html[the documentation] on managing remote connections to learn how to SSH to your application.
+
+== JBoss EAP Web Console
+
