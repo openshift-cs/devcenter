@@ -188,7 +188,7 @@ $ rhc env-set JAVA_OPTS_EXT="-XX:+PrintGCDetails  -Xloggc:$OPENSHIFT_LOG_DIR/gc.
 
 [WARNING]
 ====
-Please note that the startup parameters already set for Tomcat cannot be overwritten or changed. The parameters can be viewed via SSH using the following command:
+Please note that the startup parameters already set for Tomcat cannot be overwritten or changed. The parameters can be viewed via SSH'ing into your application gear using the following command:
 
 [source]
 --

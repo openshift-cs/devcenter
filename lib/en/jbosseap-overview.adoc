@@ -20,17 +20,3 @@ OpenShift Online currently supports `JBoss EAP 6.3`.
 
 image::jboss-logo.png[JBoss logo]
 
-
-
-
-
-
-=== JBoss CLI
-The `jbosseap` cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on the gear `PATH`, located at
-`$OPENSHIFT_JBOSSEAP_DIR/tools/jboss-cli.sh`. Use the following command to connect to the JBoss instance with the
-CLI tool:
-
-[source]
---
-jboss-cli.sh -c --controller=${OPENSHIFT_JBOSSEAP_IP}:${OPENSHIFT_JBOSSEAP_MANAGEMENT_NATIVE_PORT}
---
