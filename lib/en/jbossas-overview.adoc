@@ -3,21 +3,21 @@ layout: base
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
-nav_title: JBossAS
+nav_title: JBoss AS
 nav_priority: 1.2
-meta_desc: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud.
+meta_desc: JBoss AS Developers - OpenShift Resources to host your Java applications in the cloud.
 ---
-= JBossAS Application Hosting
+= JBoss AS Application Hosting
 
 [[top]]
 [[java]]
 [float]
-= JBossAS Application Hosting
+= JBoss AS Application Hosting
 
 [[jbossas]]
-== The JBossAS Cartridge
+== The JBoss AS Cartridge
 [.lead]
-Provides the JBossAS application server on OpenShift. OpenShift Online currently supports `JBossAS 7.1`.
+Provides the JBoss AS application server on OpenShift. OpenShift Online currently supports `JBoss AS 7.1`.
 
 === Template Repository Layout
 [source]
@@ -109,10 +109,10 @@ The `jbossas` cartridge provides several environment variables to reference for 
 |Variable |Description
 
 |OPENSHIFT_JBOSSAS_IP
-|The IP address used to bind JBossAS
+|The IP address used to bind JBoss AS
 
 |OPENSHIFT_JBOSSAS_HTTP_PORT
-|The JBossAS listening port
+|The JBoss AS listening port
 
 |OPENSHIFT_JBOSSAS_CLUSTER_PORT
 |TODO
@@ -152,7 +152,7 @@ Adding marker files to `.openshift/markers` will have the following effects:
 |Will prevent a JBoss container restart during build/deployment. Newly build archives will be re-deployed automatically by the JBoss HDScanner component.
 
 |java7
-|Will run JBossAS with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
+|Will run JBoss AS with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
 |===
 
 === JBoss CLI

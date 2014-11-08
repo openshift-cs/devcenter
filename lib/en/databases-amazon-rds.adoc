@@ -278,11 +278,10 @@ Content-Type: text/plain
 *When a user makes a GET request to 'api/v1/todos/:id', then the user fetches the 'to do' item with the specified id.*
 
 [source]
---
+----
 $ curl http://todo-domainname.rhcloud.com/api/v1/todos/192529
-
 {"id":192529,"todo":"Learn AngularJS","tags":["angular","learning","book-reading"],"createdOn":1389211581180}
---
+----
 ====
 
 The datasource configuration is mentioned in _.openshift/config/standalone.xml_. This is a standard JBoss configuration file. When you push the changes to your OpenShift application gear, this file will override the existing JBoss configuration file.

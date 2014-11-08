@@ -7,7 +7,7 @@ nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with PHP on OpenShift.
 ---
-= Getting Started
+= PHP Getting Started
 
 [[top]]
 [float]

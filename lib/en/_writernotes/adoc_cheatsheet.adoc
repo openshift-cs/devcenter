@@ -1,4 +1,4 @@
-= Document Title (Level 0)
+= Document Title (Level 0 - don't use except below front-matter as page title or once with a [float] tag as explained in the styleguide)
 
 //Headers (Section Titles) - don't skip levels. This will not cause an error but is bad form and will issue a warning.
 == Level 1 Section Title
@@ -50,12 +50,17 @@ _italic phrase_
 === Source Code
 Reference code like `types` or `methods` inline.
 
+==== Code block (command line or no language)
+[source]
+----
+$ rhc help
+----
+
 ==== Code block with title and syntax highlighting (.app.rb is the block header)
 [source,ruby]
 .app.rb
 ----
 require 'sinatra'
-
 get '/hi' do
   "Hello World!"
 end
@@ -65,7 +70,6 @@ end
 [source,ruby]
 ----
 require 'sinatra' // <1>
-
 get '/hi' do // <2>
   "Hello World!" // <3>
 end
@@ -116,7 +120,6 @@ include::_fragments/basics.adoc[]
 
 === Internal link
 //just point to the document you want but instead of .adoc on the end put .html - relative path
-
 link:getting-started-client-tools.html[Install the Client Tools]
 
 === External Link
@@ -137,4 +140,4 @@ link:https://openshift.redhat.com/app/console[Enter the Web Console (login requi
 |===
 
 // doc on asciidoc
-http://asciidoctor.org/docs/asciidoc-writers-guide/
+link:http://asciidoctor.org/docs/asciidoc-writers-guide/

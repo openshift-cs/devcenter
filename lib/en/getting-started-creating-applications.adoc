@@ -16,7 +16,7 @@ meta_desc: Create your first application on OpenShift either through the web con
 OpenShift Online makes it easy to create new applications, either through a few clicks in the web console or a single RHC command. Using a simple Python application as an example, this section will show you how to create an application using the link:getting-started-client-tools.html[RHC Client Tools] and what your options are when creating applications.
 
 == In This Section
-In this section we are going to spin up a plain Python application without any code dependencies.
+This guide shows you how to spin up a plain Python application without any code dependencies.
 
 link:#preliminary-steps[Preliminary Steps] +
 link:#create-app[Creating Your First Application] +
@@ -25,33 +25,31 @@ link:#section_paidtier[Premium Plan Advantages]
 
 [[preliminary-steps]]
 === Preliminary Steps
-* Signed up for https://openshift.redhat.com/app/account/new[an OpenShift account]
+* Signed up for an https://openshift.redhat.com/app/account/new[OpenShift account]
 * Installed the RHC link:getting-started-client-tools.html[command line tools]. While we could have used the web interface or the Eclipse plugin, we believe the command line give developers the full power of developing applications on OpenShift. If you would like to use the web interface instead, you can link:https://openshift.redhat.com/app/console/application_types[click here (login required)].
 
 [[create-app]]
 === Creating Your First Application
-With your RHC set-up complete, you are ready to create your first application. For the purposes of example, we are going to create a Python application. Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
+With your RHC setup complete, you are ready to create your first application. The following example will create a Python application. Before you make an application, please use the command line to create or navigate into the directory where you would like your application code to be created. At the end of application creation, the command line tools will clone the application's Git repository to your local machine in the same directory where you executed the command.
 
-Let's create an app!
-
-Here's the syntax for creating an OpenShift application.
+Here's the syntax for creating an OpenShift application:
 
 [source]
---
+----
 $ rhc app create <app_name> <web_language>
---
+----
 
 or
 
 [source]
---
+----
 $ rhc app create <app_name> <web_language> <other cartridges>
---
+----
 
-And here is how we use it to create an application named _insultapp_ using the Python 2.7 cartridge.
+And here is how to create an application named _insultapp_ using the `Python 2.7` cartridge:
 
 [source,console]
-...........................
+----
 
 [me@localhost ~]$ rhc app create insultapp python-2.7
 Application Options
@@ -83,26 +81,25 @@ Your application 'insultapp' is now available.
   Cloned to:  /home/me/insultapp
 
 Run 'rhc show-app insultapp' for more details about your app.
-...........................
+----
 
-That's it! When the command finishes executing you will have Apache HTTP server with _mod_wsgi_ running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
+When the command finishes executing you will have Apache HTTP server with *mod_wsgi* running in the cloud. It will have a public URL, which will have the form: _insultapp-<namespace>.rhcloud.com_. It will also have a private Git repository that has been cloned to your local machine, in a directory with the same name as your application.
 
-We could have made our app a scalable application (meaning each cartridge goes on its own gear) by passing in the _-s_ flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. We will discuss this later when we discuss link:#section_autoscaling[autoscaling] in depth.
+You could have made the app a scalable application (meaning each cartridge goes on its own gear) by passing in the `-s` flag. You would do this if you wanted to make sure your cartridges were not sharing resources or you wanted to enable the application server tier to scale (manually or automatically) from the database tier. We will discuss this later when we discuss link:#section_autoscaling[autoscaling] in depth.
 
-We could also pass in the _-g_ flag to use gear sizes other than the default, small size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the link:#section_paidtier[paid tier documentation] to understand other reasons to move into the paid tier.
+We could also pass in the `-g` flag to use gear sizes other than the default *small* size. On OpenShift Online's free tier, you only have access to the small gears but if you move into the paid tiers you can get a medium or large gear, which give your gear more RAM. Please see the link:#section_paidtier[paid tier documentation] to understand other reasons to move into the paid tier.
 
-Finally, we could also use the _--from-code_ option to point to a publicly accessible Git repository to serve as the template for our application. One caveat with this flag is that when OpenShift tries to create the gear, the application has to download and build the Git repository within a particular time period.
+Finally, we could also use the `--from-code` option to point to a publicly accessible Git repository to serve as the template for our application. One caveat with this flag is that when OpenShift tries to create the gear, the application has to download and build the Git repository within a particular time period.
 
 TIP: To delete OpenShift applications, use the command `rhc app delete`. This will trash all your resources in the application on the OpenShift servers and allow you to use the resources in a new application.
 
-Go ahead and look at your web page (_Figure 1_). What you should see is the template page created for all OpenShift applications. This page is pretty generic. Take a step back and marvel at what you just did. With one command you spun up Apache with _mod_wsgi_, allocated disk space, configured logging, configured Linux permissions, DNS registered a URL, and made both a remote and local Git repository. With that little bit of typing you have a fully functional application development hosting environment.
+Go ahead and look at your web page (_Figure 1_). What you should see is the template page created for all OpenShift applications. This page is pretty generic. Take a step back and marvel at what you just did. With one command you spun up Apache with *mod_wsgi*, allocated disk space, configured logging, configured Linux permissions, DNS registered a URL, and made both a remote and local Git repository. With that little bit of typing you have a fully functional application development hosting environment.
 
 [[screenshot_appcreation]]
 .A What your first application looks like!
 image::creationScreenShot.png["Screenshot of the default Python application"]
 
-
-While that was exciting and all, let's go ahead and do more with our application. Time to link:getting-started-modifying-applications.html[modify our application]
+While that was exciting and all, you can do much more with your application. Time to link:getting-started-modifying-applications.html[modify your application].
 
 link:#top[Back to Top]
 

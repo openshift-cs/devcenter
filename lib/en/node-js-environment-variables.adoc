@@ -7,6 +7,7 @@ nav_title: Environment Variables
 nav_priority: 32
 meta_desc: Node.js Runtime Environment on OpenShift
 ---
+= Node.js Environment Variables
 
 [float]
 = Environment Variables

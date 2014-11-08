@@ -25,21 +25,24 @@ link:languages-overview.html[-> Learn More About OpenShift Cartridges]
 There are a number of tools that can enhance your OpenShift experience and match your style of development. From command line scripts that you can use to automate tasks to the Web Console and even a fully integrated IDE. Below are links to a number of these tools along with getting started guides and other helpful documents to get you up and running fast.
 
 === Web Console
-An easy to use resource for managing your applications from anywhere. You can create applications, add and remove cartridges and edit account details. +
+An easy to use resource for managing your applications from anywhere. You can create applications, add and remove cartridges and edit account details.
+
 link:https://openshift.redhat.com/app/console[-> Access the Web Console]
 
 === RHC Client Tools
-The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment. +
+The OpenShift client tools make it easy to create and deploy applications, manage domains, control access to your OpenShift applications, and give you complete control of your cloud environment.
+
 link:getting-started-client-tools.html[-> Install and Use RHC]
 
 === JBoss Developer Studio
-JBoss Developer Studio, with its Eclipse Based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. Integrates with the OpenShift platform to put the ability to create, edit and deploy applications right at your fingertips. +
-link:https://www.openshift.com/page/install-jboss-developer-studio[-> Install and Use JBoss Developer Studio]
+JBoss Developer Studio, with its Eclipse Based integrated development environment, gives developers everything they need to build rich web applications and transactional enterprise applications. Integrates with the OpenShift platform to put the ability to create, edit and deploy applications right at your fingertips.
+
+link:getting-started-installing-jboss-studio.html[-> Install and Use JBoss Developer Studio]
 
 == Pricing and Premium Features
-OpenShift Online currently offers several options to developers, including a pretty generous free tier. Please visit our link:https://www.openshift.com/products/pricing[Pricing Page] for more information.
+OpenShift Online currently offers several options to developers, including a pretty generous free tier. Please visit our link:https://www.openshift.com/products/pricing[pricing page] for more information.
 
-Interested in learning more about OpenShift's premium features? Visit our link:overview-platform-features.html[Features Guide] for more information.
+Interested in learning more about OpenShift's premium features? Visit our link:overview-platform-features.html[features guide] for more information.
 
 == Get Started with OpenShift Online
 Ready to launch your big idea on OpenShift? link:getting-started-overview.html[Get started] now!

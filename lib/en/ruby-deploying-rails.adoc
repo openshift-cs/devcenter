@@ -7,7 +7,7 @@ nav_title: Ruby on Rails
 nav_priority: 80
 meta_desc: Ruby Developers - Deploying Ruby on Rails
 ---
-= Ruby Application Hosting
+= Ruby on Rails Application Hosting
 
 [float]
 = Deploying Ruby on Rails

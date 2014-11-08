@@ -13,9 +13,11 @@ meta_desc: RHC client tools are available for all operating systems.  Follow the
 [float]
 = Installing the OpenShift Client Tools
 [.lead]
-The OpenShift Client tools, known as rhc, are built and packaged using the Ruby programming language. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
+The OpenShift Client tools, known as *rhc*, are built and packaged using Ruby. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
 
-OpenShift rhc can be run on any operating system with Ruby 1.8.7 or higher assuming you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below. It is assumed that you are running the commands from a command line window, such as Command Prompt, or Terminal.
+NOTE: OpenShift rhc can be run on any operating system with *Ruby 1.8.7* or higher assuming you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below.
+
+IMPORTANT: It is assumed that you are running the commands from a command line window, such as Command Prompt or Terminal.
 
 == Select Your Operating System
 link:#windows[Windows] +
@@ -24,8 +26,7 @@ link:#fedora[Fedora] +
 link:#red-hat-enterprise-linux-6[RHEL6] +
 link:#ubuntu[Ubuntu] +
 
-If you are using link:#ruby-version-manager[Ruby
-Version Manager (rvm) see the instructions below].
+If you are using Ruby Version Manager (rvm) see the link:#ruby-version-manager[instructions below].
 
 include::_fragments/overview-client-tools-windows.adoc[]
 link:#top[Back to Top] +
@@ -42,28 +43,24 @@ link:#top[Back to Top] +
 
 [[staying-current]]
 == Staying Current
-
 Once you've installed the rhc gem, it's very easy to update. Ruby
 includes a built in mechanism for updating libraries. Just run:
 [source]
-----------------
+----
 $ gem update rhc
-----------------
+----
 
 or
 [source]
----------------------
+----
 $ sudo gem update rhc
----------------------
+----
 
-and you'll get the latest version of the tools. Be sure to check your
-specific Operating System instructions above if you have any problems.
+and you'll get the latest version of the tools. Be sure to check your specific Operating System instructions above if you have any problems.
 
-Check out the https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/index.html[detailed installation guide for
-RHC client tools].
+For more detailed information on the client tools and their installation, please visit the link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/index.html[Client Tools Installation Guide].
 
 == Other Resources
-
 For more help, please visit the link:https://help.openshift.com[OpenShift Help Center].
 
-link:#top[Back to Top] +
+link:#top[Back to Top]
