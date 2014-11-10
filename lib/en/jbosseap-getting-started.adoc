@@ -19,8 +19,8 @@ It's easy to get up and running with JBoss EAP (EAP) on OpenShift and the experi
 link:#step1[Step 1: Create a JBoss EAP Application] +
 link:#step2[Step 2: Make the First Change] +
 link:#step3[Step 3: Deploying a WAR File] +
-// link:#other[Other Tips] +
-// link:#next[Next Steps]
+link:#other[Other Tips] +
+link:#next[Next Steps]
 
 [[step1]]
 == Step 1: Create a JBoss EAP (EAP) Application
@@ -127,5 +127,63 @@ OpenShift also supports WAR files deployment. There are several processes which 
 
 link:#top[Back to Top]
 
+[[other]]
+== Other Tips
+
+=== `standalone.xml` and Modules
+Most of the behavior of EAP can be controlled through the link:https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.3/html/Administration_and_Configuration_Guide/sect-Configuration_Files.html[standalone.xml] file. In OpenShift you can find `standalone.xml` inside your application's Git repository.
+
+`standalone.xml` can be found in the `{git repo}/.openshift/config/` directory. Please be careful when making a change to the file. Also, make sure the EAP server restarts after making the change. You will also find a directory titled `modules` in the same directory. If you are using link:https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.3/html/Development_Guide/sect-About_Modules_and_the_New_Modular_Class_Loading_System_used_in_JBoss_EAP_6.html[Jboss Modules] to load classes outside of the server or application provided classes - for example custom drivers for a JDBC/JNDI connection - you would place them in this location.
+
+=== Hot Deploy and Other Markers
+
+With a normal `git push` as outlined above, Openshift starts and stops the EAP server on each build. For Java applications, a WAR/EAR file can be built and deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style.
+
+==== Other Markers
+
+In addition to the `hot_deploy` marker, the other markers probably of most use are `enable_jpda`, which turns on the jpda transport for debugging and `force_clean_build` which forces Maven to re-download all the dependencies for the application. For more markers please read the ones link:jbosseap-markers.html[for EAP].
+
+=== Adding a Database to an Appliction
+
+Find out how to add a database to your application by going to the link:managing-adding-a-database.html[Adding a Database] guide.
+
+IMPORTANT: You should only use link:managing-environment-variables.html[environment variables] to specify the connection parameters for your database. Using hard coded names, ports, or credentials limits the resusability of your app and can potentially break your app during OpenShift maintenance.
+
+By default MySQL and Postgresql have JNDI entries in your `standalone.xml`. As noted above, you can edit your `standalone.xml`, which allows you to delete or add other JNDI sources to your application. The syntax is standard syntax, there are no modifications needed for OpenShift, other than using the proper Environment Variables for the DB.
+
+=== Configuring JVM properties
+
+link:managing-environment-variables.html[Environment variables] can also be used to configure JVM properties. By setting the `JAVA_OPTS_EXT` environment variable, extra `JAVA_OPTS` can be added before the JVM is invoked. Here is an example setting the setting other garbage collection properties.
+
+[source]
+--
+$ rhc env-set JAVA_OPTS_EXT="-XX:+PrintGCDetails  -Xloggc:$OPENSHIFT_LOG_DIR/gc.log" --app mytomcatapp
+--
+
+[WARNING]
+====
+Please note that the startup parameters already set for EAP cannot be overwritten or changed. The parameters can be viewed via SSH'ing into your application gear using the following command:
+
+[source]
+--
+$ ps axwwww | grep java
+--
+====
+
+=== Clustering
+
+By default, the JBoss EAP cartridge is configured to cluster when used in a scalable application. When the second and subsequent gears are spun up with EAP, they will automatically talk across the EAP clustering ports and form a cluster. This provides for a higher availability application instance as the cluster will share sessions. There is a link:http://www.redhat.com/en/resources/jboss-eap-6-clustering[reference architecture] that covers the benefits of an EAP cluster.
+
+[[next]]
+== Next Steps
+The best next step is to create an application using OpenShift.
+
+Look at the https://www.openshift.com/application-gallery[application gallery] and https://www.openshift.com/developer-spotlight[developer spotlight] to see what other developers have created on OpenShift.
+
+Browse our http://origin.ly/[quickstarts and community cartridges] to see other exciting technology you can use in your applications.
+
+Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
+
+link:#top[Back to Top]
 
 

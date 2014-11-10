@@ -20,3 +20,5 @@ OpenShift Online currently supports `JBoss EAP 6.3`.
 
 image::jboss-logo.png[JBoss logo]
 
+[.lead]
+link:jbosseap-getting-started.html[-> Get Started With JBoss EAP on OpenShift]
