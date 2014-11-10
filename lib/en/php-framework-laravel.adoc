@@ -3,16 +3,16 @@ layout: php
 category:
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
-nav_title: Framework - Laravel
+nav_title: Laravel Framework
 nav_priority: 50
 meta_desc: PHP developers - Deploying Laravel on OpenShift
 ---
 = Laravel PHP Framework on OpenShift
 
 [float]
-= Deploying the Laravel PHP Framework on OpenShift
+= Deploying Laravel on OpenShift
 
-Laravel is a one of the younger PHP frameworks and has recently become much more popular. Built on link:http://symfony.com[Symphony] components, it inherits a proven codebase, but gives developers a new way of writing PHP applications.
+Laravel is a one of the younger PHP frameworks and has recently become much more popular. Built on link:http://symfony.com[Symfony] components, it inherits a proven codebase, but gives developers a new way of writing PHP applications.
 
 IMPORTANT: This purpose of this tutorial is not to teach Laravel as a framework. To do that, you should follow the link:http://laravel.com/docs/4.2[official documentation]. This tutorial expects you to be familiar with Laravel and to already have an application you want to deploy on OpenShift.
 
