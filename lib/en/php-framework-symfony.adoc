@@ -1,0 +1,118 @@
+---
+layout: php
+category:
+breadcrumb: Languages and Technologies
+parent_url: languages-overview.html
+nav_title: Deploying Symfony on OpenShift
+nav_priority: 50
+meta_desc: PHP developers - Deploying Symfony on OpenShift
+---
+= Deploying Symfony on OpenShift
+
+[float]
+= Deploying Symfony on OpenShift
+
+Symfony is one of the most mature and long surviving frameworks in the PHP world. It's modular component-based design allows it to be flexible while providing high performance.
+
+IMPORTANT: This target of this tutorial is not to teach Symfony as a framework. To do that, you should follow the link:http://symfony.com/doc/current/index.html[official documentation]. This tutorial expects you to be familiar with Symfony and you having an application you want to deploy on OpenShift.
+
+There is a link:https://github.com/hasinhayder/openshift-symfony-2.3.0[community contributed cartridge] that simplifies the deployment of Symfony on OpenShift in case you are starting a new project.
+
+This guide is based on link:http://hasin.me/2013/10/27/install-and-run-symfony-2-3-0-in-openshift-instances-in-just-one-minute-with-this-boilerplate-repository/[this] and link:http://hasin.me/2013/10/25/running-symfony-2-applications-in-openshift/[this] articles.
+
+== Get started
+
+Create an empty application
+
+[source,console]
+-----
+rhc app create sym php-5.4 mysql-5.5
+-----
+
+and remove the provided `index.php` file.
+
+== Enable Composer
+
+To get composer up an running, create a marker file
+
+[source,console]
+-----
+touch .openshift/markers/use_composer
+-----
+
+== Provide application code
+
+Copy your application code to the repository or create new application
+
+[source,console]
+-----
+composer create-project symfony/framework-standard-edition php
+-----
+
+and move all the file to the repository root
+
+[source,console]
+-----
+mv php/* .
+mv php/.gitignore .
+rmdir php
+-----
+
+== Allow OpenShift to pre-build bootstrap cache
+
+OpenShift will run composer for us to install the dependencies of out project, however Symfony need to generate cache file for bootstapping itself.
+
+Create a new action hook `.openshift/action_hooks/build` with content
+
+[source,console]
+-----
+cd $OPENSHIFT_REPO_DIR
+
+php `find -name build_bootstrap.php`
+-----
+
+and make it executable
+
+[source,console]
+-----
+chmod +x .openshift/action_hooks/build
+-----
+
+== Allow parameters.yml to be committed
+
+Edit the `.gitignore` file and remove
+
+[source,console]
+-----
+app/config/parameters.yml
+-----
+
+== Database
+
+Let Symfony to auto-load a configuration file providing database connectivity parameters.
+
+Edit file `app/config/config.yml` and add a line to the `imports:` section
+
+[source,yaml]
+-----
+imports:
+    - { resource: params.php }
+-----
+
+and create databse configuration file `app/config/params.php`
+
+[source,php]
+-----
+<?php
+  $container->setParameter('database_host', getEnv("OPENSHIFT_MYSQL_DB_HOST"));
+  $container->setParameter('database_port', getEnv("OPENSHIFT_MYSQL_DB_PORT"));
+  $container->setParameter('database_name', getEnv("OPENSHIFT_APP_NAME"));
+  $container->setParameter('database_user', getEnv("OPENSHIFT_MYSQL_DB_USERNAME"));
+  $container->setParameter('database_password', getEnv("OPENSHIFT_MYSQL_DB_PASSWORD"));
+?>
+-----
+
+Similarly you can configure your application to connect to other database.
+
+[.lead]
+link:http://localhost:4242/en/managing-adding-a-database.html[Read more on databases with OpenShift]
