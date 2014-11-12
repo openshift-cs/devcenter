@@ -146,7 +146,7 @@ link:#top[Back to Top]
 |===
 |help |tail_all
 
-|This section describes a list of common commands that can help you to manage and debug your applications.
+|This section describes a list of common commands that can help you to manage and debug your applications once you have SSH'ed into your application.
 |Displays the last entries in your log files as they are written to
 
 You can hit <ctrl>-c to exit this command
