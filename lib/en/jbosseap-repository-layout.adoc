@@ -1,13 +1,12 @@
 ---
 layout: jbosseap
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
-nav_title: repository layout
+nav_title: Repository Layout
 nav_priority: 20
 meta_desc: JBoss EAP Developers - OpenShift Cartridge Repository Layout
 ---
-
 = JBoss EAP Repository Layout
 
 [float]
@@ -24,6 +23,4 @@ pom.xml            Example Maven build file
   markers/         See the Markers documentation <2>
 --
 <1> link:managing-action-hooks.html[Action Hooks] documentation
-<2> link:jbosseap-markers.html{Markers} documentation
-
-
+<2> link:jbosseap-markers.html[Markers] documentation

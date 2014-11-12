@@ -16,14 +16,10 @@ meta_desc: Python Developers - OpenShift Resources to get your Python applicatio
 [.lead]
 With OpenShift you can easily deploy and run Python applications using your favorite frameworks and databases. Want a Tornado server running Django and backed by MySQL? Or maybe you're looking for Flask and MongoDB? OpenShift Online currently supports `Python 2.6`, `2.7`, and `3.3`.
 
-Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. The Web Server Gateway Interface (WSGI) defines a simple and universal interface between web servers and web applications or frameworks for the Python programming language. -> link:https://www.python.org/[Learn more]
-
-link:#simplify[Simplify your Python Deployments] +
-link:#python[The Python Cartridges]
+Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. The Web Server Gateway Interface (WSGI) defines a simple and universal interface between web servers and web applications or frameworks for the Python programming language. link:https://www.python.org/[-> Learn more]
 
 image::python-logo.png[Python logo]
 
-[[simplify]]
 == The Python Cartridges
 The `python` cartridges provide http://www.python.org/[Python] on OpenShift. Currently OpenShift Online supports Python 2.6, 2.7, and 3.3.
 Creating different versions is as easy as just changing the number on the cartridge:

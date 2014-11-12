@@ -12,10 +12,11 @@ meta_desc: JBoss EAP Developers - OpenShift Resources to host your Java applicat
 [[top]]
 [float]
 = Red Hat JBoss Enteprise Application Platform Hosting
-
-== The JBoss EAP Cartridge
 [.lead]
-Provides the JBoss EAP application server on OpenShift. This cartridge provides a supported Java EE Application Server with Red Hat Support.
+*Red Hat® JBoss® Enterprise Application Platform* (JBoss EAP) for OpenShift Online by Red Hat
+was built specifically to deploy full Java EE applications into the cloud.
+
+The *JBoss EAP Cartridge* provides the JBoss EAP application server on OpenShift. This cartridge provides a supported Java EE Application Server.
 OpenShift Online currently supports `JBoss EAP 6.3`.
 
 image::jboss-logo.png[JBoss logo]

@@ -1,18 +1,16 @@
 ---
 layout: jbosseap
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
 nav_title: Markers
 nav_priority: 50
 meta_desc: JBoss EAP Markers
 ---
-
 = JBoss EAP Markers
 
 [float]
 = JBoss EAP markers
-
 Adding marker files to `.openshift/markers` will have the following effects:
 
 [cols="1,3",options="header"]

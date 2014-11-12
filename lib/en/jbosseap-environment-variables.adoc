@@ -1,19 +1,16 @@
 ---
 layout: jbosseap
-category: 
+category:
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
 nav_title: Environment Variables
 nav_priority: 40
 meta_desc: JBoss EAP Environment Variables
 ---
-
 = JBoss EAP Environment Variables
 
 [float]
 = JBoss EAP Environment Variables
-
-
 The `jbosseap` cartridge provides several environment variables to reference for ease
 of use:
 

@@ -14,14 +14,14 @@ meta_desc: Node.js Project Structure
 Nodejs applications should include the following basic project structure:
 
 [source]
---
+----
 server.js                The default server script name
 package.json             Npm package descriptor: dependency list, init config
 node_modules/            Locally bundled module dependencies (Recommended)
 .openshift/              OpenShift-specific files (Optional)
     markers/             OpenShift configuration flags, see "Marker Files"
     action_hooks/        Custom build scripts, see "Action Hooks"
---
+----
 
 [[server.js]]
 == `server.js`

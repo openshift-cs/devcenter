@@ -23,6 +23,7 @@ public/            Content (images, CSS, etc. available to the public)
 config.ru          This file is used by Rack-based servers to start the application.
 .openshift/        Location for OpenShift specific files
     action_hooks/  See the Action Hooks documentation <1>
-    markers/       See the Markers section below
+    markers/       See the Markers section below <2>
 --
-<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
+<1> link:managing-action-hooks.html[Action Hooks] documentation
+<2> link:ruby-markers.html[Markers] documentation

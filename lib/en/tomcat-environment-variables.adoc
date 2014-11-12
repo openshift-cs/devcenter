@@ -14,17 +14,22 @@ meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS environment v
 
 The Tomcat cartridge provides several environment variables to reference for ease of use:
 
-`OPENSHIFT_JBOSSEWS_IP` +
-The IP address used to bind EWS
+[cols="1,2",options="header"]
+|===
+|Variable Name |Purpose
 
-`OPENSHIFT_JBOSSEWS_HTTP_PORT` +
-The EWS listening port
+|OPENSHIFT_JBOSSEWS_IP
+|The IP address used to bind EWS
 
-`OPENSHIFT_JBOSSEWS_JPDA_PORT` +
-The EWS JPDA listening port
+|OPENSHIFT_JBOSSEWS_HTTP_PORT
+|The EWS listening port
 
-`JAVA_OPTS_EXT` +
-Appended to JAVA_OPTS prior to invoking the Java VM.
+|OPENSHIFT_JBOSSEWS_JPDA_PORT
+|The EWS JPDA listening port
+
+|JAVA_OPTS_EXT
+|Appended to JAVA_OPTS prior to invoking the Java VM
+|===
 
 For more information, consult the link:managing-environment-variables.html[Environment Variables] guide.
 
