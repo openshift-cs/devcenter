@@ -14,14 +14,22 @@ meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 environme
 
 The `python` cartridge supports the following environment variables:
 
-OPENSHIFT_PYTHON_WSGI_APPLICATION:: Set custom path to the WSGI entry-point, eg.
-using the `rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=app/altenative-wsgi.py`
+[cols="1,2",options="header"]
+|===
+|Variable Name |Purpose
+
+|OPENSHIFT_PYTHON_WSGI_APPLICATION
+|Set custom path to the WSGI entry-point, eg. using the `rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=app/altenative-wsgi.py`
 command.
-OPENSHIFT_PYTHON_REQUIREMENTS_PATH:: Set custom path to the pip requirements file,
-eg. using the `rhc env set OPENSHIFT_PYTHON_REQUIREMENTS_PATH=requirements/production.txt`
+
+|OPENSHIFT_PYTHON_REQUIREMENTS_PATH
+|Set custom path to the pip requirements file, eg. using the `rhc env set OPENSHIFT_PYTHON_REQUIREMENTS_PATH=requirements/production.txt`
 command.
+|===
 
 For some frameworks (such as Django) it is possible to set the `DEBUG` user
 environment variable using the `rhc env set DEBUG=True` command.
 In that case, Django will run in 'debug' mode, with more verbose logging and
 nice error reporting of HTTP 500 errors.
+
+See the other link:managing-environment-variables.html[Environment Variables] that are available on OpenShift.

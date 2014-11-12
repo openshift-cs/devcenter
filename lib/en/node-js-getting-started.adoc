@@ -18,25 +18,25 @@ The link:/en/getting-started-client-tools.html[`rhc` command-line tool] makes it
 [[launch]]
 == Step1: Create a Nodejs Application
 
-To launch a new application named "myapp", using the `nodejs-0.10` web runtime cartridge:
+To launch a new application named *myapp*, using the `nodejs-0.10` web runtime cartridge:
 [source, console]
---
+----
 $ rhc app create myapp nodejs-0.10
---
+----
 
 OpenShift's default platform features include automatic DNS setup, SSH services, and a git server. The resulting output should contain a live URL where your application will be available:
 
 [source]
---
+----
 https://MyApp-MyNamespace.rhcloud.com/
---
+----
 
 By default, the `rhc app create` command will also attempt to create a local git repository (for development use).  This repo will contain a `git remote` address that can be used to push updates to your site.
 
 The output will look something like this:
 
 [source, console]
---
+----
 Application Options
 -------------------
 Domain:     shifter
@@ -60,7 +60,7 @@ Your application 'myapp' is now available.
   Cloned to:  /home/ryanj/src/myapp <2>
 
 Run 'rhc show-app myapp' for more details about your app.
---
+----
 <1> Public URL of application
 <2> Location of local Git repository
 
@@ -73,9 +73,9 @@ Running `rhc help app create` provides an excellent reference of optional flags.
 
 This command creates a new horizontally scalable "parks" application from an existing project repo, using the `nodejs-0.10` and `postgresql-9.2` cartridges as runtime dependencies, while setting an env variable named "FOO" to the value of "BAR" in the resulting system envonment:
 [source]
---
+----
 $ rhc app create parks nodejs-0.10 postgresql-9.2 -s --from-code=https://github.com/ryanj/restify-postGIS.git FOO=BAR
---
+----
 
 OpenShift also provides link:https://blog.openshift.com/launching-applications-with-openshifts-web-based-workflow[browser-based workflows for launching new hosted environments right from the Web].
 

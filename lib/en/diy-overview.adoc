@@ -37,7 +37,15 @@ NOTE: Please leave the `static` directory in place (alter but do not delete) but
 === Environment Variables
 The `diy` cartridge provides the following environment variables to reference for ease of use:
 
-`OPENSHIFT_DIY_IP`:: The IP address assigned to the application
-`OPENSHIFT_DIY_PORT`:: The port assigned to the the application
+[cols="1,2",options="header"]
+|===
+|Variable Name |Purpose
 
-For more information about environment variables, consult the link:managing-environment-variables.html#environment-variables[Environment Variables Guide].
+|OPENSHIFT_DIY_IP
+|The IP address assigned to the application
+
+|OPENSHIFT_DIY_PORT
+|The port assigned to the the application
+|===
+
+See the other link:managing-environment-variables.html[Environment Variables] that are available on OpenShift.

@@ -7,8 +7,7 @@ nav_title: Deployment Options
 nav_priority: 30
 meta_desc: Python developers - OpenShift Online Python 2.6, 2.7, & 3.3 cartridge deployment options
 ---
-
-= Python Deployment Information
+= Python Deployment Options
 
 [float]
 = Python Deployment Information
