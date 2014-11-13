@@ -26,7 +26,7 @@ As part of the initial configuration, you have the option of automatically uploa
 
 TIP: Red Hat recommends that you use the interactive setup wizard to create and configure SSH keys so that your workstation can authenticate and communicate with the remote server. Run the interactive setup wizard with the `rhc setup` command.
 
-IMPORTANT: For Windows users, `rhc setup` will only upload your public key if you've already insatlled Ruby and  link:http://msysgit.github.io/[Git for Windows]. Alternatively, you can use link:#download-the-putty-installer[PuTTY] to connect to your application with SSH.
+IMPORTANT: For Windows users, `rhc setup` will only upload your public key if you've already installed Ruby and  link:http://msysgit.github.io/[Git for Windows]. Alternatively, you can use link:#download-the-putty-installer[PuTTY] to connect to your application with SSH.
 
 One `rhc setup` is run, you can log into your applications remotely from your computer, or connect and download the application source code via Git. If you have multiple computers, repeat the `rhc setup` procedure so that each computer has access to the application.
 
@@ -35,7 +35,7 @@ If you would prefer to manually create and upload an SSH key, you can follow thi
 link:#top[Back to Top]
 
 [[connecting-to-your-application]]
-=== Connecting to Your Application
+=== Connecting to an Application
 Once you have an application up and running and your keys are uploaded to the server you can now SSH into the remote server from your computer using the `rhc ssh` command.
 
 To see all available options for the `rhc ssh` command, run:
