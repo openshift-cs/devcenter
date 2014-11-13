@@ -34,13 +34,7 @@ Action hook scripts need to be added and committed in Git just like any other re
 == Cartridge Control Action Hooks
 Cartridges implement a standard set of named control actions which allow them to function within OpenShift. Each time OpenShift invokes one of these cartridge actions, a standard set of application action hooks are executed to give the application developer an opportunity to integrate more closely with specific cartridges.
 
-To use these hooks in your application create a file in:
-
-----
-<repository>/.openshift/action_hooks
-----
-
-with the same name as the event you want to trigger.
+To use these hooks in your application create a file in `<repository>/.openshift/action_hooks` with the same name as the event you want to trigger.
 
 NOTE: Cartridge-scoped action hooks are special in that they are sourced in into the
 same shell environment used to execute the action they surround. This allows cartridge
