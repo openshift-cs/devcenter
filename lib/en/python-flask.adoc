@@ -32,7 +32,7 @@ link:#next[Next Steps]
 [[step1]]
 == Step 1: Create Python Application
 
-Create a Python 2.7 application on OpenShift with the following terminal command. You will need link:https://www.openshift.com/app/account[an OpenShift account] and link:http://localhost:4242/en/getting-started-client-tools.html[RHC]. More details about this process are covered in the link:python-getting-started.html[Getting Started with Python tutorial].
+Create a Python 2.7 application on OpenShift with the following terminal command. You will need link:https://www.openshift.com/app/account[an OpenShift account] and link:getting-started-client-tools.html[RHC]. More details about this process are covered in the link:python-getting-started.html[Getting Started with Python tutorial].
 
 [source, console]
 ----

@@ -112,4 +112,4 @@ and create databse configuration file `app/config/params.php`:
 Similarly you can configure your application to connect to other databases.
 
 [.lead]
-link:http://localhost:4242/en/managing-adding-a-database.html[Read more on using databases with OpenShift]
+link:managing-adding-a-database.html[Read more on using databases with OpenShift]
