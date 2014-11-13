@@ -61,13 +61,12 @@ $ rmdir php
 == Allow OpenShift to Pre-build Bootstrap Cache
 OpenShift will run composer to install the dependencies of the project, however Symfony needs to generate cache file for bootstapping itself.
 
-Create a new action hook `.openshift/action_hooks/build` with content:
+Create a new link:managing-action-hooks.html[action hook] `.openshift/action_hooks/build` with content:
 
 [source,console]
 ----
-$ cd $OPENSHIFT_REPO_DIR
-
-$ php `find -name build_bootstrap.php`
+cd $OPENSHIFT_REPO_DIR
+php `find -name build_bootstrap.php`
 ----
 
 and make it executable:
