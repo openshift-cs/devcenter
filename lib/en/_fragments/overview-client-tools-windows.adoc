@@ -23,7 +23,7 @@ You should get a response with your installed Ruby verion:
 ruby 1.9.3p550 (2014-10-27) [i386-mingw32]
 ----
 
-If the ruby version message does not display, the Ruby executable may not have been added to the path. Restart the installation process and ensure the *Add Ruby executables to your PATH* check box is selected.
+If the Ruby version message does not display, the Ruby executable may not have been added to the path. Restart the installation process and ensure the *Add Ruby executables to your PATH* check box is selected.
 
 [[installing-git]]
 === Step 2 - Install Git
