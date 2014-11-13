@@ -18,7 +18,7 @@ The Ruby cartridge provides several environment variables to reference for ease 
 |===
 |Variable Name |Purpose
 
-|OPENSHIFT_RUBY_LOGDIR
+|OPENSHIFT_RUBY_LOG_DIR
 |Location of log files
 
 |OPENSHIFT_RUBY_VERSION
