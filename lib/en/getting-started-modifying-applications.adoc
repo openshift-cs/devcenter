@@ -169,7 +169,7 @@ link:#top[Back to Top]
 
 === Application Types That Can or Cannot Be Hot Deployed
 |===
-|Variable Name|Example
+|Type of Application|Hot Deploy
 
 |JBoss Application Server|Yes
 |JBoss Enterprise Application Platform|Yes
