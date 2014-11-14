@@ -20,15 +20,15 @@ OpenShift uses SSH for performing Git operations and to provide remote access to
 
 [[setting-up-ssh-keys]]
 == Setting up SSH Keys
-When the link:getting-started-installing-client-tools.html[client tools are installed] and the `rhc setup` command is initially run to configure the client tools, the setup wizard generates a new pair of SSH keys in the default .ssh folder of your home directory.
+When the link:getting-started-installing-client-tools.html[client tools are installed] and the `rhc setup` command is initially run to configure the client tools, the setup wizard generates a new pair of SSH keys in the default `.ssh` folder of your home directory.
+
+IMPORTANT: For Windows users, `rhc setup` will only upload your public key if you've already installed Ruby and  link:http://msysgit.github.io/[Git for Windows]. Alternatively, you can use link:#download-the-putty-installer[PuTTY] to connect to your application with SSH.
 
 As part of the initial configuration, you have the option of automatically uploading the public key to the remote server. Your account can have one or more public SSH keys associated with it, and you can access your account from any workstation that has the private SSH key on it.
 
 TIP: Red Hat recommends that you use the interactive setup wizard to create and configure SSH keys so that your workstation can authenticate and communicate with the remote server. Run the interactive setup wizard with the `rhc setup` command.
 
-IMPORTANT: For Windows users, `rhc setup` will only upload your public key if you've already installed Ruby and  link:http://msysgit.github.io/[Git for Windows]. Alternatively, you can use link:#download-the-putty-installer[PuTTY] to connect to your application with SSH.
-
-One `rhc setup` is run, you can log into your applications remotely from your computer, or connect and download the application source code via Git. If you have multiple computers, repeat the `rhc setup` procedure so that each computer has access to the application.
+Once `rhc setup` is run, you can log into your applications remotely from your computer, or connect and download the application source code via Git. If you have multiple computers, repeat the `rhc setup` procedure so that each computer has access to the application.
 
 If you would prefer to manually create and upload an SSH key, you can follow this link:http://docs.openshift.com/online/user_guide/ssh_keys.html#tutorial-creating-and-uploading-ssh-keys[guide]. SSH keys can be uploaded using the `rhc sshkey add` command or through the web console.
 
@@ -36,28 +36,9 @@ link:#top[Back to Top]
 
 [[connecting-to-your-application]]
 === Connecting to an Application
-Once you have an application up and running and your keys are uploaded to the server you can now SSH into the remote server from your computer using the `rhc ssh` command.
+Once you have created an application and set up your SSH keys (either by `rhc setup` or manual upload), you can SSH into the remote server using the `rhc ssh` command.
 
-To see all available options for the `rhc ssh` command, run:
-[source]
-----
-$ rhc ssh --help
-----
-
-Here are the current available options:
-[source]
-----
-Options
-  -n, --namespace NAME      Name of a domain
-  --ssh PATH                Path to your SSH executable or additional options
-  --gears                   Execute this command on all gears in the app.  Requires a command.
-  --limit INTEGER           Limit the number of simultaneous SSH connections opened with --gears (default: 5).
-  --raw                     Output only the data returned by each host, no hostname prefix.
-  -a, --app NAME            Name of an application
-  --command COMMAND         Command to run in the application's SSH session
-----
-
-To SSH into a specific application, include the name of the application:
+To SSH into a specific application:
 [source]
 ----
 $ rhc ssh <app_name>
@@ -103,7 +84,7 @@ The following commands are available to help control your OpenShift application 
 gear            control your application (start, stop, restart, etc)
                 or deps with --cart      (gear start --cart mysql-5.1)
 tail_all        tail all log files
-export          list available environment variables
+export          list available environment variables <1>
 rm              remove files / directories
 ls              list files / directories
 ps              list running applications
@@ -117,6 +98,7 @@ Deprecated:
 ctl_app         control your application (start, stop, restart, etc)
 ctl_all         control application and deps like mysql in one command
 ----
+<1> Find more information on using link:managing-environment-variables.html[Environment Variables]
 
 link:#top[Back to Top]
 
