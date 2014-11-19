@@ -13,7 +13,7 @@ meta_desc: An overview of the JBoss Unified Push runtime available on OpenShift.
 [float]
 = JBoss Unified Push
 [.lead]
-The Unified Push server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment.  Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
+The Unified Push server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment. Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
 
 link:#product-highlights[Product Highlights] +
 link:#support[Support] +
@@ -21,16 +21,16 @@ link:#getting-started[Getting Started] +
 link:#video-walkthrough[Video Walkthrough]
 
 == Overview
-This cartridge provides the Red Hat JBoss Unified Push Server for easy deployment to OpenShift.  The Red Hat JBoss Unified Push Server is a cloud based service that allows for sending native push notifications to different mobile platforms. The initial version of the server supports link:https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9[Apple’s APNs] and link:http://developer.android.com/google/gcm/index.html[Google Cloud Messaging].
+This cartridge provides the Red Hat JBoss Unified Push Server for easy deployment to OpenShift. The Red Hat JBoss Unified Push Server is a cloud based service that allows for sending native push notifications to different mobile platforms. The initial version of the server supports link:https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9[Apple's APNs] and link:http://developer.android.com/google/gcm/index.html[Google Cloud Messaging].
 
 [[product-highlights]]
 == Product Highlights
-Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application.  You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few.  However the use-cases that it solves can be handled no other way.
+Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application. You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few. However the use-cases that it solves can be handled no other way.
 
-This is where the Red Hat JBoss Unified Push server comes in.  With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
+This is where the Red Hat JBoss Unified Push server comes in. With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
 
 === Application and Language Agnostic
-The backend integration based on a completely RESTful architecture.  This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.
+The backend integration based on a completely RESTful architecture. This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.
 There are however, easy to use language specific libraries available to make interacting with the server even easier.
 
 * Java Sender, 1.0.0
@@ -46,7 +46,7 @@ link:http://www.jboss.org/unifiedpush[Client side SDKs] which help to register t
 * iOS Push 1.0.0
 
 === Get Pushing Faster
-To get started using the JBoss Unified Push Server there are a series of quickstarts, from the basics, to business logic integration.  Each quickstart comes with multiple client options (Android, iOS, and Apache Cordova (jQuery Mobile & Angular/Ionic).
+To get started using the JBoss Unified Push Server there are a series of quickstarts, from the basics, to business logic integration. Each quickstart comes with multiple client options (Android, iOS, and Apache Cordova (jQuery Mobile & Angular/Ionic).
 
 *Helloworld Push*
 
@@ -114,7 +114,7 @@ rhc ssh {APP_NAME}
 
 **Manage JBoss EAP configuration**
 
-You should not need to configure the underlying JBoss EAP server, as this is a cloud service, not a runtime.  However, if required the main configuration file for JBoss EAP is standalone.xml
+You should not need to configure the underlying JBoss EAP server, as this is a cloud service, not a runtime. However, if required the main configuration file for JBoss EAP is standalone.xml
 This file is available in your cartridge repository at location ./unified-push/standalone/configuration/standalone.xml.
 This is useful for changing container configurations such as root logger level and so on.
 
