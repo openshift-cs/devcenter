@@ -25,12 +25,12 @@ This cartridge provides the Red Hat JBoss Unified Push Server for easy deploymen
 
 [[product-highlights]]
 == Product Highlights
-Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application.  You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few.  However the use-cases that it solves can be handled no other way.  
+Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application.  You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few.  However the use-cases that it solves can be handled no other way.
 
 This is where the Red Hat JBoss Unified Push server comes in.  With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
 
-=== Application and Language Agnostic 
-The backend integration based on a completely RESTful architecture.  This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.  
+=== Application and Language Agnostic
+The backend integration based on a completely RESTful architecture.  This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.
 There are however, easy to use language specific libraries available to make interacting with the server even easier.
 
 * Java Sender, 1.0.0
@@ -50,7 +50,7 @@ To get started using the JBoss Unified Push Server there are a series of quickst
 
 *Helloworld Push*
 
-The HelloWorld is a set of simple clients that show how to register a device with the UnifiedPush Server. On the Admin UI of the server you can use the “Send Push” menu to send a message to the different applications, running on your phone.
+The HelloWorld is a set of simple clients that show how to register a device with the UnifiedPush Server. On the Admin UI of the server you can use the "Send Push" menu to send a message to the different applications, running on your phone.
 
 *Mobile Contacts Push*
 
@@ -64,7 +64,7 @@ JBoss Unified Push on OpenShift is available as a Developer Preview to allow you
 
 We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms, which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
 
-For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center]. 
+For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
 
 You can provide feedback, requests or contributions for the JBoss Unified Push cartridge on jboss.org at: link:https://developer.jboss.org/en/products/unifiedpush[https://developer.jboss.org/en/products/unifiedpush]
 
@@ -79,7 +79,7 @@ You have different options to create your application.
 
 **Approach 1: use the OpenShift create application page**
 
-Go to the link:https://openshift.redhat.com/app/console/application_types[OpenShift create application page] and select the “JBoss Unified Push” cartridge from the “xPaaS” category. Configure the application in the following pages (you need to specify at least the Public URL. If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them in the Gears field).
+Go to the link:https://openshift.redhat.com/app/console/application_types[OpenShift create application page] and select the "JBoss Unified Push" cartridge from the "xPaaS" category. Configure the application in the following pages (you need to specify at least the Public URL. If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them in the Gears field).
 
 **Approach 2: use the rhc command line**
 
@@ -100,7 +100,7 @@ When the installation completes, you will be presented with a list of generated 
 image::push_creds.png[The Red Hat JBoss Unified Push Server cartridge defaults to using MySQL.]
 
 === Administration
-Once the server is running access it via https://{APP_NAME}-{NAMESPACE}.rhcloud.com/ag-push. For more information on using the console, see the link:http://docs.jboss.org/unifiedpush/[JBoss Unified Push documentation].
+Once the server is running access it via _\https://{APP_NAME}-{NAMESPACE}.rhcloud.com/ag-push_. For more information on using the console, see the link:http://docs.jboss.org/unifiedpush/[JBoss Unified Push documentation].
 
 The default username and password are `admin` and `123`, respectively. For security, on first login you are immediately prompted to change the password.
 
