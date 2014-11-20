@@ -13,7 +13,7 @@ meta_desc: An overview of the JBoss Unified Push runtime available on OpenShift.
 [float]
 = JBoss Unified Push
 [.lead]
-The Unified Push server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment. Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
+The Unified Push Server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment. Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
 
 link:#product-highlights[Product Highlights] +
 link:#support[Support] +
@@ -27,7 +27,7 @@ This cartridge provides the Red Hat JBoss Unified Push Server for easy deploymen
 == Product Highlights
 Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application. You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few. However the use-cases that it solves can be handled no other way.
 
-This is where the Red Hat JBoss Unified Push server comes in. With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
+This is where the Red Hat JBoss Unified Push Server comes in. With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
 
 === Application and Language Agnostic
 The backend integration based on a completely RESTful architecture. This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.
@@ -39,7 +39,7 @@ There are however, easy to use language specific libraries available to make int
 The link:http://www.jboss.org/unifiedpush[API docs] discuss how to send a push notification, using curl.
 
 === Simplified Unified API
-link:http://www.jboss.org/unifiedpush[Client side SDKs] which help to register the device from within your application with the UnifiedPush Server. Below is a list of supported platforms
+link:http://www.jboss.org/unifiedpush[Client side SDKs] which help to register the device from within your application with the Unified Push Server. Below is a list of supported platforms
 
 * Apache Cordova Push Plugin 1.0.2
 * Android Push 1.0.0
@@ -50,7 +50,7 @@ To get started using the JBoss Unified Push Server there are a series of quickst
 
 *Helloworld Push*
 
-The HelloWorld is a set of simple clients that show how to register a device with the UnifiedPush Server. On the Admin UI of the server you can use the "Send Push" menu to send a message to the different applications, running on your phone.
+The HelloWorld is a set of simple clients that show how to register a device with the Unified Push Server. On the Admin UI of the server you can use the "Send Push" menu to send a message to the different applications, running on your phone.
 
 *Mobile Contacts Push*
 
