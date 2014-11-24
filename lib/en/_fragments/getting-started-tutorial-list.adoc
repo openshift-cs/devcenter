@@ -23,7 +23,7 @@ link:php-framework-symfony.html[Symfony]
 |link:python-flask.html[Flask]
 
 |link:ruby-getting-started.html[Ruby]
-|Coming Soon
+|link:ruby-deploying-rails.html[Rails]
 
 |link:perl-overview.html[Perl]
 |Coming Soon
