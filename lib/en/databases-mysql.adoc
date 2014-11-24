@@ -24,13 +24,25 @@ The `mysql` cartridge provides several environment variables to reference for ea
 |===
 |Variable |Description
 
-|OPENSHIFT_MYSQLDB_DB_HOST
-|The MySQL IP address
+|OPENSHIFT_MYSQL_DB_HOST
+|The MySQL server IP address
 
-|OPENSHIFT_MYSQLDB_DB_PORT
-|The MySQL port
+|OPENSHIFT_MYSQL_DB_PORT
+|The MySQL server port
 
-|OPENSHIFT_MYSQLDB_DB_LOG_DIR
+|OPENSHIFT_MYSQL_DB_USERNAME
+|MySQL username credential
+
+|OPENSHIFT_MYSQL_DB_PASSWORD
+|MySQL password credential
+
+|OPENSHIFT_MYSQL_DB_URL
+|MySQL server configuration url (mysql://OPENSHIFT_MYSQL_DB_USERNAME:OPENSHIFT_MYSQL_DB_PASSWORD@OPENSHIFT_MYSQL_DB_HOST:OPENSHIFT_MYSQL_DB_PORT) 
+
+|OPENSHIFT_MYSQL_DB_SOCKET
+|MySQL socket connection file
+
+|OPENSHIFT_MYSQL_DB_LOG_DIR
 |The path to the MySQL log directory
 
 |OPENSHIFT_MYSQL_VERSION

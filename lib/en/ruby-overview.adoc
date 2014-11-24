@@ -14,11 +14,9 @@ meta_desc: Ruby Developers - OpenShift Resources to get your Ruby applications h
 [.lead]
 With OpenShift you can easily deploy and run Ruby applications using your favorite frameworks and databases. OpenShift Online currently supports `Ruby 1.8`, `1.9`, and `2.0`.
 
-TIP: Ruby is a dynamic, reflective, general-purpose object-oriented programming language. Popular development frameworks include Ruby on Rails and Sinatra.
+Ruby is a dynamic, reflective, general-purpose object-oriented programming language. Popular development frameworks include Ruby on Rails and Sinatra.
 
 image::ruby-logo.png[Ruby logo]
-
-Rails logo, Sinatra logo, Padrino logo, etc.
 
 [.lead]
 link:ruby-getting-started.html[-> Get Started With Ruby on OpenShift]

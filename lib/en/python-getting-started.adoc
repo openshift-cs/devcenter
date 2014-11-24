@@ -15,7 +15,7 @@ meta_desc: Get started with Python 2.6, 2.7, or 3.3 on OpenShift.
 By default, OpenShift comes with all 3 versions of Python and the pattern of building and deploying applications is the same for all three. The Python cartridges are based on a link:http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface[WSGI server model] of Python web creation.
 This tutorial will start with showing you how to create an application using the default, Apache with Mod_WSGI, but it will also show you to use link:http://www.cherrypy.org//[CherryPy] as an example of using a different WSGI server.
 
-link:#step1[Step 1: Create a Tomcat Application] +
+link:#step1[Step 1: Create a Python Application] +
 link:#step2[Step 2: Make the First Change] +
 link:#step3[Step 3: Managing Application Package Dependencies]
 link:#step4[Step 4: Using a Different Server than Mod_WSGI] +
@@ -86,30 +86,30 @@ To make the first change, edit `wsgi.py` in the base of the local git repository
 
 Now that you have made this incredibly complicated code change, the code must be deployed to the server. Accomplish this task using *Git*.
 
-. First `commit` our local changes to the git repository and include a message for the commit:
+. To add the change to the Git repository's index and stage it for the next commit, use the command `git add`:
 +
-[source]
-----
-$ git commit -a -m "code ninja skillz"
-----
+[source, console]
+--
+$ git add --all .
+--
++
+. Next `commit` the staged changes to the Git repository, with a log message to explain the changes:
++
+[source, console]
+--
+$ git commit -m "Your commit message"
+--
 +
 . Finally, `push` these changes to the remote OpenShift application.
 +
-[source]
-----
+[source, console]
+--
 $ git push
-----
-
-NOTE: If any new files were added to your local repo, the use the git  `add --all` command to track new files as part of the repository:
-[source]
-----
-$ git add --all .
-----
-
+--
 
 The output of the push command will first show the git push and then the build process and deployment for the OpenShift application. When the build is finished, go back to the application's URL (_mypythonapp-mydomain.rhcloud.com_) and see a page which just says "Hello World" in nice big font.
 
-This is the basic process to follow when developing an application: `git add` (optional), code change, `git commit`, and finally `git push`.
+This is the basic process to follow when developing an application: `git add`, `git commit`, and finally `git push`.
 
 If you are curious about Git or would like to learn more, the link:http://git-scm.com/book[Pro Git book] is a great resource.
 

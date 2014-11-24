@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: jbosseap
 category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
@@ -12,155 +12,14 @@ meta_desc: JBoss EAP Developers - OpenShift Resources to host your Java applicat
 [[top]]
 [float]
 = Red Hat JBoss Enteprise Application Platform Hosting
-
-== The JBoss EAP Cartridge
 [.lead]
-Provides the JBoss EAP application server on OpenShift. OpenShift Online currently supports `JBoss EAP 6.3`.
+*Red Hat JBoss Enterprise Application Platform* (JBoss EAP) for OpenShift Online by Red Hat
+was built specifically to deploy full Java EE applications into the cloud.
+
+The *JBoss EAP Cartridge* provides the JBoss EAP application server on OpenShift. This cartridge provides a supported Java EE Application Server.
+OpenShift Online currently supports `JBoss EAP 6.3`.
 
 image::jboss-logo.png[JBoss logo]
 
-=== Template Repository Layout
-[source]
---
-deployments/       Location for built WARs (details below)
-src/               Example Maven source structure
-pom.xml            Example Maven build file
-.openshift/        Location for OpenShift specific files
-  config/          location for configuration files such as standalone.xml
-  action_hooks/    See the Action Hooks documentation <1>
-  markers/         See the Markers section below
---
-<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
-
-=== Layout and Deployment Options
-There are two options for deploying content to the JBoss Application Server within OpenShift. Both options
-can be used together (i.e. build one archive from source and others pre-built)
-
-[NOTE]
-====
-Under most circumstances the .dodeploy file markers should not be added to the deployments directory.
-These lifecycle files will be created in the runtime deployments directory (can be seen by SSHing into the application),
-but should not be added to the git repo.
-====
-
-*Method 1 (Preferred)* +
-You can upload your content in a Maven src structure as is this sample project and on
-git push have the application built and deployed.  For this to work you'll need your pom.xml at the
-root of your repository and a maven-war-plugin like in this sample to move the output from the build
-to the deployments directory.  By default the warName is ROOT within pom.xml.  This will cause the
-webapp contents to be rendered at http://app_name-namespace.rhcloud.com/.  If you change the warName in
-pom.xml to app_name, your base url would then become http://app_name-namespace.rhcloud.com/app_name.
-
-NOTE: If you are building locally you'll also want to add any output wars/ears under deployments from the build to your .gitignore file.
-
-NOTE: If you are running scaled JBoss EAP then you need an application deployed to the root context (i.e. http://app_name-namespace.rhcloud.com/) for the HAProxy load-balancer to recognize that the JBoss EAP instance is active.
-
-*Method 2* +
-You can git push pre-built wars into `deployments/`. To do this with the default repo you'll want to first run `git rm -r src/ pom.xml` from the root of your repo.
-
-Basic workflows for deploying pre-built content (each operation will require associated git add/commit/push operations to take effect):
-
-. Add new zipped content and deploy it: `cp target/example.war deployments/`
-. Add new unzipped/exploded content and deploy it:
-.. cp -r target/example.war/ deployments/
-.. edit .openshift/config/standalone.xml and replace
-+
-[source]
---
-<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" deployment-timeout="300"/>
---
-with
-+
-[source]
---
-<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" deployment-timeout="300" auto-deploy-exploded="true"/>
---
-. Undeploy currently deployed content: `git rm deployments/example.war`
-. Replace currently deployed zipped content with a new version and deploy it: `cp target/example.war deployments/`
-. Replace currently deployed unzipped content with a new version and deploy it:
-.. git rm -rf deployments/example.war/
-.. cp -r target/example.war/ deployments/
-
-NOTE: You can get the information in the uri above from running 'rhc domain show'
-
-If you have already committed large files to your git repo, you rewrite or reset the history of those files in git
-to an earlier point in time and then 'git push --force' to apply those changes on the remote OpenShift server.  A
-git gc on the remote OpenShift repo can be forced with (Note: tidy also does other cleanup including clearing log
-files and tmp dirs):
-
-[source]
---
-rhc app tidy -a appname
---
-
-Whether you choose option 1) or 2) the end result will be the application
-deployed into the deployments directory. The deployments directory in the
-JBoss Application Server distribution is the location end users can place
-their deployment content (e.g. war, ear, jar, sar files) to have it
-automatically deployed into the server runtime.
-
-=== Environment Variables
-
-The `jbosseap` cartridge provides several environment variables to reference for ease
-of use:
-
-[options="header"]
-|===
-|Variable |Description
-
-|OPENSHIFT_JBOSSEAP_IP
-|The IP address used to bind JBoss AS
-
-|OPENSHIFT_JBOSSEAP_HTTP_PORT
-|The JBoss AS listening port
-
-|OPENSHIFT_JBOSSEAP_CLUSTER_PORT
-|TODO
-
-|OPENSHIFT_JBOSSEAP_MESSAGING_PORT
-|TODO
-
-|OPENSHIFT_JBOSSEAP_MESSAGING_THROUGHPUT_PORT
-|TODO
-
-|OPENSHIFT_JBOSSEAP_REMOTING_PORT
-|TODO
-
-|JAVA_OPTS_EXT
-|Appended to JAVA_OPTS prior to invoking the Java VM.
-|===
-
-For more information about environment variables, consult the link:http://openshift.github.io/documentation/#environment-variables[Users Guide].
-
-=== Markers
-Adding marker files to `.openshift/markers` will have the following effects:
-
-[cols="1,3",options="header"]
-|===
-|Marker |Effect
-
-|enable_jpda
-|Will enable the JPDA socket based transport on the java virtual machine running the JBoss AS 7 application server. This enables you to remotely debug code running inside the JBoss AS 7 application server.
-
-|skip_maven_build
-|Maven build step will be skipped
-
-|force_clean_build
-|Will start the build process by removing all non-essential Maven dependencies.  Any current dependencies specified in your pom.xml file will then be re-downloaded.
-
-|hot_deploy
-|Will prevent a JBoss container restart during build/deployment. Newly build archives will be re-deployed automatically by the JBoss HDScanner component.
-
-|java7
-|Will run JBoss EAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
-|===
-
-=== JBoss CLI
-The `jbosseap` cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on the gear `PATH`, located at
-`$OPENSHIFT_JBOSSEAP_DIR/tools/jboss-cli.sh`. Use the following command to connect to the JBoss instance with the
-CLI tool:
-
-[source]
---
-jboss-cli.sh -c --controller=${OPENSHIFT_JBOSSEAP_IP}:${OPENSHIFT_JBOSSEAP_MANAGEMENT_NATIVE_PORT}
---
+[.lead]
+link:jbosseap-getting-started.html[-> Get Started With JBoss EAP on OpenShift]

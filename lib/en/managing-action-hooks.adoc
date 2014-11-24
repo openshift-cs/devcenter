@@ -34,13 +34,7 @@ Action hook scripts need to be added and committed in Git just like any other re
 == Cartridge Control Action Hooks
 Cartridges implement a standard set of named control actions which allow them to function within OpenShift. Each time OpenShift invokes one of these cartridge actions, a standard set of application action hooks are executed to give the application developer an opportunity to integrate more closely with specific cartridges.
 
-To use these hooks in your application create a file in:
-
-----
-<repository>/.openshift/action_hooks
-----
-
-with the same name as the event you want to trigger.
+To use these hooks in your application create a file in `<repository>/.openshift/action_hooks` with the same name as the event you want to trigger.
 
 NOTE: Cartridge-scoped action hooks are special in that they are sourced in into the
 same shell environment used to execute the action they surround. This allows cartridge
@@ -80,7 +74,7 @@ For details about the control actions (including what they represent and when th
 documentation] in the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 == Build Action Hooks
-During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 The list of action hooks supported during the default build lifecycle are:
 
@@ -117,4 +111,3 @@ else
 	echo "There was already data in the database. Not importing"
 fi
 --
-
