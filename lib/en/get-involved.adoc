@@ -50,3 +50,6 @@ Your feedback drives our design process. Your votes count! Let us know what you 
 
 [.lead]
 link:https://openshift.uservoice.com/forums/258655-ideas[-> Vote on Features]
+
+== Developer Center
+If you've discovered a documentation error on this site, or if you have ideas for content updates or improvements, please link:https://github.com/openshift/devcenter/issues[file an issue to let us know].
