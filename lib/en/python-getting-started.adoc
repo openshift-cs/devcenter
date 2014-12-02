@@ -15,7 +15,7 @@ meta_desc: Get started with Python 2.6, 2.7, or 3.3 on OpenShift.
 By default, OpenShift comes with all 3 versions of Python and the pattern of building and deploying applications is the same for all three. The Python cartridges are based on a link:http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface[WSGI server model] of Python web creation.
 This tutorial will start with showing you how to create an application using the default, Apache with Mod_WSGI, but it will also show you to use link:http://www.cherrypy.org//[CherryPy] as an example of using a different WSGI server.
 
-link:#step1[Step 1: Create a Tomcat Application] +
+link:#step1[Step 1: Create a Python Application] +
 link:#step2[Step 2: Make the First Change] +
 link:#step3[Step 3: Managing Application Package Dependencies]
 link:#step4[Step 4: Using a Different Server than Mod_WSGI] +

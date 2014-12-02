@@ -53,7 +53,7 @@ link:/en/xpaas-business-rules-management-system.html[Learn More] +
 == Mobile Services
 With mobile devices becoming a primary client in the enterprise, incorporating key mobile features and capabilities are a vital part of any application development project. Mobile services simplify and streamline supporting the many mobile client types while extending your application to these devices.
 
-=== Unified Push Server
-The Unified Push Server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage push related aspects of their applications for any mobile development environment.
+=== Unified Push
+The JBoss Unified Push server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment.  Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
 
-link:https://www.openshift.com/quickstarts/aerogear-push-0x[Learn More]
+link:/en/xpaas-unified-push.html[Learn More]

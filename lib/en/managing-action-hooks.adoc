@@ -74,7 +74,7 @@ For details about the control actions (including what they represent and when th
 documentation] in the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 == Build Action Hooks
-During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 The list of action hooks supported during the default build lifecycle are:
 
@@ -111,4 +111,3 @@ else
 	echo "There was already data in the database. Not importing"
 fi
 --
-
