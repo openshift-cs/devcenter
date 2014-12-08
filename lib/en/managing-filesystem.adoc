@@ -1,0 +1,126 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-filesystem.html
+nav_title: Filesystem
+nav_priority: 60
+meta_desc: The filesystem layout of the gear and what directories are used for what purpose.
+---
+= Filesystem Overview
+
+[float]
+= Filesystem Overview
+[.lead]
+
+A gear is a special private place where your application lives. From the perspective of the filesystem, it's a directory that the application is locked into.
+
+== Gear filesystem layout
+
+All gear have in general the same layout. The differences then come when you install cartridges, as those create new directories. Those parts of the filesystem are cartridge specific and need to be looked into as part of the documentation of the cartridge. Here we are going to look into the general gear structure common to all gears.
+
+[source]
+-----
+.
+├── .env 
+├── app-root
+│   ├── data 
+│   ├── repo -> runtime/repo
+│   └── runtime
+│       ├── data
+│       └── repo 
+│           └── ...deployed application code
+├── app-deployments 
+│   ├── current
+│   │   ├── build-dependencies
+│   │   ├── dependencies
+│   │   ├── metadata.json
+│   │   └── repo
+│   └── ...application deployements
+├── git
+│   └── [APP_NAME].git
+│       ├── hooks 
+│       │   ├── post-receive 
+|       |   ├── pre-receive
+|       |   └── ... sample hooks
+│       └── ... other git directories
+└── ...cartridge directories
+-----
+
+Source: link:http://openshift.github.io/documentation/oo_system_architecture_guide.html#directory-structure[OpenShift Origin documentation]
+
+== Temp directory
+
+There is one special directory outside the gear structure - `/tmp`. Temp direcotry is used to store temporary data. 
+
+Temp directory uses namespaces to isolate the same logical directory to a specific physical location. This means all users on the same node see /tmp path, but each user see only it's own content.
+
+Users are adviced to use `OPENSHIFT_TMP_DIR` environment variable to determine the actual directory location.
+
+== .env
+
+This directory contains all the information that OpenShift provides as part of the link:/en/managing-environment-variables.html[Environment Variables]. In the directory you can find a file per environment variable containing it's value. OpenShift automatically converts the information to real environment variables and developers are adviced to read the values from there.
+
+== app-root
+
+`app-root` is the only directory the user interacts with directly, even though not with all of it. There are two important directories, that the uer cares about.
+
+=== repo
+
+When your application is build deployed and it's build build, link:/en/managing-action-hooks.html[Action hooks] are being run, etc. the code is checked out into this directory and all the required steps are being run in this directory as well. For most cartridge this directory will be also a working directory once the application is spun up.
+
+=== data
+
+In case you use `non-scalable application`, this directory can be used for persistent storage. The important part is that for non-scalable application, in case you use scalable application and you benefit from OpenShift's scaling features, this directory is no shared among gears. In such case, you should use something like S3 and outsource your storage. However, in case of non-scalable application, OpenShift provides this persistent storage feature and save your data there. OpenShift makes sure you data are not lost on application re-deployments, etc.
+
+This directory is represented by the `OPENSHIFT_DATA_DIR` environment variable. Whenever it is possible it is recommended to use the environment variable to determine the actual location of the directory.
+
+WARNING: it is not safe to write files anywhere else except this directory and only in non-scalable mode.
+
+== app-deployments
+
+`Deployments` are OpenShift's way to provide robust feature-set for managing application deployments in time. Every time you deploy new version of your application to OpenShift, it creates new `deployment` for that particular application. `Deployment` is in-time snapshot of the application that is ready to be deployed. In essence this means that it contains a runnable application after all the hood and continues integration tasks were run. As an example for Java application it will contain a war/ear file that was build using for example maven as part of the code push to OpenShift. All this is handled natively by the platform and does not require anything from the developer.
+
+link:https://blog.openshift.com/introduction-to-deployments-and-rollbacks-on-openshift/[Learn more]
+
+== git
+
+Every OpenShift application comes with a git repository. Git is our primary way of transporting code from developers machine to the platform. In the `git` resides the directory containing the application source code. It is simply named after the application. You do not usually need to care about this directory.
+
+== Determining How Much Disk Space Is Used
+
+At the time of writing, each gear in the OpenShift free plan was given 1 GB of disk space. If you moved into the paid tier, your gear could be up to 6 GB. 
+
+The locations that count against that quota are:
+
+* Your gear's _data directory_
+* _/tmp_
+* Your Git repository on the gear
+* The log files for your application and database servers
+* The data files for your database server
+
+The easiest way to check your disk usage is by using the RHC command-line tools:
+
+[source]
+-----
+rhc app show <userinput>appname</userinput> --gears quota
+-----
+
+If you are executing the command from within the Git repository for your application, then you can omit the `appname` from the command. This will give you output that shows one line per gear in your application.
+
+Here is an example:
+
+----
+Gear                     Cartridges                 Used Limit
+------------------------ ------------------------ ------ -----
+6861736b656c6c72756c6573 postgresql-9.2           75 MB  1 GB
+6c616d626461733465766572 jbossews-2.0 haproxy-1.4 363 MB 1 GB
+----
+
+Here you can see we have two gears in this application. The gear with PostgreSQL on it is using 75 MB and the gear with JBoss is using 363 MB. 
+
+If you want to see how much disk space is used and you are comfortable with the Linux +quota+ command, you can always SSH into a gear and use it to check your space. 
+
+To see all your gears and their SSH URLs, you can execute the command +rhc app show _appname_ --gears+ and then SSH into each gear to run +quota+. 
+
+OpenShift will also start to warn you both on +git push+ and when you SSH into your gears if you exceed 90% of your quota. 
