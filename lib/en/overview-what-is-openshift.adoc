@@ -10,7 +10,7 @@ meta_desc: OpenShift Online is Red Hats public cloud application development and
 = What is OpenShift?
 
 [float]
-= What is OpenShift? 
+= What is OpenShift?
 [.lead]
 OpenShift Online is Red Hat's public cloud application development and hosting platform that automates the provisioning, management and scaling of applications so that you can focus on writing the code for your business, startup, or big idea.
 
