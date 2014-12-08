@@ -4,29 +4,22 @@ category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
 nav_title: Zend Server
-nav_priority: 2
-meta_desc: PHP Developers - OpenShift Resources to get your PHP applications hosted in the cloud using Zend server
+nav_priority: 99
+meta_desc: Zend Developers - OpenShift Resources to get your PHP applications hosted in the cloud using Zend Server
 ---
 = Zend Server Application Hosting
 
-[[top]]
 [[zend-application-hosting]]
 [float]
 = Zend Server Application Hosting
 
 [.lead]
-OpenShift Online currently supports `Zend Server 6.1`.
-
-TIP: Zend Server is enterprise class application server to host PHP applications. +
-Learn more at the link:http://www.zend.com/en/products/server[Zend Server home page].
+link:http://www.zend.com/en/products/server[Zend Server] is an enterprise application platform for PHP applications. OpenShift Online currently supports `Zend Server 6.1`.
 
 image::zend-logo.png[PHP logo]
 
 == The Zend Server Cartridge
-
-The `zend-server` cartridge provides support for deploying http://www.php.net[PHP] applications on OpenShift, using the Zend Server. A basic link:php-overview.html[PHP] cartridge is also available. 
+The `zend-server` cartridge provides support for deploying http://www.php.net[PHP] applications on OpenShift, using the Zend Server. A basic link:php-overview.html[PHP] cartridge is also available.
 
 [.lead]
 link:zend-getting-started.html[-> Get Started With Zend Server on OpenShift]
-
-link:#top[Back to Top]

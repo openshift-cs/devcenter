@@ -2,9 +2,9 @@
 layout: base
 category: 01_Overview
 breadcrumb: Overview
-parent_url: overview-basic-terminology.html
-nav_title: Basic OpenShift Terminology
-nav_priority: 1
+parent_url: overview-what-is-openshift.html
+nav_title: Basic Terminology
+nav_priority: 1.1
 meta_desc: An introduction to the terms used with OpenShift Online
 ---
 = Basic OpenShift Terminology
@@ -14,23 +14,23 @@ meta_desc: An introduction to the terms used with OpenShift Online
 
 == What Is the Difference Between IaaS, PaaS, and SaaS?
 
-=== Some basic "cloud computing" acronyms 
-
-_Infrastructure as a Service_ (IaaS) is when a provider spins up computers for you on demand with certain predefined virtual hardware configurations. It is mainly targeted at system administrators and DevOps staff who used to _rack and stack_ hardware. There are varied providers in this space such  Amazon EC2 or Google Compute Engine in the public cloud, and link:http://???redhatOpenStack[OpenStack] for private clouds. The idea is that you specify the amount of RAM, CPU, and disk space you want in your "machine" and the provider spins it up for you in a matter of minutes. 
+=== Infrastructure as a Service (IaaS)
+*Infrastructure as a Service* (IaaS) is when a provider spins up computers for you on demand with certain predefined virtual hardware configurations. It is mainly targeted at system administrators and DevOps staff who used to _rack and stack_ hardware. There are varied providers in this space such  Amazon EC2 or Google Compute Engine in the public cloud, and link:http://www.redhat.com/en/insights/openstack[OpenStack] for private clouds. The idea is that you specify the amount of RAM, CPU, and disk space you want in your "machine" and the provider spins it up for you in a matter of minutes.
 
 IaaS alleviates having to go through a long procurement process or fixed investment to obtain computers for your work. The drawback to this solution is that you are still responsible for installing and maintaining the operating system and server packages, configuring the network, and doing all the basic system administration. You still have to do sysadmin work rather than spending your time writing code. On the flip side you have more flexibility in determining your server and network architecture.
 
-_Software as a Service_ (SaaS) requires the least amount of maintenance and administration for the people using it. With SaaS you just sign up for the service and start using it. You may be able to make some customizations, but you're limited to what the service provider allows you to do. Common examples of SaaS are Gmail, Salesforce, and QuickBooks Online. While these services are useful because you can start working right away with little to configure or deploy, they are of limited use to programmers. They offer the least amount of customization of the three cloud services mentioned here. 
+=== Software as a Service (SaaS)
+*Software as a Service* (SaaS) requires the least amount of maintenance and administration for the people using it. With SaaS you just sign up for the service and start using it. You may be able to make some customizations, but you're limited to what the service provider allows you to do. Common examples of SaaS are Gmail, Salesforce, and QuickBooks Online. While these services are useful because you can start working right away with little to configure or deploy, they are of limited use to programmers. They offer the least amount of customization of the three cloud services mentioned here.
 
-_Platform as a Service_ (PaaS) is the middle ground between IaaS and SaaS. It is primarily targeted at application developers and programmers. With PaaS, a few commands (which could be in a web console) triggers the platform to spin up all the "server" pieces you need to run your application. For example, a common server infrastructure is a web application with a database. To get all this spun up, you issue one command and OpenShift does all the networking and server installs, and creates a Git repository for you. The OpenShift administrators will keep the operating system up-to-date, manage the network, and do all the sys admin work--leaving the developer to focus on writing code. 
+=== Platform as a Service (PaaS)
+*Platform as a Service* (PaaS) is the middle ground between IaaS and SaaS. It is primarily targeted at application developers and programmers. With PaaS, a few commands (which could be in a web console) triggers the platform to spin up all the "server" pieces you need to run your application. For example, a common server infrastructure is a web application with a database. To get all this spun up, you issue one command and OpenShift does all the networking and server installs, and creates a Git repository for you. The OpenShift administrators will keep the operating system up-to-date, manage the network, and do all the sys admin work--leaving the developer to focus on writing code.
 
-== Words You Need to Understand
-
+== OpenShift-Specific Terminology
 There is some basic terminology that is specific to OpenShift to describe the platform. It is important to clarify these terms since they will be used throughout your interactions with OpenShift:
 
 Application:: This is your typical web application that will run on OpenShift. At this time, OpenShift is focused on hosting web applications. With this in mind, and to try to provide some security for your applications, the only ports exposed to incoming traffic are HTTP (80), HTTPS (443), and SSH (22). OpenShift also provides beta link:http://en.wikipedia.org/wiki/WebSocket[WebSocket] support on HTTP (8000) and HTTPS (8443).
 
-Gear:: A gear is a server container with a set of resources that allows you to run their applications. Your gears run on OpenShift in the cloud. There are currently three gear types on OpenShift Online: small, medium, and large. Each size provides 1 GB of disk space by default. The large gear has 2 GB of RAM, the medium gear has 1 GB of RAM, and the small gear has 512 MB of RAM.
+Gear:: A gear is a server container with a set of resources that allows you to run their applications. Your gears run on OpenShift in the cloud. There are currently three gear types on OpenShift Online: small, medium, and large. Each size provides 1 GB of disk space by default. The large gear has 2 GB of RAM, the medium gear has 1 GB of RAM, and the small and small.highcpu gears have 512 MB of RAM.
 
 Cartridge:: To get a gear to do anything, you need to add a cartridge. Cartridges are the plug-ins that house the framework or components that can be used to create and run an application. One or more cartridges run on each gear, and the same cartridge can run on many gears for clustering or scaling. There are two kinds of cartridges:
 +
@@ -38,8 +38,8 @@ _Standalone_::: These are the languages or application servers that are set up t
 +
 _Embedded_::: An embedded cartridge provides functionality to enhance your application, such as a database or Cron, but cannot be used on its own to create an application.
 
-For some of the OpenShift partner cartidges in the link:http://????[marketplace], the cartridges only install environment variables that make it easier to connect to the partner hosted service.
+For some of the OpenShift partner cartidges in the link:http://marketplace.openshift.com[Marketplace], the cartridges only install environment variables that make it easier to connect to the partner hosted service.
 
-Scalable application:: Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your increased demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings up new gears with the appropriate web cartridge online to handle more requests. When traffic decreases, the platform retires the extra resources. There is a web page dedicated to explaining link:http://bit.ly/1gV8NYI[how scaling works on OpenShift].
+Scalable application:: Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your increased demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings up new gears with the appropriate web cartridge online to handle more requests. When traffic decreases, the platform retires the extra resources. There is a web page dedicated to explaining link:https://developers.openshift.com/en/overview-platform-features.html#scaling[how scaling works on OpenShift].
 
 Client tools, Web Console, or Eclipse plug-ins:: You can interact with the OpenShift platform via RHC client command-line tools you install on your local machine, the OpenShift Web Console, or a plug-in you install in Eclipse to interact with your application in the OpenShift cloud. The only time you must use these tools is when you are managing the infrastructure or components of your application. For example, you would use these tools when creating an application or embedding a new cartridge. The rest of your work with your application will happen through Git and SSH.

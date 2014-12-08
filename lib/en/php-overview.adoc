@@ -4,7 +4,7 @@ category: 03_Languages and Technologies
 breadcrumb: Languages and Technologies
 parent_url: languages-overview.html
 nav_title: PHP
-nav_priority: 2
+nav_priority: 1.5
 meta_desc: PHP Developers - OpenShift Resources to get your PHP applications hosted in the cloud.
 ---
 = PHP Application Hosting

@@ -3,7 +3,7 @@ layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url: managing-port-forwarding.html
-nav_title: Managing Port Forwarding to your OpenShift Application
+nav_title: Port Forwarding
 nav_priority: 42
 meta_desc: How to use OpenShift port fowarding (SSH tunneling) to connect from your local machine to networks ports not exposed to the outside world
 ---
@@ -12,47 +12,42 @@ meta_desc: How to use OpenShift port fowarding (SSH tunneling) to connect from y
 [[top]]
 [float]
 = Managing Port Forwarding to your OpenShift Application
+[.lead]
+All communication with your application's gears occurs over the Secure Shell (SSH) protocol. One of the features of SSH is *port forwarding*, which allows you to securely communicate with your gear and make it appear as if the services on the gear are running on your own machine.
 
-All communication with your application's gears occurs over the Secure Shell (SSH) protocol. One of the features of SSH is _port forwarding_, which allows you to securely communicate with your gear and make it appear as if the services on the gear are running on your own machine. The basic idea is that SSH takes ports on your local machines and tunnels them over a secure connection to a port on the remote machine. For example, you can use SSH to take port 9999 on your local machine and have it attach to port 9999 on your gear, which is the port that JBoss EAP Web Console listens on. Now when you connect to port 9999 on your local machine, all your traffic to that port will be sent directly to port 9999 on your gear. 
+The basic idea is that SSH takes ports on your local machines and tunnels them over a secure connection to a port on the remote machine. For example, you can use SSH to take port 9999 on your local machine and have it attach to port 9999 on your gear, which is the port that JBoss EAP Web Console listens on. Now when you connect to port 9999 on your local machine, all your traffic to that port will be sent directly to port 9999 on your gear.
 
-You need this capability when you want to connect to anything not running on the OpenShift public ports: 22, 80, 443, 8000, and 8443. 
+You need this capability when you want to connect to anything not running on the OpenShift public ports: 22, 80, 443, 8000, and 8443.
 
 == Some potential uses of SSH port fowarding are:
-
 * Attaching your database admin software on your local machine to the DB in your OpenShift application
 * Desktop software such as Excel or QGIS directly using data on the server
 * Having your code on your local machine work with the database in your OpenShift application
 * Attaching the debugger on your local machine to the process running on OpenShift
-* Open the administrative web console for an application server running on a non-open port, such as JBoss EAP running on port 9990. 
+* Open the administrative web console for an application server running on a non-open port, such as JBoss EAP running on port 9990.
 
 == Basic Usage
-
-If you already know how to link:http://www.revsys.com/writings/quicktips/ssh-tunnel.html[set up] port-forwarding with the SSH command line tools, then you can use those same commands with OpenShift. 
+If you already know how to link:http://www.revsys.com/writings/quicktips/ssh-tunnel.html[set up] port-forwarding with the SSH command line tools, then you can use those same commands with OpenShift.
 
 The RHC command line tools and the JBoss Tools integration both give you an easy way to port-forward internal ports from your application's gears. For the RHC tool, enabling port forward only requires:
 
 [source]
---
-$ rhc port-forward -a {your application name}
---
+----
+$ rhc port-forward -a <app_name>
+----
 
-or in Eclipse
-
+or in Eclipse:
 
 image::eclipse/port-forward.jpg[Port forwarding in Eclipse for an application named _parkmaps_]
 
-
-
-
 == A Worked Example
+Here is an example of using the command line tools and port forwarding to connect to a PostgreSQL database from your local machine.
 
-Here is an example of using the command line tools and port forwarding to connect to a Postgresql DB from your local machine.
-Run +rhc port-forward+ command to have the command-line tools port forward all listening ports over SSH:
+Run `rhc port-forward` command to have the command-line tools port forward all listening ports over SSH:
 
 [source]
---
-
-[me@localhost ~]$ rhc port-forward -a insultapp
+----
+$ rhc port-forward -a insultapp
 Forwarding ports ...
 
 To connect to a service running on OpenShift, use the Local address
@@ -63,14 +58,13 @@ httpd      127.0.0.1:8080  =>  19.66.2.6:8080
 postgresql 127.0.0.1:5432  =>  19.66.2.7:5432
 
 Press CTRL-C to terminate port forwarding
+----
 
---
-
-You can see the command has now mapped port 5432 in the application to port 5432 on the local machine. You can now connect to the local loopback address (127.0.0.1) on port 5433 to connect to PostgreSQL running on the gear. 
+You can see the command has now mapped port 5432 in the application to port 5432 on the local machine. You can now connect to the local loopback address (127.0.0.1) on port 5433 to connect to PostgreSQL running on the gear.
 
 [source]
---
-[me@localhost ~]$ psql -h 127.0.0.1 -p 5433 -U adminm4rvN42 insultapp
+----
+$ psql -h 127.0.0.1 -p 5433 -U adminm4rvN42 insultapp
 Password for user adminm4rvN42:
 psql (9.3.2, server 9.2.4)
 Type "help" for help.
@@ -85,6 +79,6 @@ insultapp=# <emphasis role="strong">\dt</emphasis>
 (3 rows)
 
 insultapp=#
---
+----
 
-You could use this same pattern to connect to any other service running in your application on a non-publically exposed port. 
+You could use this same pattern to connect to any other service running in your application on a non-publically exposed port.

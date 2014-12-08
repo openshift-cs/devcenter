@@ -450,14 +450,14 @@ If the private key is encrypted, specify the passphrase with the --passphrase op
 ==== Generating a CSR (Certificate Signing Request)
 
 ===== Where should I generate the CSR?
-You can either generate the CSR on your workstation (if you have openssl installed) or ssh to your gear (rhc app ssh) to generate your CSR.  Either way should work fine.
+You can either generate the CSR on your workstation (if you have openssl installed) or ssh to your gear (`rhc app ssh`) to generate your CSR.  Either way should work fine.
 
-*HINT:* I like to create my files with the name of the domain that I am creating them for, this helps me keep them all organized and not get them mixed up.  Below I will use example.com to represent whatever domain you are creating your CSR for.  Feel free to use this method, or your own.
+TIP: It can help to create your files with the name of the domain that you are creating them for, this helps keep them all organized.  The following guide uses *example.com* to represent whatever domain you are creating your CSR for.  Feel free to use this method, or your own.
 
 ===== Generate a private key
-Enter the below command (either on your workstation or once you have SSHed to your gear) and hit enter.  This will create a 2048 bit key that you will use to create your CSR.  You will also need this file when you load your SSL certificate into the OpenShift Web Console.
+Enter the following command (either on your workstation or once you have SSHed to your gear) and hit *Enter*.  This will create a 2048-bit key that you will use to create your CSR.  You will also need this file when you load your SSL certificate into the OpenShift Web Console.
 
-You must enter a passphrase during this step, but don't worry, we can remove it later.  If you plan on removing the passphrase just choose something simple like 'password'.
+You must enter a passphrase during this step, but don't worry, you can remove it later.  If you plan on removing the passphrase just choose something simple like 'password'.
 
 [source]
 ----
@@ -471,10 +471,9 @@ Verifying - Enter pass phrase for example.com.key:
 ----
 
 ===== Generate the CSR
-Now that we have a private key we can generate the CSR.  Enter the below command and hit enter, making sure that you are in the same directory as the key file you generated earlier.  Enter the same passphrase that you used earlier when generating your key file.
+Now that you have a private key you can generate the CSR.  Enter the below command and hit *Enter*, making sure that you are in the same directory as the key file you generated earlier.  Enter the same passphrase that you used earlier when generating your key file.
 
-Now we are ready to enter the information for our CSR.  The most important part is to make sure that the "Common Name" matches the domain name that you are going to use with your OpenShift application.  Fill in all of the other fields to the best of your knowledge.  You do not need to include a challenge password or Optional Company Name.
-
+Now you are ready to enter the information for the CSR.  The most important part is to make sure that the "Common Name" matches the domain name that you are going to use with your OpenShift application.  Fill in all of the other fields to the best of your knowledge. You do not need to include a "challenge password" or "optional company name".
 
 [source]
 ----
@@ -501,7 +500,7 @@ A challenge password []:
 An optional company name []:Red Hat, Inc
 ----
 
-Now you should have two files, example.com.key, and example.com.csr.
+Now you should have two files, *example.com.key*, and *example.com.csr*.
 
 ===== (Optional) Remove the Passphrase from the Key file
 You do NOT have to remove the passphrase from the key file, OpenShift supports key files with passphrases and provides a field to enter the passphrase when installing the certificate.
@@ -516,9 +515,8 @@ Enter pass phrase for example.com.key.temp:
 writing RSA key
 ----
 
-
 ===== What do I do with all of these files?
-The CSR file is what you submit to the company that you are purchasing your SSL Certificate from.  Once you have submitted that file, they will send you a ZIP file with a bunch more files in it, including your SSL Certificate and any Chain Certificates that you might need.
+The CSR file is what you submit to the company that you are purchasing your SSL Certificate from.  Once you have submitted that file, they will send you a ZIP file with more files in it, including your SSL Certificate and any Chain Certificates that you might need.
 
 For more information on how to install your new SSL Certificate on OpenShift link:#using-a-custom-ssl-certificate[click here].
 

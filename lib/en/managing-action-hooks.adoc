@@ -11,7 +11,7 @@ meta_desc: Understand and use action hooks on OpenShift Online
 
 [float]
 = Action Hook Scripts
-
+[.lead]
 OpenShift cartridges are designed to take care of the major tasks required to build and deploy a web application. If there are actions you want to perform as part of the build lifecycle that go beyond the basics, you can include these in action hook scripts.
 
 Action hook scripts are included as part of your application Git repository, in the `.openshift/action_hooks` directory. Different cartridges may support different hooks, depending on their build lifecycles; however, they should all include the hooks listed below.
