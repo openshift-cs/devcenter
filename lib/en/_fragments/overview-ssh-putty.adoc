@@ -2,7 +2,7 @@
 == Using PuTTY on Windows
 PuTTY is a popular free SSH client for Windows. This document shows how to install and configure PuTTY so that you can connect to your application with SSH on a Windows machine.
 
-NOTE: Using PuTTY is optional. If you've installed Ruby and Git for Windows as outlined link:getting-started-client-tools.html#windows[here], you can use the `rhc ssh` command to access the OpenShift shell. See link:managing-remote-connection.html#connecting-to-your-application[Connecting to Your Application] for more details on the `rhc ssh` command.
+NOTE: Using PuTTY is optional. If you've installed Ruby and Git for Windows as outlined link:getting-started-windows.html#client-tools[here], you can use the `rhc ssh` command to access the OpenShift shell. See link:managing-remote-connection.html#connecting-to-your-application[Connecting to Your Application] for more details on the `rhc ssh` command.
 
 [[video-walkthrough]]
 === Video Walkthrough

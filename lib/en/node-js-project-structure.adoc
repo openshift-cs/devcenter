@@ -77,7 +77,7 @@ Adding the following empty files to your project's `.openshift/markers` folder a
 |use_npm
 |Initialize your application or service using `npm start` instead of `supervisor servername.js` (where `servername.js` is based on the value of your `package.json`'s `main` attribute).
 |hot_deploy
-|Push code updates without waiting for a full application restart. link:/en/getting-started-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
+|Push code updates without waiting for a full application restart. link:/en/managing-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
 |===
 
 [[action_hooks]]

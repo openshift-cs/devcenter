@@ -26,7 +26,7 @@ link:#next[Next Steps]
 [[create]]
 == Step 1: Create a Ruby Application
 
-This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
+This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:managing-client-tools.html[installed the RHC command line tools].
 
 To create a new *Ruby* application *myapp* using `rhc`, open a terminal window and enter the following command:
 
@@ -187,7 +187,7 @@ OpenShift was asked to provide me with Sinatra as a dependies and it did.
 
 === Hot Deploy and Other Markers
 
-With a normal `git push` as outlined above, Openshift starts and stops the Ryby application on each deploy. For Ruby applications, the code can be deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this deployment style.
+With a normal `git push` as outlined above, Openshift starts and stops the Ryby application on each deploy. For Ruby applications, the code can be deployed without restarting the server. See link:managing-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this deployment style.
 
 link:ruby-markers.html[Ruby Markers]
 

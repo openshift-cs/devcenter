@@ -25,7 +25,7 @@ link:#next[Next Steps]
 [[step1]]
 == Step 1: Create a Python Application
 
-This tutorial walks through the creation of an application titled *mypythonapp* under the domain *mydomain*. We will use Python 2.7 but you can substitute in Python 2.6 or 3.3 and use them in the same way. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
+This tutorial walks through the creation of an application titled *mypythonapp* under the domain *mydomain*. We will use Python 2.7 but you can substitute in Python 2.6 or 3.3 and use them in the same way. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:managing-client-tools.html[installed the RHC command line tools].
 
 Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  Then at the command prompt enter the follwing command to create a Python application:
 
@@ -214,7 +214,7 @@ For **wsgi.py** you just need to remove the code that loads the virtual environm
 While there are standard link:managing-environment-variables.html[environment variables] that can help to manage your Python application, there are also some which are specifc to just Python. You can use them to manage the entry-point for WSGI or where your requirements files is located. They are discussed more fully in their link:python-environment-variables.html[own document]. They can be helpful when you have your own format for a git repository or you are using a framework, such as Django, that expects files in a certain location.
 
 === Hot Deploy and Other Markers
-With a normal `git push` as outlined above, Openshift starts and stops the Python server on each build. For Python applications, your code can be built and deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style. Please be aware that there may be times, such as loading a new library, that you want to restart the server. Either rename or remove the file from your git repository to get the server to restart.
+With a normal `git push` as outlined above, Openshift starts and stops the Python server on each build. For Python applications, your code can be built and deployed without restarting the server. See link:managing-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style. Please be aware that there may be times, such as loading a new library, that you want to restart the server. Either rename or remove the file from your git repository to get the server to restart.
 
 ==== Other Markers
 

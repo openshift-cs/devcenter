@@ -28,7 +28,7 @@ link:#next[Next Steps]
 == Step 1: Create a JBoss EAP (EAP) Application
 This tutorial walks through the creation of an application titled *myeapapp* under the domain *mydomain*.
 
-NOTE: Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:getting-started-client-tools.html[installed the RHC command line tools].
+NOTE: Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:managing-client-tools.html[installed the RHC command line tools].
 
 Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  At the command prompt enter the follwing command to create a EAP application:
 
@@ -136,7 +136,7 @@ Most of the behavior of EAP can be controlled through the link:https://access.re
 `standalone.xml` can be found in the `{git repo}/.openshift/config/` directory. Please be careful when making a change to the file. Also, make sure the EAP server restarts after making the change. You will also find a directory titled `modules` in the same directory. If you are using link:https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.3/html/Development_Guide/sect-About_Modules_and_the_New_Modular_Class_Loading_System_used_in_JBoss_EAP_6.html[Jboss Modules] to load classes outside of the server or application provided classes - for example custom drivers for a JDBC/JNDI connection - you would place them in this location.
 
 === Hot Deploy and Other Markers
-With a normal `git push` as outlined above, Openshift starts and stops the EAP server on each build. For Java applications, a WAR/EAR file can be built and deployed without restarting the server. See link:getting-started-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style.
+With a normal `git push` as outlined above, Openshift starts and stops the EAP server on each build. For Java applications, a WAR/EAR file can be built and deployed without restarting the server. See link:managing-modifying-applications.html#hot-deployment[Hot Deployment] for more information on how OpenShift uses a marker in the git repository to turn on this build style.
 
 ==== Other Markers
 In addition to the `hot_deploy` marker, the other markers probably of most use are `enable_jpda`, which turns on the jpda transport for debugging and `force_clean_build` which forces Maven to re-download all the dependencies for the application. The markers for EAP can be found link:jbosseap-markers.html[here].

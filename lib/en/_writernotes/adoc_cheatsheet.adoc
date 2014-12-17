@@ -120,7 +120,7 @@ include::_fragments/basics.adoc[]
 
 === Internal link
 //just point to the document you want but instead of .adoc on the end put .html - relative path
-link:getting-started-client-tools.html[Install the Client Tools]
+link:managing-client-tools.html[Install the Client Tools]
 
 === External Link
 link:https://openshift.redhat.com/app/console[Enter the Web Console (login required)]

@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 02_Getting Started
-breadcrumb: Getting Started
-parent_url: getting-started-overview.html
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-modifying-applications.html
 nav_title: Modifying Applications
-nav_priority: 30
+nav_priority: 22
 meta_desc: Deploy and build applications on OpenShift. Choose to push local changes to OpenShift or build with Jenkins.
 ---
 = Modifying Applications

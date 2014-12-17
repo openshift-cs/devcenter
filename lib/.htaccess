@@ -2,6 +2,11 @@ ErrorDocument 404 /404.html
 
 Redirect /en/index.html https://developers.openshift.com/index.html
 Redirect 301 /en/php-zend.html /en/zend-overview.html
+Redirect 301 /en/getting-started-creating-applications.html /en/managing-creating-applications.html
+Redirect 301 /en/getting-started-modifying-applications.html /en/managing-modifying-applications.html
+Redirect 301 /en/python-creating-applications.html /en/python-getting-started.html
+Redirect 301 /en/python-modifying-applications.html /en/python-getting-started.html
+Redirect 301 /en/getting-started-installing-client-tools.html /en/managing-client-tools.html
 
 RewriteEngine on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
