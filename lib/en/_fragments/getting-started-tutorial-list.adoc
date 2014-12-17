@@ -1,8 +1,6 @@
-*Choose your desired tutorial:*
-
-[cols="a,a", width='100%']
+[cols="1a,2a", width='100%']
 |===
-|Language or Technology | More Specific Tutorials
+|Language | More Specific Tutorials
 
 |link:java-overview.html[Java]
 |link:wildfly-overview.html[Wildfly] +
@@ -26,7 +24,7 @@ link:php-framework-symfony.html[Symfony]
 |link:ruby-deploying-rails.html[Rails]
 
 |link:perl-overview.html[Perl]
-|Coming Soon
+|
 
 |Other Technologies
 |link:managing-continuous-integration.html[Jenkins] +

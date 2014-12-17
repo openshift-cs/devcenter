@@ -1,10 +1,10 @@
 ---
 layout: base
-category: 02_Getting Started
-breadcrumb: Getting Started
-parent_url: getting-started-overview.html
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-creating-applications.html
 nav_title: Creating Applications
-nav_priority: 20
+nav_priority: 21
 meta_desc: Create your first application on OpenShift either through the web console or RHC client tools.
 ---
 = Creating Applications
@@ -13,7 +13,7 @@ meta_desc: Create your first application on OpenShift either through the web con
 [float]
 = Creating Applications
 [.lead]
-OpenShift Online makes it easy to create new applications, either through a few clicks in the web console or a single RHC command. Using a simple Python application as an example, this section will show you how to create an application using the link:getting-started-client-tools.html[RHC Client Tools] and what your options are when creating applications.
+OpenShift Online makes it easy to create new applications, either through a few clicks in the web console or a single RHC command. Using a simple Python application as an example, this section will show you how to create an application using the link:managing-client-tools.html[RHC Client Tools] and what your options are when creating applications.
 
 == In This Section
 This guide shows you how to spin up a plain Python application without any code dependencies.
@@ -26,7 +26,7 @@ link:#section_paidtier[Premium Plan Advantages]
 [[preliminary-steps]]
 === Preliminary Steps
 * Signed up for an https://openshift.redhat.com/app/account/new[OpenShift account]
-* Installed the RHC link:getting-started-client-tools.html[command line tools]. While we could have used the web interface or the Eclipse plugin, we believe the command line give developers the full power of developing applications on OpenShift. If you would like to use the web interface instead, you can link:https://openshift.redhat.com/app/console/application_types[click here (login required)].
+* Installed the RHC link:managing-client-tools.html[command line tools]. While we could have used the web interface or the Eclipse plugin, we believe the command line give developers the full power of developing applications on OpenShift. If you would like to use the web interface instead, you can link:https://openshift.redhat.com/app/console/application_types[click here (login required)].
 
 [[create-app]]
 === Creating Your First Application
@@ -99,7 +99,7 @@ Go ahead and look at your web page (_Figure 1_). What you should see is the temp
 .A What your first application looks like!
 image::creationScreenShot.png["Screenshot of the default Python application"]
 
-While that was exciting and all, you can do much more with your application. Time to link:getting-started-modifying-applications.html[modify your application].
+While that was exciting and all, you can do much more with your application. Time to link:managing-modifying-applications.html[modify your application].
 
 link:#top[Back to Top]
 
@@ -122,7 +122,7 @@ link:#top[Back to Top]
 [[section_paidtier]]
 === Premium Plan Advantages
 
-Everything above can be carried out using the OpenShift _Free Plan_  but there are strong reasons why you might want to use one of the premium plans as your application becomes more serious:
+Everything above can be carried out using the OpenShift _Free Plan_ but there are strong reasons why you might want to use one of the premium plans as your application becomes more serious:
 
 . Your application will never be idled. Currenty on the free tier, if there are no HTTP connections to your application for 24 hours, OpenShift idles the gear. The next HTTP request to the application will have to wait while OpenShift un-idles the application. If you are a premium plan user, then your users will never experience the delay of the application coming back from idling.
 . You gain the ability to buy more gears, thereby allowing you to create more applications. With more gears you can also allow your application to scale to handle more traffic.

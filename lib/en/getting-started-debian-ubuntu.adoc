@@ -1,0 +1,97 @@
+---
+layout: base
+category: 02_Getting Started
+breadcrumb: Getting Started
+parent_url: getting-started-overview.html
+nav_title: For Debian/Ubuntu
+nav_priority: 10.4
+meta_desc: Get started on Debian/Ubuntu by installing the rhc command line tools for the RHEL/CentOS operating system.
+---
+= OpenShift Online for Debian/Ubuntu
+
+[[top]]
+[float]
+= OpenShift Online for Debian/Ubuntu
+[.lead]
+This tutorial is designed to help you get the most out of OpenShift Online on a Debian or Ubuntu machine. In addition to the link:https://openshift.redhat.com/app/console[web interface], OpenShift provides client tools (rhc) to help you create and manage your applications.
+
+OpenShift allows a choice of environments (UI, command line, IDE), but in order to get the most out of your applications, you'll want to at least use the OpenShift client tools (*rhc*).
+
+If you just want to log in and create your first application, you can simply log into the link:https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole[web console (requires login)]. However, you won't be able to make changes to your application until you've followed the instructions below.
+
+== In this Tutorial
+link:#client-tools[Installing the Client Tools] +
+link:#rhc-setup[Setting up Your Machine] +
+link:#creating-app[Creating an Application] +
+link:#making-first-change[Making Your First Change] +
+link:#remote-access[Remote Access] +
+link:#next-steps[Next Steps] +
+
+[[client-tools]]
+== Installing the Client Tools on Debian or Ubuntu
+Install the client tools on Ubuntu or Debian requires sudoer or root access and comprises four steps:
+
+*Step 1*: Install *_Ruby_*
+
+*Step 2*: Install *_RubyGems_*
+
+*Step 3*: Install *_Git_*
+
+*Step 4*: Install the client tools
+
+NOTE: The `sudo` command only works if the particular user is listed in the _sudoers_ file. As an alternative to sudo access, you can activate a root terminal with the +su+ command and the root password. If you activate a root terminal, omit `sudo` from the commands shown in the examples. Be sure to close the root terminal after the installation completes.
+
+=== Step 1: Install Ruby
+
+From terminal, run the following command to install Ruby:
+[source]
+----
+$ sudo apt-get install ruby-full
+----
+
+Run the following command to verify that Ruby has installed correctly:
+[source]
+----
+$ ruby -e 'puts "Welcome to Ruby"'
+Welcome to Ruby
+----
+
+=== Step 2: Install RubyGems
+
+Run the following command to install RubyGems:
+[source]
+----
+$ sudo apt-get install rubygems
+----
+
+=== Step 3: Install Git
+
+Run the following command to install Git version control:
+[source]
+----
+$ sudo apt-get install git-core
+----
+
+After installation completes, run the following command to verify that Git has installed correctly:
+[source]
+----
+$ git --version
+----
+
+This command returns the Git version number that was installed.
+
+=== Step 4: Install Client Tools
+
+When the required software has been successfully installed, run the following command to install the client tools:
+[source]
+----
+$ sudo gem install rhc
+----
+
+link:#top[Back to Top]
+
+include::_fragments/getting-started-setup.adoc[]
+
+include::_fragments/getting-started-tutorial-list.adoc[]
+
+link:#top[Back to Top]

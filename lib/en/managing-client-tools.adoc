@@ -1,0 +1,146 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-client-tools.html
+nav_title: Installing Client Tools
+nav_priority: 10
+meta_desc: RHC client tools are available for all operating systems.  Follow these simple steps to manage your application in the cloud--from create to delete.
+---
+= Installing Client Tools
+
+[[top]]
+[float]
+= Installing the OpenShift Client Tools
+[.lead]
+The OpenShift Client tools, known as *rhc*, are built and packaged using Ruby. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
+
+NOTE: OpenShift rhc can be run on any operating system with *Ruby 1.8.7* or higher assuming you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below.
+
+IMPORTANT: It is assumed that you are running the commands from a command line window, such as Command Prompt or Terminal.
+
+== Select Your Operating System
+link:getting-started-windows.html#client-tools[Windows] +
+link:getting-started-osx.html#client-tools[Mac/OS X] +
+link:getting-started-fedora.html#client-tools[Fedora] +
+link:getting-started-rhel-centos.html#client-tools[RHEL/CentOS] +
+link:getting-started-debian-ubuntu.html#client-tools[Debian/Ubuntu] +
+
+== Ruby Version Manager
+*Ruby Version Manager* allows you to install and run multiple versions of Ruby. When installing the OpenShift client tools gem onto a system with RVM, you need to install the gem to the global gemset, making it available to all versions of Ruby.
+[source]
+----
+$ rvm gemset use global
+$ gem install rhc
+----
+
+[[staying-current]]
+== Staying Current
+Once you've installed the rhc gem, it's very easy to update. Ruby includes a built in mechanism for updating libraries. Run:
+
+[source]
+----
+$ sudo gem update rhc
+----
+
+and you'll get the latest version of the client tools. Be sure to check your specific Operating System instructions above if you have any problems.
+
+[[rhc-setup]]
+== Setting up Your Machine
+After installation is complete, open a Terminal window and run:
+[source]
+----
+$ rhc setup
+----
+The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process.
+
+You'll be prompted for your OpenShift username and password:
+
+[source]
+----
+Login to openshift.redhat.com: user@example.com
+Password: password
+----
+
+You are then prompted to generate an authorization token. Answering yes stores a token in your home directory to be used on subsequent requests. When it expires, you are prompted for your password again.
+
+[source]
+----
+OpenShift can create and store a token on disk which allows to you to access the server without using your password. The key is stored in your home directory and should be kept secret. You can delete the key at any time by running 'rhc logout'.
+Generate a token now? (yes|no) yes
+Generating an authorization token for this client ... lasts about 1 day
+----
+
+After creating a configuration file, setup will configure SSH keys so that your system can remotely connect to your applications, including deploying your applications using Git:
+
+[source]
+----
+No SSH keys were found. We will generate a pair of keys for you.
+Created: C:\Users\User1\.ssh\id_rsa.pub
+----
+
+After the new SSH keys are generated, the public key, *id_rsa.pub*, must be uploaded to the OpenShift server to authenticate your system to the remote server. Enter a name to use for your key, or leave it blank to use the default name. In the following example the default name is used.
+
+[source]
+----
+Your public ssh key must be uploaded to the OpenShift server to access code.
+Upload now? (yes|no) yes
+
+Since you do not have any keys associated with your OpenShift account, your new key will be uploaded as the 'default' key
+
+Uploading key 'default' from C:\Users\User1\.ssh\id_rsa.pub ... done
+----
+
+After verifying that link:#installing-git[Git is installed], you will be asked to set up your domain if you don't already have one:
+
+[source]
+----
+Checking for a domain ... none
+
+Your domain is unique to your account and is the suffix of the public URLs we assign to your applications. You may configure your domain here or leave it blank and use 'rhc domain create' to create a domain later. You will not be able to create applications without first creating a domain.
+
+Please enter a domain (letters and numbers only) |<none>|: MyDomain
+Your domain name 'MyDomain' has been successfully created
+----
+
+Finally, the setup wizard verifies whether any applications exist under your domain. In the example below, no applications have been created. In this case the setup wizard shows the types of applications that can be created with the associated commands. The setup wizard then completes by displaying the current gear consumption along with the gear sizes available to the given user.
+
+[source]
+----
+Checking for applications ... none
+
+Run 'rhc app create' to create your first application.
+
+Do-It-Yourself                            rhc app create <app name> diy-0.1
+JBoss Application Server 7.1              rhc app create <app name> jbossas-7
+JBoss Enterprise Application Platform 6.0 rhc app create <app name> jbosseap-6.0
+Jenkins Server 1.4                        rhc app create <app name> jenkins-1.4
+Node.js 0.10                              rhc app create <app name> nodejs-0.10
+PHP 5.3                                   rhc app create <app name> php-5.3
+PHP 5.4                                   rhc app create <app name> php-5.4
+Perl 5.10                                 rhc app create <app name> perl-5.10
+Python 2.6                                rhc app create <app name> python-2.6
+Python 2.7 Community Cartridge            rhc app create <app name> python-2.7
+Python 3.3 Community Cartridge            rhc app create <app name> python-3.3
+Ruby 1.8                                  rhc app create <app name> ruby-1.8
+Ruby 1.9                                  rhc app create <app name> ruby-1.9
+Tomcat 6 (JBoss EWS 1.0)                  rhc app create <app name> jbossews-1.0
+Tomcat 7 (JBoss EWS 2.0)                  rhc app create <app name> jbossews-2.0
+Zend Server 5.6                           rhc app create <app name> zend-5.6
+
+You are using 0 of 3 total gears
+The following gear sizes are available to you: small
+
+Your client tools are now configured.
+----
+
+You are now ready to create and manage an application using OpenShift.
+
+If you cannot run OpenShift client tools at this point, please visit the link:https://help.openshift.com[Help Center] for more assistance.
+
+For more detailed information on the client tools and their installation, please visit the link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/index.html[Client Tools Installation Guide].
+
+== Other Resources
+For more help, please visit the link:https://help.openshift.com[OpenShift Help Center].
+
+link:#top[Back to Top]

@@ -41,14 +41,14 @@ link:#step7[Step 7: Use Amazon RDS with a Java Application] +
 The OpenShift Online Free Plan gives you three free gears on which to run your applications.
 
 === 2. Install the Command Line Tools (RHC)
-This guide uses the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please link:getting-started-client-tools.html[visit this installation guide] first and make sure your version is up to date with the following command:
+This guide uses the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please link:managing-client-tools.html[visit this installation guide] first and make sure your version is up to date with the following command:
 [source]
 --
 $ sudo gem update rhc
 --
 
 === 3. Set up Your Account
-Set up your OpenShift account using the command `rhc setup` as outlined in the link:getting-started-client-tools.html[installation guide]. This command will help you to create a namespace and upload your SSH key to the OpenShift server.
+Set up your OpenShift account using the command `rhc setup` as outlined in the link:managing-client-tools.html[installation guide]. This command will help you to create a namespace and upload your SSH key to the OpenShift server.
 
 === 4. Sign up for an Amazon AWS account at http://aws.amazon.com
 

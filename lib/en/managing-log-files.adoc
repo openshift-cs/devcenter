@@ -30,7 +30,7 @@ link:#top[Back to Top]
 
 [[tailing-logs]]
 == Tailing Logs
-The simplest way to view OpenShift log files is to use the link:getting-started-client-tools.html[*RHC* command line] tools.
+The simplest way to view OpenShift log files is to use the link:managing-client-tools.html[*RHC* command line] tools.
 
 === Using RHC Tail
 The command `rhc tail -a *appname*` will tail all application log files in the *OPENSHIFT_LOG_DIR* directory for the primary web gear of the application.

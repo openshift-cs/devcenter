@@ -38,7 +38,7 @@ link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer th
 NOTE: Only applications using Small.highcpu, Medium, or Large gears can use additional regions. Small gears can only be created within the `us-east-1` AWS EC2 region.
 
 === Command Line Tools (RHC)
-To view available regions or create an application using a specific region, you can use the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please visit the link:getting-started-client-tools.html[installation guide] first and make sure your version is up to date with the following command:
+To view available regions or create an application using a specific region, you can use the OpenShift RHC Command Line Tools (rhc). If you haven't set up RHC, please visit the link:managing-client-tools.html[installation guide] first and make sure your version is up to date with the following command:
 [source]
 ----
 $ sudo gem update rhc

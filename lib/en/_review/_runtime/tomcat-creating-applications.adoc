@@ -12,7 +12,7 @@ nav_priority: 50
 [float]
 = Creating Applications
 [.lead]
-OpenShift Online makes it easy to create new applications, either through a few clicks in the web console or a single RHC command. Using a simple Java deployed on Tomcat application as an example, this section will show you how to create an application using the link:getting-started-client-tools.html[RHC Client Tools] and what your options are when creating applications.
+OpenShift Online makes it easy to create new applications, either through a few clicks in the web console or a single RHC command. Using a simple Java deployed on Tomcat application as an example, this section will show you how to create an application using the link:managing-client-tools.html[RHC Client Tools] and what your options are when creating applications.
 
 == In This Section
 In this section we are going to spin up a plain Java application without any code dependencies.
@@ -25,7 +25,7 @@ link:#section_paidtier[Premium Plan Advantages]
 [[preliminary-steps]]
 === Preliminary Steps
 * Signed up for https://openshift.redhat.com/app/account/new[an OpenShift account]
-* Installed the RHC link:getting-started-client-tools.html[command line tools]. While we could have used the web interface or the Eclipse plugin, we believe the command line give developers the full power of developing applications on OpenShift. If you would like to use the web interface instead, you can link:https://openshift.redhat.com/app/console/application_types[click here (login required)].
+* Installed the RHC link:managing-client-tools.html[command line tools]. While we could have used the web interface or the Eclipse plugin, we believe the command line give developers the full power of developing applications on OpenShift. If you would like to use the web interface instead, you can link:https://openshift.redhat.com/app/console/application_types[click here (login required)].
 
 [[create-app]]
 === Creating Your First Application

@@ -13,7 +13,7 @@ meta_desc: Getting Started with Node.js hosting on OpenShift
 = Getting Started with Nodejs
 In addition to the usual `git` and the `rhc` command-line tools, you'll need to install Nodejs as a local development dependency.  The `npm` package manager comes bundled with all recent releases of Nodejs.
 
-The link:/en/getting-started-client-tools.html[`rhc` command-line tool] makes it easy to link:/en/getting-started-creating-applications.html[provision new hosted application environments] - complete with DNS, ssh, and git services.
+The link:/en/managing-client-tools.html[`rhc` command-line tool] makes it easy to link:/en/managing-creating-applications.html[provision new hosted application environments] - complete with DNS, ssh, and git services.
 
 [[launch]]
 == Step1: Create a Nodejs Application
@@ -112,7 +112,7 @@ Adding the following empty files to your project's `.openshift/markers` folder a
 |Marker File | Effect
 
 |hot_deploy
-|Push code updates without waiting for a full application restart. link:/en/getting-started-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
+|Push code updates without waiting for a full application restart. link:/en/managing-modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
 |use_npm
 |Initialize your application or service using `npm start` instead of `supervisor servername.js` (where `servername.js` is based on the value of your `package.json`'s `main` attribute).
 |===

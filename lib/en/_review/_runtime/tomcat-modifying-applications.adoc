@@ -26,7 +26,7 @@ To view the Git URL for your OpenShift application, run the command `rhc app sho
 
 [TIP]
 ====
-In order to clone an application repository, you must have supplied OpenShift with an SSH public key for the machine on which you are working. If you have not yet done this, run the command pass:[<literal role="keep-together">rhc setup</literal>]. See link:getting-started-client-tools.html[modify our application] for more information.
+In order to clone an application repository, you must have supplied OpenShift with an SSH public key for the machine on which you are working. If you have not yet done this, run the command pass:[<literal role="keep-together">rhc setup</literal>]. See link:managing-client-tools.html[modify our application] for more information.
 ====
 
 [[exploring-application-code]]

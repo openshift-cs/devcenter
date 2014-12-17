@@ -105,7 +105,7 @@ Clicking that link will bring you to the Applications view in OpenShift where yo
 And that's it. You are now running Fuse on OpenShift. Woo hoo!
 
 ==== Installation Option 2: Using the command line tools (rhc)
-If you want to use the link:getting-started-client-tools.html[rhc command line] type:
+If you want to use the link:managing-client-tools.html[rhc command line] type:
 
 [source]
 --
