@@ -23,9 +23,9 @@ This document is organized by the task you are trying to accomplish, such as cre
 
 |===
 |Command|Explanation
-|`rhc setup`|Makes sure your SSH key and authentication information are correctly registered with your OpenShift server
-|`rhc account`|Gives account information included gears in use and available
-|`rhc domain-show`|Gives information about your namespace, including listing all your applications
+|*rhc setup*|Makes sure your SSH key and authentication information are correctly registered with your OpenShift server
+|*rhc account*|Gives account information included gears in use and available
+|*rhc domain-show*|Gives information about your namespace, including listing all your applications
 |===
 
 link:#top[Back to Top]
@@ -34,17 +34,13 @@ link:#top[Back to Top]
 
 |===
 |Command|Explanation
-|`rhc app-create {myAppName} {aWebCartridge}`|Creates an application named _myAppName_ using _aWebCartridge_ as the server responding to HTTP requests
-|`rhc app-create {myAppName} {aWebCartridge} ...
-
-{anAddOnCartridge} {anotherAddOnCartridge}`| Creates an application named _myAppName_ using _aWebCartridge_ but also with two addon cartridges, such as cron or MySQL
-|`rhc app-create {myAppName} {URLToDownloadableCartridge}`| Creates an application named _myAppName_ but then downloads and installs a cartridge from a public location. The downloadable cartridge can be a web cartridge or an add-on cartridge
-|`rhc app-create {myAppName} {aWebCartridge} ...
-
---from-code \http://url/to/git_repo.git ``|Creates an application named _myAppName_ using _aWebCartridge_ and the starting git repository will be cloned from the URL given
-|`rhc app-create {myAppName} {aWebCartridge} -g medium`| Creates an application named _myAppName_ using _aWebCartridge_ with a medium gear size. View you account to see what size gears are available in your account
-|`rhc app-create {myAppName} {aWebCartridge} -s`|  Creates a scalable application named _myAppName_ using _aWebCartridge_. By default the application will add new gears to handle more load. It also means that all cartridges used in the application go on separate gears.
-|`rhc git-clone -a {myAppName}`|Git clones the git repository for the OpenShift application named myAppName into the current directory. It also puts in a little extra metadata so that the rhc command line tools know how to find the application on OpenShift
+|*rhc app-create {myAppName} {aWebCartridge}*|Creates an application named _myAppName_ using _aWebCartridge_ as the server responding to HTTP requests
+|*rhc app-create {myAppName} {aWebCartridge} {anAddOnCartridge} {anotherAddOnCartridge}*| Creates an application named _myAppName_ using _aWebCartridge_ but also with two addon cartridges, such as cron or MySQL
+|*rhc app-create {myAppName} {URLToDownloadableCartridge}*| Creates an application named _myAppName_ but then downloads and installs a cartridge from a public location. The downloadable cartridge can be a web cartridge or an add-on cartridge
+|*rhc app-create {myAppName} {aWebCartridge} --from-code \http://url/to/git_repo.git*|Creates an application named _myAppName_ using _aWebCartridge_ and the starting git repository will be cloned from the URL given
+|*rhc app-create {myAppName} {aWebCartridge} -g medium*| Creates an application named _myAppName_ using _aWebCartridge_ with a medium gear size. View you account to see what size gears are available in your account
+|*rhc app-create {myAppName} {aWebCartridge} -s*|  Creates a scalable application named _myAppName_ using _aWebCartridge_. By default the application will add new gears to handle more load. It also means that all cartridges used in the application go on separate gears.
+|*rhc git-clone -a {myAppName}*|Git clones the git repository for the OpenShift application named myAppName into the current directory. It also puts in a little extra metadata so that the rhc command line tools know how to find the application on OpenShift
 |===
 
 link:#top[Back to Top]
@@ -55,15 +51,15 @@ All of the following commands you are in the local git repository for the applic
 
 |===
 |Command|Explanation
-|`rhc app-show -v`| Show information about your application including usernames and passwords for databases. The _-v_ makes it verbose and is optional
-|`rhc app-show --gears quota`| Shows how much disk space your application is using by gear
-|`rhc app-show --gears ssh`| Show the ssh information for each gear in your application. Most helpful in a scalable application when your database is on a different gear from your main gear
-|`rhc app start`|Starts an application
-|`rhc app stop`| Stops a running application. Please note, in the paid tiers you will still be charged for an application in a stopped state. You must delete it to not be charged
-|`rhc app force-stop`|Force stops all running services in the application - most useful when you application is in a hung state or needs a hard reboot.
-|`rhc app restart` | Restarts an application but please be aware this is different than an _app stop_ then an _app start_ and may do different commands depending on the cartridge
-|`rhc app tidy` | Deletes all the contents of the log and /tmp directory on the gears to free up disk space. Useful to give you some disk space when your app has run out of space
-|`rhc tail` |Outputs the tail end of the log files for the application to your terminal. Good for a quick look at logs but for more serious investigation you will want to SSH into your application and look at the logs more thoroughly
+|*rhc app-show -v*| Show information about your application including usernames and passwords for databases. The _-v_ makes it verbose and is optional
+|*rhc app-show --gears quota*| Shows how much disk space your application is using by gear
+|*rhc app-show --gears ssh*| Show the ssh information for each gear in your application. Most helpful in a scalable application when your database is on a different gear from your main gear
+|*rhc app start*|Starts an application
+|*rhc app stop*| Stops a running application. Please note, in the paid tiers you will still be charged for an application in a stopped state. You must delete it to not be charged
+|*rhc app force-stop*|Force stops all running services in the application - most useful when you application is in a hung state or needs a hard reboot.
+|*rhc app restart* | Restarts an application but please be aware this is different than an _app stop_ then an _app start_ and may do different commands depending on the cartridge
+|*rhc app tidy* | Deletes all the contents of the log and /tmp directory on the gears to free up disk space. Useful to give you some disk space when your app has run out of space
+|*rhc tail* |Outputs the tail end of the log files for the application to your terminal. Good for a quick look at logs but for more serious investigation you will want to SSH into your application and look at the logs more thoroughly
 |===
 
 link:#top[Back to Top]
@@ -73,11 +69,11 @@ link:#top[Back to Top]
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
 
 |===
-|`rhc cartridge list`|Lists all the available cartridges to use on OpenShift
-|`rhc catridge add {cartridgeName}` | Add a cartridge to your existing application. It will be installed on the same gear as your web cartridge unless you made your application scalable. In a scalable case each cartridge is installed in it's own gear.
-|`rhc catridge add {cartridgeName} -g {gearSize}`| Add a cartridge to your application on a specific gear. This is only of use in a scalable application.
-|`rhc cartridge remove {cartridgeName}` | Remove a cartridge (and gear in a scalable application) from your application.
-|`rhc cartridge storage {cartridgeName} --add {additionalStorage}`| Use this command to add disk space specifically to gears that have this cartridge. You can also do --remove to remove disk space from the cartridge
+|*rhc cartridge list*|Lists all the available cartridges to use on OpenShift
+|*rhc catridge add {cartridgeName}* | Add a cartridge to your existing application. It will be installed on the same gear as your web cartridge unless you made your application scalable. In a scalable case each cartridge is installed in it's own gear.
+|*rhc catridge add {cartridgeName} -g {gearSize}*| Add a cartridge to your application on a specific gear. This is only of use in a scalable application.
+|*rhc cartridge remove {cartridgeName}* | Remove a cartridge (and gear in a scalable application) from your application.
+|*rhc cartridge storage {cartridgeName} --add {additionalStorage}*| Use this command to add disk space specifically to gears that have this cartridge. You can also do --remove to remove disk space from the cartridge
 
 |===
 link:#top[Back to Top]
@@ -89,12 +85,12 @@ All of the following commands you are in the local git repository for the applic
 
 |===
 |Command|Explanation
-|`rhc app snapshot save`|Stops the application and then exports an archive of the application to your local machine containing the Git repository, dumps of any attached databases, and any other information that the cartridges decide to export
-|`rhc app snapshot restore -f {fileToRestoreFrom.tar.gz}`| Stops the application and restores from the local file that was exported from the command above
-|`rhc ssh`| This command is a shortcut to SSH into your head gear for your application
-|`rhc port-forward`| This command will set up SSH tunnels between the active ports in your OpenShift application, including those behind the firewall, and ports on your local machine. This allows you to connect applications on your local machine to things such as your database or administrative consoles for application servers.
-|`rhc scp {myAppName} upload {myLocalPathAndFile} {remotePathAndFile}`| Copies a local file to a location on your OpenShift head gear relative to the home directory
-|`rhc scp {myAppName} download {myLocalPathAndFile} {remotePathAndFile}`| Copies a file on your OpenShift head gear, relative to the home directory, down to the path specifed on your local machine.
+|*rhc app snapshot save*|Stops the application and then exports an archive of the application to your local machine containing the Git repository, dumps of any attached databases, and any other information that the cartridges decide to export
+|*rhc app snapshot restore -f {fileToRestoreFrom.tar.gz}*| Stops the application and restores from the local file that was exported from the command above
+|*rhc ssh*| This command is a shortcut to SSH into your head gear for your application
+|*rhc port-forward*| This command will set up SSH tunnels between the active ports in your OpenShift application, including those behind the firewall, and ports on your local machine. This allows you to connect applications on your local machine to things such as your database or administrative consoles for application servers.
+|*rhc scp {myAppName} upload {myLocalPathAndFile} {remotePathAndFile}*| Copies a local file to a location on your OpenShift head gear relative to the home directory
+|*rhc scp {myAppName} download {myLocalPathAndFile} {remotePathAndFile}*| Copies a file on your OpenShift head gear, relative to the home directory, down to the path specifed on your local machine.
 |===
 link:#top[Back to Top]
 
@@ -103,10 +99,10 @@ link:#top[Back to Top]
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
 
 |===
-|`rhc env-list`| List all the environment variables for the application
-|`rhc env-set {VARIABLE1}={VALUE1} {VARIABLE2}={VALUE2}`| Allows you to set environment variables for your code to access. Particularly good if you want to keep your values out of your source code, for things such as passwords. Please remember that some app servers loads environment variables at boot so you may need to reboot a cartridge to see the changes
-|`rhc env-set {/path/to/file}` | Allows you to point to a local file that contains all your Variable=value pairs, one per line
-|`rhc env-unset {VARIABLE1} {VARIABLE2}`|Removes the list of environment variables or sets it back to the original if you overrode a system variable
+|*rhc env-list*| List all the environment variables for the application
+|*rhc env-set {VARIABLE1}={VALUE1} {VARIABLE2}={VALUE2}*| Allows you to set environment variables for your code to access. Particularly good if you want to keep your values out of your source code, for things such as passwords. Please remember that some app servers loads environment variables at boot so you may need to reboot a cartridge to see the changes
+|*rhc env-set {/path/to/file}* | Allows you to point to a local file that contains all your Variable=value pairs, one per line
+|*rhc env-unset {VARIABLE1} {VARIABLE2}*|Removes the list of environment variables or sets it back to the original if you overrode a system variable
 
 |===
 link:#top[Back to Top]
