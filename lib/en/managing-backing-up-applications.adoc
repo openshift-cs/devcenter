@@ -2,15 +2,15 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-backing-up-applications.html
-nav_title: Backup and Restoration
-nav_priority: 55
+parent_url: managing-overview.html
+nav_title: Backup and Restore
+nav_priority: 35
 ---
-= Application Backup and Restoration
+= Application Backup and Restore
 
 [[top]]
 [float]
-= Application Backup and Restoration
+= Application Backup and Restore
 [.lead]
 Application snapshots are used to back up and restore applications. Snapshots are stored in *tar.gz* files, which contain the application and all local files, including log files.
 

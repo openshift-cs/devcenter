@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-linux-commands.html
+parent_url: managing-overview.html
 nav_title: Common Linux Commands
-nav_priority: 51
+nav_priority: 45
 meta_desc: Some basic Linux commands for developers unfamiliar with Linux commands
 ---
 = Common Linux Commands

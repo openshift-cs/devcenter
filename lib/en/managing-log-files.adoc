@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-log-files.html
+parent_url: managing-overview.html
 nav_title: Log Files
-nav_priority: 47
+nav_priority: 80
 meta_desc: Access log files on OpenShift Online
 ---
 = Log Files

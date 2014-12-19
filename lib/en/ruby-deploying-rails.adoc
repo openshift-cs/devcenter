@@ -37,7 +37,7 @@ You could also add the template code at the same time as creating your applicati
 rhc app create myapp ruby-2.0 postgresql-9.2 --from-code=https://github.com/openshift/rails4-example.git -s
 --
 
-The `-s` option makes the application link:overview-platform-features.html#scaling[auto-scaling].
+The `-s` option makes the application link:managing-scaling.html[auto-scaling].
 
 == Asset pipeline
 

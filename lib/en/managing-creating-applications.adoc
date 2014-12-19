@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-creating-applications.html
+parent_url: managing-overview.html
 nav_title: Creating Applications
-nav_priority: 21
+nav_priority: 60
 meta_desc: Create your first application on OpenShift either through the web console or RHC client tools.
 ---
 = Creating Applications

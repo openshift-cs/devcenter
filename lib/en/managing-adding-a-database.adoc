@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-adding-a-database.html
+parent_url: managing-overview.html
 nav_title: Adding a Database
-nav_priority: 42
+nav_priority: 20
 meta_desc: Adding a Database to Your OpenShift Application
 ---
 = Adding a Database to Your Application

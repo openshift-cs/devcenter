@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-remote-connection.html
+parent_url: managing-overview.html
 nav_title: Remote Connection (SSH)
-nav_priority: 50
+nav_priority: 100
 meta_desc: Connect to your OpenShift application remotely using SSH. This page shows you how with Windows and other platforms.
 ---
 = Remote Connection (SSH)
