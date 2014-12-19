@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-port-forwarding.html
+parent_url: managing-overview.html
 nav_title: Port Forwarding
-nav_priority: 42
+nav_priority: 90
 meta_desc: How to use OpenShift port fowarding (SSH tunneling) to connect from your local machine to networks ports not exposed to the outside world
 ---
 = Managing Port Forwarding to your OpenShift Application

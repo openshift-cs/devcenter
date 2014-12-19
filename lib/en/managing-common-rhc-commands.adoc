@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-common-rhc-commands.html
+parent_url: managing-overview.html
 nav_title: Common RHC Commands
-nav_priority: 20
+nav_priority: 50
 meta_desc: Most common OpenShift command line commands explained with examples
 ---
 = Common RHC (Command Line Tool) Commands

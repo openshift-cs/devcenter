@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-background-jobs.html
+parent_url: managing-overview.html
 nav_title: Background Jobs
-nav_priority: 60
+nav_priority: 30
 meta_desc: Step-by-step how to build and run cron jobs for your application.
 ---
 = Cron Overview

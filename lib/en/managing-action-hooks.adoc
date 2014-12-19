@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-action-hooks.html
+parent_url: managing-overview.html
 nav_title: Action Hooks
-nav_priority: 45
+nav_priority: 10
 meta_desc: Understand and use action hooks on OpenShift Online
 ---
 = Action Hooks

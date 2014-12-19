@@ -2,9 +2,9 @@
 layout: base
 category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
-parent_url: managing-filesystem.html
+parent_url: managing-overview.html
 nav_title: Filesystem
-nav_priority: 60
+nav_priority: 75
 meta_desc: The filesystem layout of the gear and what directories are used for what purpose.
 ---
 = Filesystem Overview

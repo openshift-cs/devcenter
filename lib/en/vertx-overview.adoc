@@ -44,7 +44,7 @@ For more details you can read the instructions for the Vert.x cartridge https://
 
 Enable your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings copies of your Vert.x applications online to handle requests. Then when/if traffic dies down the OpenShift infrastructure will retire servers while keeping your overall application running.
 
--> Read More About link:overview-platform-features.html#scaling[Scaling]
+-> Read More About link:managing-scaling.html[Scaling]
 
 [[Vert.x-blog-posts]]
 == See also
