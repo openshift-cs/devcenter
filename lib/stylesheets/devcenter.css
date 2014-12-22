@@ -539,7 +539,7 @@ b.conum * { color: inherit !important; }
 .masthead-devcenter .tag {
   color: #fff;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 200;
   margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
 }
@@ -626,17 +626,14 @@ b.conum * { color: inherit !important; }
   }
   .masthead-devcenter h1 {
     font-size: 62px;
-    margin-bottom: 0;
-  }
-  .masthead-devcenter .tag {
-    font-size: 28px;
+    margin-bottom: 5px;
   }
   .get-started-bloc, .documentation-bloc, .help-bloc {
     margin-top: -100px;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   .masthead-devcenter h1 {
     font-size: 37px;
   }
@@ -646,6 +643,9 @@ b.conum * { color: inherit !important; }
   .section-mark {
     width: 160px;
     height: 160px;
+  }
+  .get-started-bloc, .documentation-bloc, .help-bloc {
+    margin-top: 0px;
   }
 }
 
@@ -662,6 +662,21 @@ b.conum * { color: inherit !important; }
 
 #openshift_books .thumbnail img {
   max-height: 320px;
+}
+
+/* Home Page
+------------------------ */
+.landing h3 {
+  color: #cc0000;
+  margin: 30px 0 25px;
+}
+.landing .list-group .content-basic {
+  border: 0 solid #fff;
+  padding: 10px 0px;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 /*
