@@ -24,8 +24,16 @@
       .container
         .title-inner
           %h1 OpenShift Developers
-          .tag Your Code. Your Choice.
-          %a.enter-link{:href => "en/overview-what-is-openshift.html"} Enter the Developer Portal
+          .tag Your code. Your choice.
+          .col-md-7.col-sm-8.col-xs-8.center-block{:style => "float:none;"}
+            .search-form
+              %form#cse-search-form-body.search.has-button{:action => "https://help.openshift.com/hc/en-us/search", :method => "get", :role => "form"}
+                .form-group
+                  .search-pf-input-group
+                    %input#cse-search-input-body.form-control{:autocomplete => "off", :dir => "ltr", :name => "query", :placeholder => "Search the Developer Portal", :spellcheck => "false", :style => "outline: none;", :type => "search"}
+                .form-group
+                  %button.btn.btn-default{:type => "button"}
+                    %span.fa.fa-search
     .landing.landing-devcenter.cushion-bottom
       .container
         .row.text-center
@@ -36,41 +44,77 @@
               %h2 Get Started
             %span Get your first application up and running and learn the basics of OpenShift.
           .col-md-4.col-sm-4.documentation-bloc
-            %a{:href => "https://access.redhat.com/documentation/en-US/OpenShift_Online/"}
+            %a{:href => "/en/overview-what-is-openshift.html"}
               .section-mark
                 %img{:alt => "documentation icon", :src => "../images/circle-icon-documentation.png"}/
-              %h2 Documentation
-            %span Visit the comprehensive documentation and learn more about specific commands.
+              %h2 Browse Content
+            %span Explore the content in the portal and access language-specific guides and tutorials.
           .col-md-4.col-sm-4.help-bloc
             %a{:href => "https://help.openshift.com"}
               .section-mark
                 %img{:alt => "need help icon", :src => "../images/circle-icon-help.png"}/
               %h2 Need Help?
             %span Visit the OpenShift Online Help Center for a complete list of available resources.
-        .row.cushion
-          .col-md-7.col-sm-8.col-xs-8.center-block
-            .search-form
-              %form#cse-search-form-body.search.has-button{:action => "https://help.openshift.com/hc/en-us/search", :method => "get", :role => "form"}
-                .form-group
-                  .search-pf-input-group
-                    %input#cse-search-input-body.form-control{:autocomplete => "off", :dir => "ltr", :name => "query", :placeholder => "How can we help?", :spellcheck => "false", :style => "outline: none;", :type => "search"}
-                .form-group
-                  %button.btn.btn-default{:type => "button"}
-                    %span.fa.fa-search
     .landing.cushion
       .container
         .row
-          .col-md-10.col-centered.text-center
-            %h3 Get Involved with OpenShift Online
+          .col-md-10.col-centered
             .row
-              .col-md-4.text-center
-                %h4
-                  %a{:href => "http://ideas.openshift.com"} Vote on Features
-              .col-md-4.text-center
-                %h4
-                  %a{:href => "https://www.openshift.com/application-gallery"} Application Gallery
-              .col-md-4.text-center
-                %h4
-                  %a{:href => "en/get-involved-extend-openshift.html"} Extend OpenShift
+              .col-sm-5
+                %h3 Featured Content
+                .list-group.left-list-group
+                  .list-group-item.content-basic
+                    %a{:href => "en/overview-what-is-openshift.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading What is OpenShift?
+                      %p.list-group-item-text An OpenShift Online overview
+                  .list-group-item.content-basic
+                    %a{:href => "en/getting-started-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Getting Started on OpenShift
+                      %p.list-group-item-text A collection of guides by OS and language
+                  .list-group-item.content-basic
+                    %a{:href => "en/languages-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Cartridge Overview
+                      %p.list-group-item-text Learn about using available cartridges
+                  .list-group-item.content-basic
+                    %a{:href => "en/management-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Managing Applications
+                      %p.list-group-item-text A collection of guides about managing applications
+                  .list-group-item.content-basic
+                    %a{:href => "en/xpass-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading JBoss xPaaS
+                      %p.list-group-item-text Use powerful JBoss Middleware on OpenShift
+              .col-sm-5.col-sm-offset-1
+                %h3.right-list-group New Content
+                .list-group.right-list-group
+                  .list-group-item.content-basic
+                    %a{:href => "en/languages-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading OpenShift on Windows
+                      %p.list-group-item-text Get started on a Windows machine
+                  .list-group-item.content-basic
+                    %a{:href => "en/managing-log-files.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Working with Log Files
+                      %p.list-group-item-text Access and tail log files for your application
+                  .list-group-item.content-basic
+                    %a{:href => "en/managing-regions-and-zones.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Regions and Zones
+                      %p.list-group-item-text Launch appplications in different regions
+                  .list-group-item.content-basic
+                    %a{:href => "en/management-remote-connection.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Remote Connection and SSH
+                      %p.list-group-item-text Remotely connect to your application
+                  .list-group-item.content-basic
+                    %a{:href => "en/wildfly-overview.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Wildfly on OpenShift
+                      %p.list-group-item-text Explore the latest Wildfly cartridge
     = partial( 'analytics.html.haml' )
     = partial( 'footer.html.haml' )
