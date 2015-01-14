@@ -30,29 +30,29 @@ In general, all gears have the same layout. The differences come when you instal
 [source]
 ----
 .
-├── .env
-├── app-root
-│   ├── data
-│   ├── repo -> runtime/repo
-│   └── runtime
-│       ├── data
-│       └── repo
-│           └── ...deployed application code
-├── app-deployments
-│   ├── current
-│   │   ├── build-dependencies
-│   │   ├── dependencies
-│   │   ├── metadata.json
-│   │   └── repo
-│   └── ...application deployements
-├── git
-│   └── [APP_NAME].git
-│       ├── hooks
-│       │   ├── post-receive
-|       |   ├── pre-receive
-|       |   └── ... sample hooks
-│       └── ... other git directories
-└── ...cartridge directories
+|-- .env
+|-- app-root
+|   |-- data
+|   |-- repo -> runtime/repo
+|   `-- runtime
+|       |-- data
+|       `-- repo
+|           `-- ...deployed application code
+|--  app-deployments
+|   |-- current
+|   |   |-- build-dependencies
+|   |   |-- dependencies
+|   |   |-- metadata.json
+|   |   `-- repo
+|   `-- ...application deployments
+|--  git
+|   `-- [APP_NAME].git
+|       `-- hooks
+|       |   |--  post-receive
+|       |   |--  pre-receive
+|       |   `-- ... sample hooks
+|       `-- ... other git directories
+`-- ...cartridge directories
 ----
 
 Source: link:http://openshift.github.io/documentation/oo_system_architecture_guide.html#directory-structure[OpenShift Origin documentation]
