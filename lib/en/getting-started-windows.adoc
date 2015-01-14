@@ -97,8 +97,8 @@ RubyGems downloads and installs the rhc gem from link:http://rubygems.org/gems/r
 
 link:#top[Back to Top]
 
-=== Video Walkthrough for Setting up Client Tools (rhc)
-video::cgNWp7SlS3A[youtube, width=640, height=480]
+=== Video Walkthrough for Installing Client Tools (rhc) on Windows
+video::0jj8fLiO1Bs[youtube]
 
 link:#top[Back to Top]
 
