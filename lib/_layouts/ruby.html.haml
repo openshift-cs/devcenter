@@ -8,6 +8,7 @@
     %meta{ :charset=>'utf-8' }
     %meta{ 'http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge' }
     %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
+    %meta{ :name=>'description', :content=>"#{page.meta_desc}" }
     %title
       #{page.title} | OpenShift Developers
     = partial( 'styles.html.haml' )
@@ -15,16 +16,24 @@
   %body
     = partial( 'openshift-header.html.haml' )
     .container
-      = partial( 'toggle.html.haml' )
-      %ol.breadcrumb
-        %li.sitename
-          %a{href: "/en"} Developers
-        %li.hidden-xs
-          %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
-        %li.hidden-xs
-          %a{href: "/en/ruby-overview.html"} Ruby
-        %li.hidden-xs
-          = page.nav_title == "Ruby" ? "Overview" : page.nav_title
+      .row.content-header
+        .col-md-8
+          = partial( 'toggle.html.haml' )
+          %ol.breadcrumb
+            %li.sitename
+              %a{href: "/en"} Developers
+            %li.hidden-xs
+              %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
+            %li.hidden-xs
+              %a{href: "/en/ruby-overview.html"} Ruby
+            %li.hidden-xs
+              = page.nav_title == "Ruby" ? "Overview" : page.nav_title
+        .col-md-4
+          .report
+            .fa.fa-github
+            %a{href: "https://github.com/openshift/devcenter/issues"} Report a Content Issue
+            or
+            %a{href: "https://github.com/openshift/devcenter"} Contribute
       .row.row-offcanvas.row-offcanvas-left
         .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
           %ul.nav.nav-sidebar
