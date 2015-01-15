@@ -16,14 +16,22 @@
   %body
     = partial( 'openshift-header.html.haml' )
     .container
-      = partial( 'toggle.html.haml' )
-      %ol.breadcrumb
-        %li.sitename
-          %a{href: "/"} Developers
-        %li.hidden-xs
-          %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
-        %li.hidden-xs.active
-          #{page.nav_title}
+      .row.content-header
+        .col-md-6
+          = partial( 'toggle.html.haml' )
+          %ol.breadcrumb
+            %li.sitename
+              %a{href: "/"} Developers
+            %li.hidden-xs
+              %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
+            %li.hidden-xs.active
+              #{page.nav_title}
+        .col-md-6
+          .report
+            .fa.fa-github 
+            %a{href: "https://github.com/openshift/devcenter/issues"} Report an issue 
+            or 
+            %a{href: "https://github.com/openshift/devcenter"} submit a pull request
       .row.row-offcanvas.row-offcanvas-left
         .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
           %ul.nav.nav-sidebar
