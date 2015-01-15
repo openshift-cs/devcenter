@@ -80,7 +80,7 @@ git branch my-feature-branch # cut a new branch FROM MASTER, name it after your 
 git checkout my-feature-branch # switch to the new branch to make your changes
 ```
 
-After completing your changes, test and review them locally.  Then `add` and `commit` your changeset:
+After completing your changes, [test and review them locally](https://github.com/openshift/devcenter#building-wawestruct).  Then `add` and `commit` your changeset:
 
 ```bash
 git status
