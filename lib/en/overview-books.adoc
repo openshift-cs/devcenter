@@ -16,7 +16,9 @@ meta_desc: The latest books to help you hit the ground running with your OpenShi
 Hit the ground running with the creation and deployment of your OpenShift applications.
 
 ++++
-<div id="openshift_books" class="row">
+<section id="openshift_books">
+
+<div class="row">
     <div class="col-xs-12 col-sm-12 col-md-4">
         <a href="http://www.amazon.com/Learning-OpenShift-Grant-Shipley/dp/1783980966/" class="thumbnail" title="View on Amazon" target="_blank"><img src="/en/images/books/learning_openshift.jpg" alt="Learning OpenShift by Grant Shipley"></a>
         <div class="caption">
@@ -74,4 +76,5 @@ Hit the ground running with the creation and deployment of your OpenShift applic
         </div>
     </div>
 </div>
+</section>
 ++++
