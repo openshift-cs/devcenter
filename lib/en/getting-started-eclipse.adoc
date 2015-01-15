@@ -91,7 +91,7 @@ If you are an existing OpenShift user, you will need to use your existing key or
 
 image::eclipse/step4.png[Step 4: Configure SSH Keys]
 
-If you don’t already have a ssh key created on your machine, select the *Key Management* tab > *Generate RSA Key*.  Provide a passphrase if you desire and then click *Save Private Key*.  You will also want to copy your public key that is displayed so that we can add it to OpenShift.
+If you don't already have a ssh key created on your machine, select the *Key Management* tab > *Generate RSA Key*.  Provide a passphrase if you desire and then click *Save Private Key*.  You will also want to copy your public key that is displayed so that we can add it to OpenShift.
 
 image::eclipse/step4b.png[Step 4b: Configure SSH Keys]
 
