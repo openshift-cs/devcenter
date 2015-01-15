@@ -54,7 +54,7 @@ link:#top[Back to Top]
 
 [[step3]]
 == Step 3: Create an OpenShift Project
-Now that you have the toolset installed, it’s time to create a cloud project and begin development.  Select *File* > *New* > *Other* > *OpenShift* > *OpenShift Application* and click *Next*:
+Now that you have the toolset installed, it's time to create a cloud project and begin development.  Select *File* > *New* > *Other* > *OpenShift* > *OpenShift Application* and click *Next*:
 
 image::eclipse/step3.png[Step 3: Create an OpenShift Project]
 
