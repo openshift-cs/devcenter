@@ -17,7 +17,7 @@
     = partial( 'openshift-header.html.haml' )
     .container
       .row.content-header
-        .col-md-6
+        .col-md-8
           = partial( 'toggle.html.haml' )
           %ol.breadcrumb
             %li.sitename
@@ -26,12 +26,12 @@
               %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
             %li.hidden-xs.active
               #{page.nav_title}
-        .col-md-6
+        .col-md-4
           .report
-            .fa.fa-github 
-            %a{href: "https://github.com/openshift/devcenter/issues"} Report an issue 
-            or 
-            %a{href: "https://github.com/openshift/devcenter"} submit a pull request
+            .fa.fa-github
+            %a{href: "https://github.com/openshift/devcenter/issues"} Report a Content Issue
+            or
+            %a{href: "https://github.com/openshift/devcenter"} Contribute
       .row.row-offcanvas.row-offcanvas-left
         .col-xs-8.col-sm-3.col-md-3.sidebar.sidebar-offcanvas
           %ul.nav.nav-sidebar
@@ -46,11 +46,11 @@
                       %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url } #{p.nav_title}
             %li.nav-header
               %a{ href: "https://access.redhat.com/documentation/en-US/OpenShift_Online/" }
-                Documentation 
+                Documentation
                 %span{ :class => "fa fa-external-link small" }
             %li.nav-header
               %a{ href: "https://help.openshift.com/" }
-                Get Help 
+                Get Help
                 %span{ :class => "fa fa-external-link small" }
         .col-xs-12.col-sm-9.col-md-9.main
           ~ content
