@@ -3,29 +3,14 @@
 
 This repo contains the AsciiDoc sources for the [OpenShift Online Developer Center](https://developers.openshift.com/).
 
-## Deployment
-Click to host your own DevCenter on [OpenShift Online](https://www.openshift.com/):
-
-[![LAUNCH ON OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=ruby-2.0&initial_git_url=https://github.com/openshift/devcenter.git&name=devcenter)
-
-An alternate repo url or branch name can be provided on the confirmation page (for testing development branches).
-
-The `rhc` command-line tool can also be used to launch a hosted copy of the site:
-
-```bash
-rhc app create devcenter ruby-2.0 --from-code=http://github.com/openshift/devcenter#master
-```
-
-This command will create a local copy of the project source for development use (unless the `--no-git` flag is supplied).
-
 ## Development Setup
-First, get started by fetching a local copy of the upstream source using `rhc` (shown above), or by using `git`:
+Get started by fetching a local copy of the upstream source:
 
 ```bash
 git clone git@github.com:openshift/devcenter.git
 ```
 
-Then, add a few remotes to your local copy of the upstream project source:
+If you plan on submitting changes, you'll need to add a few remotes to your local repo:
 
 ```bash
 cd devcenter
@@ -46,7 +31,7 @@ $ gem install awestruct bundler
 
 ### Live Previews with Rake
 
-To get started using Rake, run `rake setup` inside the project's `lib` folder:
+This project uses Rake to assist with various development tasks. Run `rake setup` inside the project's `lib` folder to get started:
 
 ```bash
 $ cd lib
@@ -66,12 +51,12 @@ If you need to clear out the generated site from a previous run (recommended), s
 $ rake clean preview
 ```
 
-Content on the live site will look exactly as it does in your development environment. Please verify all content changes before submitting a pull request.
+Content on the live site will look exactly as it does in your development environment. Please verify each of your changes *before* submitting a pull request.
 
 ### Contributing
 It's usually a good idea to start by [submitting an issue describing your feedback or planned changes](https://github.com/openshift/devcenter/issues).
 
-To contribute changes, [setup your own local copy of this project](#development-setup). Then, create a new branch (from `master`), to track your changes:
+To contribute changes, first [setup your own local copy of this project](#development-setup). Then, create a new branch (from `master`), to track your changes:
 
 ```bash
 git checkout master # make sure you fork from the master branch
@@ -101,7 +86,32 @@ Finally, [send us a `Pull Request`](https://github.com/openshift/devcenter/compa
 
 When you're done, reset your development environment by repeating the steps in this section: switch back to master, update your repo, and cut a new feature branch (from `master`).
 
-## Creating New Documents ##
+## Deployment
+A hosted copy of these docs can be launched using the `rhc` command line tool.
+
+First, `cwd` into your local `devcenter` project folder:
+```bash
+cd devcenter
+```
+
+Then, create a remote `ruby-2.0` container, setup the resulting `git remote`, and `--force` `push` your local repo history into the new environment:
+
+```bash
+APP_NAME=devcenter
+NEW_GIT_REMOTE_URL=$(rhc app create $APP_NAME ruby-1.9 --no-git --no-dns | grep "Git remote:" | sed -e 's/.*Git remote: *\([^ ]*\)/\1/')
+git remote add $APP_NAME $NEW_GIT_REMOTE_URL
+git push -f $APP_NAME master
+```
+
+Rerun with different `APP_NAME` values to set up additional deployment targets. Subsequent deployments can be made with `git push APP_NAME master`.
+
+By default, OpenShift will build your site using the `master` branch. To deploy an alternate branch, use `rhc app configure`:
+
+```bash
+rhc app configure -a APP_NAME --deployment-branch BRANCH_NAME
+```
+
+## Adding New Sections ##
 The page sources are human-readable `.adoc` files ([AsciiDoc](http://asciidoc.org/)), which are intended to be published in various formats, usually HTML.
 
 At a minimum, the first several lines of a new .adoc document must follow this pattern:
