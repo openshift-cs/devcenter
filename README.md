@@ -25,7 +25,7 @@ git branch --set-upstream-to upstream/master
 Awestruct is a framework for creating static HTML sites, inspired by the [Jekyll](http://github.com/mojombo/jekyll) utility in the same genre. It requires at least Ruby 1.9.3 (see [known issues](#known-issues)).
 
 First, install the `awestruct` and `bundler` gems and resolve any dependencies.
-```
+```bash
 $ gem install awestruct bundler
 ```
 
@@ -90,6 +90,7 @@ When you're done, reset your development environment by repeating the steps in t
 A hosted copy of these docs can be launched using the `rhc` command line tool.
 
 First, `cwd` into your local `devcenter` project folder:
+
 ```bash
 cd devcenter
 ```
