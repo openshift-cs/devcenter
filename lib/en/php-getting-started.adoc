@@ -18,6 +18,7 @@ It's easy to get up and running with PHP on OpenShift.
 link:#step1[Step 1: Create a PHP Application] +
 link:#step2[Step 2: Make the First Change] +
 link:#step3[Step 3: Manage Dependencies] +
+link:#set-document-root[Setting Your Document Root] +
 link:#other[Other Tips] +
 link:#next[Next Steps]
 
@@ -136,6 +137,23 @@ auth_sasl
 Use Git to add, commit, and push your changes to *pear.txt* to OpenShift.
 
 To use an alternative dependency manager, such as Composer, add any commands you would like to be executed at build time on OpenShift into an link:managing-action-hooks.html[action hook script] at *.openshift/action_hooks/build*.
+
+link:#top[Back to Top]
+
+[[set-document-root]]
+== Setting Your Document Root
+
+The DocumentRoot is chosen by the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#bin-control[cartridge control script] logic depending on conditions in the following order:
+[source, console]
+--
+IF php/ dir exists THEN DocumentRoot=php/
+ELSE IF public/ dir exists THEN DocumentRoot=public/
+ELSE IF public_html/ dir exists THEN DocumentRoot=public_html/
+ELSE IF web/ dir exists THEN DocumentRoot=web/
+ELSE IF www/ dir exists THEN DocumentRoot=www/
+ELSE DocumentRoot=/
+--
+As I’m sure you’ve guessed, this makes the new OpenShift app directory structure compatible with all major upstream PHP projects, including Drupal, WordPress, Joomla, Zend Framework Skeleton Apps and many others.
 
 link:#top[Back to Top]
 
