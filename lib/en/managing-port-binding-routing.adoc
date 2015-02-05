@@ -1,0 +1,18 @@
+---
+layout: base
+category: 05_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-overview.html
+nav_title: Port Binding/Routing
+nav_priority: 89
+meta_desc: How OpenShift routes HTTP/HTTPS/WS/WSS requests to your application and what port you should bind to
+---
+= Port Binding and Routing Requests to your OpenShift Application
+
+[[top]]
+[float]
+= Port Binding and Routing Requests to your OpenShift Application
+[.lead]
+image::port-binding-routing.png[Port Binding and Routing]
+
+If you are building a cartridge and trying to bind to internal ports, please see the link:http://www.openshift.org/documentation/oo_cartridge_developers_guide.html#exposing-services-tcp-endpoints[Cartridge Developers Guide].
