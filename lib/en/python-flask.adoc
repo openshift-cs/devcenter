@@ -13,7 +13,7 @@ meta_desc: Python developers - Flask microframework on OpenShift Online
 [float]
 = Getting Started with the Flask Microframework
 
-link:http://http://flask.pocoo.org[Flask] is a popular open-source microframework for Python. This tutorial steps through the process of creating a Python application on OpenShift and adding the Flask microframework.
+link:http://flask.pocoo.org[Flask] is a popular open-source microframework for Python. This tutorial steps through the process of creating a Python application on OpenShift and adding the Flask microframework.
 
 To create an OpenShift application based on a Flask QuickStart template instead, use the following terminal command:
 
