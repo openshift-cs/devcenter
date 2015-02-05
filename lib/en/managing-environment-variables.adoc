@@ -22,6 +22,7 @@ link:#database-variables[Database Variables] +
 link:#logging-variables[Informational Variables] +
 link:#library-variables[Library Variables] +
 link:#jenkins-variables[Jenkins Variables] +
+link:#java-variables[Java Variables] +
 link:#custom-variables[Custom Variables] +
 link:#reading-variable-examples[Reading Variables: Examples] +
 
@@ -137,6 +138,17 @@ Jenkins environment variables are available if an application has Jenkins enable
 |JENKINS_USERNAME|System builder account on the Jenkins server.
 |JENKINS_PASSWORD|Password for the system builder account on the Jenkins server.
 |JENKINS_URL|DNS name for the associated Jenkins server where builds occur.
+|===
+
+link:#top[Back to Top]
+
+[[java-variables]]
+== Java Environment Variables
+Java environment variables are available if an application has a Java cartridge installed.
+
+|===
+|Variable Name|Purpose
+|JAVA_OPTS_EXT|Appended to JAVA_OPTS prior to invoking the Java VM.
 |===
 
 link:#top[Back to Top]
