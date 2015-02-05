@@ -17,7 +17,7 @@ This tutorial will start with showing you how to create an application using the
 
 link:#step1[Step 1: Create a Python Application] +
 link:#step2[Step 2: Make the First Change] +
-link:#step3[Step 3: Managing Application Package Dependencies]
+link:#step3[Step 3: Managing Application Package Dependencies] +
 link:#step4[Step 4: Using a Different Server than Mod_WSGI] +
 link:#other[Other Tips] +
 link:#next[Next Steps]
