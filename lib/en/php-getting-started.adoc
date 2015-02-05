@@ -153,7 +153,7 @@ ELSE IF web/ dir exists THEN DocumentRoot=web/
 ELSE IF www/ dir exists THEN DocumentRoot=www/
 ELSE DocumentRoot=/
 --
-As I’m sure you’ve guessed, this makes the new OpenShift app directory structure compatible with all major upstream PHP projects, including Drupal, WordPress, Joomla, Zend Framework Skeleton Apps and many others.
+As I'm sure you've guessed, this makes the new OpenShift app directory structure compatible with all major upstream PHP projects, including Drupal, WordPress, Joomla, Zend Framework Skeleton Apps and many others.
 
 link:#top[Back to Top]
 
