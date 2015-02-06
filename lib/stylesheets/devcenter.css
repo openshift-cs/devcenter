@@ -1,3 +1,23 @@
+/* Google Translate Overrides */
+html, body {
+  min-height: 0!important;
+  height: auto!important;
+}
+
+body {
+  margin-bottom: 0 !important;
+}
+
+footer {
+  position: inherit!important;
+}
+
+#google_translate_element {
+   padding-bottom: 10px;
+   padding-top: 5px;
+}
+/* End Translate Overrides */
+
 .breadcrumb {
   margin: 0;
   padding: 3px 0 10px;
