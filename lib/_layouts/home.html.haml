@@ -28,6 +28,7 @@
           .col-md-7.col-sm-8.col-xs-8.center-block{:style => "float:none;"}
             .search-form
               %form#cse-search-form-body.search.has-button{:action => "https://help.openshift.com/hc/en-us/search", :method => "get", :role => "form"}
+                %input{"name"=>"refinement", "type"=>"hidden", "value"=>"documentation"}
                 .form-group
                   .search-pf-input-group
                     %input#cse-search-input-body.form-control{:autocomplete => "off", :dir => "ltr", :name => "query", :placeholder => "Search the Developer Portal", :spellcheck => "false", :style => "outline: none;", :type => "search"}
