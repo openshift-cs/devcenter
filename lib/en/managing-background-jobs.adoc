@@ -76,5 +76,21 @@ fi
 # rest of the script
 ----
 
+Another useful example would be running a job every 5 minutes, as seen here.
+
+You would place this code snippet in an executable file in the `minutely` cron job folder.
+
+[source]
+----
+#!/bin/bash
+if [ ! -f $OPENSHIFT_DATA_DIR/last_run ]; then
+  touch $OPENSHIFT_DATA_DIR/last_run
+fi
+if [[ $(find $OPENSHIFT_DATA_DIR/last_run -mmin +4) ]]; then #run every 5 mins
+  rm -f $OPENSHIFT_DATA_DIR/last_run
+  touch $OPENSHIFT_DATA_DIR/last_run
+  # The command(s) that you want to run every 5 minutes
+fi
+----
 === See also
 https://blog.openshift.com/getting-started-with-cron-jobs-on-openshift[Getting Started with Cron Jobs on OpenShift]

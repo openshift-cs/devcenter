@@ -4,7 +4,7 @@ category: 05_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url: managing-overview.html
 nav_title: Environment Variables
-nav_priority: 75
+nav_priority: 74
 meta_desc: OpenShift has several environment variables to make it easy for your to configure your application properly.
 ---
 = Using Environment Variables
@@ -158,7 +158,7 @@ link:#top[Back to Top]
 == Custom Environment Variables
 Custom environment variables are user defined to use with applications.
 
-===== Setting Custom Environment Variables
+=== Setting Custom Environment Variables
 Set one of more environment variables for an application with the following command:
 
 [source,console]
@@ -168,7 +168,7 @@ $ rhc env set <Variable>=<Value> <Variable2>=<Value2> -a App_Name
 
 Add additional `<Variable>=<Value>` arguments separated by spaces to set multiple variables.
 
-===== Viewing Custom Environment Variables
+=== Viewing Custom Environment Variables
 View the custom environment variables set for an application with the following command:
 
 [source,console]
@@ -176,7 +176,7 @@ View the custom environment variables set for an application with the following 
 $ rhc env list -a App_Name
 ----
 
-===== Viewing the Value of a Custom Environment Variable
+=== Viewing the Value of a Custom Environment Variable
 Display the value of one or more custom environment variables with the following command:
 
 [source,console]
@@ -184,7 +184,7 @@ Display the value of one or more custom environment variables with the following
 $ rhc env show <Variable> <Variable2> -a App_Name
 ----
 
-===== Removing Custom Environment Variables
+=== Removing Custom Environment Variables
 Remove a custom environment variable with the following command:
 
 [source,console]
