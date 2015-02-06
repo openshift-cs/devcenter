@@ -9,6 +9,7 @@
     %meta{ 'http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge' }
     %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
     %meta{ :name=>'description', :content=>"#{page.meta_desc}" }
+    %meta{ :name=>'google-translate', :content=>"dfd443ede08fb799-116e5be546f1663b-ga2a4e05db918ce22-19"}
     %title
       #{page.title} | OpenShift Developers
     = partial( 'styles.html.haml' )
@@ -49,6 +50,12 @@
                         = p.nav_title == "Ruby" ? "Overview" : p.nav_title
             %li.nav-header
               %a{ href: "/en/languages-overview.html" } Back to Main
+            #google_translate_element
+            :javascript
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+            %script{:src => "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit", :type => "text/javascript"}
         .col-xs-12.col-sm-9.col-md-9.main
           ~ content
     = partial( 'analytics.html.haml' )
