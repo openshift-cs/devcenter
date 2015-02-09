@@ -18,7 +18,7 @@ Action hook scripts are included as part of your application Git repository, in 
 
 To run code at a particular time in the lifecycle, place a script in the `action_hooks` directory with the same name as the phase when you want it to be executed. The script can be written in *Shell*, *Python*, *PHP*, *Ruby*, or any other scripting language installed in the OpenShift environment that you can reference. It does not matter what language you chose for your web application; all of these scripting environments are still available to run on your gear.
 
-IMPORTANT: The script needs to be executable; run the `chmod x <scriptname>` command to ensure this.
+IMPORTANT: The script needs to be executable; run the `chmod +x <scriptname>` command to ensure this.
 
 [WARNING]
 ====
