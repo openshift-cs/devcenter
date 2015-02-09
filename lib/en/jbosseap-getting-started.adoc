@@ -7,8 +7,7 @@ nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with JBoss EAP 6 on OpenShift
 ---
-
-= Getting Started
+= Getting Started with JBoss EAP 6
 
 [[top]]
 [float]
