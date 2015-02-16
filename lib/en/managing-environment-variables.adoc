@@ -220,6 +220,7 @@ The following table shows an example of how to read an environment variable for 
 |PHP|$env_var = getenv('OPENSHIFT_ENV_VAR');
 |Python|env_var = os.environ['OPENSHIFT_ENV_VAR']
 |Ruby|:env_var \=> ENV['OPENSHIFT_ENV_VAR']
+|Node.js|process.env.OPENSHIFT_ENV_VAR
 |===
 
 link:#top[Back to Top]
