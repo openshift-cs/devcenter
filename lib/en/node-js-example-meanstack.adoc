@@ -94,7 +94,7 @@ Finally, use `git push` to send the release to your remote OpenShift hosting env
 
 [source, console]
 ----
-$ git push YOUR_OPENSHIFT_APP_NAME master
+$ git push openshift master
 ----
 
 LAMP stack afficianados should pause and take note: Your old stack probably never included a build / optimization process, or a complete development workflow.
