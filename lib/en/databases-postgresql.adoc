@@ -52,8 +52,6 @@ The `postgresql` cartridge provides several environment variables to reference f
 |PostgreSQL version in the form `X.Y`
 |===
 
-link:https://developers.openshift.com/en/managing-environment-variables.html[-> Learn more about OpenShift Environment Variables]
-
 You can fine-tune the PostgreSQL server performance by using the rhc tool and changing the default values for these variables:
 
 [options="header"]
@@ -68,6 +66,8 @@ You can fine-tune the PostgreSQL server performance by using the rhc tool and ch
 |===
 
 For more details, please refer to the PostgreSQL link:https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server[wiki page].
+
+link:https://developers.openshift.com/en/managing-environment-variables.html[-> Learn more about OpenShift Environment Variables]
 
 === Example Use
 
