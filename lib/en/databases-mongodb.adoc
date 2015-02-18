@@ -43,6 +43,8 @@ The `mongodb` cartridge provides several environment variables to reference for 
 |The path to the MongoDB log directory
 |===
 
+link:https://developers.openshift.com/en/managing-environment-variables.html[-> Learn more about OpenShift Environment Variables]
+
 === Example Use
 
 Getting a Python app with a MongoDB backend deployed onto OpenShift is as easy as executing two commands:
