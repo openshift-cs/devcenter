@@ -37,7 +37,7 @@ The `mysql` cartridge provides several environment variables to reference for ea
 |MySQL password credential
 
 |OPENSHIFT_MYSQL_DB_URL
-|MySQL server configuration url (mysql://OPENSHIFT_MYSQL_DB_USERNAME:OPENSHIFT_MYSQL_DB_PASSWORD@OPENSHIFT_MYSQL_DB_HOST:OPENSHIFT_MYSQL_DB_PORT) 
+|MySQL server configuration url (mysql://OPENSHIFT_MYSQL_DB_USERNAME:OPENSHIFT_MYSQL_DB_PASSWORD@OPENSHIFT_MYSQL_DB_HOST:OPENSHIFT_MYSQL_DB_PORT)
 
 |OPENSHIFT_MYSQL_DB_SOCKET
 |MySQL socket connection file
@@ -69,6 +69,8 @@ The `mysql` cartridge provides several environment variables to reference for ea
 |OPENSHIFT_MYSQL_AIO
 |Controls the 'innodb_use_native_aio' setting value in case the native AIO is broken. See http://help.directadmin.com/item.php?id=529
 |===
+
+link:https://developers.openshift.com/en/managing-environment-variables.html[-> Learn more about OpenShift Environment Variables]
 
 === Example Use
 
