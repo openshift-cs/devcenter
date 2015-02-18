@@ -52,6 +52,8 @@ The `postgresql` cartridge provides several environment variables to reference f
 |PostgreSQL version in the form `X.Y`
 |===
 
+link:https://developers.openshift.com/en/managing-environment-variables.html[-> Learn more about OpenShift Environment Variables]
+
 You can fine-tune the PostgreSQL server performance by using the rhc tool and changing the default values for these variables:
 
 [options="header"]
