@@ -95,7 +95,17 @@
                 %h3.right-list-group New Content
                 .list-group.right-list-group
                   .list-group-item.content-basic
-                    %a{:href => "en/languages-overview.html"}
+                    %a{:href => "en/managing-deployments.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Deployments and Rollbacks
+                      %p.list-group-item-text Configure number and type of deployments
+                  .list-group-item.content-basic
+                    %a{:href => "en/managing-port-binding-routing.html"}
+                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
+                      %h4.list-group-item-heading Port Binding and Routing
+                      %p.list-group-item-text A diagram of how port binding and routing work
+                  .list-group-item.content-basic
+                    %a{:href => "en/getting-started-windows.html"}
                       %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
                       %h4.list-group-item-heading OpenShift on Windows
                       %p.list-group-item-text Get started on a Windows machine
@@ -109,16 +119,6 @@
                       %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
                       %h4.list-group-item-heading Regions and Zones
                       %p.list-group-item-text Launch appplications in different regions
-                  .list-group-item.content-basic
-                    %a{:href => "en/managing-remote-connection.html"}
-                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
-                      %h4.list-group-item-heading Remote Connection and SSH
-                      %p.list-group-item-text Remotely connect to your application
-                  .list-group-item.content-basic
-                    %a{:href => "en/wildfly-overview.html"}
-                      %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
-                      %h4.list-group-item-heading Wildfly on OpenShift
-                      %p.list-group-item-text Explore the latest Wildfly cartridge
     = partial( 'analytics.html.haml' )
     :javascript
       function googleTranslateElementInit() {
