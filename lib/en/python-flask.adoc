@@ -50,14 +50,14 @@ link:#top[Back to Top]
 
 Dependencies can be added to your Python application via link:python-repository-layout.html[*requirements.txt* or *setup.py*].
 
-Open *myflaskapp/setup.py* in an editor and alter the *install_requires* line so it looks like the following:
+Open *myflaskapp/requirements.txt* in an editor and add a line so it looks like the following:
 
 [source, python]
 ----
-install_requires=['Flask>=0.10.1'],
+Flask==0.10.1
 ----
 
-The line has been uncommented ('#' removed) and a dependency on Flask version 0.10.1 or higher has been added. Flask will be available to your application on OpenShift when this change is pushed to the platform.
+Flask will be available to your application on OpenShift when this change is pushed to the platform.
 
 link:#top[Back to Top]
 
