@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 02_Getting Started
+category: 10_Getting Started
 breadcrumb: Getting Started
 parent_url: getting-started-overview.html
 nav_title: JBoss Developer Studio
