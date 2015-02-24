@@ -23,8 +23,9 @@
           %ol.breadcrumb
             %li.sitename
               %a{href: "/"} Developers
-            %li.hidden-xs
-              %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
+            - if page.breadcrumb
+              %li.hidden-xs 
+                %a{href: "/en/#{page.parent_url}"} #{page.breadcrumb}
             %li.hidden-xs.active
               #{page.nav_title}
         .col-md-4
@@ -45,6 +46,9 @@
                   - pages.sort_by{ |a| a.nav_priority }.each do |p|
                     %li
                       %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url } #{p.nav_title}
+            %li.nav-header
+              %a{ href: "knowledge-base.html" }
+                Knowledge Base
             %li.nav-header
               %a{ href: "https://access.redhat.com/documentation/en-US/OpenShift_Online/" }
                 Documentation
