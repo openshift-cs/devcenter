@@ -1,0 +1,57 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: IronMQ
+nav_priority: 30
+meta_desc: Using the IronMQ OpenShift Marketplace Add-on service.
+---
+= IronMQ Marketplace Add-on Service
+
+[float]
+= IronMQ
+
+[.lead]
+IronMQ is a reliable message queueing service perfect for building n-tier applications quickly and operating at scale. Message queues are critical for separating components and interfacing with third party services. They support asynchronicity, work dispatch, load buffering, database offloading, and more.Accessible through simple API calls and client libraries, IronMQ is easy to use, highly available, and requires no setup, no maintenance, and no ops.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The IronMQ dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *IronMQ account overview*.
+
+image::marketplace/ironmq_dashboard.png[IronMQ Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `ironmq_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `ironmq_8b885`).
+
+The `ironmq_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "project_id": "54az89075ab8681809411006",
+  "token": "JK8lKwFL7QwYHQDCajWxNm5RB6k"
+}
+----
+
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://dev.iron.io/mq/[http://dev.iron.io/mq/].
+
+[[support]]
+== Support
+Iron.io provides general support for all customers (including public chat room access). Plans include standard, premium, and 24x7 support which can include - technical account managers - assigned technical lead - phone support - prioritized ticket response - product roadmap insight - service level agreements.
+
+Phone Support:: Available for premium and 24x7 support plans
+Email:: link:mailto:support@iron.io[support@iron.io]
+Knowledgebase:: link:http://dev.iron.io/mq/[http://dev.iron.io/mq/]

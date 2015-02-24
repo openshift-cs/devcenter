@@ -1,0 +1,55 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: ElephantSQL
+nav_priority: 25
+meta_desc: Using the ElephantSQL OpenShift Marketplace Add-on service.
+---
+= ElephantSQL Marketplace Add-on Service
+
+[float]
+= ElephantSQL
+
+[.lead]
+ElephantSQL provides PostgreSQL-as-a-Service hosted in the cloud.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The ElephantSQL dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *ElephantSQL account overview*.
+
+image::marketplace/elephantsql_dashboard.png[ElephantSQL Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `elephantsql_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `elephantsql_8b885`).
+
+The `elephantsql_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "uri": "postgres://pakejrde:Twi99zYaUED4Kbx5PDdLNZbW0hTaEDx_@babar.elephantsql.com:5432/pakejrde",
+  "max_conns": "5"
+}
+----
+
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://www.elephantsql.com/docs/index.html[http://www.elephantsql.com/docs/index.html].
+
+[[support]]
+== Support
+General inquiries:: If you have any questions, please email link:mailto:contact@elephantsql.com[contact@elephantsql.com]
+Technical support:: If you need technical support, please email link:mailto:support@elephantsql.com[support@elephantsql.com]
+Status:: We're announcing all status and maintenance information at link:http://status.elephantsql.com/[status.elephantsql.com]
