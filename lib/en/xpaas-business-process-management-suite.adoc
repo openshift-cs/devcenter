@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 30_JBoss xPaaS
+category: 50_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: BPM Suite

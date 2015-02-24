@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 50_Get Involved
+category: 60_Get Involved
 breadcrumb: Get Involved
 parent_url: get-involved.html
 nav_title: Extend OpenShift

@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 04_Databases
+category: 30_Databases
 breadcrumb: Databases
 parent_url: databases-postgresql.html
 nav_title: PostgreSQL
