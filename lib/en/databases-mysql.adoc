@@ -2,9 +2,9 @@
 layout: base
 category: 30_Databases
 breadcrumb: Databases
-parent_url: databases-mysql.html
+parent_url: databases-overview.html
 nav_title: MySQL
-nav_priority: 1
+nav_priority: 2
 meta_desc: MySQL Developers - OpenShift Resources to get your MySQL applications hosted in the cloud.
 ---
 = MySQL Overview
