@@ -1,0 +1,212 @@
+---
+layout: base
+nav_title: Knowledge Base
+nav_priority: 1
+meta_desc: Knowledge Base - Answers to Frequently Asked Questions about OpenShift
+---
+= Knowledge Base
+
+[[top]]
+[float]
+= Knowledge Base
+[.lead]
+Knowledge Base Intro...
+
+== In This Guide
+link:#using-bash_profile-and-bash_history-on-openshift-gears[Using .bash_profile and .bash_history on OpenShift gears] +
+link:#sync-new-git-repo-with-your-own-existing-git-repo[Sync new git repo with your own existing git repo] +
+link:#can-i-use-dsa-keys-with-my-openshift-online-account[Can I use DSA keys with my OpenShift Online account?] +
+link:#does-openshift-online-support-outgoing-email[Does OpenShift Online support outgoing email?] +
+link:#how-do-i-see-how-many-apps-i-have-deployed[How do I see how many apps I have deployed?] +
+link:#how-do-i-look-up-my-namespace[How do I look up my name space?] +
+link:#evaluating-the-usage-of-your-openshift-application[Evaluating the usage of your OpenShift application] +
+link:#accessing-openshift-hosted-applications-from-more-than-one-computer[Accessing OpenShift hosted applications from more than one computer] +
+link:#how-do-i-find-scheduled-down-time[How do I find scheduled down time?] +
+link:#im-an-existing-red-hat-customer-do-i-need-to-sign-up-again[I’m an existing Red Hat customer, do I need to sign up again?] +
+link:#what-is-my-current-usage[What is my current usage?] +
+link:#can-i-have-mulitple-namespaces[Can I have multiple name spaces?] +
+link:#does-openshift-have-restrictions-as-to-what-applications-content-i-can-deploy[Does OpenShift have restrictions as to what applications/content I can deploy?] +
+
+[[using-bash_profile-and-bash_history-on-openshift-gears]]
+=== Using .bash_profile and .bash_history on OpenShift gears
+As of 9/18/2012, we've enabled the use of .bash_profile and .bash_history on all OpenShift gears. They are located in ~/app-root/data/. and are r/w. They get enable on login and should just work as expected.
+
+
+link:#top[Back to Top]
+
+[[sync-new-git-repo-with-your-own-existing-git-repo]]
+=== Sync new git repo with your own existing git repo
+Prereqs Users already have an existing git repo and have created an application and now have two repos.
+
+Git URL:
+
+Before attempting to merge the two repositories, users will need the remote git url. This is displayed at creation time with the 'rhc app create -a {appName} -t {langType} ' command. Users can also get it via the 'rhc app show -a {appName} ' command. For our example we'll use:
+[source,console]
+--
+ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/
+--
+Merge remote repo with local repo:
+
+We're basically pulling the remote repo into your local upstream repo. This will cause conflicts. First run the following command substituting your applications remote git repo:
+[source,console]
+--
+git pull ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/
+--
+This will let users know about conflicts. Users might see, for example:
+[source,console]
+--
+CONFLICT (add/add): Merge conflict in php/index.php
+--
+Fix whatever conflicts are found and 'git commit' them. Remember, OpenShift is looking for some things in specific directories. With PHP it expects php code will be in the php/ directory.
+[source,console]
+--
+git commit -a -m "fixing OpenShift merge"
+--
+Once the merge is complete you can git push the master branch up to OpenShift (note the addition of 'master' at the end to specify branch):
+[source,console]
+--
+git push ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/ master
+--
+Next git push to your upstream repo as normal and both git repos should now be in sync. Take a look at git's documentation to alter your .git/config directory to make it easier to push to each remote repo.
+
+link:#top[Back to Top]
+
+[[can-i-use-dsa-keys-with-my-openshift-online-account]]
+=== Can I use DSA keys with my OpenShift Online account?
+We now support both RSA and DSA keys for communication between client and OpenShift Online.
+
+link:#top[Back to Top]
+
+[[does-openshift-online-support-outgoing-email]]
+=== Does OpenShift Online support outgoing email?
+OpenShift Online supports limited outgoing email by default, but has a very strong spam filter.
+
+You should consider using a third part email service such as link:https://marketplace.openshift.com/apps/9628#!overview[Sendgrid] or MailGun.
+
+You can also use your own authenticated email service such as Gmail, Yahoo Mail, Outlook, or your own private email server.
+
+
+link:#top[Back to Top]
+
+[[how-do-i-see-how-many-apps-i-have-deployed]]
+=== How do I see how many apps I have deployed?
+
+Our Web Console: https://openshift.redhat.com/app/console/applications will list the numbers of applications you have deployed.
+
+You can also use the rhc client tools to list your applications by running:
+[source,console]
+--
+rhc apps
+--
+This will give you your domain information as well as list your applications and app details.
+
+link:#top[Back to Top]
+
+[[how-do-i-look-up-my-namespace]]
+=== How do I look up my namespace?
+
+Go to http://openshift.redhat.com and click My Account. That will show your namespace and give you the opportunity to change it as well as add additional ssh keys to access it from other machines/clients.
+
+You can also use the rhc client tools to list your names by running:
+[source,console]
+--
+rhc domain show 
+--
+This will give you your domain information.
+
+To change your namespace, run:
+[source,console]
+--
+rhc domain update {oldNameSpace} {newNameSpace}
+--
+This is only allowed on an empty domain at this time. You will need to delete your applications and recreate them if you need to change your namespace.
+
+To add additional keys, run:
+[source,console]
+--
+rhc sshkey add {name} {path to SSH key file}
+--
+where {name} is an alphanumeric user-specified identifier.
+
+link:#top[Back to Top]
+
+[[evaluating-the-usage-of-your-openshift-application]]
+=== Evaluating the usage of your OpenShift application
+One way to do this is by using http://piwik.org/.  You can deploy it quickly with our quickstart git repository @ https://github.com/openshift/piwik-openshift-quickstart
+
+You can also use 'rhc app snapshot save -a {appName}' and get the log files from your running app (no vendor lockin -- they're your logs, we don't want them :)).  Once you get your logs you can run them through something like awstats (http://awstats.sourceforge.net/)
+
+
+link:#top[Back to Top]
+
+[[accessing-openshift-hosted-applications-from-more-than-one-computer]]
+=== Accessing OpenShift hosted applications from more than one computer
+Communication between your computer and OpenShift happens over SSH using secure keys. You can copy SSH keys and the SSH config file from one machine to another so that you can use OpenShift on multiple computers. There is also an OpenShift configuration file in $HOME/.openshift/express.conf that you should copy over as well.
+
+The OpenShift rhc client tools rely on your config file normally located at $HOME/.ssh/config for using specific settings for *.rhcloud.com domains.  Typical settings that will need to be copied from one machine to another are:
+[source,console]
+--
+$HOME/.ssh/config:
+Host *.rhcloud.com
+    IdentityFile ~/.ssh/libra_id_rsa
+    VerifyHostKeyDNS yes
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    UserKnownHostsFile ~/.ssh/libra_known_hosts
+--
+The libra_id* files that are typically in $HOME/.ssh/ are the only files that should be copied.  You will not need to (and shouldn't) copy other keys to other machines.
+
+If you lost your old keys you can use rhc-create-domain --alter to create new keys and update them on the OpenShift servers.  If you do this and you later try to use the original keys they will no longer work.  You must copy the current keys between systems to have multiple systems working at the same time.
+
+Once you have the SSH keys set up on an n^th computer, you will want to make sure they have the correct permissions.  The libra_id_rsa file should be 600 (chmod 600 libra_id_rsa).  The libra_id_rsa.pub should be 644 (chmod 644 libra_id_rsa.pub).  You can now run rhc-user-info to get a list of your applications and run the following git command to get a local copy to work with:
+[source,console]
+--
+git clone Git_URL
+--
+note: if you are doing this you should make sure to run ‘git pull’ when you move from one computer to another so that you can make sure to have the latest version before making changes.
+
+link:#top[Back to Top]
+
+[[how-do-i-find-scheduled-down-time]]
+=== How do I find scheduled down time?
+
+You can run "rhc server" to find the status of the service as well as visiting the web site.
+
+We now post pending outages directly to https://openshift.redhat.com/app/ and known issues to:
+https://openshift.redhat.com/app/status
+
+As always, if you have any questions or comments, contact us!
+
+Don't forget to follow us on Twitter: @openshift and @openshift_ops
+
+link:#top[Back to Top]
+
+[[im-an-existing-red-hat-customer-do-i-need-to-sign-up-again]]
+=== I’m an existing Red Hat customer, do I need to sign up again?
+
+Existing Red Hat customers who have active Red Hat accounts will be able to automatically sign up for OpenShift Online using the same account information. Just visit http://openshift.redhat.com and sign in.
+
+link:#top[Back to Top]
+
+[[what-is-my-current-usage]]
+=== What is my current usage?
+
+You can see current usage when logged into your account under the 'My Account' tab.
+
+link:#top[Back to Top]
+
+[[can-i-have-mulitple-namespaces]]
+=== Can I have multiple namespaces?
+
+OpenShift Online Free account users are allowed 1 domain per username.
+OpenShift Online Silver account users are allowed 2 domains per username.
+You can also allow access to your domain names to another user which would enable more than one domain name to show up on your account for use when creating gears.
+
+link:#top[Back to Top]
+
+[[does-openshift-have-restrictions-as-to-what-applications-content-i-can-deploy]]
+=== Does OpenShift have restrictions as to what applications/content I can deploy?
+
+In order provide the best possible service to our users. We do not allow content that is malicious or contains technology that may damage, interfere with, or intercept any system, program or data. For a full list of restricted content, please take a look at link:https://www.openshift.com/legal/acceptable_use[Acceptable Use Policy]
+
+link:#top[Back to Top]
