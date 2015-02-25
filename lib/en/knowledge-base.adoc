@@ -10,7 +10,7 @@ meta_desc: Knowledge Base - Answers to Frequently Asked Questions about OpenShif
 [float]
 = Knowledge Base
 [.lead]
-Knowledge Base Intro...
+The OpenShift Knowledge Base provides answers to frequently asked questions that do not fit into any other section of the Developer Center. 
 
 == In This Guide
 link:#using-bash_profile-and-bash_history-on-openshift-gears[Using .bash_profile and .bash_history on OpenShift gears] +
