@@ -22,7 +22,7 @@ link:#how-do-i-look-up-my-namespace[How do I look up my name space?] +
 link:#evaluating-the-usage-of-your-openshift-application[Evaluating the usage of your OpenShift application] +
 link:#accessing-openshift-hosted-applications-from-more-than-one-computer[Accessing OpenShift hosted applications from more than one computer] +
 link:#how-do-i-find-scheduled-down-time[How do I find scheduled down time?] +
-link:#im-an-existing-red-hat-customer-do-i-need-to-sign-up-again[I’m an existing Red Hat customer, do I need to sign up again?] +
+link:#im-an-existing-red-hat-customer-do-i-need-to-sign-up-again[I'm an existing Red Hat customer, do I need to sign up again?] +
 link:#what-is-my-current-usage[What is my current usage?] +
 link:#can-i-have-mulitple-namespaces[Can I have multiple name spaces?] +
 link:#does-openshift-have-restrictions-as-to-what-applications-content-i-can-deploy[Does OpenShift have restrictions as to what applications/content I can deploy?] +
@@ -163,7 +163,7 @@ Once you have the SSH keys set up on an n^th computer, you will want to make sur
 --
 git clone Git_URL
 --
-note: if you are doing this you should make sure to run ‘git pull’ when you move from one computer to another so that you can make sure to have the latest version before making changes.
+note: if you are doing this you should make sure to run `git pull` when you move from one computer to another so that you can make sure to have the latest version before making changes.
 
 link:#top[Back to Top]
 
@@ -182,7 +182,7 @@ Don't forget to follow us on Twitter: @openshift and @openshift_ops
 link:#top[Back to Top]
 
 [[im-an-existing-red-hat-customer-do-i-need-to-sign-up-again]]
-=== I’m an existing Red Hat customer, do I need to sign up again?
+=== I'm an existing Red Hat customer, do I need to sign up again?
 
 Existing Red Hat customers who have active Red Hat accounts will be able to automatically sign up for OpenShift Online using the same account information. Just visit http://openshift.redhat.com and sign in.
 
