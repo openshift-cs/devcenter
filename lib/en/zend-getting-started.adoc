@@ -1,8 +1,8 @@
 ---
 layout: zend
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Getting Started
 nav_priority: 99.1
 meta_desc: Get started with Zend Server on OpenShift.

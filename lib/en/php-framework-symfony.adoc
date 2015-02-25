@@ -1,7 +1,7 @@
 ---
 layout: php
 category:
-breadcrumb: Languages and Technologies
+breadcrumb: Languages
 parent_url: languages-overview.html
 nav_title: Symfony Framework
 nav_priority: 50

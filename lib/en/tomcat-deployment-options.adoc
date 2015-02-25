@@ -1,8 +1,8 @@
 ---
 layout: tomcat
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Deployment Options
 nav_priority: 30
 meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS deployment options
@@ -14,7 +14,7 @@ meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS deployment op
 There are two options for deploying content to the Tomcat Server within OpenShift. Both options
 can be used together (i.e. build one archive from source and others pre-built)
 
-*Method 1 (Preferred)* +
+== Git Push Source Files
 You can upload your content in a Maven src structure as in this sample project and on
 `git push` have the application built and deployed.
 
@@ -28,56 +28,12 @@ NOTE: If you are building locally you'll also want to add any output WARs under 
 
 NOTE: If you are running scaled EWS then you need an application deployed to the root context (i.e. `\http://app_name-namespace.rhcloud.com/`) for the HAProxy load-balancer to recognize that the EWS instance is active.
 
-*Method 2* +
-You can commit pre-built WARs into `webapps`. To do this with the default repo, first run:
-[source]
---
-$ git rm -r src/ pom.xml
---
-from the root of your repo.
-
-Basic workflows for deploying pre-built content (each operation will require associated Git `add`/`commit`/`push` operations to take effect):
-
-. Add new zipped content and deploy it:
-+
-[source]
---
-$ cp target/example.war webapps/
---
-+
-. Undeploy currently deployed content:
-+
-[source]
---
-$ git rm webapps/example.war
---
-+
-. Replace currently deployed zipped content with a new version and deploy it:
-+
-[source]
---
-$ cp target/example.war webapps/
---
-
-NOTE: You can get the information in the URI above from running `rhc domain show`
-
-If you have already committed large files to your Git repo, you rewrite or reset the history of those files in Git
-to an earlier point in time and then run:
-[source]
---
-git push --force
---
-to apply those changes on the remote OpenShift server.  A
-`git gc` on the remote OpenShift repo can be forced with (Note: tidy also does other cleanup including clearing log
-files and tmp dirs):
-
-[source]
---
-$ rhc app tidy -a appname
---
+include::_fragments/java-tomcat-deploy-precompiled.adoc[]
 
 Whether you choose option 1) or 2) the end result will be the application
 deployed into the `webapps` directory. The `webapps` directory in the
 Tomcat distribution is the location end users can place
 their deployment content (e.g. WAR, EAR, JAR, SAR files) to have it
 automatically deployed into the server runtime.
+
+

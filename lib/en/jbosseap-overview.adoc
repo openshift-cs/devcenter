@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
-category: 20_Languages and Technologies
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+category: 35_Servers
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: JBoss EAP
 nav_priority: 1.3
 meta_desc: JBoss EAP Developers - OpenShift Resources to host your Java applications in the cloud.

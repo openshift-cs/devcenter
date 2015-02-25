@@ -1,8 +1,8 @@
 ---
 layout: tomcat
-category: 20_Languages and Technologies
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+category: 35_Servers
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Tomcat
 nav_priority: 1.4
 meta_desc: Tomcat Developers - OpenShift Resources to host your Java applications in the cloud.

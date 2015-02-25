@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Environment Variables
 nav_priority: 40
 meta_desc: JBoss EAP Environment Variables
@@ -43,8 +43,8 @@ of use:
 For more information, consult the link:managing-environment-variables.html[Environment Variables] guide.
 
 [[jbosseap-environment-variable-replacement-support]]
-.Environment Variable Replacement Support
-****
+*Environment Variable Replacement Support*
+
 The `jbosseap` cart provides special environment variable replacement functionality for some of the configuration files. For the following configuration files:
 
 * `.openshift/config/standalone.xml`
@@ -53,28 +53,25 @@ Ant-style environment replacements are supported for all `OPENSHIFT_`-prefixed e
 
 [source, xml]
 --
-<datasource jndi-name="java:jboss/datasources/MySQLDS"
-					enabled="${mysql.enabled}" use-java-context="true" pool-name="MySQLDS"
-					use-ccm="true">
-					<connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}
-					</connection-url>
-					<driver>mysql</driver>
-					<security>
-						<user-name>${env.OPENSHIFT_MYSQL_DB_USERNAME}</user-name>
-						<password>${env.OPENSHIFT_MYSQL_DB_PASSWORD}</password>
-					</security>
-					<validation>
-						<check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
-						<background-validation>true</background-validation>
-						<background-validation-millis>60000</background-validation-millis>
-						<!--<validate-on-match>true</validate-on-match>-->
-					</validation>
-					<pool>
-						<flush-strategy>IdleConnections</flush-strategy>
-						<allow-multiple-users/>
-					</pool>
-				</datasource>
+<datasource jndi-name="java:jboss/datasources/MySQLDS" enabled="${mysql.enabled}" use-java-context="true" pool-name="MySQLDS" use-ccm="true">
+  <connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}</connection-url>
+  <driver>mysql</driver>
+  <security>
+    <user-name>${env.OPENSHIFT_MYSQL_DB_USERNAME}</user-name>
+    <password>${env.OPENSHIFT_MYSQL_DB_PASSWORD}</password>
+  </security>
+  <validation>
+    <check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
+    <background-validation>true</background-validation>
+    <background-validation-millis>60000</background-validation-millis>
+    <!--<validate-on-match>true</validate-on-match>-->
+  </validation>
+  <pool>
+    <flush-strategy>IdleConnections</flush-strategy>
+    <allow-multiple-users/>
+  </pool>
+</datasource>
 --
 
 During server startup, the configuration files in the source repository are processed to replace `OPENSHIFT_*` values, and the resulting processed file is copied to the live JBoss EAP configuration directory.
-****
+

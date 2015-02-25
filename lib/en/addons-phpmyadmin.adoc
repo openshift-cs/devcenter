@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 35_Addons
-breadcrumb: Addons
+category: 37_Core Addons
+breadcrumb: Core Addons
 parent_url: addons-overview.html
 nav_title: phpMyAdmin
 nav_priority: 2

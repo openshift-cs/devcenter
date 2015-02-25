@@ -1,0 +1,34 @@
+[.lead]
+How to include dependencies for your Java web applications
+
+== Using Maven
+
+The Java web applications that are deployed when you create a Java application on OpenShift use Maven to download dependencies and build/deploy.
+
+You can easily add dependencies to your OpenShift Java web application by modifying the pom.xml file, and then doing a `git commit` and `git push`.
+
+You will need to find the dependency that you want to include on the link:http://search.maven.org/[Maven Central Repository] and then include the example code inside of the `<dependencies></dependencies>` section of your `pom.xml` file.
+
+Here is an example of including the openshift-java-client dependency from link:http://search.maven.org/#artifactdetails|com.openshift|openshift-java-client|2.7.0.Final|jar[here].
+[source,xml]
+--
+<dependencies>
+  <dependency>
+      <groupId>com.openshift</groupId>
+      <artifactId>openshift-java-client</artifactId>
+      <version>2.7.0.Final</version>
+  </dependency>
+</dependencies>
+--
+
+== Without Using Maven
+
+This method negates the step of adding any code to your pom.xml to get your code to find the custom jar file, however, you are still free to add other dependencies to your pom.xml file and they will be downloaded and made available to your application code.
+
+* Create a "lib" directory inside of the application that you git cloned to your computer in the src/main/webapp/WEB-INF directory.
+* Place any java libraries (.jar files) that you would like to use in your application inside of the directory that you just created src/main/webapp/WEB-INF/lib
+* Use the git add and git commit commands to add the jar files to your git repository, then use git push to deploy them to the server.
+
+You will now be able to use the import statement to import them into your classes and JSP files.
+
+If you receive errors in your IDE about not being able to find the packages that you are trying to import you will need to add the jar files in your src/main/webapp/WEB-INF/lib directory as Libraries in the Java Build Path for your project.

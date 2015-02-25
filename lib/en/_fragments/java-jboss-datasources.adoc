@@ -1,0 +1,67 @@
+
+All of the available Java cartridges on OpenShift come with two pre-configured data sources. One for MySQL and one for PostgreSQL.
+The Java Application Server cartridges use jndi (Java Naming and Directory Interface) to expose the connection details to your database via the .openshift/config/standalone.xml file.
+
+If you would like to test this code out on your application, either add the phpmyadmin cartridge to your gear, or use the mysql command line and create the example table with the below structure. This is SQL so you can copy & paste this and it should work. Then you should create a JSP file called 'mysql.jsp' in your application (in the src/main/webapp directory) and copy/paste the below example code into it. Save it. Then do a git commit & git push. Then you can visit your appname-domain.rhcloud.com/mysql.jsp and see the results.
+
+The database table for the examples below
+
+[source,console]
+--
+---
+--- Table structure for table `names`
+---
+CREATE TABLE IF NOT EXISTS `names` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first` varchar(50) NOT NULL,
+  `last` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+---
+--- Data for table `names`
+---
+INSERT INTO `names` (`id`, `first`, `last`) VALUES
+(1, 'John', 'Doe'),
+(2, 'Jane', 'Doe'),
+(3, 'John', 'Smith'),
+(4, 'Jane', 'Smith');
+--
+
+If you want to use PostgreSQL instead of MySQL, replace the 'MySQLDS' below with 'PostgreSQLDS'.
+
+[source,console]
+--
+<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
+<%@ page import='java.sql.*' %>
+<%@ page import='javax.sql.*' %>
+<%@ page import='javax.naming.*' %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Java Application Server Datasource Example</title>
+</head>
+<body>
+<%
+Connection result = null;
+try {
+    Context initialContext = new InitialContext();
+    DataSource datasource = (DataSource)initialContext.lookup("java:jboss/datasources/MySQLDS");
+    result = datasource.getConnection();
+    Statement stmt = result.createStatement() ;
+    String query = "select * from names;" ;
+    ResultSet rs = stmt.executeQuery(query) ;
+    while (rs.next()) {
+        out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br />");
+    }
+} catch (Exception ex) {
+    out.println("Exception: " + ex + ex.getMessage());
+}
+%>
+</body>
+</html>
+--
+
+Wrap Up
+
+These examples are just to help you get going using the pre-configured data sources, there are tons of possibilities for how to use this logic in your own application, and of course there are other options such as Hibernate that are not discussed here. But since you get two data sources already set up within the cartridge when you install it, why not learn to use them? Of course if you were writing this in your own application you would put in more try/catch logic and handle individual exceptions, but remember that this is just an example to get you going making the connection to your database.

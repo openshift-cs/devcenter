@@ -1,0 +1,26 @@
+---
+layout: jbossas
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: Repository Layout
+nav_priority: 20
+meta_desc: JBoss AS Developers - OpenShift Cartridge Repository Layout
+---
+= JBoss AS Repository Layout
+
+[float]
+= JBoss AS Repository Layout
+
+[source]
+--
+deployments/       Location for built WARs (details below)
+src/               Example Maven source structure
+pom.xml            Example Maven build file
+.openshift/        Location for OpenShift specific files
+  config/          location for configuration files such as standalone.xml
+  action_hooks/    See the Action Hooks documentation <1>
+  markers/         See the Markers documentation <2>
+--
+<1> link:managing-action-hooks.html[Action Hooks] documentation
+<2> link:jbossas-markers.html[Markers] documentation
