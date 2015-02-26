@@ -1,0 +1,32 @@
+---
+layout: base
+category: 40_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-overview.html
+nav_title: Idling
+nav_priority: 76
+meta_desc: How to manage application idling on OpenShift.
+---
+= Application Idling
+
+[[top]]
+[float]
+= Application Idling
+[.lead]
+Application idling allows your applications gears to spin down when they are not getting any HTTP or WebSocket requests.
+ 
+
+== What does it mean when my application is `"idled"`?
+
+If you are a free user and your application doesn't receive an external http/https or ws/wss request for 24 hours, then your application will enter an idled state. When an application is in this state, it is essentially paused. Once an application gets an external request, it will automatically return to a running state without the loss of any functionality.
+
+== Will I be notified when my Application is about to be idled?
+No, we do not currently have a mechanism to send out notifications when your application is about to be idled.
+
+== How do I keep my application from idling?
+There are two ways to keep your applications from idling:
+
+* Upgrade to a premium plan.  Applications running on premium plans are not idled.  See the link:https://www.openshift.com/products/pricing/plan-comparison[Plan Comparison] page for more information.
+* Make a popular application that gets lots of traffic.  Make sure that your application uses standard SEO practices and provides unique and useful content.
+
+link:#top[Back to Top]
