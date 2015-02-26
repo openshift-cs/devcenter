@@ -154,10 +154,10 @@ task :check => :init do
   end
 end
 
-# Builds are frequently failing due to bad ascii.  
+# Builds are frequently failing due to bad ascii.
 # This test should help provide early feedback for contributors.
 def filter_bad_ascii
-  Rake::FileList["en/*.adoc", "en/*/*.adoc"].each do |adoc|
+  Rake::FileList["en/*.adoc", "en/_fragments/*.adoc"].each do |adoc|
     unless system "perl -pe 's/[^[:ascii:]]//g;' #{adoc} |diff #{adoc} -"
       msg "ERROR: bad ascii found in #{adoc}", :warn
       exit 0
