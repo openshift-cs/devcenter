@@ -1,0 +1,169 @@
+---
+layout: base
+category: 35_Managing Your Account
+breadcrumb: Managing Your Account
+parent_url: account-overview.html
+nav_title: Account FAQs
+nav_priority: 1
+---
+= Account Management Frequently Asked Questions
+
+[[top]]
+[float]
+= Common Account Questions
+[.lead]
+Find answers to some common account-related questions on OpenShift.
+
+== In This Guide
+link:#_how_can_i_upgrade_my_account[How can I upgrade my account?] +
+link:#_can_i_pay_for_my_bronze_or_silver_plan_with_paypal[Can I pay for my Bronze or Silver Plan with Paypal?] +
+link:#_why_can_t_i_downgrade_to_the_free_plan[Why can't I downgrade to the Free Plan?] +
+link:#_can_i_change_my_login_id[Can I change my login ID?] +
+link:#_can_i_change_my_email_address[Can I change my email address?] +
+link:#_how_can_i_transfer_application_ownership_from_one_user_to_another[How can I transfer application ownership from one user to another?] +
+link:#_how_can_i_get_more_resources[How can I get more resources?] +
+link:#_how_can_i_request_more_resources_as_a_non_profit_or_educational_institution[How can I request more resources as a non-profit or educational institution?] +
+link:#_how_do_i_indicate_that_i_am_exempt_from_taxes[How do I indicate that I am exempt from taxes?] +
+link:#_how_do_i_delete_my_account[How do I delete my account?] +
+
+=== How can I upgrade my account?
+If you are an existing user, the easiest way to upgrade your account is to go link:https://openshift.redhat.com/app/account/plan[here].
+
+You can also manage your plan by going to your link:https://openshift.redhat.com/app/console/settings[Account Settings] page and clicking the *Upgrade your account* link at the top of the page.
+
+If you are a new user, you can sign up for the plan you want directly from the link:https://www.openshift.com/pricing[Pricing Page].
+
+link:#top[Back to Top]
+
+=== Can I pay for my Bronze Plan or Silver Plan with Paypal?
+Currently OpenShift Online only accepts credit card payments from the US, Canada, and Europe. Please see the link:https://www.openshift.com/pricing[Pricing Page] for more details.
+
+link:#top[Back to Top]
+
+=== Why can't I downgrade to the Free Plan?
+In order to downgrade from the Silver Plan or Bronze Plan to the Free Plan, you will need to reduce your account's resource usage to be within the Free plan's resource limits (3 small gears with no additional storage).
+
+link:#top[Back to Top]
+
+=== Can I change my login ID?
+Your email address/RHN username serves as the username for your OpenShift account. Currently, our system does not allow username changes.
+
+To work around this limitation as a free user, you can create a new account with the email address you prefer and move your applications to this new account.
+
+This can be accomplished in three easy steps:
+
+*Step 1: Back up your application:*
+[source]
+--
+$ rhc snapshot save <appname>
+--
+*Step 2: Create a new OpenShift account and run:*
+[source]
+--
+$ rhc setup
+--
+*Step 3: Restore the backed up application to the new account:*
+[source]
+--
+$ rhc snapshot restore /path/to/snapshot
+--
+
+link:#top[Back to Top]
+
+=== Can I change my email address?
+If you created an OpenShift Online account with your email address as the username, then you cannot change your email address at this time.
+
+If you created an OpenShift Online account with a Red Hat Network account (RHN), then you can link:https://idp.redhat.com/idp/[log in] and update the email address associated with this account.
+
+link:#top[Back to Top]
+
+=== How can I transfer application ownership from one user to another?
+An application can be transferred from one account to another by following these steps:
+
+*Step 1: Backup your application into a local .TAR file:*
+[source]
+--
+$ rhc snapshot-save <app_name>
+--
+
+*Step 2: Transfer the .TAR file from Step 1 to the new owner.*
+
+*Step 3: The new owner must create a new application with the same name and cartridges as the original application.*
+
+The original account owner can get this information by running:
+[source]
+--
+$ rhc app-show <app_name>
+--
+
+*Step 4: Restore the backed up application to the new account.*
+
+The new owner runs:
+[source]
+--
+$ rhc snapshot-restore <app_name> --filepath <path_to_tar_file>
+--
+
+You can then delete the original application as needed.
+
+link:#top[Back to Top]
+
+=== How can I get more resources?
+If you are using the OpenShift Online Free Plan and need larger gears, more gears, or additional storage, you can link:#_how_can_i_upgrade_my_account[upgrade your account] to purchase more resources.
+
+If you are a non-profit or educational institution, see below.
+
+link:#top[Back to Top]
+
+=== How can I request more resources as a non-profit or educational institution?
+OpenShift Online resources for Non-Profit, Open Source, and Educational Institutions are reviewed and granted on a case-by-case basis using the information gathered via the form at the end of this article.
+
+Please be as detailed as possible about your project and the resources that you are requesting access to. You may want to review our link:http://www.openshift.com/pricing[pricing page] before filling out this form to see what kind of resources we currently offer. Please make sure that the technologies that you would like to use are available and/or supported on the OpenShift Online PaaS.
+
+==== Some of the uses for which this grant program is intended
+
+* Research projects for which the results will be made available to the public
+* Open Source programming initiatives for which the code will be made available to the public
+* Websites that host useful and publicly available information
+* Public service websites
+* Web applications which provide free registration and use
+* Open Data websites or applications
+
+==== Some of the uses for which this grant program is NOT intended
+
+* Proprietary paywall protected websites
+* Development of proprietary for profit software
+* Web applications for which there is a registration or usage / monthly / yearly fee
+* Anything that violates our link:https://www.openshift.com/legal/site_terms[Terms of Use] or link:https://www.openshift.com/legal/services_agreement[Services Agreement]
+
+==== Educational Institution Specifics
+Please note that this request form should generally be used for Open Source or Research Projects for which the results will be publicly avaialble, not for requesting additional resources for student accounts for classroom programming projects. Those should be able to run within the Free plan limits in most cases.
+
+==== Terms and Conditions
+By requesting resources on OpenShift Online through the Non-Profit, Open Source, and Education Institution form below, you hereby give OpenShift Online permission to use your name, organization name, or likeness in the furtherance of OpenShift Online. You may not issue any press release regarding OpenShift Online without prior written consent from OpenShift Online. You agree to not imply that OpenShift Online supports, sponsors, endorses, or contributes money to your teaching and research unless you have received our written permission to do so. OpenShift Online may terminate or modify your use of free OpenShift Online resources at any time.
+
+If you meet all of the above criteria, please fill out link:https://www.openshift.com/page/resources-request-form[this form].
+
+link:#top[Back to Top]
+
+=== How do I indicate that I am exempt from taxes?
+To qualify for tax exempt status you must submit a certificate to Red Hat. Upon receipt of your certificate we will refund all previously paid taxes to your credit card.
+
+To begin the process, please link:https://help.openshift.com/hc/en-us/requests/new[contact us].
+
+link:#top[Back to Top]
+
+=== How do I delete my account?
+In order to delete your account, please do the following:
+
+. Delete all of your applications and ssh keys.
+. Delete your domain.
+. Downgrade to the Free Plan if you are the Bronze or Silver Plan.
+. Unsubscribe from all notifications by using the unsubscribe link in any OpenShift email
+. Please link:https://www.surveymonkey.com/s/come-back-soon[fill out this form] and optional survey and your account will be marked for deletion.
+
+Please note that at this time, these deletes are soft-deletes due to user-based requirements. Soft-deletes enable you to simply login to re-enable your account and continue using OpenShift Online.
+
+At this time, OpenShift Online accounts cannot be permanently deleted.
+
+link:#top[Back to Top]
