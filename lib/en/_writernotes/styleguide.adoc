@@ -32,7 +32,7 @@ Do not use more than one first-level headline in a single doc. This first-level 
   [.lead]
   OpenShift Online is Red Hat's public cloud application development...
 
-The second-level headline will include a horizonal line before it to delimit sections.
+The second-level headline will include a horizontal line before it to delimit sections.
 
   //Horizonal line will render here
   == OpenShift Runtime Environments
@@ -102,7 +102,7 @@ NOTE: For command line source code (as in rhc or git), use a preceeding '$' as i
 
 NOTE: Placeholders should be enclosed in <>, such as <app_name> in the above example.
 
-Language-specific Code Block:å
+Language-specific Code Block:
 
   [source, html]
   ----
