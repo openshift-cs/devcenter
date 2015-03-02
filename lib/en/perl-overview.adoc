@@ -94,6 +94,9 @@ Adding marker files to `.openshift/markers` will have the following effects:
 
 |disable_auto_scaling
 |Will prevent scalable applications from scaling up or down according to application load.
+
+|enable_public_server_status
+|Will enable server-status application path to be publicly available.
 |===
 
 link:#top[Back to Top]

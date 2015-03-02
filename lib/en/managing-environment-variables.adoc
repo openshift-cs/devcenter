@@ -33,10 +33,11 @@ Environment variables are placeholders for values that are provided to a softwar
 
 A number of standardized environment variables are available for applications hosted on OpenShift Online. These variables serve as placeholders for application names, commonly accessed directory names, user names, passwords, host names, IP addresses, and more. The specific environment variables that are available to a given application is determined by the cartridges that have been added to that application. For example, an application with PHP and MySQL has access to environment variables that expose the PHP path information, including the host, port, user name, and password necessary for connecting to the MySQL database.
 
-There are two ways to view the environment variables for an application:
+There are three ways to view the environment variables for an application:
 
 . Add an export statement to the `App_Name/.openshift/action_hooks/build` file, then run git push. The variables are listed in the Git output and start with *remote: declare -x*.
 . Access the application with SSH and run the `env` command at the shell prompt.
+. Use the `rhc env list -a <appname>` command
 
 [[informational-variables]]
 == Informational Environment Variables
