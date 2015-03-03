@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Deployment Options
 nav_priority: 30
 meta_desc: JBoss EAP OpenShift deployment options
@@ -18,50 +18,14 @@ If you need to add *JBoss Modules* to your application you will need to place th
 
 NOTE: Under most circumstances the `.dodeploy` file markers should not be added to the deployments directory. These lifecycle files will be created in the runtime deployments directory (can be seen by SSHing into the application), but should not be added to the git repo.
 
-== Method 1 (Preferred)
+== Git Push Source Files
 You can upload your content in a Maven src structure and on git push have the application built and deployed.  For this to work you'll need your `pom.xml` at the root of your repository and a *maven-war-plugin* to move the output from the build to the deployments directory.  By default the `warName` is *ROOT* within `pom.xml`.  This will cause the `webapp` contents to be rendered at _\http://app_name-namespace.rhcloud.com/_.  If you change the warName in `pom.xml` to *app_name*, your base url would then become _\http://app_name-namespace.rhcloud.com/app_name_.
 
 NOTE: If you are building locally you'll also want to add any output WARs/EARs under deployments from the build to your `.gitignore` file.
 
 NOTE: If you are running scaled JBoss EAP then you need an application deployed to the root context (i.e. _\http://app_name-namespace.rhcloud.com/_) for the HAProxy load-balancer to recognize that the JBoss EAP instance is active.
 
-== Method 2
-You can `git push` pre-built WARs into `deployments/`. To do this with the default repo you'll want to first run `git rm -r src/ pom.xml` from the root of your repo.
-
-Basic workflows for deploying pre-built content (each operation will require associated git add/commit/push operations to take effect):
-
-. Add new zipped content and deploy it: `cp target/example.war deployments/`
-. Add new unzipped/exploded content and deploy it:
-.. `cp -r target/example.war/ deployments/``
-.. edit `.openshift/config/standalone.xml` and replace
-+
-[source]
-----
-<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" deployment-timeout="300"/>
-----
-with
-+
-[source]
-----
-<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" deployment-timeout="300" auto-deploy-exploded="true"/>
-----
-. Undeploy currently deployed content: `git rm deployments/example.war`
-. Replace currently deployed zipped content with a new version and deploy it: `cp target/example.war deployments/`
-. Replace currently deployed unzipped content with a new version and deploy it:
-.. `git rm -rf deployments/example.war/`
-.. `cp -r target/example.war/ deployments/`
-
-NOTE: You can get the information in the URI above by running `rhc domain show`
-
-If you have already committed large files to your git repo, you rewrite or reset the history of those files in Git
-to an earlier point in time and then `git push --force` to apply those changes on the remote OpenShift server.  A
-`git gc` on the remote OpenShift repo can be forced with:
-
-[source]
-----
-$ rhc app tidy -a appname
-----
-
-NOTE: The `tidy` command also does other cleanup including clearing log files and `tmp` dirs.
+include::_fragments/java-jboss-deploy-precompiled.adoc[]
 
 Whether you choose Method 1 or 2 the end result will be the application deployed into the deployments directory. The deployments directory in the JBoss Application Server distribution is the location end users can place their deployment content (e.g. WAR, EAR, JAR, SAR files) to have it automatically deployed into the server runtime.
+

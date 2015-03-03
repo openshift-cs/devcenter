@@ -1,0 +1,15 @@
+---
+layout: wildfly
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: Datasources
+nav_priority: 60
+meta_desc: WildFly Datasources
+---
+= WildFly Datasources
+
+[float]
+= WildFly Datasources
+
+include::_fragments/java-jboss-datasources.adoc[]

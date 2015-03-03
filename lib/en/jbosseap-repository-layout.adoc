@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Repository Layout
 nav_priority: 20
 meta_desc: JBoss EAP Developers - OpenShift Cartridge Repository Layout

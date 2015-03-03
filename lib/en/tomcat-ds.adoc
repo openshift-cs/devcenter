@@ -1,0 +1,17 @@
+---
+layout: tomcat
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: Datasources
+nav_priority: 50
+meta_desc: Tomcat Datasources
+---
+= Tomcat Datasources
+
+[float]
+= Tomcat Datasources
+
+include::_fragments/java-tomcat-datasources.adoc[]
+
+link:#top[Back to Top]

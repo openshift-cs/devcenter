@@ -1,0 +1,15 @@
+---
+layout: jbosseap
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: Datasources
+nav_priority: 60
+meta_desc: JBoss EAP Datasources
+---
+= JBoss EAP Datasources
+
+[float]
+= JBoss EAP Datasources
+
+include::_fragments/java-jboss-datasources.adoc[]

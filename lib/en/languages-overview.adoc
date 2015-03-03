@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 20_Languages and Technologies
-breadcrumb: Languages and Technologies
+category: 20_Languages
+breadcrumb: Languages
 parent_url: languages-overview.html
 nav_title: Overview
 nav_priority: 0.5
@@ -42,10 +42,6 @@ link:ruby-overview.html[-> Learn More]
 === Perl
 Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift. +
 link:perl-overview.html[-> Learn More]
-
-=== Vert.x
-A lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications. Vert.x allows you to write reactive applications taking advantage of the built in distributed event bus all using simple and powerful asynchronous API's which can be written in various languages like Java, JavaScript, Ruby, Groovy, and Python. +
-link:vertx-overview.html[-> Learn More]
 
 === DIY
 The diy cartridge provides a minimal, free-form scaffolding which leaves all details of the cartridge to the application developer. +

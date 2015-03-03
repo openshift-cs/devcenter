@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Markers
 nav_priority: 50
 meta_desc: JBoss EAP Markers

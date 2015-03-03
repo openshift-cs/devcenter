@@ -1,8 +1,8 @@
 ---
 layout: jbosseap
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Getting Started
 nav_priority: 10
 meta_desc: Get started with JBoss EAP 6 on OpenShift

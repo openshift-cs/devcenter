@@ -1,0 +1,54 @@
+You basically have two options to use if you want to deploy applications that have already been compiled into WAR or EAR files onto your OpenShift gear, either add them into your git repository, or scp/sftp them directly to your gear. In this article we will detail exactly how to do that for each of the two types of application servers that we provide, which are JBoss and Tomcat. The article will be split into two sections, one for each type of application server, so make sure that you are reading the one that is about the cartridge that you installed!
+
+*JBoss Application Server 7, WildFly 8 and JBoss Enterprise Application Platform 6.1.0*
+Benefits directly related to this article
+
+You can deploy both WAR (Web Application Archive) and EAR (Enterprise Archive) files on JBoss Application Servers.
+
+=== Deploying your WAR and EAR files using git
+
+The directions for deploying WAR and EAR files using git are very similar to Tomcat, but you place them in a different directory in your git repository.
+
+* Create an application on OpenShift and select either the JBoss Application Server 7 or JBoss Enterprise Application Platform 6.1.0 cartridges.
+* Use the git clone command to download the source code for your application to your computer.
+* Remove the src directory and the pom.xml file from your application that you cloned to your computer.
+* Place any WAR files that you want to deploy on your gear inside of the deployments directory.
+
+The WAR files that you add into the deployments directory will be deployed at a context that matches the name of the WAR file.
+For Example:
+If you add a file called mywebsite.war, it will be available at app-domain.rhcloud.com/mywebsite. If there is an application that you would like to be available at app-domain.rhcloud.com/ (also known as the root context) then you should name that file ROOT.war.
+
+Next, you need to git add your new files, then do a git commit -am "some message here" to make sure that your changes are committed. Lastly, you need to do a git push to deploy your changes to your OpenShift gear. Now all of your pre compiled java applications should be deployed at their individual contexts.
+
+A note about EAR files. An EAR file can contain WAR files, JAR files, EJB's and other archives. If you add multiple WAR files inside of your EAR file, they will each be deployed at their individual context. Any libraries added as JAR files should be made available to all applications that are deployed inside of your EAR file, but not any other EAR files that have been deployed.
+
+=== Deploying your WAR and EAR files using SCP/SFTP
+
+Deploying WAR or EAR files to your JBoss cartridges via SCP or SFTP is also very similar, you just need to put them in a different location.
+
+If you would like to deploy pre compiled java applications to your OpenShift gear, but you don't want to waste space by storing them in your git repository, then these directions are for you!
+
+* Create an application on OpenShift and select either the JBoss Application Server 7 or JBoss Enterprise Application Platform 6.1.0 cartridges.
+* Use the git clone command to download the source code for your application to your computer.
+* Remove the src directory and the pom.xml file from your application that you cloned to your computer.
+* DO NOT place your WAR files into the deployments directory.
+
+Next, you need to do a git commit -am "some message here" to make sure that your changes are committed. Lastly, you need to do a git push to deploy your changes to your OpenShift gear.
+
+Now comes the fun part, you need to use SCP or SFTP (with public key authentication of course) to upload your files to the correct location on your gear.
+If you are using JBoss AS 7
+You need to place your WAR or EAR files into this folder: app-root/dependencies/jbossas/deployments on your gear.
+If you are using JBoss EAP 6.1
+You need to place your WAR or EAR files into this folder: app-root/dependencies/jbosseap/deployments on your gear.
+If you are using WildFly 8
+You need to place your WAR or EAR files into this folder: wildfly/standalone/deployments on your gear.
+If you run rhc tail $appname, shortly after the transfer is done you will see entries appear in the logs showing that your WAR file has been deployed and at what context. If you have deployed an EAR file, you will see that the EAR was deployed, along with any WAR files that it contained.
+
+The WAR files that you add into the webapps directory will be deployed at a context that matches the name of the WAR file. Any WAR files that were contained within an EAR file will be deployed at their individual contexts in relation to the EAR files context.
+For Example:
+If you add a file called mywebsite.war, it will be available at app-domain.rhcloud.com/mywebsite. If there is an application that you would like to be available at app-domain.rhcloud.com/ (also known as the root context) then you should name that file ROOT.war.
+
+If you need to replace them, just upload a new copy, or if you want to remove them, just ssh into your server and delete the file you uploaded (along with the filename.deployed file) and it will be un-deployed.
+Wrap Up
+
+Hopefully this has cleared up how to deploy your pre compiled java applications on your OpenShift gears. Each type of application server has it's pros and cons, you just need to weigh them and pick the one that is right for your project. If you are not using any EE features, then the Tomcat cartridges would be fine, and if you are using EE or want to deploy an EJB or share dependencies between your WAR files, then the JBoss servers might be the way to go.

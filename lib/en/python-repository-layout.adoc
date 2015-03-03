@@ -1,7 +1,7 @@
 ---
 layout: python
 category:
-breadcrumb: Languages and Technologies
+breadcrumb: Languages
 parent_url: languages-overview.html
 nav_title: Repository Layout
 nav_priority: 20

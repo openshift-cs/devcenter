@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 20_Languages and Technologies
-breadcrumb: Languages and Technologies
+category: 20_Languages
+breadcrumb: Languages
 parent_url: diy-overview.html
 nav_title: DIY/Custom
 nav_priority: 200

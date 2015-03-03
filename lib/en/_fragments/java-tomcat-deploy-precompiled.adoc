@@ -1,0 +1,45 @@
+== Deploying Pre-Compiled WAR files
+
+You basically have two options to use if you want to deploy applications that have already been compiled into WAR files onto your OpenShift gear, either add them into your git repository, or scp/sftp them directly to your gear. In this article we will detail exactly how to do that for each of the two types of application servers that we provide, which are JBoss and Tomcat. The article will be split into two sections, one for each type of application server, so make sure that you are reading the one that is about the cartridge that you installed!
+
+*Tomcat 6 (JBoss EWS 1.0) and Tomcat 7 (JBoss EWS 2.0)* +
+Limitations directly related to this article
+
+You can not deploy EAR (Enterprise Archive) files to either of the Tomcat cartridges, they just plain won't work. If you were to do a DIY cartridge and install TomEE, you would be all set, but that is a different article entirely.
+
+=== Deploying your WAR files using git
+
+* Create an application on OpenShift and select either the Tomcat 6 (JBoss EWS 1.0) or Tomcat 7 (JBoss EWS 2.0) cartridges.
+* Use the git clone command to download the source code for your application to your computer.
+* Remove the src directory and the pom.xml file from your application that you cloned to your computer.
+* Place any WAR files that you want to deploy on your gear inside of the webapps directory.
+
+The WAR files that you add into the webapps directory will be deployed at a context that matches the name of the WAR file.
+For Example:
+If you add a file called mywebsite.war, it will be available at app-domain.rhcloud.com/mywebsite. If there is an application that you would like to be available at app-domain.rhcloud.com/ (also known as the root context) then you should name that file ROOT.war.
+
+Next, you need to git add your new files, then do a git commit -am "some message here" to make sure that your changes are committed. Lastly, you need to do a git push to deploy your changes to your OpenShift gear. Now all of your pre compiled java applications should be deployed at their individual contexts.
+
+=== Deploying your WAR files using SCP/SFTP
+
+If you would like to deploy pre compiled java applications to your OpenShift gear, but you don't want to waste space by storing them in your git repository, then these directions are for you!
+
+* Create an application on OpenShift and select either the Tomcat 6 (JBoss EWS 1.0) or Tomcat 7 (JBoss EWS 2.0) cartridges.
+* Use the git clone command to download the source code for your application to your computer.
+* Remove the src directory and the pom.xml file from your application that you cloned to your computer.
+* DO NOT place your WAR files into the webapps directory.
+
+Next, you need to do a git commit -am "some message here" to make sure that your changes are committed. Lastly, you need to do a git push to deploy your changes to your OpenShift gear.
+
+Now comes the fun part, you need to use SCP or SFTP (with public key authentication of course) to upload your files to the correct location on your gear.
+You need to place your WAR files into this folder: app-root/dependencies/jbossews/webapps on your gear.
+If you run rhc tail $appname, shortly after the transfer is done you will see entries appear in the logs showing that your WAR file has been deployed and at what context.
+
+The WAR files that you add into the webapps directory will be deployed at a context that matches the name of the WAR file.
+
+For Example:
+If you add a file called mywebsite.war, it will be available at app-domain.rhcloud.com/mywebsite. If there is an application that you would like to be available at app-domain.rhcloud.com/ (also known as the root context) then you should name that file ROOT.war.
+
+If you need to replace them, just upload a new copy, or if you want to remove them, just ssh into your server and delete the file you uploaded and it will be un-deployed.
+
+Hopefully this has cleared up how to deploy your pre compiled java applications on your OpenShift gears. Each type of application server has it's pros and cons, you just need to weigh them and pick the one that is right for your project. If you are not using any EE features, then the Tomcat cartridges would be fine, and if you are using EE or want to deploy an EJB or share dependencies between your WAR files, then the JBoss servers might be the way to go.

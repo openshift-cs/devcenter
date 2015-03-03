@@ -1,8 +1,8 @@
 ---
 layout: tomcat
 category:
-breadcrumb: Languages and Technologies
-parent_url: languages-overview.html
+breadcrumb: Servers
+parent_url: servers-overview.html
 nav_title: Environment Variables
 nav_priority: 40
 meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS environment variables
@@ -34,8 +34,8 @@ The Tomcat cartridge provides several environment variables to reference for eas
 For more information, consult the link:managing-environment-variables.html[Environment Variables] guide.
 
 [[tomcat-environment-variable-replacement-support]]
-.Environment Variable Replacement Support
-****
+*Environment Variable Replacement Support*
+
 The `jbossews` cart provides special environment variable replacement functionality for some of the Tomcat configuration files. For the following configuration files:
 
 * `.openshift/config/server.xml`
@@ -53,4 +53,4 @@ Ant-style environment replacements are supported for all `OPENSHIFT_`-prefixed e
 --
 
 During server startup, the configuration files in the source repository are processed to replace `OPENSHIFT_*` values, and the resulting processed file is copied to the live Tomcat configuration directory.
-****
+

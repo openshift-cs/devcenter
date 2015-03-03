@@ -1,7 +1,7 @@
 ---
 layout: ruby
-category: 20_Languages and Technologies
-breadcrumb: Languages and Technologies
+category: 20_Languages
+breadcrumb: Languages
 parent_url: languages-overview.html
 nav_title: Ruby
 nav_priority: 50
