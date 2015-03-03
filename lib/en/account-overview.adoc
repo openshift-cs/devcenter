@@ -5,6 +5,7 @@ breadcrumb: Managing Your Account
 parent_url: account-overview.html
 nav_title: Account FAQs
 nav_priority: 1
+meta_desc: This page provides answers to common account-related questions about OpenShift.
 ---
 = Account Management Frequently Asked Questions
 
@@ -12,9 +13,11 @@ nav_priority: 1
 [float]
 = Common Account Questions
 [.lead]
-Find answers to some common account-related questions on OpenShift.
+Find answers to some common account-related questions about OpenShift.
 
 == In This Guide
+link:#_why_can_t_i_see_the_captcha_image_on_the_sign_up_page[Why can't I see the Captcha image on the sign up page?] +
+link:#_why_didn_t_i_receive_an_account_verification_or_password_reset_email[Why didn't I receive an account verification or password reset email?] +
 link:#_how_can_i_upgrade_my_account[How can I upgrade my account?] +
 link:#_can_i_pay_for_my_bronze_or_silver_plan_with_paypal[Can I pay for my Bronze or Silver Plan with Paypal?] +
 link:#_why_can_t_i_downgrade_to_the_free_plan[Why can't I downgrade to the Free Plan?] +
@@ -25,6 +28,24 @@ link:#_how_can_i_get_more_resources[How can I get more resources?] +
 link:#_how_can_i_request_more_resources_as_a_non_profit_or_educational_institution[How can I request more resources as a non-profit or educational institution?] +
 link:#_how_do_i_indicate_that_i_am_exempt_from_taxes[How do I indicate that I am exempt from taxes?] +
 link:#_how_do_i_delete_my_account[How do I delete my account?] +
+
+=== Why can't I see the Captcha image on the sign up page?
+Check the ad-blocker and/or site-blocker extensions and settings in your browser.
+
+For Safari users using link:http://orbicule.com/incognito/[Incognito], go to  *Safari*  > *Preferences* > *Extensions* and select the *Incognito* extension. Uncheck *Google APIs*, then refresh the sign up page - the image should appear.
+
+link:#top[Back to Top]
+
+=== Why didn't I receive an account verification or password reset email?
+The most common reasons for this:
+
+* The email used to make the request was not correct or not a valid email address.
+* The email may have been filed into your spam or junk folder.
+* The OpenShift username is case-sensitive (even though email addresses are not).
+
+If you signed up with your Red Hat Network (RHN) account, you can try resetting the password link:https://www.redhat.com/wapps/sso/lostPassword.html[here].
+
+link:#top[Back to Top]
 
 === How can I upgrade my account?
 If you are an existing user, the easiest way to upgrade your account is to go link:https://openshift.redhat.com/app/account/plan[here].

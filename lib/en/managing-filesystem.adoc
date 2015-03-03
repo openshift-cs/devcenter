@@ -21,7 +21,8 @@ link:#env[.env] +
 link:#app_root[app-root] +
 link:#app-deployments[app-deployments] +
 link:#git[git] +
-link:#disk-space[Determining Used Disk Space]
+link:#disk-space[Determining Used Disk Space] +
+link:#_resolving_disk_space_issues[Resolving Disk Space Issues] +
 
 [[filesystem_layout]]
 == Gear Filesystem Layout
@@ -147,5 +148,77 @@ If you want to see how much disk space is used and you are comfortable with the 
 To see all your gears and their SSH URLs, you can execute the command `rhc app show <app_name> --gears` and then SSH into each gear to run `quota`.
 
 OpenShift will also start to warn you both on +git push+ and when you SSH into your gears *if you exceed 90% of your quota*.
+
+link:#top[Back to Top]
+
+== Resolving Disk Space Issues
+If you are running into disk space issues, there are a number of things you can do before adding storage or moving to a larger gear size.
+
+As a reminder, Free Plan Small gears are restricted to 1GB of storage. The Bronze Plan allows you to purchase additional storage at $1/GB per month, and the Silver Plan includes 6GB of storage for every gear.
+
+The 6GB for the Silver Plan is not assigned automatically, but you can do it using the following command:
+
+[source, console]
+----
+$ rhc cartridge-storage <cart_name> -a <app_name> --set 6
+----
+
+If you are on the Free Plan, the first step is to see what directories and files are taking up the most space.
+
+To do this, first ssh into your gear:
+
+[source, console]
+----
+$ rhc ssh <app_name>
+----
+
+Then run:
+
+[source, console]
+----
+> du -h * | sort -rh | head -50
+----
+
+This will give you the 50 largest directories and files on the gear.
+
+There is a simple command that will clean up the application's logs, tmp directories, and even tidy up the git repo on the server:
+
+[source, console]
+----
+$ rhc app-tidy <app_name>
+----
+
+If you want to erase your entire history from a Git repository and start over with your current files as the initial commit, see this link:https://forums.openshift.com/how-to-erase-all-history-from-a-git-repository-on-openshift-and-start-over-with[forum post].
+
+=== Monitoring Inode Consumption
+
+There is also an *inode* quota for each gear - 40,000 inodes per GB of storage. To put it simply, inodes are assigned to every filesystem object and they contain metadata for the object it's assigned to. Since everything must have an inode assigned to it, each file/folder within your app will consume 1 inode.
+
+To view your inode consumption:
+
+First ssh into your gear:
+
+[source, console]
+----
+$ rhc ssh <app_name>
+----
+
+Then run the `quota -s` command:
+[source, console]
+----
+> quota -s
+Disk quotas for user ********************* (uid *****):
+Filesystem                                                 blocks   quota   limit   grace   files   quota   limit   grace
+/dev/mapper/EBSStore01-user_home01    601M       0   1024M            3447       0   80000
+----
+
+The example output above shows that this app is consuming 3,447 inodes of the 80,000 limit.
+
+Currently the only way to reduce inode consumption is to keep the amount of files within your app to a minimum.
+
+link:#top[Back to Top]
+
+=== Deployments and Disk Space
+For more information about how deployment and rollback options can affect your disk space consumption, please see the link:managing-deployments.html[Deployments] page.
 
 link:#top[Back to Top]
