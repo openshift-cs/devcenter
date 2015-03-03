@@ -28,7 +28,7 @@ OpenShift Online currently supports `JBoss AS 7`. +
 link:/en/jbossas-overview.html[-> Learn More]
 
 === link:wildfly-overview.html[Wildfly]
-OpenShift Online currently supports `Wildfly 8.1 Final`. +
+OpenShift Online currently supports `Wildfly 8.2 Final`. +
 link:/en/wildfly-overview.html[-> Learn More]
 
 === link:tomcat-overview.html[Apache Tomcat (JBossEWS)]

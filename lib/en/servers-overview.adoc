@@ -15,11 +15,8 @@ meta_desc: An overview of server guides on OpenShift.
 [.lead]
 OpenShift Online offers a numbers of server options to help you get your applications up and running quickly.
 
-
-
-
 == Servers
-link:#jbossas[JBoss As] +
+link:#jbossas[JBoss AS] +
 link:#jbosseap[JBoss EAP] +
 link:#wildfly[WildFly] +
 link:#tomcat[Tomcat] +
