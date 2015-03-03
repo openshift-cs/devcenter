@@ -1,0 +1,358 @@
+---
+layout: base
+category: 40_Managing Your Applications
+breadcrumb: Managing Your Applications
+parent_url: managing-overview.html
+nav_title: Troubleshooting FAQs
+nav_priority: 120
+meta_desc: This page provides answers to common troubleshooting questions about OpenShift.
+---
+= Troubleshooting FAQs
+
+[[top]]
+[float]
+= Common Troubleshooting Questions
+[.lead]
+Find answers to some common troubleshooting questions about OpenShift.
+
+== In This Guide
+link:#_how_can_i_stop_my_application[How can I stop my application?] +
+link:#_are_there_problems_with_the_web_console_on_ipad_and_iphone_browsers[Are there problems with the web console on iPad and iPhone browsers?] +
+link:#_i_ve_exceeded_my_disk_quota_what_can_i_do[I've exceeded my disk quota - what can I do?] +
+link:#_why_can_t_i_create_applications_hosted_in_the_eu_region[Why can't I create applications hosted in the EU Region?] +
+link:#_why_does_mysql_stop_responding_after_8_hours[Why does MySQL stop responding after 8 hours?] +
+link:#_why_am_i_getting_502_or_504_timeout_errors[Why am I getting 502 or 504 timeout errors?] +
+link:#_why_am_i_getting_503_errors_service_temporarily_unavailable[Why am I getting 503 errors (Service Temporarily Unavailable)?] +
+link:#_why_is_my_application_restarting_automatically_or_having_memory_issues[Why is my application restarting automatically or having memory issues?] +
+link:#_why_do_i_get_a_conflicting_dependency_error_when_installing_jboss_tools[Why do I get a conflicting dependency error when installing JBoss Tools?] +
+link:#_why_won_t_my_application_start_after_being_restored[Why won't my application start after being restored?] +
+link:#_why_am_i_getting_a_permission_denied_error[Why am I getting a permission denied error?] +
+link:#_how_do_i_redirect_traffic_to_https[How do I redirect traffic to HTTPS?] +
+link:#_how_can_i_disable_https[How can I disable HTTPS?] +
+link:#_why_am_i_getting_a_resource_temporarily_unavailable_error_when_using_rhc[Why am I getting a 'resource temporarily unavailable' error when using rhc?] +
+link:#_why_is_my_jboss_application_timing_out[Why is my JBoss application timing out?] +
+link:#_why_is_my_jboss_application_having_java_net_bindexceptions_to_8080[Why is my JBoss application having java.net.BindExceptions to 8080?] +
+link:#_how_can_i_report_a_potential_security_problem[How can I report a potential security problem?]
+
+=== How can I stop my application?
+You can stop your application by running:
+
+[source, console]
+----
+$ rhc app-stop <app_name>
+----
+
+Sometimes an application can become stuck due to an issue with application code or the gear itself. You can force the application to stop in these cases by running:
+
+[source, console]
+----
+$ rhc app-force-stop <app_name>
+----
+
+If your application will not stop after using the `force-stop` command, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+
+link:#top[Back to Top]
+
+=== Are there problems with the web console on iPad and iPhone browsers?
+When using an iPad or iPhone to access the OpenShift Web Console, the add alias page is not functional as per link:https://bugzilla.redhat.com/show_bug.cgi?id=927149[this bug].
+
+link:#top[Back to Top]
+
+=== I've exceeded my disk quota - what can I do?
+Please see link:managing-filesystem.html[this page] to learn how to measure and manage disk quota for OpenShift applications.
+
+link:#top[Back to Top]
+
+=== Why can't I create applications hosted in the EU Region?
+Only Premium Plan accounts can create applications using gears hosted in an EU Region. In addition, only production gears (small.highcpu, medium, and large) can be created in an EU region. Small gears, regardless of plan type, can only be hosted in the US (aws-us-east-1).
+
+Please see link:managing-regions-and-zones.html[Regions and Zones] for more details.
+
+link:#top[Back to Top]
+
+=== Why does MySQL stop responding after 8 hours?
+MySQL sets the following default values:
+
+[source, console]
+----
+interactive_timeout = 28800
+wait_timeout = 28800
+----
+
+Connections that persist longer then 8 hours will get a timeout as a result. Modifying these values will not fix the problem, but you may be able to use a connection pool as a workaround. @emil.adz has provided a link:http://blog-emildesign.rhcloud.com/?p=317[blog article] on how to resolve this issue in a Java application using link:http://hibernate.org/[Hibernate].
+
+link:#top[Back to Top]
+
+=== Why am I getting 502 or 504 timeout errors?
+These errors are coming from the global Apache instance as it tries to route the request to your gear. This generally means a transaction has timed out. That timeout is currently set at 4 minutes.
+
+Alternatively, this may simply be due to idling and you should try to restart your application (see next question/answer).
+
+If you are still having issues, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+
+link:#top[Back to Top]
+
+=== Why am I getting 503 errors (Service Temporarily Unavailable)?
+This error is coming from the global Apache instance as it tries to route the request to your gear. This generally means that your application is not responding. You can check link:managing-log-files.html[log files] to see what the root cause might be.
+
+In some cases, a simple restart might help:
+[source, console]
+----
+$ rhc app-restart <app_name>
+----
+
+You should still review your application logs to find clues on how to prevent the root cause.
+
+If a simple restart does not help, try:
+
+[source, console]
+----
+$ rhc app-force-stop <app_name>
+$ rhc app-start <app_name>
+----
+
+If you are still having issues, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+
+link:#top[Back to Top]
+
+=== Why is my application restarting automatically or having memory issues?
+Current memory limits are 512MB for Small and Small.highcpu gears, 1GB for Medium gears, and 2GB for Large gears.
+
+In each case, the memory plus swap (memsw) limit is 100MB higher than the memory limit.  You may see performance degradation when either of these limits are hit.  To check whether your application is reaching its memory limits, link:managing-remote-connection.html[ssh] into your gear and run:
+
+[source, console]
+----
+oo-cgroup-read memory.failcnt
+oo-cgroup-read memory.memsw.failcnt
+----
+
+If either command returns a value greater than zero, your gear has reached the corresponding limit and triggered a _reclaim_ event to free some memory.
+
+If `memory.memsw.failcnt` is greater than zero, it is _possible_ that your gear has had an Out of Memory (OOM) event and been restarted for that reason.  To resolve this issue, you must either manage memory from within your app or use a larger production gear size (Medium or Large).
+
+link:#top[Back to Top]
+
+=== Why do I get a conflicting dependency error when installing JBoss Tools?
+If you see a 'Cannot complete the install because of a conflicting dependency' error when trying to install JBoss Tools, update the *Eclipse IDE for Java EE Developers* packages before installing the JBoss OpenShift Tools.
+
+link:#top[Back to Top]
+
+=== Why won't my application start after being restored?
+If your application code refers to the internal IP address of either the database server or the application server (127.x.x.x), these values most likely have changed on `rhc app-restore`. You can use link:managing-environment-variables.html[environment variables] to improve the portability of your applications.
+
+link:#top[Back to Top]
+
+=== Why am I getting a permission denied error?
+You may see the following error when running `rhc create-app`:
+
+[source, console]
+----
+Checking ~/.ssh/config
+Contacting https://openshift.redhat.com
+Found stg.rhcloud.com in ~/.ssh/config... No need to adjust
+Now your new domain name is being populated worldwide (this might take a minute)...
+Pulling new repo down
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic). <1>
+fatal: The remote end hung up unexpectedly
+Error in git pull
+----
+<1> This is the error.
+
+You may also see a similar error when using `git clone` or `git push`.
+
+There are several possible reasons for this error:
+
+* You have modified your public SSH key in the web console, but not updated the SSH keys on the machine you using.
+* You have modified your SSH keys on the local machine, but not updated your public SSH key in the web console.
+* You are using Gnome and the gnome-keyring-manager has cached the old keys.  Logging out and back in to Gnome should resolve this.
+* You can try running link:https://help.github.com/articles/error-agent-admitted-failure-to-sign[ssh-add].
+
+link:#top[Back to Top]
+
+=== How do I redirect traffic to HTTPS?
+OpenShift supports both HTTP and HTTPS connectivity to your app, but you might need to force a redirect to HTTPS so that nothing is accidentally sent unencrypted when communicating with your applications.
+
+==== For PHP, Ruby and other cartridges that are Apache-based
+Applications of all language types except for JBoss and Node.js use Apache. For these applications, you can add an `.htaccess` file in your web root that looks like this:
+
+[source]
+----
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+----
+
+For Python, the `.htaccess` file must be placed inside of the `wsgi` folder.
+
+==== For Node.js Express applications
+Create a function like this in your application:
+
+[source, javascript]
+----
+function redirectSec(req, res, next) {
+  if (req.headers['x-forwarded-proto'] == 'http') {
+      res.redirect('https://' + req.headers.host + req.path);
+  } else {
+      return next();
+  }
+}
+----
+
+Then change this line:
+[source, javascript]
+----
+self.app.get(r, self.routes[r]);
+----
+
+To this:
+[source, javascript]
+----
+self.app.get(r, redirectSec, self.routes[r]);
+----
+
+==== For JBoss AS7 and EAP6
+For JBoss AS7/EAP6 applications, you will need to do the following:
+
+In your application, create a file called `jboss-web.xml` in your `repo/src/main/webapp/WEB-INF/` directory with this content:
+
+[source, xml]
+----
+<jboss-web>
+  <security-domain>jboss-web-policy</security-domain>
+  <valve>
+    <class-name>org.jboss.web.rewrite.RewriteValve</class-name>
+  </valve>
+</jboss-web>
+----
+
+Then, create a `rewrite.properties` file in your `repo/src/main/webapp/WEB-INF/` directory which checks for http and redirects to https:
+
+[source]
+----
+RewriteCond %{HTTP:X-Forwarded-Proto} http
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+----
+
+A sample `security-constraint` directive in `repo/src/main/webapp/WEB-INF/web.xml` looks like:
+
+[source, xml]
+----
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <user-data-constraint>
+    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+  </user-data-constraint>
+</security-constraint>
+----
+
+==== For Tomcat (JBoss EWS)
+You can also use security-constraint directives in your web.xml file to force HTTPS connectivity, but your application will go into a Redirect Loop error. To resolve that, you need to do the following:
+
+Update your `repo/.openshift/config/server.xml` file's Connector to look like:
+
+[source, xml]
+----
+<Connector address="${OPENSHIFT_JBOSSEWS_IP}"
+           port="${OPENSHIFT_JBOSSEWS_HTTP_PORT}"
+           protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="443"/>
+----
+
+Then add a `Valve` directive to your `repo/.openshift/config/context.xml` file:
+
+[source, xml]
+----
+<Valve className="org.apache.catalina.valves.RemoteIpValve"
+       protocolHeader="x-forwarded-proto" />
+----
+
+A sample security-constraint directive in `repo/src/main/webapp/WEB-INF/web.xml` looks like:
+
+[source, xml]
+----
+<security-constraint>
+  <web-resource-collection>
+    <url-pattern>/*</url-pattern>
+  </web-resource-collection>
+  <user-data-constraint>
+    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+  </user-data-constraint>
+ </security-constraint>
+----
+
+
+Special thanks to many people in the community for helping with this answer: @Martin Borgman, @dmitrygusev, @dmace, and @mitking!
+
+link:#top[Back to Top]
+
+=== How can I disable HTTPS?
+By default, all applications are accessible via HTTP and HTTPS. You don't have to do anything differently unless you want to force HTTPS.
+
+link:#top[Back to Top]
+
+=== Why am I getting a 'resource temporarily unavailable' error when using rhc?
+This error is a sign that your application has run out of threads/processes to handle requests - for example client-tool(rhc) commands.
+
+You will need to `app-force-stop` your application and debug your code:
+[source, console]
+----
+$rhc app-force-stop <app_name>
+----
+
+You can then ssh onto your gear and use one or more of the following commands to help monitor and limit resources:
+
+* `quota -s`    (link:http://archive.oreilly.com/linux/cmd/cmd.csp?path=q/quota[More info])
+* `du -sh ~`    (link:http://en.wikipedia.org/wiki/Du_%28Unix%29[More info])
+* `lsof -n -P`  (link:http://en.wikipedia.org/wiki/Lsof[More info])
+* `top -b -n 1` (link:http://archive.oreilly.com/linux/cmd/cmd.csp?path=t/top[More info])
+* `free`        (link:http://archive.oreilly.com/linux/cmd/cmd.csp?path=f/free[More info])
+* `ss`          (link:http://www.binarytides.com/linux-ss-command/[More info])
+* `vmstat`      (link:http://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-commands/[More info])
+* `iostat`      (link:http://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-commands/[More info])
+* `mpstat`      (link:http://www.linuxcommand.org/man_pages/mpstat1.html[More info])
+* `ulimit -a`   (link:http://ss64.com/bash/ulimit.html[More info])
+
+link:#top[Back to Top]
+
+=== Why is my JBoss application timing out?
+You may see the following error in your log files when deploying a JBoss application:
+
+[source]
+----
+ERROR [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) JBAS015052: Did not receive a response to the deployment operation within the allowed timeout period [60 seconds]. Check the server configuration file and the server logs to find more about the status of the deployment.
+----
+
+To resolve this, locate `.openshift/config/standalone.xml` in your repository and find the following section:
+
+[source, xml]
+----
+<subsystem xmlns="urn:jboss:domain:deployment-scanner:1.0">
+  <deployment-scanner scan-interval="5000" relative-to="jboss.server.base.dir" path="deployments"  />
+</subsystem>
+----
+
+Add a `deployment-timeout` attribute to the `deployment-scanner` tag with a sufficiently large number. For example:
+
+[source, xml]
+----
+<subsystem xmlns="urn:jboss:domain:deployment-scanner:1.0">
+  <deployment-scanner scan-interval="5000" relative-to="jboss.server.base.dir" path="deployments" deployment-timeout="1200" />
+</subsystem>
+----
+
+link:#top[Back to Top]
+
+=== Why is my JBoss application having java.net.BindExceptions to 8080?
+Typically this error occurs if the connection IP addresses are incorrect. This can happen if you restore an application from a snapshot, or if you used the `standalone.xml` file from a different application.
+
+Instead of hard-coding IP addresses into `standalone.xml`, you should use environment variables, as outlined link:https://developers.openshift.com/en/jbosseap-environment-variables.html[here].
+
+link:#top[Back to Top]
+
+=== How can I report a potential security problem?
+If you see an issue with an application hosted on OpenShift Online or with the OpenShift Online site, contact the link:https://access.redhat.com/security/team/contact/[Red Hat Security Response Team].
+
+link:#top[Back to Top]
