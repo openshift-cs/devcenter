@@ -1,7 +1,7 @@
 ---
 layout: php
 category:
-breadcrumb: Languages and Technologies
+breadcrumb: Languages
 parent_url: languages-overview.html
 nav_title: WordPress
 nav_priority: 50
@@ -20,14 +20,14 @@ Just click the `Deploy Now` button and then enter a few details and you'll be up
 
 NOTE: If you need more control over your WordPress installation or want to manage all of the files through git, you can try using the link:https://github.com/openshift-quickstart/openshift-wordpress-developer-quickstart[OpenShift WordPress Developer QuickStart]
 
-== Managing your WordPress site on OpenShift  
+== Managing your WordPress site on OpenShift
 
 === Installing Themes and Plugins
 There are two ways that you can add Themes and Plugins to your WordPress application.
 
 * You can use the WordPress Admin section of your application (located at /wp-admin) and use the standard Theme and Plugin installation procedures.
 
-* You can download Themes and Plugins to your workstation and then copy them into your git repository in the `.openshift/themes` and `.openshift/plugins` directories.  
+* You can download Themes and Plugins to your workstation and then copy them into your git repository in the `.openshift/themes` and `.openshift/plugins` directories.
 
 If you choose the second option, you will need to use the `git add`, `git commit, and `git push` commands to deploy the themes and plugins to your WordPress application.
 
@@ -48,7 +48,7 @@ NOTE: For information on setting up and configuring a network, please visit the 
 IMPORTANT: WordPress Multisite may not be compatible with Scaling your WordPress application on OpenShift.  It has not been officially tested.
 
 === Using a Custom .htaccess File
-If you need to add custom rules to your .htaccess file, such as for the W3 Total Cache plugin, you can do so by creating a file called `.htaccess` in the `.openshift/config` directory. 
+If you need to add custom rules to your .htaccess file, such as for the W3 Total Cache plugin, you can do so by creating a file called `.htaccess` in the `.openshift/config` directory.
 
 Once you have created this file, you need to use the `git add`, `git commit`, and `git push` commands to deploy the file to your WordPress installation.  The file will automatically be copied to the correct location within your application.
 

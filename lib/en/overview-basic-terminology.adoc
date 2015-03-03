@@ -38,7 +38,7 @@ _Standalone_::: These are the languages or application servers that are set up t
 +
 _Embedded_::: An embedded cartridge provides functionality to enhance your application, such as a database or Cron, but cannot be used on its own to create an application.
 
-For some of the OpenShift partner cartidges in the link:http://marketplace.openshift.com[Marketplace], the cartridges only install environment variables that make it easier to connect to the partner hosted service.
+For some of the OpenShift partner cartridges in the link:http://marketplace.openshift.com[Marketplace], the cartridges only install environment variables that make it easier to connect to the partner hosted service.
 
 Scalable application:: Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your increased demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings up new gears with the appropriate web cartridge online to handle more requests. When traffic decreases, the platform retires the extra resources. There is a web page dedicated to explaining link:managing-scaling.html[how scaling works on OpenShift].
 
