@@ -1,0 +1,54 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: MongoLab
+nav_priority: 47
+meta_desc: Using the MongoLab OpenShift Marketplace Add-on service.
+---
+= MongoLab Marketplace Add-on Service
+
+[float]
+= MongoLab
+
+[.lead]
+MongoLab is a fully-managed cloud database service featuring highly-available MongoDB databases, automated backups, web-based tools, 24/7 monitoring, and expert support. By hosting MongoDB on MongoLab’s Database-as-a-Service (DBaaS) platform, developers and IT professionals are free to focus their attention on product development instead of operations.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The MongoLab dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *MongoLab account overview*.
+
+image::marketplace/mongolab_dashboard.png[MongoLab Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `mongolab_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `mongolab_8b885`).
+
+The `mongolab_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "uri": "mongodb://openshift_i9ae1kej_r5sqcp89_jutnauic:fPQDqehF7iM1HeQpih_xNk8sNKqsZEtK@ds051110.mongolab.com:51740/openshift_i9ae1kej_r5sqcp89"
+}
+----
+
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://docs.mongolab.com/[http://docs.mongolab.com/].
+
+[[support]]
+== Support
+
+Email:: link:mailto:support@mongolab.com[support@mongolab.com]
+Knowledgebase:: link:http://docs.mongolab.com/[http://docs.mongolab.com/]

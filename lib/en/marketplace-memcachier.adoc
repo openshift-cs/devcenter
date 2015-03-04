@@ -1,0 +1,57 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: MemCachier
+nav_priority: 46
+meta_desc: Using the MemCachier OpenShift Marketplace Add-on service.
+---
+= MemCachier Marketplace Add-on Service
+
+[float]
+= MemCachier
+
+[.lead]
+MemCachier manages and scales clusters of memcache servers so you can focus on your app. Our custom memcache implementation offers better reliability and usability than memcached, with the same low latency. Tell us how much memory you need and get started for free instantly. Add capacity later as you need it without changing any code.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The MemCachier dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *MemCachier account overview*.
+
+image::marketplace/memcachier_dashboard.png[MemCachier Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `memcachier_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `memcachier_8b885`).
+
+The `memcachier_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "servers": "mc3.dev.ec2.memcachier.com:11211",
+  "username": "6b9a1c",
+  "password": "4d585a43e4"
+}
+----
+
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://www.memcachier.com/documentation[https://www.memcachier.com/documentation].
+
+[[support]]
+== Support
+Support hours vary by plan, from 9am - 5pm PST, to 24/7 support for our largest, enterprise level plans.
+
+Email:: link:mailto:support@memcachier.com[support@memcachier.com]
+Knowledgebase:: link:http://support.memcachier.com[http://support.memcachier.com]

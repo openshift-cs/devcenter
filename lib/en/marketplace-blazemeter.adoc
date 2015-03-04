@@ -1,0 +1,43 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: Blazemeter
+nav_priority: 6
+meta_desc: Using the Blazemeter OpenShift Marketplace Add-on service.
+---
+= Blazemeter Marketplace Add-on Service
+
+[float]
+= Blazemeter
+
+[.lead]
+BlazeMeter is a self-service, web and mobile load testing platform (PaaS) providing developers an enterprise grade, out-of-the-box load testing solution. 100% compatible with Apache JMeter(TM).
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The Blazemeter dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting Blazemeter.
+
+image::marketplace/blazemeter_dashboard.png[Blazemeter Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Blazemeter does not support application binding.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://community.blazemeter.com/knowledgebase[http://community.blazemeter.com/knowledgebase].
+
+[[support]]
+== Support
+We know how important it is to resolve issues quickly and that's why our policy is to always respond to your requests within 24 hours (or sooner).
+
+Phone Support:: 1.855.445.2285
+Email:: support@blazemeter.com
+Contact Form:: link:http://blazemeter.com/contact-us?dep=Support[http://blazemeter.com/contact-us?dep=Support]

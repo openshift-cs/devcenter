@@ -1,0 +1,89 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: ClearDB
+nav_priority: 12
+meta_desc: Using the ClearDB MySQL Database OpenShift Marketplace Add-on service.
+---
+= ClearDB MySQL Database Marketplace Add-on Service
+
+[float]
+= ClearDB MySQL Database
+
+[.lead]
+ClearDB is a reliable, fault tolerant database-as-a-service for your MySQL powered applications.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#code-examples[Code Examples] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The ClearDB dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *ClearDB account overview*.
+
+image::marketplace/cleardb_dashboard.png[ClearDB Dashboard]
+
+The ClearDB dashboard allows you to manage your database, monitor performance, access backups, and view your credentials. You can also manage your support cases, among other things.
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `cleardb_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `cleardb_8b885`).
+
+The `cleardb_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "jdbcUrl": "jdbc:mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6",
+  "uri": "mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6?reconnect=true",
+  "name": "ad_e2530aa1edi1ae6",
+  "hostname": "us-cdbr-iron-east-01.cleardb.net",
+  "port": "3306",
+  "username": "a6bc2e19e4di54",
+  "password": "a107a37e"
+}
+----
+
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+
+[[code-examples]]
+== Code Examples
+The following code example shows how to easily configure your application to connect to a MySQL database provided by ClearDB.
+
+=== PHP
+Connecting to ClearDB from PHP merely requires the parsing of the `cleardb_*` environment variable and passing the extracted connection information to your MySQL library of choice, e.g. MySQLi:
+
+[source, php]
+----
+<?php
+// get account info from OpenShift environment variable
+$service_plan_id = "cleardb_8b885"; // update with your plan ID
+$account_info = json_decode(getenv($service_plan_id), true);
+
+$conn = new mysqli(
+ $account_info['hostname'],
+ $account_info['username'],
+ $account_info['password'],
+ $account_info['name'],
+ $account_info['port']
+);
+?>
+----
+
+You can then issue queries against the database using `$conn->query()`.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://www.cleardb.com/developers[https://www.cleardb.com/developers].
+
+[[support]]
+== Support
+Need help with your ClearDB database? Having trouble doing something that ordinarily "just works"? We're here to help. If you've already link:http://www.cleardb.com/developers/help/faq[checked out our FAQ] and our link:https://getsatisfaction.com/cleardb[support community] doesn't have a resolution to the issue, please link:https://www.cleardb.com/cases/new[create a new support case] so our team can assist in resolving the issue you're experiencing.
+
+Once we receive your support request, we will verify your account and begin to diagnose and identify the problem that you're experiencing. If we need more information, one of our team members will contact you. Once we have resolved the issue, we'll send you an email asking for you to verify that the problem has been rectified. Upon conformation that the problem has been resolved, we'll close the issue. 

@@ -1,0 +1,53 @@
+---
+layout: base
+category: 55_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: cine.io
+nav_priority: 11
+meta_desc: Using the cine.io OpenShift Marketplace Add-on service.
+---
+= cine.io Marketplace Add-on Service
+
+[float]
+= cine.io
+
+[.lead]
+Cine.io is the first video live-streaming service built by and for developers. Using either our REST API or pre-packaged SDKs for iOS, Android, or the web, developers can, with just a few lines of code, integrate live video into their applications. The service includes a global, blazing-fast CDN with more than 2,000 interconnected networks on 5 continents. There are no account minimums, and it's free to get started.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The cine.io dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *cine.io account overview*.
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+
+Credentials for your service can be found within an environment variable prefixed with `cineio_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `cineio_8b885`).
+
+The `cineio_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+
+[source, javascript]
+----
+{
+  "publicKey": "PUBLIC_KEY",
+  "secretKey": "SECRET_KEY"
+}
+----
+
+To start using cine.io in your application, import the appropriate cine.io SDK and use it with the Public and Secret keys that are available in `cineio_*`.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://developer.cine.io/[http://developer.cine.io/].
+
+[[support]]
+== Support
+
+Email:: support@cine.io
+Knowledgebase:: cineio.uservoice.com
