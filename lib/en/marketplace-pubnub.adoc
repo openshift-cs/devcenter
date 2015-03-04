@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 55_Marketplace Add-ons
+category: 39_Marketplace Add-ons
 breadcrumb: Marketplace
 parent_url: marketplace-overview.html
 nav_title: PubNub
@@ -13,7 +13,7 @@ meta_desc: Using the PubNub OpenShift Marketplace Add-on service.
 = PubNub
 
 [.lead]
-PubNub's Data Stream Network provides the cloud infrastructure and key building blocks for realtime apps that scale globally to any device. PubNub enables realtime experiences such as group chat, live dashboards and streams, presence, collaboration, second-screen synchronization, Internet of Things/machine-to-machine signaling, and more. PubNub’s simple API delivers scalable, reliable realtime interactivity across mobile, browser, desktop and server, and supports over 60 environments including iOS, Android and JavaScript.
+PubNub's Data Stream Network provides the cloud infrastructure and key building blocks for realtime apps that scale globally to any device. PubNub enables realtime experiences such as group chat, live dashboards and streams, presence, collaboration, second-screen synchronization, Internet of Things/machine-to-machine signaling, and more. PubNub's simple API delivers scalable, reliable realtime interactivity across mobile, browser, desktop and server, and supports over 60 environments including iOS, Android and JavaScript.
 
 link:#dashboard[Dashboard] +
 link:#integration[Integrating the Service With Your App] +

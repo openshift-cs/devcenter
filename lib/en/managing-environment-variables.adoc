@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 40_Managing Your Applications
+category: 17_Managing Your Applications
 breadcrumb: Managing Your Applications
 parent_url: managing-overview.html
 nav_title: Environment Variables

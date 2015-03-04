@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 55_Marketplace Add-ons
+category: 39_Marketplace Add-ons
 breadcrumb: Marketplace
 parent_url: marketplace-overview.html
 nav_title: SendGrid
@@ -13,7 +13,7 @@ meta_desc: Using the SendGrid OpenShift Marketplace Add-on service.
 = SendGrid
 
 [.lead]
-SendGrid’s cloud-based email infrastructure relieves businesses of the cost and complexity of maintaining custom email systems. SendGrid provides reliable delivery, scalability and real-time analytics along with flexible APIs that make custom integration a breeze.
+SendGrid's cloud-based email infrastructure relieves businesses of the cost and complexity of maintaining custom email systems. SendGrid provides reliable delivery, scalability and real-time analytics along with flexible APIs that make custom integration a breeze.
 
 link:#dashboard[Dashboard] +
 link:#integration[Integrating the Service With Your App] +
@@ -309,7 +309,7 @@ $this->email->send();
 echo $this->email->print_debugger();
 ----
 
-TIP: It is important to use the correct end of lines using “crlf” => “\r\n” and “newline” => “\r\n”.
+TIP: It is important to use the correct end of lines using "crlf" => "\r\n" and "newline" => "\r\n".
 
 See more information on how to link:http://ellislab.com/codeigniter/user-guide/libraries/email.html[use CodeIgniter with SendGrid].
 
@@ -339,7 +339,7 @@ return array(
 ?>
 ----
 
-You can use Laravel’s Mail class just like you normally would, but all email will be sent through SendGrid!
+You can use Laravel's Mail class just like you normally would, but all email will be sent through SendGrid!
 
 [source, php]
 ----
@@ -349,7 +349,7 @@ Mail::send('emails.demo', $data, function($message)
 });
 ----
 
-Check out the docs for link:http://laravel.com/docs/mail[Laravel’s mailer] for details.
+Check out the docs for link:http://laravel.com/docs/mail[Laravel's mailer] for details.
 
 [[php-wordpress]]
 === PHP: WordPress
@@ -405,7 +405,7 @@ Add the following to your link:http://www.pip-installer.org/en/latest/cookbook.h
 sendgrid>=1.2
 ----
 
-Now you’re ready to use SendGrid within your application:
+Now you're ready to use SendGrid within your application:
 
 [source, python]
 ----

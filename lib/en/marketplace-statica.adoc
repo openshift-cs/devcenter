@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 55_Marketplace Add-ons
+category: 39_Marketplace Add-ons
 breadcrumb: Marketplace
 parent_url: marketplace-overview.html
 nav_title: Statica
