@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 50_JBoss xPaaS
+category: 36_JBoss xPaaS
 breadcrumb: JBoss xPaaS
 parent_url: xpaas.html
 nav_title: BRMS
@@ -13,7 +13,7 @@ meta_desc: An overview of the JBoss Business Rules Management System available o
 [float]
 = JBoss Business Rules Management System
 [.lead]
-JBoss BRMS 6 provides business users and developers with powerful and intuitive tools to capture business rules and automate business decisions across physical, virtual, mobile, and cloud environments. The result is improved business agility, consistent and efficient decision execution, and shorter application development cycles. 
+JBoss BRMS 6 provides business users and developers with powerful and intuitive tools to capture business rules and automate business decisions across physical, virtual, mobile, and cloud environments. The result is improved business agility, consistent and efficient decision execution, and shorter application development cycles.
 
 link:#getting-started[Getting Started] +
 link:#video-walkthrough[Video Walkthrough] +
@@ -35,7 +35,7 @@ Red Hat JBoss BRMS provides a powerful, easy-to-use business rules management sy
 
 *Open:* Open source technology delivers high quality and performance while reducing costs.
 
-*Embeddable:* Its IDE supports the Drools Rule Language (DRL) enabling developers to easily integrate rule-based applications with Java code and external information systems. 
+*Embeddable:* Its IDE supports the Drools Rule Language (DRL) enabling developers to easily integrate rule-based applications with Java code and external information systems.
 
 With OpenShift you can easily deploy and run JBoss BRMS to capture business rules and automate business decisions directly in the cloud. You can also configure advanced rules from your IDE with Drools Rule Language (DRL) to run in the cloud and integrate these with rule-based applications to provide support to all types of business needs.
 
@@ -71,7 +71,7 @@ For general help on OpenShift, please visit the link:https://help.openshift.com[
 
 You can provide feedback, requests or contributions for the JBoss BRMS cartridge on jboss.org at: https://community.jboss.org/en/brms.
 
-Documentation on JBoss BRMS is available at: https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_BRMS/ 
+Documentation on JBoss BRMS is available at: https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_BRMS/
 
 link:#top[Back to Top]
 
@@ -116,11 +116,11 @@ If you want to use the rhc command line type:
 $ rhc create-app -g large brms https://raw.githubusercontent.com/jboss-bpms/openshift-cartridge-brms/master/metadata/manifest.yml
 --
 
-We strongly encourage you to run BRMS on a large gear. It will not have proper performance on a medium or small gear. 
+We strongly encourage you to run BRMS on a large gear. It will not have proper performance on a medium or small gear.
 
 You can use other name instead of "brms" in this command.
 
-This will output the generated users and passwords for Business Central, which you can use to login into Business Central. 
+This will output the generated users and passwords for Business Central, which you can use to login into Business Central.
 
 == Usage
 
@@ -165,12 +165,12 @@ Community cartridges will reflect their community projects and will change with 
 +
 Alpha cartridges are pre-release versions of supported products. They are released under the JBoss Developer Program terms and conditions and are intended only for development use and not for production use or to access updates to products without a Red Hat subscription. Alpha cartridges will be updated as the product progresses to beta. As with any pre-release software, there will be sharp edges and unfinished pieces but those are a worthwhile tradeoff for early access to the direction of future products.
 +
-Beta or tech preview cartridges will also be based on pre-release software and covered by the JBoss Developer Program terms and conditions. As beta code, these cartridges will naturally be closer to finished products than alpha cartridges are, and our current plan is that tech preview cartridges will be introduced and updated as the product proceeds to general release. 
+Beta or tech preview cartridges will also be based on pre-release software and covered by the JBoss Developer Program terms and conditions. As beta code, these cartridges will naturally be closer to finished products than alpha cartridges are, and our current plan is that tech preview cartridges will be introduced and updated as the product proceeds to general release.
 +
 Please note that either alpha or beta cartridges may not correspond to alpha or beta releases of the underlying product.
 
 Does this mean BRMS cartridges will be made generally available and supported?::
-  The release of community, alpha or beta cartridges should not be viewed as a commitment to release a supported cartridge. However the release of alpha/beta cartridges can rightly be viewed as an expression of intent absent specific timing. 
+  The release of community, alpha or beta cartridges should not be viewed as a commitment to release a supported cartridge. However the release of alpha/beta cartridges can rightly be viewed as an expression of intent absent specific timing.
 
 Where do I go to learn more about BRMS?::
   For more information about JBoss BRMS you can visit http://www.jboss.org/products/brms or http://www.redhat.com

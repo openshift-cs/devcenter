@@ -1,6 +1,6 @@
 ---
 layout: base
-category: 55_Marketplace Add-ons
+category: 39_Marketplace Add-ons
 breadcrumb: Marketplace
 parent_url: marketplace-overview.html
 nav_title: CloudAMQP
@@ -13,7 +13,7 @@ meta_desc: Using the CloudAMQP OpenShift Marketplace Add-on service.
 = CloudAMQP
 
 [.lead]
-CloudAMQP are managed RabbitMQ servers in the cloud – hosted message queues that lets you pass messages between processes and other systems.
+CloudAMQP are managed RabbitMQ servers in the cloud - hosted message queues that lets you pass messages between processes and other systems.
 
 link:#dashboard[Dashboard] +
 link:#integration[Integrating the Service With Your App] +
@@ -44,7 +44,7 @@ The `cloudamqp_*` environment variable holds your credentials, stored as JSON, w
 }
 ----
 
-NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace environment variables within your application.
 
 [[resources]]
 == Additional Resources
