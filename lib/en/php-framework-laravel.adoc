@@ -10,32 +10,65 @@ meta_desc: PHP developers - Deploying Laravel on OpenShift
 = Laravel PHP Framework on OpenShift
 
 [float]
-= Deploying Laravel on OpenShift
+= Deploying Laravel 5.0 on OpenShift
+link:http://laravel.com/[Laravel] is a free, open source PHP web application framework, designed for the development of model-view-controller (MVC) web applications.
 
-Laravel is a one of the younger PHP frameworks and has recently become much more popular. Built on link:http://symfony.com[Symfony] components, it inherits a proven codebase, but gives developers a new way of writing PHP applications.
+The simplest way to install this application is to use the link:https://hub.openshift.com/quickstarts/115-laravel-5-0[OpenShift QuickStart]. If you'd like to install it manually, follow link:#manual-installation[these directions].
 
-IMPORTANT: This purpose of this tutorial is not to teach Laravel as a framework. To do that, you should follow the link:http://laravel.com/docs/4.2[official documentation]. This tutorial expects you to be familiar with Laravel and to already have an application you want to deploy on OpenShift.
+== OpenShift Considerations
+These are some special considerations you may need to keep in mind when running your application on OpenShift with the Laravel QuickStart.
 
-== Connecting to a Database
-Configure the database configuration file `app/config/database.php` to integrate with OpenShift using the appropriate link:managing-environment-variables.html[environment variables].
+=== Local vs. Remote Development
+This Laravel QuickStart provides separate `.env` configuration files for both local and remote development, found at `.env` and `.openshift/.env` respectively.
 
-For example, if using MySQL:
+=== Remote Development
+Your application is configured to automatically use your OpenShift MySQL or PostgreSQL database in when deployed on OpenShift using link:managing-environment-variables.html[OpenShift Environment Variables].
 
-[source,php]
+Additionally, your `APP_ENV`, `APP_URL`, and `APP_KEY` will be set automatically in production on OpenShift.
+
+The Laravel `CACHE_DRIVER` is set to use link:http://php.net/manual/en/book.apc.php[APC opcode caching] and the `SESSION_DRIVER` is set to use the local file system for storage. Feel free to update these settings in `.openshift/.env`.
+
+=== 'Development' Mode
+When you develop your Laravel application in OpenShift, you can also enable the 'development' environment by setting the `APPLICATION_ENV` environment variable, using the `rhc` client, like:
+
+[source, console]
 ----
-'mysql' => array(
-    'host' => getenv('OPENSHIFT_MYSQL_DB_HOST'),
-    'port' => getenv('OPENSHIFT_MYSQL_DB_PORT'),
-    'driver'    => 'mysql',
-    'database'  => getenv('OPENSHIFT_APP_NAME'),
-    'username'  => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
-    'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-),
+$ rhc env set APPLICATION_ENV=development
 ----
 
-Similarly you can configure your application to connect to other databases.
+If you do so, OpenShift will run your application under 'development' mode. In development mode, your application will:
 
-link:managing-adding-a-database.html[-> Read more about managing databases on OpenShift]
+* Set Laravel's `APP_ENV` to 'development'
+* Ignore your `composer.lock` file
+* Show more detailed errors in browser
+* Display startup errors
+* Enable the link:http://xdebug.org/[Xdebug PECL extension]
+* Enable link:http://php.net/manual/en/apc.configuration.php#ini.apc.stat[APC stat check]
+
+Using the development environment can help you debug problems in your application in the same way as you do when developing on your local machine. However, we strongly advise you not to run your application in this mode in production.
+
+=== Log Files
+Your application is configured to use the OpenShift log directory. You can use the `rhc tail` command to stream the latest log file entries:
+
+[source, console]
+----
+rhc tail -a <APP_NAME>
+----
+
+To stop tailing the logs, press *Ctrl + c*.
+
+== Manual Installation
+
+1. Create an account at link:https://www.openshift.com/[https://www.openshift.com/]
+
+1. Create a Laravel application with `mysql-5.5` or `postgresql-9.2`:
++
+[source, console]
+----
+$ rhc app create laravelapp php-5.4 mysql-5.5 --from-code=https://github.com/luciddreamz/laravel
+----
++
+NOTE: Laravel 5.0 will not work with PHP 5.3
+
+== Additional Resources
+Documentation for the Laravel framework can be found on the link:http://laravel.com/docs[Laravel website].
