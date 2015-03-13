@@ -45,10 +45,11 @@ The `php` cartridges also provides several environment variables to change the d
 |A case-insensitive string representing the maximum log file size that triggers a roll event. The default value is *10M*. If a zero size is specified regardless of the unit, log rolling is effectively disabled.
 
 |LOGSHIFTER_PHP_MAX_FILES
-|An integer representing the maximum number of log files to retain. The default is *10*. See link:managing-environment-variables.html#logging-variables[loggin environment variables] for more details.
+|An integer representing the maximum number of log files to retain. The default is *10*. See link:managing-environment-variables.html#logging-variables[logging environment variables] for more details.
 |===
 
 NOTE: You must restart the `php` cartridge to pick-up the updated values.
+
 NOTE: The above 'defaults' are the default setting, not the default value for the variables. If no user-created environment variable is set, the default setting will be used.
 
 == Reading Environment Variables
