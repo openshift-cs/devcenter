@@ -13,13 +13,13 @@ meta_desc: PHP developers - Deploying Laravel on OpenShift
 = Deploying Laravel 5.0 on OpenShift
 link:http://laravel.com/[Laravel] is a free, open source PHP web application framework, designed for the development of model-view-controller (MVC) web applications.
 
-The simplest way to install this application is to use the link:https://hub.openshift.com/quickstarts/115-laravel-5-0[OpenShift QuickStart]. If you'd like to install it manually, follow link:#manual-installation[these directions].
+The simplest way to install this application is to use the link:https://hub.openshift.com/quickstarts/115-laravel-5-0[Laravel 5.0 OpenShift QuickStart]. If you'd like to install it manually, follow link:#manual-installation[these directions].
 
 == OpenShift Considerations
 These are some special considerations you may need to keep in mind when running your application on OpenShift with the Laravel QuickStart.
 
 === Local vs. Remote Development
-This Laravel QuickStart provides separate `.env` configuration files for both local and remote development, found at `.env` and `.openshift/.env` respectively.
+This Laravel QuickStart provides separate `.env` configuration files for both local and remote development, found at `.env` and `.openshift/.env` respectively. When the local repo is pushed to OpenShift `.env` is overwritten with the `.openshift/.env` file.
 
 === Remote Development
 Your application is configured to automatically use your OpenShift MySQL or PostgreSQL database in when deployed on OpenShift using link:managing-environment-variables.html[OpenShift Environment Variables].
@@ -27,6 +27,12 @@ Your application is configured to automatically use your OpenShift MySQL or Post
 Additionally, your `APP_ENV`, `APP_URL`, and `APP_KEY` will be set automatically in production on OpenShift.
 
 The Laravel `CACHE_DRIVER` is set to use link:http://php.net/manual/en/book.apc.php[APC opcode caching] and the `SESSION_DRIVER` is set to use the local file system for storage. Feel free to update these settings in `.openshift/.env`.
+
+=== Laravel Migrations
+When the application is pushed to OpenShift, `php artisan migrate --force` is automatically executed.
+
+=== Composer
+When the application is pushed, `composer install` is automatically executed over the root directory. See [PHP Markers](https://developers.openshift.com/en/php-markers.html) for more details on the 'use_composer' marker.
 
 === 'Development' Mode
 When you develop your Laravel application in OpenShift, you can also enable the 'development' environment by setting the `APPLICATION_ENV` environment variable, using the `rhc` client, like:
@@ -61,14 +67,14 @@ To stop tailing the logs, press *Ctrl + c*.
 
 1. Create an account at link:https://www.openshift.com/[https://www.openshift.com/]
 
-1. Create a Laravel application with `mysql-5.5` or `postgresql-9.2`:
+2. Create a Laravel application with `mysql-5.5` or `postgresql-9.2`:
 +
 [source, console]
 ----
-$ rhc app create laravelapp php-5.4 mysql-5.5 --from-code=https://github.com/luciddreamz/laravel
+$ rhc app create laravelapp https://raw.githubusercontent.com/luciddreamz/openshift-php/master/metadata/manifest.yml mysql-5.5 --from-code=https://github.com/luciddreamz/laravel
 ----
-+
-NOTE: Laravel 5.0 will not work with PHP 5.3
+
+NOTE: The Laravel 5.0 QuickStart is setup to use a link:https://github.com/luciddreamz/openshift-php[custom version] of the OpenShift PHP 5.4 cartridge with the latest version of Composer installed. The version of Composer that ships with OpenShift's current PHP 5.4 cartridge is slightly out of date will error when it encounters Laravel's more recent version syntax (ex. Invalid version string "^1.0.1").
 
 == Additional Resources
 Documentation for the Laravel framework can be found on the link:http://laravel.com/docs[Laravel website].
