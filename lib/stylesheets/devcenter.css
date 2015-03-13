@@ -184,6 +184,30 @@ h6 > a.anchor:hover {
 }
 
 /*
+ * Footer powered by
+ * --------------------------------------------------
+ */
+
+.footer-openshift {
+  border-bottom: 50px solid #00171d; 
+}
+#powered-by-openshift {
+  position: absolute;
+  bottom: -45px;
+  top: auto;
+  left: 0;
+  right: 0; 
+}
+#powered-by-openshift a {
+  position: static;
+  width: 150px;
+  margin: 0; 
+}
+#powered-by-openshift img {
+  height: 40px; 
+}
+
+/*
  * Off Canvas
  * --------------------------------------------------
  */
