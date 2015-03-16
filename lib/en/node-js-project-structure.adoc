@@ -60,7 +60,8 @@ Check the link:#markers[Markers] section for specifics on how OpenShift uses thi
 [[node_modules]]
 == `node_modules`
 
-Npm module dependencies are cached locally within this folder.  The folder contents can be generated automatically during your project's build process, but link:http://www.futurealoof.com/posts/nodemodules-in-git.html[it's generally considered a best-practice to keep this folder's contents under version control] since it speeds up builds, and help make deployments easier to audit.
+Npm module dependencies are cached locally within this folder.  
+OpenShift can generate this folder's contents automatically by running `npm install` during your project's build process.  Tracking the contents of this folder with `git` can help make deployments easier to audit, and it allows OpenShift to use the cached modules to speed up your build process. 
 
 === `deplist.txt`
 This file was previously used to document an application's dependency list.  The standard `package.json` file should be used instead. See link:node-js-dependency-management.html[Dependency Management with NPM].
