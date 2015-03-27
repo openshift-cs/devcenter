@@ -151,7 +151,7 @@ The best next step is to create an application using OpenShift.
 
 Look at the https://www.openshift.com/application-gallery[Application Gallery] and https://www.openshift.com/developer-spotlight[Developer Spotlight] to see what other developers have created on OpenShift.
 
-Browse the http://origin.ly/[QuickStarts and community cartridges] to see other exciting technologies you can use in your applications.
+Browse the https://hub.openshift.com[QuickStarts and community cartridges] to see other exciting technologies you can use in your applications.
 
 Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
 

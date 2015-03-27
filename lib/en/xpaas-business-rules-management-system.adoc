@@ -82,8 +82,8 @@ There are two ways to install the BRMS cartridge on OpenShift and you can choose
 === Installation Option 1: Using the QuickStart / OpenShift Web Console
 Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
 
-* The link:https://www.openshift.com/quickstarts/jboss-business-rules-management-system[BRMS QuickStart page] and then on the "Deploy now" button;
-* link:https://openshift.redhat.com/app/console/application_type/quickstart!18137[Deploy Now] (will take you to the web console)
+* The link:https://hub.openshift.com/quickstarts/88-jboss-brms[BRMS QuickStart page] and then on the "Deploy now" button;
+* https://openshift.redhat.com/app/console/application_type/quickstart!88[Deploy Now] (will take you to the web console)
 * The OpenShift console by clicking "Login" (if this is your first time) or "My Apps" (if you already have some) in the upper right corner of your browser:
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]

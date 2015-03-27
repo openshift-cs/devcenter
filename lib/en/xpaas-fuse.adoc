@@ -63,7 +63,7 @@ Also check these videos to get started with JBoss Fuse for xPaaS:
 JBoss Fuse is also available on OpenShift Online as a Developer Preview to allow you to explore the capabilities of Apache ActiveMQ messaging and Apache Camel integration framework running on OpenShift. This preview is based on the JBoss Fuse 6.1 supported release but as a preview it does not come with guaranteed support. It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha release. There will be fixes and updates frequently over the short term followed by a Beta release and then a supported release.
 
 ==== Getting Started with Fuse ESB
-Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking link:https://openshift.redhat.com/app/console/application_type/quickstart!16634[Deploy Now] or executing the following command:
+Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking link:https://openshift.redhat.com/app/console/application_type/quickstart!40[Deploy Now] or executing the following command:
 
 [source]
 --

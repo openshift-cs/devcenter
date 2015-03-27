@@ -103,8 +103,8 @@ There are two ways to install the BPM Suite cartridge on OpenShift and you can c
 === Installation Option 1: Using the QuickStart / OpenShift Web Console
 Start by logging into your OpenShift account (don't have one? Click link:https://www.openshift.com/app/account/new[here] to sign up) and going to either:
 
-* The link:https://www.openshift.com/quickstarts/jboss-business-process-management-suite[BPMS QuickStart page] and then on the "Deploy now" button;
-* link:https://openshift.redhat.com/app/console/application_type/quickstart!17804[Deploy Now] (will take you to the web console)
+* The link:https://hub.openshift.com/quickstarts/86-jboss-bpm-suite[BPMS QuickStart page] and then on the "Deploy now" button;
+* link:https://openshift.redhat.com/app/console/application_type/quickstart!86[Deploy Now] (will take you to the web console)
 * The OpenShift console by clicking "Login" (if this is your first time) or "My Apps" (if you already have some) in the upper right corner of your browser:
 
 image::xpaas/xpaas-fuse-1.jpg[Logging in to OpenShift]
