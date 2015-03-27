@@ -55,7 +55,7 @@ index.pl
     markers/          See the Markers section below
     cpan.txt          List of modules to install
 --
-<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
+<1> link:managing-action-hooks.html[Action Hooks] documentation
 
 Due to changes in Perl cartridge template layout, the application root is now stored in `$OPENSHIFT_REPO_DIR`, but is also backward compatible with deprecated `perl/` directory.
 

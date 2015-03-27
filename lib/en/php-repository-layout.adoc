@@ -19,7 +19,7 @@ index.php              Template PHP index page
     markers/           See the Markers section below
     pear.txt           List of pears to install <2>
 ----
-<1> link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks] documentation
+<1> link:managing-action-hooks.html[Action Hooks] documentation
 <2> A list of pears to install, line by line on the server. This will happen when the user does a `git push`.
 
 [[document_root]]

@@ -144,7 +144,7 @@ link:#top[Back to Top]
 [[set-document-root]]
 == Setting Your Document Root
 
-The DocumentRoot is chosen by the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#bin-control[cartridge control script] logic depending on conditions in the following order:
+The DocumentRoot is chosen by the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#bin-control[cartridge control script] logic depending on conditions in the following order:
 [source, console]
 --
 IF php/ dir exists THEN DocumentRoot=php/

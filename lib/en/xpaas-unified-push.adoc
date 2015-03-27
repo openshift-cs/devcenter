@@ -122,7 +122,7 @@ This is useful for changing container configurations such as root logger level a
 === Template Repository Layout
 
 * `./unified-push/usr/template/.openshift/` -- Location for OpenShift specific files
-* `action_hooks/` -- See the link:http://openshift.github.io/documentation/oo_user_guide.html#action-hooks[Action Hooks documentation]
+* `action_hooks/` -- See the link:managing-action-hooks.html[Action Hooks documentation]
 * `markers/` -- See the Markers section below
 
 
@@ -138,7 +138,7 @@ The unified-push cartridge provides several environment variables to reference f
 * `JAVA_OPTS_EXT` -- Appended to JAVA_OPTS prior to invoking the Java VM
 
 
-For more information about environment variables, consult the link:http://openshift.github.io/documentation/oo_user_guide.html[OpenShift Application Author Guide].
+For more information about environment variables, consult the link:http://docs.openshift.org/origin-m4/oo_user_guide.html[OpenShift Application Author Guide].
 
 === Markers
 You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code.

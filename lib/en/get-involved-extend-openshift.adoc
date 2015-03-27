@@ -43,7 +43,7 @@ and a simple web server]
 the example as a cartridge]
 
 Then read the
-link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge
+link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html[Cartridge
 Developer's Guide], which breaks down the Cartridge API and is the
 primary reference for building a cartridge.
 
