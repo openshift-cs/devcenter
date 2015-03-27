@@ -70,11 +70,11 @@ The following is a list of all possible action hooks executed in association wit
 ** `post_tidy`
 ** `post_tidy_{Name}` footnoteref:[1]
 
-For details about the control actions (including what they represent and when they are called), refer to the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#bin-control[control script
-documentation] in the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+For details about the control actions (including what they represent and when they are called), refer to the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#bin-control[control script
+documentation] in the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 == Build Action Hooks
-During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:http://openshift.github.io/documentationoo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
+During a Git push, applications using the default OpenShift build lifecycle are given an opportunity to participate in the build/deploy workflow via another set of action hooks. The workflow and sequence of actions for the build lifecycle is described in detail in the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] section of the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html[Cartridge Developers Guide] guide.
 
 The list of action hooks supported during the default build lifecycle are:
 
@@ -83,7 +83,7 @@ The list of action hooks supported during the default build lifecycle are:
 * `deploy`
 * `post_deploy`
 
-Refer to the link:http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] guide for details about when these action hooks are invoked.
+Refer to the link:http://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#openshift-builds[OpenShift Builds] guide for details about when these action hooks are invoked.
 
 == Custom Cartridge Action Hooks
 Cartridges may support custom action hooks available to application developers. Consult the documentation for individual cartridges to learn which hooks are supported and how to correctly implement them.

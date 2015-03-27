@@ -56,7 +56,7 @@ In general, all gears have the same layout. The differences come when you instal
 `-- ...cartridge directories
 ----
 
-Source: link:http://openshift.github.io/documentation/oo_system_architecture_guide.html#directory-structure[OpenShift Origin documentation]
+Source: link:http://docs.openshift.org/origin-m4/oo_system_architecture_guide.html#directory-structure[OpenShift Origin documentation]
 
 link:#top[Back to Top]
 
