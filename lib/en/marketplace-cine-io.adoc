@@ -28,9 +28,9 @@ The cine.io dashboard can be accessed by visiting the link:https://marketplace.o
 == Integrating the Service With Your App
 Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
 
-Credentials for your service can be found within an environment variable prefixed with `cineio_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `cineio_8b885`).
+Credentials for your service can be found within an environment variable prefixed with `cine_io_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `cine_io_8b885`).
 
-The `cineio_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+The `cine_io_*` environment variable holds your credentials, stored as JSON, with the following attributes:
 
 [source, javascript]
 ----
@@ -40,7 +40,7 @@ The `cineio_*` environment variable holds your credentials, stored as JSON, with
 }
 ----
 
-To start using cine.io in your application, import the appropriate cine.io SDK and use it with the Public and Secret keys that are available in `cineio_*`.
+To start using cine.io in your application, import the appropriate cine.io SDK and use it with the Public and Secret keys that are available in `cine_io_*`.
 
 [[resources]]
 == Additional Resources
