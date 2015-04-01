@@ -89,7 +89,7 @@ The table below provides a full list of Marketplace Add-on Services and, for ser
 |===
 |Name|Bindable|Environment Variable
 |link:marketplace-blazemeter.html[BlazeMeter]|No|-
-|link:marketplace-cine-io.html[cine.io]|Yes|cineio_*
+|link:marketplace-cine-io.html[cine.io]|Yes|cine_io_*
 |link:marketplace-cleardb-mysql-database.html[ClearDB MySQL Database]|Yes|cleardb_*
 |link:marketplace-cloudamqp.html[CloudAMQP]|Yes|cloudamqp_*
 |link:marketplace-cloudforge.html[CloudForge]|No|-
