@@ -43,6 +43,10 @@ link:ruby-overview.html[-> Learn More]
 Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift. +
 link:perl-overview.html[-> Learn More]
 
+=== Ceylon
+OpenShift allows flexibility in working with your preferred runtime and framework, with support for *Wildfly*, bare-bones and *Vert.x*.
+link:ceylon-overview.html[-> Learn More]
+
 === DIY
 The diy cartridge provides a minimal, free-form scaffolding which leaves all details of the cartridge to the application developer. +
 link:diy-overview.html[-> Learn More]

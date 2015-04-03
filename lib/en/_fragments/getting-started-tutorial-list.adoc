@@ -27,6 +27,9 @@ link:php-wordpress.html[WordPress]
 |link:perl-overview.html[Perl]
 |
 
+|link:ceylon-overview.html[Ceylon]
+|
+
 |Other Technologies
 |link:managing-continuous-integration.html[Jenkins] +
 link:managing-background-jobs.html[Cron]

@@ -1,0 +1,102 @@
+---
+layout: base
+category: 20_Languages
+breadcrumb: Languages
+parent_url: languages-overview.html
+nav_title: Ceylon
+nav_priority: 51
+meta_desc: Ceylon Developers - OpenShift Resources to get your Ceylon applications hosted in the cloud.
+---
+= Ceylon Application Hosting
+
+[[top]]
+[[ceylon]]
+[float]
+= Ceylon Application Hosting
+[.lead]
+With OpenShift you can easily deploy and run Ceylon applications using your favorite application servers or frameworks. You can run them on WildFly, bare-bones with `ceylon.net` or with Vert.x.
+
+Ceylon is a new programming language that's deeply influenced by Java, designed by people who are unapologetic fans of Java. It's a language designed specifically for writing large programs in teams.
+
+Visit the official Ceylon documentation to link:http://ceylon-lang.org[learn more].
+
+image::ceylon-logo.png["Ceylon logo"]
+
+== Supported Technologies
+OpenShift provides several ways to deploy Ceylon applications, including the following environments:
+
+=== link:wildfly-overview.html[Wildfly]
+OpenShift Online currently supports `Wildfly 8.2 Final`. +
+link:/en/wildfly-overview.html[-> Learn More]
+
+=== link:vertx-overview.html[Vert.x]
+link:http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. OpenShift Online currently supports `Vert.x 2.1`. +
+link:/en/vertx-overview.html[-> Learn More]
+
+== Creating your application
+
+Getting you Ceylon application deployed onto OpenShift is as easy as executing the following command:
+
+[source]
+--
+$ rhc create-app ceylonapp https://raw.github.com/ceylon/openshift-cartridge/master/metadata/manifest.yml
+--
+
+This will create your OpenShift application using the Ceylon cartridge, which will include a template application
+running barebones, which you can replace or customise.
+
+For important information on setting up your Ceylon cartridge, check out our link:https://github.com/ceylon/openshift-cartridge/blob/master/template/README.md[documentation] page.
+
+== Even easier application creation
+
+It's trivial to make your application run on OpenShift. Just take your existing application and add the following
+import:
+
+[source, ceylon]
+--
+import ceylon.openshift "1.1.0";
+--
+
+This will let you access OpenShift information:
+
+[source, ceylon]
+--
+import ceylon.openshift { openshift }
+
+void start(String host, int port){
+  // ...
+}
+
+shared void run(){
+  if(openshift.running){
+    start(openshift.ip, openshift.port);
+  }else{
+    start("localhost", 80);
+  }
+}
+--
+
+Similarly you can get information about your database. Read the link:https://modules.ceylon-lang.org/repo/1/ceylon/openshift/1.1.0/module-doc/api/openshift.object.html[API docs for more information].
+
+Now you just have to add the required OpenShift setup to your application, for which
+you can install the `ceylon openshift` command (only need to do this once):
+
+[source]
+--
+$ ceylon plugin install ceylon.openshift/1.1.0
+--
+
+And now you just turn your Ceylon application into a Ceylon OpenShift application:
+
+[source]
+--
+$ ceylon openshift init your.main.module/1.0
+--
+
+Then you're ready to start, so just push your code somewhere over git and create your
+OpenShift application with the Ceylon cartridge:
+
+[source]
+--
+$ rhc create-app --from-code <your-git-url> ceylonapp https://raw.github.com/ceylon/openshift-cartridge/master/metadata/manifest.yml
+--
