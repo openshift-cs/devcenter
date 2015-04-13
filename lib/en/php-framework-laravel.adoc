@@ -42,9 +42,16 @@ When you develop your Laravel application in OpenShift, you can also enable the 
 $ rhc env set APPLICATION_ENV=development
 ----
 
+Then, restart your application:
+
+[source, console]
+----
+$ rhc app restart
+----
+
 If you do so, OpenShift will run your application under 'development' mode. In development mode, your application will:
 
-* Set Laravel's `APP_ENV` to 'development'
+* Set Laravel's `APP_ENV` to *development* and `APP_DEBUG` to *true*
 * Ignore your `composer.lock` file
 * Show more detailed errors in browser
 * Display startup errors
@@ -58,7 +65,7 @@ Your application is configured to use the OpenShift log directory. You can use t
 
 [source, console]
 ----
-rhc tail -a <APP_NAME>
+rhc tail
 ----
 
 To stop tailing the logs, press *Ctrl + c*.

@@ -167,6 +167,13 @@ When you develop your PHP application on OpenShift, you can also enable the 'dev
 $ rhc env set APPLICATION_ENV=development
 ----
 
+Then, restart your application:
+
+[source, console]
+----
+$ rhc app restart
+----
+
 If you do so, OpenShift will run your application under 'development' mode. In development mode, your application will:
 
 * Show more detailed errors in browser
