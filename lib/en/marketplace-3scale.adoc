@@ -1,0 +1,42 @@
+---
+layout: base
+category: 39_Marketplace Add-ons
+breadcrumb: Marketplace
+parent_url: marketplace-overview.html
+nav_title: 3scale
+nav_priority: 3
+meta_desc: Using the 3scale OpenShift Marketplace Add-on service.
+---
+= 3scale Marketplace Add-on Service
+
+[float]
+= 3scale
+
+[.lead]
+The 3scale API management platform provides access control, analytics and developer provisioning for your API.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The 3scale dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting 3scale.
+
+image::marketplace/3scale_dashboard.png[3scale Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+3scale does not support application binding.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://support.3scale.net/[https://support.3scale.net/].
+
+[[support]]
+== Support
+Join our weekly session Office Hours where we help you with any problems or questions you might have. Register here: link:http://pages.3scale.net/register-for-3scale-office-hours.html[http://pages.3scale.net/register-for-3scale-office-hours.html]
+
+Email:: support@3scale.net
+Knowledgebase:: link:https://support.3scale.net/[https://support.3scale.net/]
