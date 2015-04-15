@@ -13,11 +13,11 @@ meta_desc: Stay in touch, engage, and stay informed with the OpenShift community
 = Get Involved with OpenShift
 
 [.lead]
-Want to get in touch with our product team, or become a part of the OpenShift Origin open source project?
+Want to get in touch with our product team, help promote OpenShift, or become a part of the OpenShift Origin open source project?
 
 image::origin-logo.png[OpenShift Origin]
 
-== Open Source
+== Open Source Community
 OpenShift Origin is a community of developers, admins, and users collaborating on the next generation of Platform as a Service as a freely available open source project.
 
 Join us on our Community site for all the latest news & information on the open source project or visit our github repository for source code, documentation, and the latest releases:
@@ -26,6 +26,12 @@ Join us on our Community site for all the latest news & information on the open 
 http://origin.openshift.com[-> Join the Origin Community] +
 https://github.com/openshift[-> Origin on GitHub] +
 https://install.openshift.com[-> Install Origin Now]
+
+== OpenShift Accelerators Program
+The Accelerators program is designed to enable, recognize, and reward successful users and promotors of the OpenShift platform. Become an active member and get access to project previews, support for presentations and events, exposure for projects, and much more.
+
+[.lead]
+link:http://www.openshift.org/accelerators/[-> Learn more]
 
 == Application Gallery
 The OpenShift Online Application Gallery is a showcase of applications running on OpenShift Online.
