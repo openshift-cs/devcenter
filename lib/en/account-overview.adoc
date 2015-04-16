@@ -27,7 +27,7 @@ link:#_can_i_change_my_login_id[Can I change my login ID?] +
 link:#_can_i_change_my_email_address[Can I change my email address?] +
 link:#_how_can_i_transfer_application_ownership_from_one_user_to_another[How can I transfer application ownership from one user to another?] +
 link:#_how_can_i_get_more_resources[How can I get more resources?] +
-link:#_how_can_i_request_more_resources_as_a_non_profit_or_educational_institution[How can I request more resources as a non-profit or educational institution?] +
+link:#_how_can_i_request_resources_as_a_non_profit_educational_institution_or_open_source_initiative[How can I request resources as a Non-Profit, Educational Institution, or Open Source Initiative?] +
 link:#_how_do_i_indicate_that_i_am_exempt_from_taxes[How do I indicate that I am exempt from taxes?] +
 link:#_how_do_i_delete_my_account[How do I delete my account?] +
 
@@ -148,34 +148,10 @@ If you are a non-profit or educational institution, see below.
 
 link:#top[Back to Top]
 
-=== How can I request more resources as a non-profit or educational institution?
-OpenShift Online resources for Non-Profit, Open Source, and Educational Institutions are reviewed and granted on a case-by-case basis using the information gathered via the form at the end of this article.
+=== How can I request resources as a Non-Profit, Educational Institution, or Open Source Initiative?
+OpenShift Online resources for Non-Profit, Open Source, and Educational Institutions are reviewed and granted on a case-by-case basis using the information gathered via the application form.
 
-Please be as detailed as possible about your project and the resources that you are requesting access to. You may want to review our link:http://www.openshift.com/pricing[pricing page] before filling out this form to see what kind of resources we currently offer. Please make sure that the technologies that you would like to use are available and/or supported on the OpenShift Online PaaS.
-
-==== Some of the uses for which this grant program is intended
-
-* Research projects for which the results will be made available to the public
-* Open Source programming initiatives for which the code will be made available to the public
-* Websites that host useful and publicly available information
-* Public service websites
-* Web applications which provide free registration and use
-* Open Data websites or applications
-
-==== Some of the uses for which this grant program is NOT intended
-
-* Proprietary paywall protected websites
-* Development of proprietary for profit software
-* Web applications for which there is a registration or usage / monthly / yearly fee
-* Anything that violates our link:https://www.openshift.com/legal/site_terms[Terms of Use] or link:https://www.openshift.com/legal/services_agreement[Services Agreement]
-
-==== Educational Institution Specifics
-Please note that this request form should generally be used for Open Source or Research Projects for which the results will be publicly avaialble, not for requesting additional resources for student accounts for classroom programming projects. Those should be able to run within the Free plan limits in most cases.
-
-==== Terms and Conditions
-By requesting resources on OpenShift Online through the Non-Profit, Open Source, and Education Institution form below, you hereby give OpenShift Online permission to use your name, organization name, or likeness in the furtherance of OpenShift Online. You may not issue any press release regarding OpenShift Online without prior written consent from OpenShift Online. You agree to not imply that OpenShift Online supports, sponsors, endorses, or contributes money to your teaching and research unless you have received our written permission to do so. OpenShift Online may terminate or modify your use of free OpenShift Online resources at any time.
-
-If you meet all of the above criteria, please fill out link:https://www.openshift.com/page/resources-request-form[this form].
+To learn more about this program, pleaes visit the link:https://www.openshift.com/resource-grants[OpenShift Resource Grants Program] page.
 
 link:#top[Back to Top]
 
