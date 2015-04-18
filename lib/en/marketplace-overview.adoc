@@ -180,7 +180,7 @@ Using Marketplace environment variables within your application:
 ----
 // get account info from OpenShift environment variable
 var servicePlanId = "service_8b885"; // your OpenShift Service Plan ID
-var accountInfo = JSON.parse(process.env.servicePlanId);
+var accountInfo = JSON.parse(process.env[servicePlanId]);
 
 accountInfo.username; // "YOUR_USERNAME"
 accountInfo.password; // "YOUR_PASSWORD"
