@@ -87,12 +87,12 @@ If you want to use the rhc command line type:
 
 [source]
 --
-rhc app create --no-git <APP_NAME> jboss-unified-push-1
+rhc app create --no-git <APP_NAME> jboss-unified-push-2
 --
 If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them running i.e. :
 [source]
 --
-rhc app create -g medium --no-git <APP_NAME> jboss-unified-push-1
+rhc app create -g medium --no-git <APP_NAME> jboss-unified-push-2
 --
 
 When the installation completes, you will be presented with a list of generated users and passwords similar to the screencap below. Make sure you save them!
