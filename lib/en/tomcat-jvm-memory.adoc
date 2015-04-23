@@ -1,0 +1,13 @@
+---
+layout: tomcat
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: JVM Memory
+nav_priority: 51
+meta_desc: Tomcat developers - OpenShift Online Tomcat / JBoss EWS JVM Memory
+---
+= Tomcat JVM Memory
+
+include::_fragments/java-jvm-memory.adoc[]
+
