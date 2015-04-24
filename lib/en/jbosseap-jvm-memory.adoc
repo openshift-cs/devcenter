@@ -1,0 +1,12 @@
+---
+layout: jbosseap
+category:
+breadcrumb: Servers
+parent_url: servers-overview.html
+nav_title: JVM Memory
+nav_priority: 51
+meta_desc: JBoss EAP JVM Memory
+---
+= JBoss EAP JVM Memory
+
+include::_fragments/java-jvm-memory.adoc[]
