@@ -45,7 +45,7 @@ NOTE: Check out the general link:marketplace-overview.html#code-examples[code ex
 
 [[resources]]
 == Additional Resources
-Additional documentation is available at link:https://sendgrid.com/docs/index.html[https://sendgrid.com/docs/index.html].
+Additional documentation is available at link:http://support.statica.io/support/home[http://support.statica.io/support/home].
 
 [[support]]
 == Support
