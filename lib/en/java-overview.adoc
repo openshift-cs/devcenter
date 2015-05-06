@@ -36,7 +36,7 @@ OpenShift Online currently supports `Tomcat 6` and `7`. +
 link:/en/tomcat-overview.html[-> Learn More]
 
 === link:jbosseap-overview.html[JBoss EAP]
-OpenShift Online currently supports `JBoss EAP 6.2`.  +
+OpenShift Online currently supports `JBoss EAP 6.4`, which supports Java 8, as one of our link:xpaas.html[JBoss xPaaS Services].  +
 link:/en/jbosseap-overview.html[-> Learn More]
 
 === link:vertx-overview.html[Vert.x]
