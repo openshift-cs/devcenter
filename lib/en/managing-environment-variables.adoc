@@ -19,6 +19,7 @@ link:#informational-variables[Informational Variables] +
 link:#directory-variables[Directory Variables] +
 link:#logging-variables[Logging Variables] +
 link:#database-variables[Database Variables] +
+link:#scaling-variables[Scaling Variables] +
 link:#logging-variables[Informational Variables] +
 link:#library-variables[Library Variables] +
 link:#jenkins-variables[Jenkins Variables] +
@@ -112,6 +113,19 @@ OpenShift Online does not currently support user changes to environment variable
 |===
 
 NOTE: The exact variable names depend on the type of database; the value of *<database>* is MONGODB, MYSQL, or POSTGRESQL as appropriate.
+
+link:#top[Back to Top]
+
+[[scaling-variables]]
+== Scaling Variables
+Scaling environment variables let you control how many sessions are allowed per gear before your application scales.
+
+|===
+|Variable Name|Purpose
+|OPENSHIFT_MAX_SESSIONS_PER_GEAR|Configures the max sessions used for the scaling algorithm
+|===
+
+The default for OPENSHIFT_MAX_SESSIONS_PER_GEAR is 16.  To learn more about scaling visit the link:managing-scaling.html[Application Scaling] page.
 
 link:#top[Back to Top]
 

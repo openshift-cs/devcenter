@@ -25,7 +25,7 @@ OpenShift Online currently supports `JBoss EAP 6.4`, which supports Java 8.
 
 image::jboss-logo.png[JBoss logo]
 
-Organizations are under huge pressure to deliver business value and innovations to market fast – faster than the competition.  As they struggle to keep up, organizations are turning to DevOps methodologies and PaaS technologies to accelerate application development and delivery while still maintaining high levels of quality and reliability.
+Organizations are under huge pressure to deliver business value and innovations to market fast - faster than the competition.  As they struggle to keep up, organizations are turning to DevOps methodologies and PaaS technologies to accelerate application development and delivery while still maintaining high levels of quality and reliability.
 
 OpenShift by Red Hat gives developers flexibility to use the platforms and tools they choose while freeing them from provisioning, maintaining, and securing application infrastructure. With commercial support for Tomcat as well as JBoss EAP for xPaaS, organizations looking to deploy or move their applications into the cloud don't need to start over from scratch or compromise with a limited web profile that cannot meet key enterprise performance requirements. Lightweight and enterprise-class, JBoss EAP for xPaaS is the only mainstream Java EE 6 application platform available in private and public clouds.  Offering organizations the best of both Dev and Ops, JBoss EAP for xPaaS provides the ability to quickly build enterprise grade Java applications in a streamlined PaaS environment.
 

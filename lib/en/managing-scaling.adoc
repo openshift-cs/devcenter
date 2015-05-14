@@ -22,6 +22,7 @@ NOTE: Applications on premium plans will never idle.
 == In this section
 link:#creating-a-scalable-application[Creating a Scalable Application] +
 link:#managing-application-scaling[Managing Application Scaling] +
+link:#scaling-variables[Scaling Environment Variables] +
 link:#scalable-vs-non-scalable[Scalable Versus Non-scalable Applications] +
 link:#how-scaling-works[How Scaling Works] +
 link:#supported-cartridges[Supported Cartridges] +
@@ -92,6 +93,19 @@ NOTE: If you specify `-1` as the `max` you'll scale up to your account limit.
 CAUTION: Sometimes your scale up request will return a timeout error, but the operation will continue on the server.
 
 link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Scaling_an_Application_Manually.html[-> Learn more about managing application scaling on OpenShift Online]
+
+link:#top[Back to Top]
+
+[[scaling-variables]]
+== Scaling Variables
+Scaling environment variables let you control how many sessions are allowed per gear before your application scales.
+
+|===
+|Variable Name|Purpose
+|OPENSHIFT_MAX_SESSIONS_PER_GEAR|Configures the max sessions used for the scaling algorithm
+|===
+
+The default for OPENSHIFT_MAX_SESSIONS_PER_GEAR is 16.  To learn more about scaling visit the link:managing-scaling.html[Application Scaling] page.
 
 link:#top[Back to Top]
 
