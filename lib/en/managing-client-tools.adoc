@@ -112,27 +112,16 @@ Checking for applications ... none
 Run 'rhc app create' to create your first application.
 
 Do-It-Yourself                            rhc app create <app name> diy-0.1
-JBoss Application Server 7.1              rhc app create <app name> jbossas-7
-JBoss Enterprise Application Platform 6.0 rhc app create <app name> jbosseap-6.0
-Jenkins Server 1.4                        rhc app create <app name> jenkins-1.4
-Node.js 0.10                              rhc app create <app name> nodejs-0.10
-PHP 5.3                                   rhc app create <app name> php-5.3
-PHP 5.4                                   rhc app create <app name> php-5.4
-Perl 5.10                                 rhc app create <app name> perl-5.10
-Python 2.6                                rhc app create <app name> python-2.6
-Python 2.7 Community Cartridge            rhc app create <app name> python-2.7
-Python 3.3 Community Cartridge            rhc app create <app name> python-3.3
-Ruby 1.8                                  rhc app create <app name> ruby-1.8
-Ruby 1.9                                  rhc app create <app name> ruby-1.9
-Tomcat 6 (JBoss EWS 1.0)                  rhc app create <app name> jbossews-1.0
-Tomcat 7 (JBoss EWS 2.0)                  rhc app create <app name> jbossews-2.0
-Zend Server 5.6                           rhc app create <app name> zend-5.6
+JBoss Application Server 7                rhc app create <app name> jbossas-7
+JBoss Enterprise Application Platform 6   rhc app create <app name> jbosseap-6
+More web cartridges will be listed here... <1>
 
 You are using 0 of 3 total gears
 The following gear sizes are available to you: small
 
 Your client tools are now configured.
 ----
+<1> For a full list of available web cartridges, run `rhc cartridge list`
 
 You are now ready to create and manage an application using OpenShift.
 
