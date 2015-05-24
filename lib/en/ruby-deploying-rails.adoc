@@ -19,7 +19,7 @@ However, OpenShift gives you some nice-to-have features for deploying Ruby on Ra
 
 == Add the Framework
 
-You can deploying existing application or you can create a new one. In case you are deploying your existing application, simply copy the code to you OpenShift git repository.
+You can deploy an existing application or you can create a new one. In case you are deploying your existing application, simply copy the code to you OpenShift git repository.
 
 If you are starting a new application, you can also deploy a template. The following command adds Rails 4 to the myapp Ruby application and deploys it to OpenShift. Note that this code requires a database cartridge, so you should add one now if you have not yet done so.
 
