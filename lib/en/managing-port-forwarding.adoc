@@ -40,14 +40,14 @@ or in Eclipse:
 
 image::eclipse/port-forward.jpg[Port forwarding in Eclipse for an application named _parkmaps_]
 
-== A Worked Example
+== A Working Example
 Here is an example of using the command line tools and port forwarding to connect to a PostgreSQL database from your local machine.
 
 Run `rhc port-forward` command to have the command-line tools port forward all listening ports over SSH:
 
 [source]
 ----
-$ rhc port-forward -a insultapp
+$ rhc port-forward -a exampleapp
 Forwarding ports ...
 
 To connect to a service running on OpenShift, use the Local address
@@ -64,12 +64,12 @@ You can see the command has now mapped port 5432 in the application to port 5432
 
 [source]
 ----
-$ psql -h 127.0.0.1 -p 5433 -U adminm4rvN42 insultapp
+$ psql -h 127.0.0.1 -p 5433 -U adminm4rvN42 exampleapp
 Password for user adminm4rvN42:
 psql (9.3.2, server 9.2.4)
 Type "help" for help.
 
-insultapp=# <emphasis role="strong">\dt</emphasis>
+exampleapp=# <emphasis role="strong">\dt</emphasis>
                 List of relations
  Schema |      Name       | Type  |    Owner
 --------+-----------------+-------+--------------
@@ -78,7 +78,7 @@ insultapp=# <emphasis role="strong">\dt</emphasis>
  public | short_adjective | table | adminm4rvN42
 (3 rows)
 
-insultapp=#
+exampleapp=#
 ----
 
 You could use this same pattern to connect to any other service running in your application on a non-publically exposed port.
