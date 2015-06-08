@@ -30,17 +30,14 @@ image::marketplace/ironworker_dashboard.png[IronWorker Dashboard]
 == Integrating the Service With Your App
 Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
 
-Credentials for your service can be found within an environment variable prefixed with `ironworker_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `ironworker_8b885`).
+=== IronWorker Environment Variables
+The following environment variables are available within your application runtime once the service has been bound to your app:
 
-The `ironworker_*` environment variable holds your credentials, stored as JSON, with the following attributes:
-
-[source, javascript]
-----
-{
-  "project_id": "54eb11d25ab8530006000002",
-  "token": "ark7YJLW3ysx919eweEIdLbWysE"
-}
-----
+|===
+|Variable Name|Example Value
+|IRONWORKER_PROJECT_ID|54eb11d25ab8530006000002
+|IRONWORKER_TOKEN|ark7YJLW3ysx919eweEIdLbWysE
+|===
 
 NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
 

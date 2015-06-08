@@ -30,17 +30,14 @@ image::marketplace/elephantsql_dashboard.png[ElephantSQL Dashboard]
 == Integrating the Service With Your App
 Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
 
-Credentials for your service can be found within an environment variable prefixed with `elephantsql_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `elephantsql_8b885`).
+=== ElephantSQL Environment Variables
+The following environment variables are available within your application runtime once the service has been bound to your app:
 
-The `elephantsql_*` environment variable holds your credentials, stored as JSON, with the following attributes:
-
-[source, javascript]
-----
-{
-  "uri": "postgres://pakejrde:Twi99zYaUED4Kbx5PDdLNZbW0hTaEDx_@babar.elephantsql.com:5432/pakejrde",
-  "max_conns": "5"
-}
-----
+|===
+|Variable Name|Example Value
+|ELEPHANTSQL_MAX_CONNS|5
+|ELEPHANTSQL_URI|postgres://pakejrde:Twi99zYaUED4Kbx5PDdLNZbW0hTaEDx_@babar.elephantsql.com:5432/pakejrde
+|===
 
 NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
 

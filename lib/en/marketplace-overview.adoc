@@ -13,7 +13,7 @@ meta_desc: Adding Marketplace Add-on Services to Your OpenShift Online Applicati
 = Marketplace Overview
 
 [.lead]
-The Marketplace provides users of OpenShift Online with self-service, on-demand provisioning of Add-on Services.  Add-ons are categorized generally into two areas, application services and devops services.  For application services, common uses include data persistence, search, caching, messaging, and more. For devops services, Add-ons provide software lifecycle capabilities such as continuous integration and load testing.  
+The Marketplace provides users of OpenShift Online with self-service, on-demand provisioning of Add-on Services. Add-ons are categorized generally into two areas, application services and devops services. For application services, common uses include data persistence, search, caching, messaging, and more. For devops services, Add-ons provide software lifecycle capabilities such as continuous integration and load testing.  
 
 == Using Marketplace Add-on Services
 To use an Add-on Service with your application, you must access the Marketplace, subscribe to an Add-on Service, and then bind the Add-on instance to your application (for link:#services-list[services that support binding]).
@@ -27,11 +27,7 @@ link:#services-list[Available Marketplace Add-on Services]
 
 [[access-marketplace]]
 === Step 1 - Accessing the OpenShift Marketplace
-The easiest way to access the OpenShift Marketplace is by clicking the *Add-ons* link in the OpenShift Online link:https://openshift.redhat.com/app/console[web console]. A link to *Browse the Marketplace* also appears in the web console when viewing an individual application.
-
-image::marketplace/webconsole_link.png[Web console link to Marketpalce]
-
-TIP: You can also access the Marketplace directly by visiting link:https://marketplace.openshift.com/[marketplace.openshift.com]. Use the *Login* link in the upper right corner to automatically sign in using your OpenShift Online account.
+You can access the OpenShift Marketplace directly by visiting link:https://marketplace.openshift.com/[marketplace.openshift.com]. Use the *Login* link in the upper right corner to automatically sign in using your OpenShift Online account.
 
 [[subscribe-service]]
 === Step 2 - Subscribing to a Marketplace Add-on Service
@@ -77,55 +73,50 @@ Note the *<Service> account overview* link available on the link:https://marketp
 
 image::marketplace/marketplace_provider_dashboard.png[OpenShift Marketplace provider dashboard]
 
+TIP: You can also access the service provider dashbaord by viewing your application within the OpenShift Web Console, clicking the *details* link for your Add-on Service, and then clicking on the link to the service provider's dashboard.
+
 [[environment-variables]]
 === Step 5 - Using Enviornmnet Variables
-Some Marketplace Add-on Services support the concept of binding. OpenShift applications can be bound with Marketplace Add-on that support this feature. When you bind an application to a Marketplace Add-on, information about the Add-on (such as location and account credentials) is written as JSON to an environment variable in the application runtime. Your application can use this information to integrate with the Add-on Service.
+Some Marketplace Add-on Services support the concept of binding. OpenShift applications can be bound with Marketplace Add-on that support this feature. When you bind an application to a Marketplace Add-on, details about the Add-on (account credentials, hostnames, ports, etc.) are written to environment variables in the application runtime. Your application can use this information to integrate with the Add-on Service.
 
 [[services-list]]
 ==== Available Marketplace Add-on Services
-The table below provides a full list of Marketplace Add-on Services and, for services that support binding, their corresponding link:#environment-variable-prefix[environment variable prefix].
+The table below provides a full list of Marketplace Add-on Services and, for services that support binding, their corresponding environment variable prefix. Click on the name of the Add-on Service provider in the table below to view a full list of environment variables.
 
 [options="header"]
 |===
 |Name|Bindable|Environment Variable
 |link:marketplace-3scale.html[3scale]|No|-
 |link:marketplace-blazemeter.html[BlazeMeter]|No|-
-|link:marketplace-cine-io.html[cine.io]|Yes|cine_io_*
-|link:marketplace-cleardb-mysql-database.html[ClearDB MySQL Database]|Yes|cleardb_*
-|link:marketplace-cloudamqp.html[CloudAMQP]|Yes|cloudamqp_*
+|link:marketplace-cine-io.html[cine.io]|Yes|CINE_IO_*
+|link:marketplace-cleardb-mysql-database.html[ClearDB MySQL Database]|Yes|CLEARDB_*
+|link:marketplace-cloudamqp.html[CloudAMQP]|Yes|CLOUDAMQP_*
 |link:marketplace-cloudforge.html[CloudForge]|No|-
 |link:marketplace-dreamfactory.html[DreamFactory]|No|-
-|link:marketplace-elephantsql.html[ElephantSQL]|Yes|elephantsql_*
-|link:marketplace-ironmq.html[IronMQ]|Yes|ironmq_*
-|link:marketplace-ironworker.html[IronWorker]|Yes|ironworker_*
+|link:marketplace-elephantsql.html[ElephantSQL]|Yes|ELEPHANTSQL_*
+|link:marketplace-ironmq.html[IronMQ]|Yes|IRONMQ_*
+|link:marketplace-ironworker.html[IronWorker]|Yes|IRONWORKER_*
 |link:marketplace-load-impact.html[Load Impact]|No|-
-|link:marketplace-memcached-cloud.html[Memcached Cloud]|Yes|memcachedcloud_*
-|link:marketplace-memcachier.html[MemCachier]|Yes|memcachier_*
-|link:marketplace-mongolab.html[MongoLab]|Yes|mongolab_*
-|link:marketplace-new-relic.html[New Relic]|Yes|newrelic_*
+|link:marketplace-memcached-cloud.html[Memcached Cloud]|Yes|MEMCACHEDCLOUD_*
+|link:marketplace-memcachier.html[MemCachier]|Yes|MEMCACHIER_*
+|link:marketplace-mongolab.html[MongoLab]|Yes|MONGOLAB_*
+|link:marketplace-new-relic.html[New Relic]|Yes|NEWRELIC_*
 |link:marketplace-pubnub.html[PubNub]|No|-
-|link:marketplace-redis-cloud.html[Redis Cloud]|Yes|rediscloud_*
-|link:marketplace-searchly.html[Searchly]|Yes|searchly_*
-|link:marketplace-sendgrid.html[SendGrid]|Yes|sendgrid_*
-|link:marketplace-statica.html[Statica]|Yes|statica_*
+|link:marketplace-redis-cloud.html[Redis Cloud]|Yes|REDISCLOUD_*
+|link:marketplace-searchly.html[Searchly]|Yes|SEARCHLY_*
+|link:marketplace-sendgrid.html[SendGrid]|Yes|SENDGRID_*
+|link:marketplace-statica.html[Statica]|Yes|STATICA_*
 |===
-
-[[environment-variable-prefix]]
-TIP: The full environment variable name will match your *Service Account ID*, viewable by logging in to the Marketplace web console and listing your link:https://marketplace.openshift.com/openshift#accounts[purchased products].
 
 [[code-examples]]
 ==== Code Examples
-For the following examples we assume our application is bound to a service with a Marketplace enviornment variable named `service_8b885` with the following attributes:
+For the following examples we assume our application is bound to a service with a Marketplace enviornment variable prefix of `SERVICE_*` with the following variables:
 
-[source, javascript]
-----
-{
-  "username": "YOUR_USERNAME",
-  "password": "YOUR_PASSWORD"
-}
-----
-
-TIP: Data is stored in the environment variable in JSON format. Available attributes vary by Add-on. See the Marketplace documentation page for link:#services-list[your service provider] for details on attributes provided.
+|===
+|Variable Name|Example Value
+|SERVICE_USERNAME|YOUR_USERNAME
+|SERVICE_PASSWORD|YOUR_PASSWORD
+|===
 
 The following code examples show how to access Marketplace environment variables within your application.
 
@@ -138,36 +129,14 @@ link:#ruby[Ruby]
 
 [[java]]
 ===== Java
-Add the following dependencies to your `pom.xml` file:
-
-[source]
-----
-...
-<dependencies>
-  ...
-  <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20141113</version>
-  </dependency>
-</dependencies>
-...
-----
-
-Now you're ready to use Marketplace environment variables within your application:
+Using Marketplace environment variables within your application:
 
 [source, java]
 ----
-import org.json.simple.JSONObject;
-
-// get account info from OpenShift environment variable
-String servicePlanId = "service_8b885"; // your OpenShift Service Plan ID
-JSONObject accountInfo = new JSONObject(System.getenv(servicePlanId));
-
 public class Example {
   public static void main(String[] args) {
-    accountInfo.get('username'); // "YOUR_USERNAME"
-    accountInfo.get('password'); // "YOUR_PASSWORD"
+    System.getenv('SERVICE_USERNAME'); // "YOUR_USERNAME"
+    System.getenv('SERVICE_PASSWORD'); // "YOUR_PASSWORD"
   }
 }
 ----
@@ -178,34 +147,18 @@ Using Marketplace environment variables within your application:
 
 [source, javascript]
 ----
-// get account info from OpenShift environment variable
-var servicePlanId = "service_8b885"; // your OpenShift Service Plan ID
-var accountInfo = JSON.parse(process.env[servicePlanId]);
-
-accountInfo.username; // "YOUR_USERNAME"
-accountInfo.password; // "YOUR_PASSWORD"
+process.env.SERVICE_USERNAME; // "YOUR_USERNAME"
+accountInfo.SERVICE_PASSWORD; // "YOUR_PASSWORD"
 ----
 
 [[perl]]
 ===== Perl
-Add the following to your `.openshift/cpan.txt` file:
-
-[source]
-----
-JSON
-----
-Now you're ready to use Marketplace environment variables within your application:
+Using Marketplace environment variables within your application:
 
 [source, perl]
 ----
-use JSON;
-
-# get account info from OpenShift environment variable
-$service_plan_id = "service_8b885"; // your OpenShift Service Plan ID
-$account_info = decode_json $ENV{$service_plan_id};
-
-$account_info{'username'}; # "YOUR_USERNAME"
-$account_info{'password'}; # "YOUR_PASSWORD"
+$ENV{'SERVICE_USERNAME'}; # "YOUR_USERNAME"
+$ENV{'SERVICE_PASSWORD'}; # "YOUR_PASSWORD"
 ----
 
 [[php]]
@@ -214,12 +167,8 @@ Using Marketplace environment variables within your application:
 
 [source, php]
 ----
-// get account info from OpenShift environment variable
-$service_plan_id = "service_8b885"; // your OpenShift Service Plan ID
-$account_info = json_decode(getenv($service_plan_id), true);
-
-$account_info['username']; // "YOUR_USERNAME"
-$account_info['password']; // "YOUR_PASSWORD"
+getenv('SERVICE_USERNAME'); // "YOUR_USERNAME"
+getenv('SERVICE_PASSWORD'); // "YOUR_PASSWORD"
 ----
 
 [[python]]
@@ -228,14 +177,10 @@ Using Marketplace environment variables within your application:
 
 [source, python]
 ----
-import json, os
+import os
 
-# load account info from OpenShift environment variable
-service_plan_id = "service_8b885"; # your OpenShift Service Plan ID
-account_info = json.loads(os.getenv(service_plan_id))
-
-account_info['username'] # "YOUR_USERNAME"
-account_info['password'] # "YOUR_PASSWORD"
+os.getenv('SERVICE_USERNAME') # "YOUR_USERNAME"
+os.getenv('SERVICE_PASSWORD') # "YOUR_PASSWORD"
 ----
 
 [[ruby]]
@@ -244,12 +189,6 @@ Using Marketplace environment variables within your application:
 
 [source, ruby]
 ----
-require 'json'
-
-# load account info from OpenShift environment variable
-service_plan_id = "service_8b885"; # your OpenShift Service Plan ID
-account_info = JSON.parse(ENV[service_plan_id])
-
-account_info['username'] # "YOUR_USERNAME"
-account_info['password'] # "YOUR_PASSWORD"
+ENV['SERVICE_USERNAME'] # "YOUR_USERNAME"
+ENV['SERVICE_PASSWORD'] # "YOUR_PASSWORD"
 ----

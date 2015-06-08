@@ -33,24 +33,20 @@ The ClearDB dashboard allows you to manage your database, monitor performance, a
 == Integrating the Service With Your App
 Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
 
-Credentials for your service can be found within an environment variable prefixed with `cleardb_*` within your application runtime. The full name of the variable matches your *Service Plan ID* in the Marketplace link:https://marketplace.openshift.com/openshift#accounts[web management console] (for example: `cleardb_8b885`).
+=== ClearDB Environment Variables
+The following environment variables are available within your application runtime once the service has been bound to your app:
 
-The `cleardb_*` environment variable holds your credentials, stored as JSON, with the following attributes:
+|===
+|Variable Name|Example Value
+|CLEARDB_JDBCURL|jdbc:mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6
+|CLEARDB_NAME|ad_e2530aa1edi1ae6
+|CLEARDB_PASSWORD|a107a37e
+|CLEARDB_PORT|3306
+|CLEARDB_URI|mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6?reconnect=true
+|CLEARDB_USERNAME|a6bc2e19e4di54
+|===
 
-[source, javascript]
-----
-{
-  "jdbcUrl": "jdbc:mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6",
-  "uri": "mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6?reconnect=true",
-  "name": "ad_e2530aa1edi1ae6",
-  "hostname": "us-cdbr-iron-east-01.cleardb.net",
-  "port": "3306",
-  "username": "a6bc2e19e4di54",
-  "password": "a107a37e"
-}
-----
-
-NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace environment variables within your application.
 
 [[code-examples]]
 == Code Examples
@@ -62,16 +58,14 @@ Connecting to ClearDB from PHP merely requires the parsing of the `cleardb_*` en
 [source, php]
 ----
 <?php
-// get account info from OpenShift environment variable
-$service_plan_id = "cleardb_8b885"; // update with your plan ID
-$account_info = json_decode(getenv($service_plan_id), true);
+$CLEARDB_URL = parse_url(getenv("CLEARDB_URI"));
 
 $conn = new mysqli(
- $account_info['hostname'],
- $account_info['username'],
- $account_info['password'],
- $account_info['name'],
- $account_info['port']
+ $CLEARDB_URL['host'],
+ getenv('CLEARDB_USERNAME'),
+ getenv('CLEARDB_PASSWORD'),
+ getenv('CLEARDB_NAME'),
+ getenv('CLEARDB_PORT')
 );
 ?>
 ----
