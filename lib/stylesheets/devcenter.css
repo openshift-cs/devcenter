@@ -1,3 +1,8 @@
+/* Top Menu Fix */
+.navbar-menu-title {
+  padding-top: 5px;
+}
+
 /* Google Translate Overrides */
 html, body {
   min-height: 0!important;
