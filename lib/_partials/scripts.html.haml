@@ -5,21 +5,6 @@
   %link{ :href=>"#{site.static_assets_url}/vendor/respond-js/respond-proxy.html", :id=>"respond-proxy", :rel=>"respond-proxy" }
   %link{ :href=>"#{site.base_url}/images/respond.proxy.gif", :id=>"respond-redirect", :rel=>"respond-redirect" }
   %script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/respond.proxy.js" }
-%script{ :type=>'text/javascript', :src=>"//code.jquery.com/jquery-1.11.0.min.js" }
-%script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/bootstrap.js" }
+%script{ :type=>'text/javascript', :src=>"#{site.static_assets_url}/subdomain.js" }
 %script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/bootstrap-offcanvas.js" }
 %script{ :type=>'text/javascript', :src=>"#{site.static_assets_url}/modernizr.js" }
-%script{ :type=>'text/javascript', :src=>'https://www.google.com/jsapi'}
-:javascript
-  google.load('search', '1');
-  google.setOnLoadCallback(function() {
-    google.search.CustomSearchControl.attachAutoCompletionWithOptions('013769182564158614814:lt-zcblgpx4', document.getElementById('cse-search-input'), 'cse-search-form', {'maxCompletions' : 5});
-  }, true);
-  $(document).ready(function() {
-    $("[id$='Menu']").on('show.bs.collapse', function () {
-      $(this).parent().find("span").toggleClass("fa-angle-right fa-angle-down");
-    });
-    $("[id$='Menu']").on('hide.bs.collapse', function () {
-      $(this).parent().find("span").toggleClass("fa-angle-right fa-angle-down");
-    });
-  });
