@@ -32,6 +32,8 @@ No SSH keys were found. We will generate a pair of keys for you.
 Created: C:\Users\User1\.ssh\id_rsa.pub
 ----
 
+NOTE: The path shown here is for Windows and will differ depending on your operating system.
+
 After the new SSH keys are generated, the public key, *id_rsa.pub*, must be uploaded to the OpenShift server to authenticate your system to the remote server. Enter a name to use for your key, or leave it blank to use the default name. In the following example the default name is used.
 
 [source]
@@ -43,6 +45,8 @@ Since you do not have any keys associated with your OpenShift account, your new 
 
 Uploading key 'default' from C:\Users\User1\.ssh\id_rsa.pub ... done
 ----
+
+NOTE: The path shown here is for Windows and will differ depending on your operating system.
 
 After verifying that link:#installing-git[Git is installed], you will be asked to set up your domain if you don't already have one:
 
