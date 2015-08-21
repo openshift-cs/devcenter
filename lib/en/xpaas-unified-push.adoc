@@ -64,7 +64,7 @@ JBoss Unified Push on OpenShift is available as a Developer Preview to allow you
 
 We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms, which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
 
-For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
+For general help on OpenShift, please visit the link:/help[Help Center].
 
 You can provide feedback, requests or contributions for the JBoss Unified Push cartridge on jboss.org at: link:https://developer.jboss.org/en/products/unifiedpush[https://developer.jboss.org/en/products/unifiedpush]
 

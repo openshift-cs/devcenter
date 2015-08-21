@@ -80,6 +80,6 @@ link:#top[Back to Top]
 == Support
 There are several support options available to all users of OpenShift Online, however the Silver Plan includes access to award-winning Red Hat support through a dedicated ticketing system.
 
-link:https://help.openshift.com[-> Learn More about OpenShift Support Options]
+link:/help[-> Learn More about OpenShift Support Options]
 
 link:#top[Back to Top]

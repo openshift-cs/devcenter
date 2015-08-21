@@ -158,7 +158,7 @@ link:#top[Back to Top]
 === How do I indicate that I am exempt from taxes?
 To qualify for tax exempt status you must submit a certificate to Red Hat. Upon receipt of your certificate we will refund all previously paid taxes to your credit card.
 
-To begin the process, please link:https://help.openshift.com/hc/en-us/requests/new[contact us].
+To begin the process, please email customerservice@redhat.com.
 
 link:#top[Back to Top]
 

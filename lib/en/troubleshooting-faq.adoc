@@ -49,7 +49,7 @@ Sometimes an application can become stuck due to an issue with application code 
 $ rhc app-force-stop <app_name>
 ----
 
-If your application will not stop after using the `force-stop` command, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+If your application will not stop after using the `force-stop` command, please link:/contact[submit a help request].
 
 link:#top[Back to Top]
 
@@ -88,7 +88,7 @@ These errors are coming from the global Apache instance as it tries to route the
 
 Alternatively, this may simply be due to idling and you should try to restart your application (see next question/answer).
 
-If you are still having issues, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+If you are still having issues, please link:/contact[submit a help request].
 
 link:#top[Back to Top]
 
@@ -111,7 +111,7 @@ $ rhc app-force-stop <app_name>
 $ rhc app-start <app_name>
 ----
 
-If you are still having issues, please link:https://help.openshift.com/hc/en-us/requests/new[submit a help request].
+If you are still having issues, please link:/contact[submit a help request].
 
 link:#top[Back to Top]
 

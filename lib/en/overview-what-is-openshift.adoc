@@ -47,4 +47,4 @@ Interested in learning more about OpenShift's premium features? Visit our link:o
 == Get Started with OpenShift Online
 Ready to launch your big idea on OpenShift? link:getting-started-overview.html[Get started] now!
 
-Visit our link:https://help.openshift.com[Help Center] if you have any questions along the way.
+Visit our link:/help[Help Center] if you have any questions along the way.

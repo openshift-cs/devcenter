@@ -184,7 +184,7 @@ What is the best thing about data virtualization?::
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the JBoss Data Virtualization Alpha cartridge. You can either use the OpenShift console or the command line. For step-by-step instructions see our link:#getting-started[Getting Started] section.
 Where do I go for support?::
-  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/datavirt[JBoss Data Virtualization community boards]. We would love to have your input so go where you're most comfortable and we will see it.
+  The best places to go for support are the link:/help[Help Center] or the link:https://community.jboss.org/en/datavirt[JBoss Data Virtualization community boards]. We would love to have your input so go where you're most comfortable and we will see it.
 What does it mean that this is an "Alpha" cartridge?::
   JBoss Data Virtualization on OpenShift is based on JBoss Data Virtualization 6.0 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Data Virtuaization on a cloud platform like OpenShift and some of those are in development. So we felt the term "Alpha" was an industry wide term that conveyed the right sense of where this technology is - its targeted at production use cases but not production supported at this time.
 What is the cartridge lifecycle?::
