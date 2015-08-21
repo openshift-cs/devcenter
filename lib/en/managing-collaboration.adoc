@@ -13,7 +13,7 @@ meta_desc: How to manage domain members, users, and teams on OpenShift Online. T
 [float]
 = Collaboration on OpenShift
 [.lead]
-All OpenShift Online plans allow you to mange users that have access to one or more of your OpenShift domains. Premium plans extend this functionality by allowing for additional domains and management of teams.
+All OpenShift Online plans allow you to manage users that have access to one or more of your OpenShift domains. Premium plans extend this functionality by allowing for additional domains and management of teams.
 
 == In This Guide
 link:#managing-domain-membership[Managing Domain Membership] +
