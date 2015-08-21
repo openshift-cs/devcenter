@@ -15,4 +15,4 @@ meta_desc: How OpenShift routes HTTP/HTTPS/WS/WSS requests to your application a
 [.lead]
 image::port-binding-routing.png[Port Binding and Routing]
 
-If you are building a cartridge and trying to bind to internal ports, please see the link:http://www.openshift.org/documentation/oo_cartridge_developers_guide.html#exposing-services-tcp-endpoints[Cartridge Developers Guide].
+If you are building a cartridge and trying to bind to internal ports, please see the link:https://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#endpoints[Cartridge Developers Guide].
