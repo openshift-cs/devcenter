@@ -169,7 +169,7 @@ link:#top[Back to Top]
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the Fuse 6.1 Alpha cartridge. You can either use the OpenShift console or the command line. For instructions check out our link:#getting-started[Getting Started] section.
 Where do I go for support?::
-  The best places to go for support are the OpenShift link:https://help.openshift.com[Help Center] or the link:http://fusesource.com/forums/forum.jspa?forumID=1[Fuse community boards]. We would love to have your input so go where you're most comfortable and we will see it.
+  The best places to go for support are the OpenShift link:/help[Help Center] or the link:http://fusesource.com/forums/forum.jspa?forumID=1[Fuse community boards]. We would love to have your input so go where you're most comfortable and we will see it.
 What does it mean that this is an "Alpha" cartridge?::
   JBoss Fuse on OpenShift is based on a pre-release version of JBoss Fuse 6.1 and like any pre-release software its constantly undergoing testing and improvements on its way to general availability. There are also unique requirements to running Fuse on a cloud platform like OpenShift and some of those are in development. So we felt the term "Alpha" was an industry wide term that conveyed the right sense of where this technology is - its targeted at production use cases but not production supported at this time.
 What is the cartridge lifecyle?::

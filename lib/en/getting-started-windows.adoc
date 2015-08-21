@@ -193,7 +193,7 @@ Your client tools are now configured.
 
 You are now ready to create and manage an application using OpenShift.
 
-If you cannot run OpenShift client tools at this point, please visit the link:https://help.openshift.com[Help Center] for more assistance.
+If you cannot run OpenShift client tools at this point, please visit the link:/help[Help Center] for more assistance.
 
 link:#top[Back to Top]
 

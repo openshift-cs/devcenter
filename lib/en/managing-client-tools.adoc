@@ -125,11 +125,11 @@ Your client tools are now configured.
 
 You are now ready to create and manage an application using OpenShift.
 
-If you cannot run OpenShift client tools at this point, please visit the link:https://help.openshift.com[Help Center] for more assistance.
+If you cannot run OpenShift client tools at this point, please visit the link:/help[Help Center] for more assistance.
 
 For more detailed information on the client tools and their installation, please visit the link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/index.html[Client Tools Installation Guide].
 
 == Other Resources
-For more help, please visit the link:https://help.openshift.com[OpenShift Help Center].
+For more help, please visit the link:/help[Help Center].
 
 link:#top[Back to Top]

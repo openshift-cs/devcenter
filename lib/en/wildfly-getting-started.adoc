@@ -130,7 +130,7 @@ link:#top[Back to Top]
 
 [[step3]]
 == Step 3: Deploying WAR files
-OpenShift also supports *WAR* files deployment. There are several processes which are each very simple. There is a https://help.openshift.com/hc/en-us/articles/202399740-How-to-deploy-pre-compiled-java-applications-WAR-and-EAR-files-onto-your-OpenShift-gear-using-the-java-cartridges[Knowledge Base article] that covers deploying WAR files with both Git and SFTP/SCP.
+OpenShift also supports *WAR* files deployment. There are several processes which are each very simple. Please visit the link:/en/wildfly-deployment-options.html[deployment options] page for more information.
 
 link:#top[Back to Top]
 
@@ -181,6 +181,6 @@ Look at the https://www.openshift.com/application-gallery[application gallery] a
 
 Browse our https://hub.openshift.com[quickstarts and community cartridges] to see other exciting technology you can use in your applications.
 
-Finally, if at any point you have questions or issues, please visit the link:https://help.openshift.com/hc/en-us[OpenShift Online Help Center] for a full list of options.
+Finally, if at any point you have questions or issues, please visit the link:/help[Help Center] for a full list of options.
 
 link:#top[Back to Top]

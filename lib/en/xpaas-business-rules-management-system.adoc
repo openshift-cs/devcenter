@@ -67,7 +67,7 @@ link:#top[Back to Top]
 
 [[support]]
 == Support
-For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
+For general help on OpenShift, please visit the link:/help[Help Center].
 
 You can provide feedback, requests or contributions for the JBoss BRMS cartridge on jboss.org at: https://community.jboss.org/en/brms.
 

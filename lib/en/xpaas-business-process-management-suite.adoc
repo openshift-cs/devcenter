@@ -90,7 +90,7 @@ link:#top[Back to Top]
 
 [[support]]
 == Support
-For general help on OpenShift, please visit the link:https://help.openshift.com[OpenShift Help Center].
+For general help on OpenShift, please visit the link:/help[Help Center].
 
 You can provide feedback, requests or contributions for the JBoss BPM Suite cartridge on jboss.org at: https://community.jboss.org/en/bpms.
 
@@ -115,7 +115,7 @@ image::xpaas/xpaas-bpms-2.png[JBoss BPMS Cartridge Description]
 
 If you use the QuickStart, click on the "Deploy Now" button. This will bring you directly to the "Configure Application" step.
 
-To configure the application you will need to configure your application's public URL. Choose a name for this application (e.g. "BPM", "BPMtest" or whatever you like.) You don't need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it. You can upgrade to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears link:https://openshift.redhat.com/app/account/plans/bronze/upgrade[here]. (you can visit the link:https://help.openshift.com[OpenShift Help Center] if you need further assistance)
+To configure the application you will need to configure your application's public URL. Choose a name for this application (e.g. "BPM", "BPMtest" or whatever you like.) You don't need to enter anything in the Source Code field. If you have access to multiple gear sizes select the size you want to use. We advise you use a medium gear for a good experience and overall performance. If you choose to run BPM Suite in a small gear you will experience slower performance and the memory limits of the small gear will constrain what you can effectively do with it. You can upgrade to the OpenShift Bronze (no monthly fee, just pay per use) or Silver tier to leverage medium or large gears link:https://openshift.redhat.com/app/account/plans/bronze/upgrade[here]. (you can visit the link:/help[Help Center] if you need further assistance)
 
 Make your Gear selection to "Medium", and for scaling select - "No scaling", which will work just fine; then hit "Create Application" and OpenShift will build the application for you. When that is complete you will see the "Next Steps" page and you can decide whether you want to change the code of the application. For now select "Not now". The next page will have some important information for you so don't go speeding past it.
 
@@ -166,7 +166,7 @@ link:#top[Back to Top]
 How do I load the cartridge on OpenShift?::
   Just like any downloadable cartridge on OpenShift there are two ways to install the BPM Suite Alpha cartridge. You can either use the OpenShift console or the command line. You can check out our link:#getting-started[Getting Started] section for further instructions.
 Where do I go for support?::
-  The best places to go for support are the link:https://help.openshift.com[OpenShift Help Center] or the link:https://community.jboss.org/en/jbpm[BPM Suite community boards]. We would love to have your input so go where you're most comfortable and we will see it.
+  The best places to go for support are the link:/help[Help Center] or the link:https://community.jboss.org/en/jbpm[BPM Suite community boards]. We would love to have your input so go where you're most comfortable and we will see it.
 What does it mean that this is an "Alpha" cartridge?::
   BPM Suite on OpenShift is based on a candidate release version of JBoss BPM Suite 6.0.2 and like any pre-release software it is undergoing testing and improvements on its way to general availability. There are also unique requirements to running BPM Suite on a cloud platform like OpenShift and some of those are in development. For example, we strongly advise it is run at least on a medium gear. We feel the term "Alpha" is an industry wide term that conveys the right sense of where this technology is - it is targeted at production use cases but not production supported at this time.
 Why do you recommend it is run at least on a medium gear? Will it run on a small gear?::
