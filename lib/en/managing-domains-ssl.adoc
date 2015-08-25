@@ -147,13 +147,27 @@ You can either generate the CSR on your workstation (if you have openssl install
 TIP: It can help to create your files with the name of the domain that you are creating them for, this helps keep them all organized.  The following guide uses *example.com* to represent whatever domain you are creating your CSR for.  Feel free to use this method, or your own.
 
 ===== Generate a private key
-Enter the following command (either on your workstation or once you have SSHed to your gear) and hit *Enter*.  This will create a 2048-bit key that you will use to create your CSR.  You will also need this file when you load your SSL certificate into the OpenShift Web Console.
+If generating the CSR from a workstation, enter the following command and hit *Enter*.  This will create a 2048-bit key that you will use to create your CSR.  You will also need this file when you load your SSL certificate into the OpenShift Web Console.
 
 You must enter a passphrase during this step, but don't worry, you can remove it later.  If you plan on removing the passphrase just choose something simple like 'password'.
 
 [source]
 ----
 $ openssl genrsa -des3 -out example.com.key 2048
+Generating RSA private key, 2048 bit long modulus
+..................+++
+.....................+++
+e is 65537 (0x10001)
+Enter pass phrase for example.com:
+Verifying - Enter pass phrase for example.com.key:
+----
+
+If generating the CSR from an SSH session to your gear, ensure that the `random state` and key files are created in a directory where you have write permissions.  Enter the below commands and hit *Enter*.
+
+[source]
+----
+$ RANDFILE=$OPENSHIFT_DATA_DIR/.rnd
+$ openssl genrsa -des3 -out $OPENSHIFT_DATA_DIR/example.com.key 2048
 Generating RSA private key, 2048 bit long modulus
 ..................+++
 .....................+++
