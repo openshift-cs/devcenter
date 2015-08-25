@@ -20,6 +20,9 @@ RewriteRule (.*)$ https://developers.openshift.com/$1 [R,L]
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
+# Search Rewrite
+# https://help.openshift.com/hc/en-us/search?refinement=documentation&query=searched
+RewriteRule ^hc/en-us/search(.*) /en/search.html$1 [L,R=301,NC]
 
 # Help Center Contact Redirects
 Redirect 301 /hc/en-us/requests/new https://developers.openshift.com/contact.html
