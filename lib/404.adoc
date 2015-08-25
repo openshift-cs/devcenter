@@ -10,6 +10,6 @@ The page you were looking for doesn't exist.
 
 Please use the navigation or search to find the content you're looking for.
 
-If there is something wrong or if you are looking for more specific help, please  link:https://help.openshift.com/hc/en-us/requests/new[Open a Ticket] or visit the link:https://help.openshift.com[OpenShift Help Center].
+If there is something wrong or if you are looking for more specific help, please visit the link:/en/help.html[Help Center].
 
 link:https://developers.openshift.com[Return to Developer Portal Home]
