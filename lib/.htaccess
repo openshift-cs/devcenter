@@ -25,9 +25,10 @@ RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 RewriteRule ^hc/en-us/search(.*) /en/search.html$1 [L,R=301,NC]
 
 # Help Center Contact Redirects
-Redirect 301 /hc/en-us/requests/new https://developers.openshift.com/contact.html
+Redirect 301 /hc/en-us/requests/new https://developers.openshift.com/en/contact.html
 Redirect 301 /help https://developers.openshift.com/en/help.html
 Redirect 301 /contact https://developers.openshift.com/en/contact.html
+Redirect 301 /hc/en-us /
 
 # Help Center Section Redirects
 Redirect 301 /hc/en-us/sections/200648970-Marketplace https://developers.openshift.com/en/marketplace-overview.html 
