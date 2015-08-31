@@ -7,7 +7,7 @@ Redirect 301 /en/getting-started-modifying-applications.html /en/managing-modify
 Redirect 301 /en/python-creating-applications.html /en/python-getting-started.html
 Redirect 301 /en/python-modifying-applications.html /en/python-getting-started.html
 Redirect 301 /en/getting-started-installing-client-tools.html /en/managing-client-tools.html
-
+Redirect 301 /en/getting-started-client-tools.html /en/getting-started-overview.html
 
 
 RewriteEngine on
