@@ -31,4 +31,7 @@ Adding marker files to `.openshift/markers` will have the following effects:
 
 |java7
 |Will run JBoss AS with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
+
+|java8
+|Will run JBoss AS with Java8 if present. If no marker is present then the baseline Java version will be used (currently Java6)
 |===
