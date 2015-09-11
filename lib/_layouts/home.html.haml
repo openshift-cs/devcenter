@@ -24,6 +24,7 @@ priority: 0.9
         google.search.CustomSearchControl.attachAutoCompletionWithOptions('013769182564158614814:lt-zcblgpx4', document.getElementById('cse-search-input-body'), 'cse-search-form-body', {'maxCompletions' : 5});
       }, true);
   %body.devcenter-home
+    = partial( 'analytics.html.erb' )
     = partial( 'openshift-header.html.erb' )
     %header.masthead.masthead-devcenter.text-center
       .container
@@ -122,7 +123,6 @@ priority: 0.9
                       %i.fa.fa-arrow-circle-right.fa-fw.fa-2x.pull-right
                       %h4.list-group-item-heading Regions and Zones
                       %p.list-group-item-text Launch appplications in different regions
-    = partial( 'analytics.html.haml' )
     :javascript
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
