@@ -67,7 +67,7 @@ Getting the JBoss Fuse messaging and integration capabilities deployed onto Open
 
 [source]
 --
-$ rhc create-app fuse https://bit.ly/1fYSzhk
+$ rhc create-app fuse https://raw.githubusercontent.com/jboss-fuse/fuse-openshift-cartridge/master/metadata/manifest.yml
 --
 
 These commands create your Fuse instance and install and configure the admin console. You can now begin in the fuse console at:
@@ -109,21 +109,21 @@ If you want to use the link:managing-client-tools.html[rhc command line] type:
 
 [source]
 --
-$ rhc create-app fuse https://bit.ly/1fYSzhk
+$ rhc create-app fuse https://raw.githubusercontent.com/jboss-fuse/fuse-openshift-cartridge/master/metadata/manifest.yml
 --
 
 This will output the generated password for fabric and also the http url for hawtio. If you prefer to specify your own password (which can be handy in development to reuse the same password across fabrics) try this:
 
 [source]
 --
-$ rhc create-app -e OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD=admin fuse https://bit.ly/1fYSzhk
+$ rhc create-app -e OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD=admin fuse https://raw.githubusercontent.com/jboss-fuse/fuse-openshift-cartridge/master/metadata/manifest.yml
 --
 
 You probably want to use a safer password than 'admin' though ;) If you have a subscription for OpenShift that gives you access to other gear sizes, you could run
 
 [source]
 --
-$ rhc create-app -g medium -e OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD=admin fuse https://bit.ly/1fYSzhk
+$ rhc create-app -g medium -e OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD=admin fuse https://raw.githubusercontent.com/jboss-fuse/fuse-openshift-cartridge/master/metadata/manifest.yml
 --
 
 That will create the container in an OpenShift gear of the specified size. You can then login to your registry at:
