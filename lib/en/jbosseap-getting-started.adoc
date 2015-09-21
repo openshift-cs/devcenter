@@ -29,7 +29,7 @@ This tutorial walks through the creation of an application titled *myeapapp* und
 
 NOTE: Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:managing-client-tools.html[installed the RHC command line tools].
 
-Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  At the command prompt enter the follwing command to create a EAP application:
+Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  At the command prompt enter the following command to create a EAP application:
 
 [source, console]
 ----

@@ -27,7 +27,7 @@ link:#next[Next Steps]
 
 This tutorial walks through the creation of an application titled *mypythonapp* under the domain *mydomain*. We will use Python 2.7 but you can substitute in Python 2.6 or 3.3 and use them in the same way. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:managing-client-tools.html[installed the RHC command line tools].
 
-Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  Then at the command prompt enter the follwing command to create a Python application:
+Once that is completed, open a terminal on a local machine and change into a directory where the source code will be located.  Then at the command prompt enter the following command to create a Python application:
 
 [source, console]
 ----
