@@ -17,7 +17,7 @@ meta_desc: WildFly Developers - OpenShift Resources to host your Java applicatio
 [[jbossas]]
 == The WildFly Cartridge
 [.lead]
-Provides the WildFly application server on OpenShift. OpenShift Online currently supports  `WildFly 8.2 Final`.
+Provides `WildFly 8.2 Final` application server on OpenShift.
 
 image::wildfly-logo.png[JBoss logo]
 
