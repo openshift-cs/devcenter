@@ -12,7 +12,7 @@ meta_desc: OpenShift has several environment variables to make it easy for your 
 [float]
 = Using Environment Variables
 [.lead]
-OpenShift has several environment variables to make it easy for your to configure your application to run properly.
+OpenShift has several environment variables to make it easy for you to configure your application to run properly.
 
 link:#introduction-to-env-variables[Introduction] +
 link:#informational-variables[Informational Variables] +
