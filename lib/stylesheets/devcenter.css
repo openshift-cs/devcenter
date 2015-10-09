@@ -194,22 +194,22 @@ h6 > a.anchor:hover {
  */
 
 .footer-openshift {
-  border-bottom: 50px solid #00171d; 
+  border-bottom: 50px solid #00171d;
 }
 #powered-by-openshift {
   position: absolute;
   bottom: -45px;
   top: auto;
   left: 0;
-  right: 0; 
+  right: 0;
 }
 #powered-by-openshift a {
   position: static;
   width: 150px;
-  margin: 0; 
+  margin: 0;
 }
 #powered-by-openshift img {
-  height: 40px; 
+  height: 40px;
 }
 
 /*
@@ -270,7 +270,7 @@ body, html {
  p {
   margin: 0 0 1.6em;
  }
- 
+
 /* Search Results */
 .search-results table {
   border: 0px solid #fff;
@@ -1142,7 +1142,7 @@ h2.strikethrough:before {
      width: 95%;
      z-index: -1;
    }
-  
+
 h2.strikethrough span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
     background: #fff;
@@ -1157,4 +1157,12 @@ h2.strikethrough span {
   font-weight: 600;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
+}
+
+/* Table wrap fix for long lines with unscrollable overflow
+i.e.: https://developers.openshift.com/en/databases-mysql.html */
+
+.tableblock {
+  table-layout: fixed;
+  word-wrap: break-word;
 }
