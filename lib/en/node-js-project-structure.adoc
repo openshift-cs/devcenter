@@ -45,7 +45,7 @@ The above code provides sensible default values that will allow the application 
 == `package.json`
 Every nodejs application should include a `package.json` file to document the project's link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps#package_json[init process] and link:/en/node-js-dependency-management.html[list of dependencies].
 
-Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] sections of your `package.json` file contain accururate information on how to start your project:
+Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-VALUES[`scripts.start`] and link:https://www.npmjs.org/doc/json.html#main[`main`] sections of your `package.json` file contain accurate information on how to start your project:
 
 [source,json]
 ----
