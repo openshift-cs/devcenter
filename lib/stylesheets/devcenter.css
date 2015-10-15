@@ -1166,3 +1166,20 @@ i.e.: https://developers.openshift.com/en/databases-mysql.html */
   table-layout: fixed;
   word-wrap: break-word;
 }
+
+/* Enhancing headers differentiation
+https://github.com/openshift/devcenter/issues/240
+*/
+h1 {
+   font-size: 30px;
+   font-weight: 400;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+h3 {
+  color: #3f3f3f;
+  font-size: 20px;
+}
