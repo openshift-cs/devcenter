@@ -106,20 +106,33 @@ When you're done, reset your development environment by repeating the steps in t
 ## Deployment
 A hosted copy of these docs can be launched using the `rhc` command line tool.
 
-First, `cwd` into your local `devcenter` project folder:
+Firstly, create an app on the rhcloud.
 
-```bash
-cd devcenter
-```
+    $ APP_NAME=staticdocs
+    $ NEW_GIT_REMOTE_URL=$(rhc app create $APP_NAME php-5.4 --no-git --no-dns | grep "Git remote:" | sed -e 's/.*Git remote: *\([^ ]*\)/\1/')
+    $ echo $NEW_GIT_REMOTE_URL
+    $ rhc app show $APP_NAME
 
-Then, create a remote `ruby-2.0` container, setup the resulting `git remote`, and `--force` `push` your local repo history into the new environment:
+Then, `cd` into your local `devcenter/lib` project folder, then run `awestruct -u APP_BASE_URL` to update it to your `site.base_url`:
 
-```bash
-APP_NAME=devcenter
-NEW_GIT_REMOTE_URL=$(rhc app create $APP_NAME ruby-2.0 --no-git --no-dns | grep "Git remote:" | sed -e 's/.*Git remote: *\([^ ]*\)/\1/')
-git remote add $APP_NAME $NEW_GIT_REMOTE_URL
-git push -f $APP_NAME master
-```
+    $ cd devcenter/lib
+    # You should replace APP_BASE_URL with your own rhcloud app domain.
+    # e.g. https://devcenterdocs-mycustomdomain.rhcloud.com (note the https)
+    $ APP_BASE_URL=https://developers.openshift.com
+    # The awestruct command is necessary to correctly generate the static files' url
+    $ awestruct -u $APP_BASE_URL
+
+Then, create a new git repository in the `lib/_site` folder and add your app's remote url.
+
+    $ cd devcenter/lib/_site/
+    # Note that there is a symbolic link for this folder (devcenter/public)
+    $ git init
+    $ git remote add $APP_NAME $NEW_GIT_REMOTE_URL
+    $ git add .
+    $ git commit -m "Add static doc files"
+    $ git push $APP_NAME master
+
+Optionally, you can create a new directory outside of the `devcenter` scope and copy your files every time you recompile the site. This is cleaner but requires an additional step.
 
 Rerun with different `APP_NAME` values to set up additional deployment targets. Subsequent deployments can be made with `git push APP_NAME master`.
 
@@ -169,7 +182,7 @@ Locate the upstream section for your GitHub remote in the .git/config file. It l
         fetch = +refs/heads/*:refs/remotes/upstream/*
         url = git@github.com:openshift/devcenter.git
 
-Now add the line fetch = +refs/pull/*/head:refs/remotes/upstream/pr/* to this section. 
+Now add the line fetch = +refs/pull/*/head:refs/remotes/upstream/pr/* to this section.
 
     [remote "upstream"]
         fetch = +refs/heads/*:refs/remotes/upstream/*
