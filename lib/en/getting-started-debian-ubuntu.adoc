@@ -41,17 +41,15 @@ NOTE: The `sudo` command only works if the particular user is listed in the _sud
 
 [[client-tools-gem]]
 == Installing the Client Tools via Ruby gem
-Installing the client tools this way on Ubuntu or Debian requires sudoer or root access and comprises four steps:
+Installing the client tools this way on Ubuntu or Debian requires sudoer or root access and comprises three steps:
 
-*Step 1*: Install *_Ruby_*
+*Step 1*: Install *_Ruby_* with *_RubyGems_*
 
-*Step 2*: Install *_RubyGems_*
+*Step 2*: Install *_Git_*
 
-*Step 3*: Install *_Git_*
+*Step 3*: Install the client tools
 
-*Step 4*: Install the client tools
-
-=== Step 1: Install Ruby
+=== Step 1: Install Ruby with RubyGems
 
 From terminal, run the following command to install Ruby:
 [source]
@@ -66,15 +64,13 @@ $ ruby -e 'puts "Welcome to Ruby"'
 Welcome to Ruby
 ----
 
-=== Step 2: Install RubyGems
-
-Run the following command to install RubyGems:
+Rubygems are now part of the ruby package. However, with older Ubuntu repositories, you may need to run the following command to explicitly install RubyGems:
 [source]
 ----
 $ sudo apt-get install rubygems
 ----
 
-=== Step 3: Install Git
+=== Step 2: Install Git
 
 Run the following command to install Git version control:
 [source]
@@ -90,7 +86,7 @@ $ git --version
 
 This command returns the Git version number that was installed.
 
-=== Step 4: Install Client Tools
+=== Step 3: Install Client Tools
 
 When the required software has been successfully installed, run the following command to install the client tools:
 [source]
