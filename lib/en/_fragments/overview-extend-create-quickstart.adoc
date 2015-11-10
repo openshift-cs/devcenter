@@ -216,7 +216,7 @@ may have suggestions as well.
 [[submit-your-quickstart-for-publication]]
 ==== 9. Submit Your QuickStart for Publication!
 
-link:http://www.openshift.com/node/add/quickstart[Go here] and follow the directions for
+link:https://hub.openshift.com/quickstarts/new[Go here] and follow the directions for
 submitting a new QuickStart.
 
 '''''
