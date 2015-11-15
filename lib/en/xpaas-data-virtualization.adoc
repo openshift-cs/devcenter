@@ -49,7 +49,7 @@ Provision unified data for easy consumption through standard SQL (JDBC & ODBC) a
 
 == Simplify the Lifecycle
 
-Getting the JBoss Fuse messaging and integration capabilities deployed onto OpenShift is as easy as clicking "Deploy Now" or executing the following command:
+Getting JBoss Data Virtualization deployed onto OpenShift is as easy as clicking "Deploy Now" or executing the following command:
 
 [source]
 --
@@ -72,7 +72,7 @@ https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Data_Virtualiza
 link:#top[Back to Top]
 
 [[getting-started]]
-== Get Started with JBoss Data Vistualization
+== Get Started with JBoss Data Virtualization
 This guide will show you how to install the JBoss Data Virtualization cartridge on OpenShift and connect to it from Teiid Designer / JBoss Developer Studio.
 
 === Prerequisite
