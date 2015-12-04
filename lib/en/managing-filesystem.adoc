@@ -156,12 +156,15 @@ If you are running into disk space issues, there are a number of things you can 
 
 As a reminder, Free Plan Small gears are restricted to 1GB of storage. The Bronze Plan allows you to purchase additional storage at $1/GB per month, and the Silver Plan includes 6GB of storage for every gear.
 
-The 6GB for the Silver Plan is not assigned automatically, but you can do it using the following command:
+The additional 5GB for the Silver Plan is not assigned automatically, but you can do it using the following command:
 
 [source, console]
 ----
-$ rhc cartridge-storage <cart_name> -a <app_name> --set 6
+$ rhc cartridge-storage <cart_name> -a <app_name> --set 5
 ----
+
+You can also do that using the web interface: +
+Click your app name -> click the *1GB* link under the *Storage* label -> select *5 GB* from the drop-down list -> *Save*.
 
 If you are on the Free Plan, the first step is to see what directories and files are taking up the most space.
 
