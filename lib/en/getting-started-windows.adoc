@@ -40,9 +40,7 @@ IMPORTANT: Before you can install the rhc client tools, you must download and in
 NOTE: Sufficient privileges are required to install software on Windows systems. Depending on specific user permissions, disabling the User Account Control (UAC) on Windows Vista or Windows 7 operating systems may be necessary.
 
 === Step 1 - Install Ruby
-link:http://rubyinstaller.org[RubyInstaller] provides the best experience for installing Ruby on Windows. link:http://rubyinstaller.org/downloads/[Download the newest version] and launch the installer.
-
-TIP: If you are not sure which version to install, it is recommended to use the latest 1.9.3 installer.
+link:http://rubyinstaller.org[RubyInstaller] provides the best experience for installing Ruby on Windows. link:http://rubyinstaller.org/downloads/[Download the latest 1.9.3 version] and launch the installer.
 
 IMPORTANT: During the installation you can accept all of the defaults, but it is mandatory that you select the *Add Ruby executables to your PATH* check box in order to run Ruby from the command line (see image below).
 
