@@ -100,7 +100,6 @@ The table below provides a full list of Marketplace Add-on Services and, for ser
 |link:marketplace-memcached-cloud.html[Memcached Cloud]|Yes|MEMCACHEDCLOUD_*
 |link:marketplace-memcachier.html[MemCachier]|Yes|MEMCACHIER_*
 |link:marketplace-mongolab.html[MongoLab]|Yes|MONGOLAB_*
-|link:marketplace-new-relic.html[New Relic]|Yes|NEWRELIC_*
 |link:marketplace-pubnub.html[PubNub]|No|-
 |link:marketplace-redis-cloud.html[Redis Cloud]|Yes|REDISCLOUD_*
 |link:marketplace-searchly.html[Searchly]|Yes|SEARCHLY_*
