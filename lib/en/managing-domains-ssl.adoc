@@ -127,10 +127,21 @@ If you are still getting by on the link:https://www.openshift.com/products/prici
 
 image::overview-platform-features-15.png[SSL Certificate]
 
+*Note* If your SSL certificate includes a bundled file with primary certificate and intermediate certificate concatenated into a single file (a .crt or .pem file), this is the file you will need to upload.  If your SSL provider does not provide a concatenated file, you will need to manually concatenate the files.  From the directory on your server where your certificate files are, run the following command to create the concatenated file:
+
+[source]
+----
+$ cat your_primary_cert.pem your_intermediate_cert.pem >> fullchain.pem
+----
+
+It is the concatenated file that you will upload to the web console.
+
+link:https://www.digicert.com/ssl-support/pem-ssl-creation.htm[-> Another resource for concatenating certificate files]
+
 After saving, you should be able to make HTTPS-based connections to your hosted application on your custom domain.
 
 ==== Command Line (rhc)
-You can add a custom SSL certificate to an alias with the following command:
+You can add a custom SSL certificate to an alias with the following command using the concatenated certificate file (see above):
 
 [source]
 ----
