@@ -19,10 +19,13 @@ All OpenShift Online plans allow you to create and use a custom _rhcloud.com_ su
 link:#creating-additional-domains[Creating Additional Domains] +
 link:#using-a-custom-domain[Using a Custom Domain] +
 link:#using-a-custom-ssl-certificate[Using a Custom SSL Certificate] +
+link:#using-intermediary-certificates[Using Intermediary Certificates (certificate chaining)] +
+
 
 [[creating-additional-domains]]
 === Creating Additional Domains
-Premium plan users can create a new domain in either the web console or by using the command line (rhc).
+Premium plan users can create a new domain in either the web console or by using
+the command line (rhc).
 
 IMPORTANT: If you are using the command line with multiple domains to create and manage applications, you will need to use the `-n <domain>` flag for most commands to identify the domain you are referencing.
 
@@ -238,5 +241,22 @@ The CSR file is what you submit to the company that you are purchasing your SSL 
 For more information on how to install your new SSL Certificate on OpenShift link:#using-a-custom-ssl-certificate[click here].
 
 link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/sect-Custom_Domains_and_SSL_Certificates.html[-> Learn more about custom domains and SSL certificates on OpenShift Online]
+
+link:#top[Back to Top]
+
+
+[[using-intermediary-certificates]]
+=== Using Intermediary Certificates (certificate chaining)
+
+You can creat your own custom SSL certificate and chain it together with the root certificate.
+You'll need to combine your Certificate, Intermediary Certificate, and Root Certificate into a
+single file and upload this into your OpenShift alias.
+
+[source]
+----
+$ rhc alias-update-cert <application> <alias> --certificate FILE --private-key FILE [--passphrase PASSPHRASE]
+----
+
+More information about this topic, along with common issues, can be found link:https://access.redhat.com/solutions/638933[here]
 
 link:#top[Back to Top]
