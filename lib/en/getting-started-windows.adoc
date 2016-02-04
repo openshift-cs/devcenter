@@ -68,7 +68,7 @@ Using Git for Windows will greatly simplify the setup and management of SSH keys
 
 Download and install the link:http://msysgit.github.io/[latest version of Git for Windows].
 
-IMPORTANT: During the installation process, select the *Run Git from the Windows Command Link Prompt* checkbox so that Git can be run from the command line. Also, select *Checkout Windows-style, commit Unix-style line endings*, which is the recommended setting.
+IMPORTANT: During the installation process, select the *Run Git from the Windows Command Link Prompt* checkbox so that Git can be run from the command line. Also, select *Checkout Windows-style, commit Unix-style line endings*, which is the recommended setting.  Finally, in order to set up rhc from Git Bash, select *Use Windows' default console window* to configure the terminal emulator for Git Bash.  You can set up rhc from the Windows Powershell or Ruby Command Prompt if you prefer the MinTTY terminal emulator.    
 
 After the installation is completed, to verify that Git is correctly configured run:
 
