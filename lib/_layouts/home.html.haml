@@ -17,6 +17,7 @@ priority: 0.9
     %meta{ :name=>'google-translate', :content=>"dfd443ede08fb799-116e5be546f1663b-ga2a4e05db918ce22-19"}
     %title{ :lang=>'ll-cc' }
       Home | OpenShift Developers
+    %link{ :rel=>'canonical', :href=>("https://developers.openshift.com" + (page.url[-1] == "/" ? "#{page.url}index.html" : page.url)) }
     = partial( 'styles.html.haml' )
     = partial( 'scripts.html.haml' )
     %script{ :type=>'text/javascript', :src=>"https://www.google.com/jsapi" }
