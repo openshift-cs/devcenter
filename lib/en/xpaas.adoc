@@ -34,11 +34,6 @@ link:jbosseap-overview.html#jboss[Learn More]
 == Integration Services
 Modern applications are designed to connect with other applications and data to enhance their functionality without having duplication. Better to connect and consume than to replicate; Integration Services allow developers to connect to applications and data, send and receive messages - all with the reliability and precision of enterprise grade technology.
 
-=== Fuse
-JBoss Fuse for xPaaS is an enterprise service bus technology for building and implementing communication between different applications, services, and data. It is specifically designed for extensive connectivity. It includes JBoss A-MQ for xPaaS, a messaging service to connect applications and devices using notifications and messages.
-
-link:/en/xpaas-fuse.html[Learn More] +
-
 === Data Virtualization
 JBoss Data Virtualization is a technology which allows applications to use data from multiple heterogeneous data sources. It comprises tools and runtime services for creating and executing bi-directional data services.
 
