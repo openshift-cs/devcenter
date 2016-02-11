@@ -1,7 +1,7 @@
 ---
 layout: base
-category: 14_Managing Your Account
-breadcrumb: Managing Your Account
+category: 14_FAQs
+breadcrumb: FAQs
 parent_url: account-overview.html
 nav_title: Account FAQs
 nav_priority: 1
@@ -14,6 +14,8 @@ meta_desc: This page provides answers to common account-related questions about 
 = Common Account Questions
 [.lead]
 Find answers to some common account-related questions about OpenShift.
+
+NOTE: Troubleshooting a **technical issue**? Browse the link:troubleshooting-faq.html[Technical FAQs].
 
 == In This Guide
 link:#_i_m_an_existing_red_hat_customer_do_i_need_to_sign_up_again[I'm an existing Red Hat customer, do I need to sign up again?] +

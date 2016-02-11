@@ -129,6 +129,11 @@ h6 > a.anchor:hover {
   }
 }
 
+/* homepage: search button align override */
+#btn-search-home {
+  padding: 12px 10px;
+}
+
 /*
  * Sidebar
  */
@@ -858,6 +863,11 @@ b.conum * { color: inherit !important; }
 
 .devcenter-home .landing h4 {
   text-transform: inherit;
+}
+
+/* Homepage search field */
+#cse-search-input-body {
+  font-size: 22px;
 }
 
 .navbar-openshift+.masthead-devcenter {

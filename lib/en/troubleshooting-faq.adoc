@@ -1,19 +1,21 @@
 ---
 layout: base
-category: 17_Managing Your Applications
-breadcrumb: Managing Your Applications
+category: 14_FAQs
+breadcrumb: FAQs
 parent_url: managing-overview.html
-nav_title: Troubleshooting FAQs
-nav_priority: 120
-meta_desc: This page provides answers to common troubleshooting questions about OpenShift.
+nav_title: Technical FAQs
+nav_priority: 10
+meta_desc: This page provides answers to common technical questions about OpenShift.
 ---
-= Troubleshooting FAQs
+= Technical FAQs
 
 [[top]]
 [float]
-= Common Troubleshooting Questions
+= Common Questions
 [.lead]
-Find answers to some common troubleshooting questions about OpenShift.
+Find answers to some common technical questions about OpenShift.
+
+NOTE: Looking for login, billing or other **account-related** information? See the link:account-overview.html[Account FAQs].
 
 == In This Guide
 link:#_how_can_i_stop_my_application[How can I stop my application?] +
@@ -33,6 +35,16 @@ link:#_why_am_i_getting_a_resource_temporarily_unavailable_error_when_using_rhc[
 link:#_why_is_my_jboss_application_timing_out[Why is my JBoss application timing out?] +
 link:#_why_is_my_jboss_application_having_java_net_bindexceptions_to_8080[Why is my JBoss application having java.net.BindExceptions to 8080?] +
 link:#_how_can_i_report_a_potential_security_problem[How can I report a potential security problem?]
+link:#sync-a-new-git-repo-with-an-existing-git-repo[Sync a new git repo with an existing git repo] +
+link:#can-i-use-dsa-keys-with-my-openshift-online-account[Can I use DSA keys with my OpenShift Online account?] +
+link:#does-openshift-online-support-outgoing-email[Does OpenShift Online support outgoing email?] +
+link:#how-do-i-see-how-many-apps-i-have-deployed[How do I see how many apps I have deployed?] +
+link:#how-do-i-look-up-my-namespace[How do I look up my namespace?] +
+link:#can-i-have-mulitple-namespaces[Can I have multiple namespaces?] +
+link:#evaluating-the-traffic-to-your-openshift-application[Evaluating the traffic to your OpenShift application] +
+link:#how-do-i-find-scheduled-down-time[How do I find scheduled down time?] +
+link:#does-openshift-have-restrictions-as-to-what-applications-content-i-can-deploy[Does OpenShift have restrictions as to what applications/content I can deploy?] +
+link:#using-bash_profile-and-bash_history-on-openshift-gears[Using .bash_profile and .bash_history on OpenShift gears] +
 
 === How can I stop my application?
 You can stop your application by running:
@@ -354,5 +366,123 @@ link:#top[Back to Top]
 
 === How can I report a potential security problem?
 If you see an issue with an application hosted on OpenShift Online or with the OpenShift Online site, contact the link:https://access.redhat.com/security/team/contact/[Red Hat Security Response Team].
+
+link:#top[Back to Top]
+
+[[sync-a-new-git-repo-with-an-existing-git-repo]]
+=== Sync a new git repo with an existing git repo
+Before attempting to merge the two repositories, you need the remote git URL. This is displayed at creation time with the `rhc app create -a <app_name>` command. You can also get it via the `rhc app show -a <app_name>` command for existing application. This example uses:
+[source,console]
+--
+ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/
+--
+
+Next, you'll be pulling the remote repo into your local upstream repo. This will cause conflicts. First run the following command substituting your applications remote git repo:
+[source,console]
+--
+$ git pull ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/
+--
+This will let you know about conflicts. You might see, for example:
+[source,console]
+--
+CONFLICT (add/add): Merge conflict in php/index.php
+--
+Fix whatever conflicts are found and `git commit` them. Remember, OpenShift is looking for some things in specific directories.
+[source,console]
+--
+$ git commit -a -m "fixing OpenShift merge"
+--
+Once the merge is complete you can `git push` the master branch up to OpenShift (note the addition of `master` at the end to specify branch):
+[source,console]
+--
+$ git push ssh://284bdd9fd9764803939ac5c309634ee6@myapp-mcgrath.rhcloud.com/~/git/myapp.git/ master
+--
+Next, `git push` to your upstream repo as normal and both git repos should now be in sync. Take a look at git's documentation to alter your .git/config directory to make it easier to push to each remote repo.
+
+link:#top[Back to Top]
+
+[[can-i-use-dsa-keys-with-my-openshift-online-account]]
+=== Can I use DSA keys with my OpenShift Online account?
+OpenShift now supports both RSA and DSA keys for communication between client and OpenShift Online.
+
+link:#top[Back to Top]
+
+[[does-openshift-online-support-outgoing-email]]
+=== Does OpenShift Online support outgoing email?
+OpenShift Online supports limited outgoing email by default, but has a very strong spam filter. You should consider using a third party email service such as link:https://marketplace.openshift.com/apps/9628#!overview[Sendgrid] or MailGun.
+
+You can also use your own authenticated email service such as Gmail, Yahoo Mail, Outlook, or your own private email server.
+
+link:#top[Back to Top]
+
+[[how-do-i-see-how-many-apps-i-have-deployed]]
+=== How do I see how many apps I have deployed?
+The link:https://openshift.redhat.com/app/console/applications[web console] will list the numbers of applications you have deployed.
+
+You can also use the following rhc command:
+[source,console]
+--
+$ rhc apps
+--
+
+link:#top[Back to Top]
+
+[[how-do-i-look-up-my-namespace]]
+=== How do I look up my namespace?
+Log into the link:http://openshift.redhat.com[web console] and click *My Account*. This will display your namespace and give you the opportunity to change it.
+
+You can also use the following rhc command:
+[source,console]
+--
+$ rhc domains
+--
+
+To rename your namespace:
+[source,console]
+--
+$ rhc domain-rename <old_name> <new_name>
+--
+
+NOTE: You can only rename an empty domain at this time. You will need to delete your applications and recreate them if you need to change your namespace.
+
+link:#top[Back to Top]
+
+[[can-i-have-mulitple-namespaces]]
+=== Can I have multiple namespaces?
+OpenShift Online Free Plan users are allowed one namespace/domain per username.
+
+OpenShift Online Bronze and Silver Plan users are allowed two namespaces/domains per username.
+
+link:#top[Back to Top]
+
+[[evaluating-the-traffic-to-your-openshift-application]]
+=== Evaluating the traffic to your OpenShift application
+One way to do this is by using link:https://hub.openshift.com/quickstarts/3-piwik[Piwik] or link:http://www.google.com/analytics/[Google Analytics].
+
+You can also use:
+[source, console]
+--
+$ rhc app snapshot save -a <app_name>
+--
+
+to get the logfiles from your running app, which you can run through a logfile analyzer like link:http://awstats.sourceforge.net/[AWStats].
+
+link:#top[Back to Top]
+
+[[how-do-i-find-scheduled-down-time]]
+=== How do I find scheduled down time?
+You can either visit the link:https://openshift.redhat.com/app/status[Status Page] or run `rhc servers` to find the status of the OpenShift Online service. You can also follow link:https://twitter.com/openshift_ops[@openshift_ops] on Twitter.
+
+link:#top[Back to Top]
+
+[[does-openshift-have-restrictions-as-to-what-applications-content-i-can-deploy]]
+=== Does OpenShift have restrictions as to what applications/content I can deploy?
+In order provide the best possible service to our users. We do not allow content that is malicious or contains technology that may damage, interfere with, or intercept any system, program or data. For a full list of restricted content, please take a look at link:https://www.openshift.com/legal/acceptable_use[Acceptable Use Policy]
+
+link:#top[Back to Top]
+
+[[using-bash_profile-and-bash_history-on-openshift-gears]]
+=== Using .bash_profile and .bash_history on OpenShift gears
+`.bash_profile` and `.bash_history` are available on all OpenShift gears. They are located in `~/app-root/data/` and are `r/w`.
 
 link:#top[Back to Top]

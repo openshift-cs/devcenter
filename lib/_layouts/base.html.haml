@@ -52,9 +52,6 @@ priority: 0.9
                     %li
                       %a{ :class=>p.url =~ /#{page.url}/i ? 'active' : nil, :href => p.url } #{p.nav_title}
             %li.nav-header
-              %a{ href: "knowledge-base.html" }
-                Knowledge Base
-            %li.nav-header
               %a{ href: "https://access.redhat.com/documentation/en-US/OpenShift_Online/" }
                 Documentation
                 %span{ :class => "fa fa-external-link small" }
