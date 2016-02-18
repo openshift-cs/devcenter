@@ -40,9 +40,9 @@ priority: 0.9
                 %input{"name"=>"refinement", "type"=>"hidden", "value"=>"documentation"}
                 .form-group
                   .search-pf-input-group
-                    %input#cse-search-input-body.form-control{:autocomplete => "off", :dir => "ltr", :name => "query", :placeholder => "Search the Developer Portal", :spellcheck => "false", :style => "outline: none;", :type => "search"}
+                    %input#cse-search-input-body.form-control{:autocomplete => "off", :autofocus => true, :dir => "ltr", :name => "query", :placeholder => " Search the Developer Portal", :spellcheck => "false", :style => "outline: none;", :type => "search"}
                 .form-group
-                  %button.btn.btn-default{:type => "button"}
+                  %button.btn.btn-default#btn-search-home{:type => "button"}
                     %span.fa.fa-search
     .landing.landing-devcenter.cushion-bottom
       .container
@@ -60,11 +60,11 @@ priority: 0.9
               %h2 Browse Content
             %span Explore the content in the portal and access language-specific guides and tutorials.
           .col-md-4.col-sm-4.help-bloc
-            %a{:href => "/en/help.html"}
+            %a{:href => "/en/troubleshooting-faq.html"}
               .section-mark
                 %img{:alt => "need help icon", :src => "../images/circle-icon-help.png"}/
-              %h2 Need Help?
-            %span Visit the OpenShift Online Help Center for a complete list of available resources.
+              %h2 FAQs
+            %span Find answers to common account-related and technical questions.
     .landing.cushion
       .container
         .row
