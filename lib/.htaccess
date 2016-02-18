@@ -486,7 +486,8 @@ Redirect 301 /rhcloudcom-on-the-public-suffix-list https://developers.openshift.
 Redirect 301 /can-i-have-two-openshift-accounts-if-yes-how-to-switch-them-in-rhc https://developers.openshift.com/en/managing-common-rhc-commands.html
 Redirect 301 /help-rhc-git-clone-permission-denied-publickey https://developers.openshift.com/en/managing-common-rhc-commands.html
 Redirect 301 /rhc-setup-ok-rhc-app-show-ok-rhc-domain-status-nok-and-git-clone-fatal-error https://developers.openshift.com/en/managing-common-rhc-commands.html
-Redirect 301 /rhc-setup-invalid-username-or-password https://developers.openshift.com/en/managing-common-rhc-commands.html httpawm-pribylrhcloudcom-the-requested-url-was-not-found-on-this-server https://developers.openshift.com/en/managing-common-rhc-commands.html
+Redirect 301 /rhc-setup-invalid-username-or-password https://developers.openshift.com/en/managing-common-rhc-commands.html 
+Redirect 301 /httpawm-pribylrhcloudcom-the-requested-url-was-not-found-on-this-server https://developers.openshift.com/en/managing-common-rhc-commands.html
 Redirect 301 /rhc-setup-not-working https://developers.openshift.com/en/managing-common-rhc-commands.html
 Redirect 301 /m2repository-in-home-folder https://developers.openshift.com/en/managing-continuous-integration.html
 Redirect 301 /jenkins-stuff https://developers.openshift.com/en/managing-continuous-integration.html
