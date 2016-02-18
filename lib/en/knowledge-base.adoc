@@ -64,7 +64,7 @@ link:#top[Back to Top]
 
 [[does-openshift-online-support-outgoing-email]]
 === Does OpenShift Online support outgoing email?
-OpenShift Online supports limited outgoing email by default, but has a very strong spam filter. You should consider using a third party email service such as link:https://marketplace.openshift.com/apps/9628#!overview[Sendgrid] or MailGun.
+OpenShift Online supports limited outgoing email by default, but has a very strong spam filter. You should consider using a third party email service such as link:https://sendgrid.com/[Sendgrid] or MailGun.
 
 You can also use your own authenticated email service such as Gmail, Yahoo Mail, Outlook, or your own private email server.
 

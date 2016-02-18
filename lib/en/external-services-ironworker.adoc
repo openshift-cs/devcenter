@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: IronWorker
 nav_priority: 31
-meta_desc: Using the IronWorker OpenShift Marketplace Add-on service.
+meta_desc: Using IronWorker as an external service for your OpenShift applications.
 ---
-= IronWorker Marketplace Add-on Service
+= IronWorker External Add-on Service
 
 [float]
 = IronWorker
@@ -22,16 +22,16 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The IronWorker dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *IronWorker account overview*.
+The IronWorker dashboard can be accessed by visiting: link:https://hud.iron.io/[hud.iron.io]
 
-image::marketplace/ironworker_dashboard.png[IronWorker Dashboard]
+image::external-services/ironworker_dashboard.png[IronWorker Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+Once you have link:external-services-overview.html#subscribe-service[subscribed to this service] and link:external-services-overview.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
 
 === IronWorker Environment Variables
-The following environment variables are available within your application runtime once the service has been bound to your app:
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
 
 |===
 |Variable Name|Example Value
@@ -39,7 +39,15 @@ The following environment variables are available within your application runtim
 |IRONWORKER_TOKEN|ark7YJLW3ysx919eweEIdLbWysE
 |===
 
-NOTE: Check out the general link:marketplace-overview.html#code-examples[code examples] to see how to use Marketplace enviornment variables within your application.
+Use the link:managing-client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set IRONWORKER_PROJECT_ID=VALUE -a App_Name
+$ rhc env set IRONWORKER_TOKEN=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:external-services-overview.html#code-examples[code examples] to see how to use environment variables within your application.
 
 [[resources]]
 == Additional Resources

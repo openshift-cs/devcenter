@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: CloudForge
 nav_priority: 14
-meta_desc: Using the CloudForge OpenShift Marketplace Add-on service.
+meta_desc: Using CloudForge as an external service for your OpenShift applications.
 ---
-= CloudForge Marketplace Add-on Service
+= CloudForge External Add-on Service
 
 [float]
 = CloudForge
@@ -22,13 +22,13 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The CloudForge dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting CloudForge.
+The CloudForge dashboard can be accessed by visiting: link:https://app.cloudforge.com/[app.cloudforge.com/]
 
-image::marketplace/cloudforge_dashboard.png[CloudForge Dashboard]
+image::external-services/cloudforge_dashboard.png[CloudForge Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-CloudForge does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources

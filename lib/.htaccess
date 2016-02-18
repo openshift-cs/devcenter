@@ -11,6 +11,10 @@ RewriteRule (.*)$ https://developers.openshift.com/$1 [R,L]
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
+# Redirect marketplace to external services
+RewriteRule ^en/marketplace-(.*?)\.html /en/external-services-$1.html [L,R=301,NC]
+RewriteRule ^en/images/marketplace/(.*?) /en/images/external-services/$1 [L,R=301,NC]
+
 # Search Rewrite
 # https://help.openshift.com/hc/en-us/search?refinement=documentation&query=searched
 RewriteRule ^hc/en-us/search(.*) /en/search.html$1 [L,R=301,NC]
@@ -32,7 +36,7 @@ Redirect 301 /contact https://developers.openshift.com/en/contact.html
 Redirect 301 /hc/en-us /
 
 # Help Center Section Redirects
-Redirect 301 /hc/en-us/sections/200648970-Marketplace https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /hc/en-us/sections/200648970-Marketplace https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /hc/en-us/sections/200505294-PostgreSQL https://developers.openshift.com/en/databases-postgresql.html 
 Redirect 301 /hc/en-us/sections/200503370-Account-Upgrades-Downgrades https://openshift.com/pricing 
 Redirect 301 /hc/en-us/sections/200503360-Backup-Restore https://developers.openshift.com/en/managing-backing-up-applications.html 
@@ -81,9 +85,9 @@ Redirect 301 /hc/en-us/articles/202535320-What-happens-if-I-change-my-email-addr
 Redirect 301 /hc/en-us/articles/203456370-Can-I-change-my-login-ID- https://developers.openshift.com/en/account-overview.html 
 Redirect 301 /hc/en-us/articles/202399790-How-to-request-resources-for-Non-Profit-Open-Source-or-Educational-Institutions https://developers.openshift.com/en/account-overview.html 
 Redirect 301 /hc/en-us/articles/202301434-What-happens-if-my-application-is-not-used-for-a-long-time- https://developers.openshift.com/en/managing-idling.html 
-Redirect 301 /hc/en-us/articles/203467070-How-do-I-add-New-Relic-to-my-application-in-the-OpenShift-Marketplace- https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /hc/en-us/articles/203467070-How-do-I-add-New-Relic-to-my-application-in-the-OpenShift-Marketplace- https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /hc/en-us/articles/202187204-How-do-I-migrate-my-app- https://blog.openshift.com/tag/migration/ 
-Redirect 301 /hc/en-us/articles/204090980-Can-I-use-New-Relic-with-my-PHP-application- https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /hc/en-us/articles/204090980-Can-I-use-New-Relic-with-my-PHP-application- https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /hc/en-us/articles/202301874-How-do-I-connect-to-the-database-that-I-embedded-onto-my-Application- https://developers.openshift.com/en/databases-overview.html 
 Redirect 301 /hc/en-us/articles/202535490-What-databases-can-I-connect-my-application-to- https://developers.openshift.com/en/databases-overview.html 
 Redirect 301 /hc/en-us/articles/202398440-Deploying-OpenShift-applications-using-SQLite https://developers.openshift.com/en/databases-sqlite.html 
@@ -227,7 +231,7 @@ Redirect 301 /hc/en-us/articles/202535340-How-can-I-report-a-security-problem-I-
 Redirect 301 /hc/en-us/articles/202398200-OpenShift-was-supposed-to-send-me-an-email-regarding-my-account-why-didn-t-I-get-it- https://developers.openshift.com/en/troubleshooting-faq.html 
 
 # Help Center Section Redirects
-Redirect 301 /sections/200648970-Marketplace https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /sections/200648970-Marketplace https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /sections/200505294-PostgreSQL https://developers.openshift.com/en/databases-postgresql.html 
 Redirect 301 /sections/200503370-Account-Upgrades-Downgrades https://openshift.com/pricing 
 Redirect 301 /sections/200503360-Backup-Restore https://developers.openshift.com/en/managing-backing-up-applications.html 
@@ -276,9 +280,9 @@ Redirect 301 /articles/202535320-What-happens-if-I-change-my-email-address- http
 Redirect 301 /articles/203456370-Can-I-change-my-login-ID- https://developers.openshift.com/en/account-overview.html 
 Redirect 301 /articles/202399790-How-to-request-resources-for-Non-Profit-Open-Source-or-Educational-Institutions https://developers.openshift.com/en/account-overview.html 
 Redirect 301 /articles/202301434-What-happens-if-my-application-is-not-used-for-a-long-time- https://developers.openshift.com/en/managing-idling.html 
-Redirect 301 /articles/203467070-How-do-I-add-New-Relic-to-my-application-in-the-OpenShift-Marketplace- https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /articles/203467070-How-do-I-add-New-Relic-to-my-application-in-the-OpenShift-Marketplace- https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /articles/202187204-How-do-I-migrate-my-app- https://blog.openshift.com/tag/migration/ 
-Redirect 301 /articles/204090980-Can-I-use-New-Relic-with-my-PHP-application- https://developers.openshift.com/en/marketplace-overview.html 
+Redirect 301 /articles/204090980-Can-I-use-New-Relic-with-my-PHP-application- https://developers.openshift.com/en/external-services-overview.html 
 Redirect 301 /articles/202301874-How-do-I-connect-to-the-database-that-I-embedded-onto-my-Application- https://developers.openshift.com/en/databases-overview.html 
 Redirect 301 /articles/202535490-What-databases-can-I-connect-my-application-to- https://developers.openshift.com/en/databases-overview.html 
 Redirect 301 /articles/202398440-Deploying-OpenShift-applications-using-SQLite https://developers.openshift.com/en/databases-sqlite.html 
@@ -420,7 +424,6 @@ Redirect 301 /articles/202185554-Captcha-image-doesn-t-appear-on-OpenShift-sign-
 Redirect 301 /articles/202398460-I-m-not-able-to-get-my-application-running-due-to-SELinux-restrictions https://developers.openshift.com/en/troubleshooting-faq.html 
 Redirect 301 /articles/202535340-How-can-I-report-a-security-problem-I-ve-found-in-one-of-your-applications-or-am-observing-at-the-OpenShift-Online-site- https://developers.openshift.com/en/troubleshooting-faq.html
 Redirect 301 /articles/202398200-OpenShift-was-supposed-to-send-me-an-email-regarding-my-account-why-didn-t-I-get-it- https://developers.openshift.com/en/troubleshooting-faq.html 
-
 
 # Forum redirects
 Redirect 301 /redirect-test http://blog.openshift.com

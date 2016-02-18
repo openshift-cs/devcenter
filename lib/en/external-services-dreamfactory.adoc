@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: DreamFactory
 nav_priority: 20
-meta_desc: Using the DreamFactory OpenShift Marketplace Add-on service.
+meta_desc: Using DreamFactory as an external service for your OpenShift applications.
 ---
-= DreamFactory Marketplace Add-on Service
+= DreamFactory External Add-on Service
 
 [float]
 = DreamFactory
@@ -21,7 +21,7 @@ link:#support[Support]
 
 [[integration]]
 == Integrating the Service With Your App
-DreamFactory does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources
