@@ -25,7 +25,7 @@ link:#resource-management[Resource Management] +
 link:#scaling[Scaling] +
 link:#domain-management[Domain Management and SSL Certificates] +
 link:#collaboration[Collaboration] +
-link:#marketplace[Marketplace] +
+link:#external-services[External Services] +
 link:#support[Support] +
 
 [[regions-and-zones]]
@@ -68,11 +68,11 @@ link:managing-collaboration.html[-> Learm More about Managing Teams and Users]
 
 link:#top[Back to Top]
 
-[[marketplace]]
-== Marketplace
-OpenShift Online offers integrations with partner services through the ever-expanding OpenShift Marketplace.
+[[external-services]]
+== External Services
+OpenShift makes it easy to connect external services to your applications.
 
-link:https://marketplace.openshift.com/home[-> Visit the OpenShift Marketplace]
+link:external-services-overview.html[-> Learn More about Integrating External Services]
 
 link:#top[Back to Top]
 

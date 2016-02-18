@@ -1,13 +1,14 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: 3scale
 nav_priority: 3
-meta_desc: Using the 3scale OpenShift Marketplace Add-on service.
+meta_desc: Using 3scale as an external service for your OpenShift applications.
+
 ---
-= 3scale Marketplace Add-on Service
+= 3scale External Add-on Service
 
 [float]
 = 3scale
@@ -22,13 +23,13 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The 3scale dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting 3scale.
+The 3scale dashboard can be accessed by visiting: link:http://www.3scale.net/logmein/[3scale.net/logmein/]
 
-image::marketplace/3scale_dashboard.png[3scale Dashboard]
+image::external-services/3scale_dashboard.png[3scale Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-3scale does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources

@@ -38,8 +38,6 @@ _Standalone_::: These are the languages or application servers that are set up t
 +
 _Embedded_::: An embedded cartridge provides functionality to enhance your application, such as a database or Cron, but cannot be used on its own to create an application.
 
-For some of the OpenShift partner cartridges in the link:http://marketplace.openshift.com[Marketplace], the cartridges only install environment variables that make it easier to connect to the partner hosted service.
-
 Scalable application:: Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your increased demand. The OpenShift infrastructure monitors incoming web traffic and automatically brings up new gears with the appropriate web cartridge online to handle more requests. When traffic decreases, the platform retires the extra resources. There is a web page dedicated to explaining link:managing-scaling.html[how scaling works on OpenShift].
 
 Client tools, Web Console, or Eclipse plug-ins:: You can interact with the OpenShift platform via RHC client command-line tools you install on your local machine, the OpenShift Web Console, or a plug-in you install in Eclipse to interact with your application in the OpenShift cloud. The only time you must use these tools is when you are managing the infrastructure or components of your application. For example, you would use these tools when creating an application or embedding a new cartridge. The rest of your work with your application will happen through Git and SSH.

@@ -1,0 +1,189 @@
+---
+layout: base
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
+nav_title: Overview
+nav_priority: 1
+meta_desc: Using external services with your OpenShift applications.
+---
+= External Services
+
+[float]
+= External Services
+
+[.lead]
+OpenShift makes it easy to connect external services to your applications. External services can provide a wide range of extra functionality and capabilities for your applications, and are generally categorized into two areas: application services and devops services. For application services, common uses include data persistence, search, caching, messaging, and more. For devops, services provide software lifecycle capabilities such as continuous integration and load testing. 
+
+== Using External Services
+When working with an external resource, we recommend that you use environment variables to model the external service as a native OpenShift link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Cartridges.html#Add-on_Cartridges3[add-on cartridge]. That way your application can connect with the external service the same way as any other internal service.
+
+Below, we outline a framework for connecting external services to your application along with examples for our trusted partner providers.
+
+link:#subscribe-service[*Step 1*: Subscribe to an External Service] +
+link:#locate-credentials[*Step 2*: Locate Your Credentials for Connecting to the Service] +
+link:#setting-environment-variables[*Step 3*: Setting Environment Variables] +
+link:#using-environment-variables[*Step 4*: Using Environment Variables] + 
+link:#services-list[Recommended External Services]
+
+[[subscribe-service]]
+=== Step 1 - Subscribe to an External Service
+To get started, subscribe to an external service by visiting the provider's website and signing up for the service. See the link:#services-list[list of recommended external services] from our trusted partners below.
+
+image::external-services/sendgrid_signup.png[Sign up for SendGrid]
+
+[[locate-credentials]]
+=== Step 2 - Locate Your Credentials for Connecting to the Service
+Next, locate your API credentials in the service provider's web console. You may need to create a new set of access keys/tokens.
+
+image::external-services/sendgrid_credentials.png[SendGrid API credentials]
+
+NOTE: Not all external services require direct integration with your application. Some services, like those intended for load testing, can simply interact with your web application via HTTP.
+
+[[setting-environment-variables]]
+=== Step 3 - Setting Environment Variables
+Next, details about the external service (account credentials, hostnames, ports, etc.) should be written to environment variables available in the application runtime. Your application can use this information to integrate with the external service.
+
+Since our goal is to model the functionality of OpenShift's native link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Cartridges.html#Add-on_Cartridges3[add-on cartridges], we recommend that you prefix your environment variables with the name of the service. For example, for a service named **service** we would prefix the variables with `SERVICE_*` as follows:
+
+|===
+|Variable Name|Example Value
+|SERVICE_USERNAME|YOUR_USERNAME
+|SERVICE_PASSWORD|YOUR_PASSWORD
+|===
+
+Use the link:managing-client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set SERVICE_USERNAME=YOUR_USERNAME SERVICE_PASSWORD=YOUR_PASSWORD -a App_Name
+----
+
+You can list the environment variables available to your application to confirm that they were set properly:
+
+[source,console]
+----
+$ rhc env list -a App_Name
+SERVICE_PASSWORD=YOUR_PASSWORD
+SERVICE_USERNAME=YOUR_USERNAME
+----
+
+See link:managing-environment-variables.html#custom-variables[using custom environment variables] for more details.
+
+[[using-environment-variables]]
+=== Step 4 - Configure Your Application to use Environment Variables
+Finally, configure your application to make use of the environment variables.
+
+[[code-examples]]
+==== Code Examples
+For the following examples we assume the following environment variables, prefixed with `SERVICE_*`, have been set:
+
+|===
+|Variable Name|Example Value
+|SERVICE_USERNAME|YOUR_USERNAME
+|SERVICE_PASSWORD|YOUR_PASSWORD
+|===
+
+The following code examples show how to access these environment variables within your application.
+
+link:#java[Java] +
+link:#nodejs[Node.js] +
+link:#perl[Perl] +
+link:#php[PHP] +
+link:#python[Python] +
+link:#ruby[Ruby]
+
+[[java]]
+===== Java
+Using environment variables within your application:
+
+[source, java]
+----
+public class Example {
+  public static void main(String[] args) {
+    System.getenv('SERVICE_USERNAME'); // "YOUR_USERNAME"
+    System.getenv('SERVICE_PASSWORD'); // "YOUR_PASSWORD"
+  }
+}
+----
+
+[[nodejs]]
+===== Node.js
+Using environment variables within your application:
+
+[source, javascript]
+----
+process.env.SERVICE_USERNAME; // "YOUR_USERNAME"
+accountInfo.SERVICE_PASSWORD; // "YOUR_PASSWORD"
+----
+
+[[perl]]
+===== Perl
+Using environment variables within your application:
+
+[source, perl]
+----
+$ENV{'SERVICE_USERNAME'}; # "YOUR_USERNAME"
+$ENV{'SERVICE_PASSWORD'}; # "YOUR_PASSWORD"
+----
+
+[[php]]
+===== PHP
+Using environment variables within your application:
+
+[source, php]
+----
+getenv('SERVICE_USERNAME'); // "YOUR_USERNAME"
+getenv('SERVICE_PASSWORD'); // "YOUR_PASSWORD"
+----
+
+[[python]]
+===== Python
+Using environment variables within your application:
+
+[source, python]
+----
+import os
+
+os.getenv('SERVICE_USERNAME') # "YOUR_USERNAME"
+os.getenv('SERVICE_PASSWORD') # "YOUR_PASSWORD"
+----
+
+[[ruby]]
+===== Ruby
+Using environment variables within your application:
+
+[source, ruby]
+----
+ENV['SERVICE_USERNAME'] # "YOUR_USERNAME"
+ENV['SERVICE_PASSWORD'] # "YOUR_PASSWORD"
+----
+
+
+[[services-list]]
+=== Recommended External Services
+The table below provides a list of external services from our trusted partners along with the recommended environment variable prefix. Click on the name of the external service provider in the table below for more information on integrating with the specified provider.
+
+[options="header"]
+|===
+|Name|Requires Direct Integration|Environment Variable
+|link:external-services-3scale.html[3scale]|No|-
+|link:external-services-blazemeter.html[BlazeMeter]|No|-
+|link:external-services-cine-io.html[cine.io]|Yes|CINE_IO_*
+|link:external-services-cleardb-mysql-database.html[ClearDB MySQL Database]|Yes|CLEARDB_*
+|link:external-services-cloudamqp.html[CloudAMQP]|Yes|CLOUDAMQP_*
+|link:external-services-cloudforge.html[CloudForge]|No|-
+|link:external-services-dreamfactory.html[DreamFactory]|No|-
+|link:external-services-elephantsql.html[ElephantSQL]|Yes|ELEPHANTSQL_*
+|link:external-services-ironmq.html[IronMQ]|Yes|IRONMQ_*
+|link:external-services-ironworker.html[IronWorker]|Yes|IRONWORKER_*
+|link:external-services-load-impact.html[Load Impact]|No|-
+|link:external-services-memcached-cloud.html[Memcached Cloud]|Yes|MEMCACHEDCLOUD_*
+|link:external-services-memcachier.html[MemCachier]|Yes|MEMCACHIER_*
+|link:external-services-mongolab.html[MongoLab]|Yes|MONGOLAB_*
+|link:external-services-pubnub.html[PubNub]|No|-
+|link:external-services-redis-cloud.html[Redis Cloud]|Yes|REDISCLOUD_*
+|link:external-services-searchly.html[Searchly]|Yes|SEARCHLY_*
+|link:external-services-sendgrid.html[SendGrid]|Yes|SENDGRID_*
+|link:external-services-statica.html[Statica]|Yes|STATICA_*
+|===

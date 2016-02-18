@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: Load Impact
 nav_priority: 40
-meta_desc: Using the Load Impact OpenShift Marketplace Add-on service.
+meta_desc: Using Load Impact as an external service for your OpenShift applications.
 ---
-= Load Impact Marketplace Add-on Service
+= Load Impact External Add-on Service
 
 [float]
 = Load Impact
@@ -22,13 +22,13 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The Load Impact dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting Load Impact.
+The Load Impact dashboard can be accessed by visiting: link:https://app.loadimpact.com/account/login[app.loadimpact.com/account/login]
 
-image::marketplace/loadimpact_dashboard.png[Load Impact Dashboard]
+image::external-services/loadimpact_dashboard.png[Load Impact Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-Load Impact does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources

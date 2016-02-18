@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: PubNub
 nav_priority: 55
-meta_desc: Using the PubNub OpenShift Marketplace Add-on service.
+meta_desc: Using PubNub as an external service for your OpenShift applications.
 ---
-= PubNub Marketplace Add-on Service
+= PubNub External Add-on Service
 
 [float]
 = PubNub
@@ -22,13 +22,13 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The PubNub dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting PubNub.
+The PubNub dashboard can be accessed by visiting: link:https://admin.pubnub.com/#/login[admin.pubnub.com/#/login]
 
-image::marketplace/pubnub_dashboard.png[PubNub Dashboard]
+image::external-services/pubnub_dashboard.png[PubNub Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-PubNub does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources

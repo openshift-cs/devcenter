@@ -22,9 +22,9 @@ phpMyAdmin can be installed using the following command:
 --
 $rhc cartridge add phpmyadmin -a <appname>
 --
-NOTE: You must have one of the MySQL cartridges installed for this addon to be installed.
+NOTE: You must have one of the MySQL cartridges installed for this add-on to be installed.
 
-NOTE: You can not install this addon into a scaled application.
+NOTE: You can not install this add-on into a scaled application.
 
 [source,console]
 --

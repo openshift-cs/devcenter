@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: Blazemeter
 nav_priority: 6
-meta_desc: Using the Blazemeter OpenShift Marketplace Add-on service.
+meta_desc: Using Blazemeter as an external service for your OpenShift applications.
 ---
-= Blazemeter Marketplace Add-on Service
+= Blazemeter External Add-on Service
 
 [float]
 = Blazemeter
@@ -22,13 +22,13 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The Blazemeter dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and selecting Blazemeter.
+The Blazemeter dashboard can be accessed by visiting: link:https://a.blazemeter.com/app/[a.blazemeter.com/app/]
 
-image::marketplace/blazemeter_dashboard.png[Blazemeter Dashboard]
+image::external-services/blazemeter_dashboard.png[Blazemeter Dashboard]
 
 [[integration]]
 == Integrating the Service With Your App
-Blazemeter does not support application binding.
+There is no need to set environment variables within your application to use this service. 
 
 [[resources]]
 == Additional Resources

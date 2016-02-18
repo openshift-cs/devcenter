@@ -1,13 +1,13 @@
 ---
 layout: base
-category: 39_Marketplace Add-ons
-breadcrumb: Marketplace
-parent_url: marketplace-overview.html
+category: 39_External Services
+breadcrumb: External Services
+parent_url: external-services-overview.html
 nav_title: SendGrid
 nav_priority: 65
-meta_desc: Using the SendGrid OpenShift Marketplace Add-on service.
+meta_desc: Using SendGrid as an external service for your OpenShift applications.
 ---
-= SendGrid Marketplace Add-on Service
+= SendGrid External Add-on Service
 
 [float]
 = SendGrid
@@ -23,9 +23,9 @@ link:#support[Support]
 
 [[dashboard]]
 == Dashboard
-The SendGrid dashboard can be accessed by visiting the link:https://marketplace.openshift.com/openshift#accounts[Marketplace web interface] and clicking *SendGrid account overview*.
+The SendGrid dashboard can be accessed by visiting: link:https://sendgrid.com/login[sendgrid.com/login]
 
-image::marketplace/sendgrid_dashboard.png[SendGrid Dashboard]
+image::external-services/sendgrid_dashboard.png[SendGrid Dashboard]
 
 SendGrid offers statistics on a number of different metrics to report on what is happening with your messages including:
 
@@ -37,10 +37,10 @@ SendGrid offers statistics on a number of different metrics to report on what is
 
 [[integration]]
 == Integrating the Service With Your App
-Once you have link:marketplace-overview.html#subscribe-service[registered for] and link:marketplace-overview.html#bind-service[bound a service to your app], you will need to configure your application to use the correct credentials for your service.
+Once you have link:external-services-overview.html#subscribe-service[subscribed to this service] and link:external-services-overview.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
 
 === SendGrid Environment Variables
-The following environment variables are available within your application runtime once the service has been bound to your app:
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
 
 |===
 |Variable Name|Example Value
@@ -48,6 +48,15 @@ The following environment variables are available within your application runtim
 |SENDGRID_PASSWORD|adsRvqPZra
 |SENDGRID_USERNAME|DM12KPNLIq
 |===
+
+Use the link:managing-client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set SENDGRID_HOSTNAME=VALUE -a App_Name
+$ rhc env set SENDGRID_PASSWORD=VALUE -a App_Name
+$ rhc env set SENDGRID_USERNAME=VALUE -a App_Name
+----
 
 [[code-examples]]
 == Code Examples
@@ -355,7 +364,7 @@ Next, you'll need to *activate the plugin* from the "Plugins" menu in the WordPr
 
 Finally, on the SendGrid plugin settings page you can set default values for the "Name", "Sending Address" and the "Reply Address", so that you don't need to set these headers every time you want to send an email from your application.
 
-image::marketplace/sendgrid_dashboard.png[configure the SendGrid WordPress plugin settings]
+image::external-services/sendgrid_dashboard.png[configure the SendGrid WordPress plugin settings]
 
 That's it! WordPress emails will now be sent through SendGrid. For more information check out the link:https://wordpress.org/plugins/sendgrid-email-delivery-simplified/[official plugin page].
 
