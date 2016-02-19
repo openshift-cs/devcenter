@@ -52,7 +52,7 @@ link:#top[Back to Top]
 
 === When can we expect the new marketplace to be available?
 
-We currently do not have an estimated timeframe for when the new marketplace alternative will be available. However, it will be after the next-generation OpenShift Online is in place.
+We are actively working on building and preparing for a developer preview on OpenShift 3 that will be available to our OpenShift Online users. As we move from Developer preview to GA, we expect to have made considerable progress on the Marketplace as well. We will keep you appraised on the progress and provide a timeline as we get close to the actual launch of the new Marketplace.
 
 link:#top[Back to Top]
 
