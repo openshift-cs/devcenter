@@ -36,7 +36,7 @@ TIP: Red Hat recommends that you use the interactive setup wizard to create and 
 
 Once `rhc setup` is run, you can log into your applications remotely from your computer, or connect and download the application source code via Git. If you have multiple computers, repeat the `rhc setup` procedure so that each computer has access to the application.
 
-If you would prefer to manually create and upload an SSH key, you can follow this link:http://docs.openshift.com/online/user_guide/ssh_keys.html#tutorial-creating-and-uploading-ssh-keys[guide]. SSH keys can be uploaded using the `rhc sshkey add` command or through the web console.
+If you would prefer to manually create and upload an SSH key, you can follow this link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Generating_Keys_Manually4.html[guide]. SSH keys can be uploaded using the `rhc sshkey add` command or through the web console.
 
 link:#top[Back to Top]
 
