@@ -25,15 +25,10 @@ link:#_without_the_marketplace,_and_until_the_new_marketplace_is_available,_wher
 link:#_where_can_partners_that_want_to_work_with_next_generation_of_openshift_online_and_the_marketplace_go_in_the_interim[Where can partners that want to work with next generation of OpenShift Online and the Marketplace go in the interim?] +
 link:#_migration_guide[Migration Guide] +
 
-[WARNING]
-====
-*OpenShift Marketplace will be discontinued after April 4th, 2016* +
-All OpenShift Marketplace bindings will cease to work after April 4th, 2016. Please read and follow this link:#_migration_guide[*Migration Guide*] before April 4th, 2016 to ensure continuity of service.
-====
-
 === What is happening with the OpenShift Online Marketplace?
 
 As part of our efforts to move OpenShift Online to be based on our next-generation platform built with Docker and Kubernetes, the OpenShift team is designing and implementing a next-generation marketplace for our customers and partners. As such, the existing marketplace will be sunset in order for us to continue our migration -- discontinuing the marketplace is just one step in a longer journey.
+All OpenShift Marketplace bindings will cease to work after April 4th, 2016. Please read and follow this link:#_migration_guide[*Migration Guide*] before April 4th, 2016 to ensure continuity of service.
 
 link:#top[Back to Top]
 
