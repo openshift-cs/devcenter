@@ -129,8 +129,8 @@ h6 > a.anchor:hover {
   }
 }
 
-/* homepage: search button align override */
-#btn-search-home {
+/* search button align override */
+#btn-search-home, #cse-search-form-body .btn {
   padding: 12px 10px;
 }
 
@@ -868,6 +868,7 @@ b.conum * { color: inherit !important; }
 /* Homepage search field */
 #cse-search-input-body {
   font-size: 22px;
+  padding: 3px 12px;
 }
 
 .navbar-openshift+.masthead-devcenter {
