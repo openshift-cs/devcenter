@@ -32,11 +32,13 @@ link:#reading-variable-examples[Reading Variables: Examples] +
 
 Environment variables are placeholders for values that are provided to a software program at runtime. They are particularly useful when the values are likely to be different from one host system to the next, or from one run to the next. Including these placeholders in applications makes the application code more portable and flexible. This flexibility is critical for writing applications that are easily deployed and scaled on OpenShift Online.
 
+NOTE: Setting custom environment variables is described link:#custom-variables[below].
+
 A number of standardized environment variables are available for applications hosted on OpenShift Online. These variables serve as placeholders for application names, commonly accessed directory names, user names, passwords, host names, IP addresses, and more. The specific environment variables that are available to a given application is determined by the cartridges that have been added to that application. For example, an application with PHP and MySQL has access to environment variables that expose the PHP path information, including the host, port, user name, and password necessary for connecting to the MySQL database.
 
 There are three ways to view the environment variables for an application:
 
-. Add an export statement to the `App_Name/.openshift/action_hooks/build` file, then run git push. The variables are listed in the Git output and start with *remote: declare -x*.
+. Add an export statement to the `App_Name/.openshift/action_hooks/build` file, make sure the file is link:/en/managing-action-hooks.html[executable], then run git push. The variables are listed in the Git output and start with *remote: declare -x*.
 . Access the application with SSH and run the `env` command at the shell prompt.
 . Use the `rhc env list -a <appname>` command
 
@@ -193,6 +195,7 @@ Set one of more environment variables for an application with the following comm
 $ rhc env set <Variable>=<Value> <Variable2>=<Value2> -a App_Name
 ----
 
+The variable will be set persistently for the given app. There is no need to repeat the command when the gear is restarted. +
 Add additional `<Variable>=<Value>` arguments separated by spaces to set multiple variables.
 
 === Viewing Custom Environment Variables
