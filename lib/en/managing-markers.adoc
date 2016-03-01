@@ -48,7 +48,7 @@ Below you can find links to markers available in various cartridges:
 
 link:jbossas-markers.html[JBoss AS markers] +
 link:jbosseap-markers.html[JBoss EAP markers] +
-link:node-js-project-structure.html#markers[Node.js markers] +
+link:node-js-markers.html[Node.js markers] +
 link:perl-overview.html#_markers[Perl markers] +
 link:php-markers.html[PHP markers] +
 link:python-markers.html[Python markers] +
