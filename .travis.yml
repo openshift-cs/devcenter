@@ -1,0 +1,52 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.2.0
+branches:
+  only:
+  - master
+script:
+# Create our _site/ dir
+- mkdir lib/_site
+- cd lib
+# Set up git stuff if we are going to deploy
+- |
+  if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+    echo -e "Host devcenter-osdevelopers.rhcloud.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config;
+    openssl aes-256-cbc -K $encrypted_635dc579ccfd_key -iv $encrypted_635dc579ccfd_iv -in ../id_rsa_deploy.enc -out id_rsa_deploy -d;
+    chmod 600 id_rsa_deploy;
+    eval "$(ssh-agent -s)";
+    ssh-add id_rsa_deploy;
+    # Start the git repo
+    cd _site/
+    git init;
+    # Do the git configs
+    git config --global user.email $USERMAIL;
+    git config --global user.name $USERNAME;
+    # And fetch the production state
+    git remote add production $REMOTE;
+    git pull production master;
+    cd ..
+  fi
+# Build
+- bundle exec awestruct -u https://developers.openshift.com
+# Push changes to production, if this isn't a PR
+- |
+  if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+    cd _site/
+    # Add all changes
+    git add .
+    # Create a readable commit message
+    MSG=$'Auto commit from Travis ('$TRAVIS_COMMIT$')\n\nGithub url: https://github.com/openshift/devcenter/commit/'$TRAVIS_COMMIT$'\nTravis Build number: '$TRAVIS_BUILD_NUMBER
+    git commit -m "$MSG"
+    # Push it to production
+    git push production master
+    echo "Deployed"
+  else
+    echo "Not deploying Pull Requests";
+  fi
+env:
+  global:
+  - secure: gegnXkeH7IBirXATgGEo3mhTznexNiLThd/ShR8IH9608rftbFhWundVdywQ5H+6by51pGIkkZSTCmLo15E2qeRavJoDDlxFQQawWs4Cb/vGIu9kgymjZxlY259dlCV8nt3IVeX65mvgq5ejUIBBy+rdkHp/PMe81EHV8bKHus0=
+  - secure: NJYiaWnSKroQh11LjyFfF6AjvOvgS81zdgkOEZcizkEZyp5FS8C4GBOn/xcn9+We+WAIb/jAxqtjBlDGdreBHQcrTxzpAFgMkifloBUPpnEkllwu8x7G2POa82bjS0/wYi5l5WZMFBMNjlKW48igYUkm3fRm7QZq8WaNxQpWQgE=
+  - secure: C9tyjbuADEK9qiJZQwYkrT3y57vQ6nOLPvWo3tojjPvBe5Ec1ZTgSv/+Og4Uo6TEeSlr5G4yA+crSjZnkt9MOwf8vZ7g1KJZo4N/ErswAgEXsbwnN2BiBy1sl3wTFa2ah/sfhW40yic3bAglCxRZ6lwXg9l8o+ZxPqH4c+gvnU4=
