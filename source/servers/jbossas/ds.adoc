@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Datasources
+
+description: JBoss AS Datasources
+---
+
+
+[float]
+= JBoss AS Datasources
+
+include::_fragments/java-jboss-datasources.adoc[]

@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Dependencies
+
+description: WildFly Dependencies
+---
+
+
+[float]
+= WildFly Dependencies
+
+include::_fragments/java-dependencies.adoc[]

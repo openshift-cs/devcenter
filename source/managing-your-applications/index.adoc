@@ -1,0 +1,48 @@
+---
+
+
+
+
+title: Overview
+
+description: An overview of account and application management guides on OpenShift.
+---
+
+
+[[top]]
+[float]
+= Overview of Management Guides
+[.lead]
+OpenShift Online offers a numbers of ways to set up and configure your account and applications.
+
+== General Information
+link:/index.html[What is OpenShift?] +
+link:/overview/basic-terminology.html[Basic Terminology] +
+link:/managing-your-applications/client-tools.html[Installing the Client Tools (RHC)] +
+link:/managing-your-applications/common-rhc-commands.html[Common RHC Commands] +
+link:/languages/index.html[Cartridge Overview] +
+link:/managing-your-applications/linux-commands.html[Common Linux Commands (for SSH)]
+
+== Account Management
+link:/managing-your-applications/domains-ssl.html[Domains and SSL] +
+link:/managing-your-applications/collaboration.html[Collaboration] +
+
+== Application Configuration
+link:/managing-your-applications/creating-applications.html[Creating an Application] +
+link:/managing-your-applications/filesystem.html[Application Filesystem] +
+link:/managing-your-applications/modifying-applications.html[Modifying an Application] +
+link:/managing-your-applications/adding-a-database.html[Adding a Database] +
+link:/managing-your-applications/resource-management.html[Resource Management] +
+link:/managing-your-applications/regions-and-zones.html[Regions and Zones] +
+link:/managing-your-applications/scaling.html[Scaling an Application] +
+link:/managing-your-applications/action-hooks.html[Action Hooks] +
+link:/managing-your-applications/environment-variables.html[Environment Variables] +
+link:/managing-your-applications/remote-connection.html[Remote Connection (SSH)] +
+link:/managing-your-applications/background-jobs.html[Background Jobs with Cron] +
+link:/managing-your-applications/continuous-integration.html[Continuous Integration with Jenkins]
+
+== Troubleshooting
+link:/managing-your-applications/backing-up-applications.html[Backup and Restore] +
+link:/managing-your-applications/log-files.html[Log Files] +
+link:/managing-your-applications/port-forwarding.html[Port Forwarding] +
+link:/managing-your-applications/remote-connection.html[Remote Connection (SSH)]

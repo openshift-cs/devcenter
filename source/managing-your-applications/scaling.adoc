@@ -1,0 +1,138 @@
+---
+
+
+
+
+title: Scaling
+
+description: How to manage application scaling on OpenShift, including setting scaling minimums, maximums, and manual scaling.
+---
+
+
+[[top]]
+[float]
+= Application Scaling
+[.lead]
+Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift Online infrastructure monitors incoming web traffic and can automatically add or remove application gears to handle changes in request volume.
+
+All plans allow the creation and management of scalable applications on OpenShift, but the Free Plan is limited to three small gears. Premium plans and link:https://www.openshift.com/dedicatednode[Dedicated Node Services] allow applications to be scaled from 1 to 16 gears (and beyond), and offer you full control over the minimum and maximum gears available to an application.
+
+NOTE: Applications on premium plans will never idle.
+
+== In this section
+link:#creating-a-scalable-application[Creating a Scalable Application] +
+link:#managing-application-scaling[Managing Application Scaling] +
+link:#scaling-variables[Scaling Environment Variables] +
+link:#scalable-vs-non-scalable[Scalable Versus Non-scalable Applications] +
+link:#how-scaling-works[How Scaling Works] +
+link:#supported-cartridges[Supported Cartridges] +
+
+[[creating-a-scalable-application]]
+=== Creating a Scalable Application
+You must specify whether or not an application can scale when you create the application.
+
+NOTE: By default, applications created on OpenShift Online are not scalable.
+
+If a scalable application is created, the scaling function of that application cannot be disabled. However, it is possible to clone a non-scaling application and all its associated data using the application clone command. See the link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Cloning_an_Existing_Application.html[OpenShift Online User Guide] for more information on cloning an application.
+
+==== Web Console
+
+When creating an application, select *Scale with web traffic* from the *Scaling* dropdown:
+
+image::overview-platform-features-4.png[Creating a Scalable Application]
+
+==== Command Line (rhc)
+
+When creating an application, the `-s` flag instructs OpenShift to enable scaling.
+
+For example:
+
+[source]
+----
+rhc app create scaledappexample php-5.4 -s
+----
+
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Creating_an_Application5.html[-> Learn more about creating scalable applications on OpenShift]
+
+link:#top[Back to Top]
+
+[[managing-application-scaling]]
+=== Managing Application Scaling
+A scalable application defaults to using one gear at a minimum and will use as many gears as you have available on your account. OpenShift allows you to set a minimum and maximum scale via the web console or the CLI.
+
+==== Web Console
+First, select the application you wish to scale from the list of existing applications. In the screen for the individual application, you can see what the current scaling settings are for each cartridge associated with the application. Click on the current scaling settings of a specific cartridge (in the following shot, *1-15* in the *Scales* section of the php-5.4 cartridge) to update the minimum and maximum number of gears:
+
+image::overview-platform-features-5.png[Changing Scaling Settings Part 1]
+
+Next, define the new *Minimum* and *Maximum* gear amount for the cartridge:
+
+image::overview-platform-features-6.png[Changing Scaling Settings Part 2]
+
+NOTE: If your new minimum is different than you old minimum, the application cartridge will immediately scale up or down when you click *Save*.
+
+==== Command Line (rhc)
+You can change the default scaling settings with the following command:
+
+[source]
+----
+$ rhc cartridge scale <your web cart> -a <app_name> --min <minimum> --max <maximum>
+----
+
+For example:
+
+[source]
+----
+$ rhc cartridge scale php-5.4 -a scaledappexample --min 1 --max 3
+----
+
+If you set the minimum scale above the current minimum, OpenShift will begin scaling up your application, and the operation won't finish until all of your gears are created.
+
+NOTE: If you specify `-1` as the `max` you'll scale up to your account limit.
+
+CAUTION: Sometimes your scale up request will return a timeout error, but the operation will continue on the server.
+
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Scaling_an_Application_Manually.html[-> Learn more about managing application scaling on OpenShift Online]
+
+link:#top[Back to Top]
+
+[[scaling-variables]]
+== Scaling Variables
+Scaling environment variables let you control how many sessions are allowed per gear before your application scales.
+
+|===
+|Variable Name|Purpose
+|OPENSHIFT_MAX_SESSIONS_PER_GEAR|Configures the max sessions used for the scaling algorithm
+|===
+
+The default for OPENSHIFT_MAX_SESSIONS_PER_GEAR is 16.  To learn more about scaling visit the link:/managing-your-applications/scaling.html[Application Scaling] page.
+
+link:#top[Back to Top]
+
+[[scalable-vs-non-scalable]]
+=== Scalable Versus Non-scalable Applications
+If you create a *non-scalable* application, which is the default, the web cartridge occupies only a single gear and all traffic is sent to that gear. If you add other cartridges like MongoDB or MySQL, those cartridges will share the same gear and resources as your web cartridge.
+
+When you create a *scalable* application, the HAProxy cartridge is added as a load balancer to your first web cartridge gear. If you add other cartridges like MongoDB or MySQL to your application, they are installed on their own dedicated gears.
+
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Applications.html#Scaled_and_Non-Scaled_Applications1[-> Learn more about scalable vs. non-scalable applications]
+
+link:#top[Back to Top]
+
+[[how-scaling-works]]
+=== How Scaling Works
+The *HAProxy cartridge* sits between your application and the public internet and routes web traffic to your web cartridges. When traffic increases, HAProxy notifies the OpenShift servers that it needs additional capacity. OpenShift checks that you have a free gear (out of your remaining account gears) and then creates another copy of your web cartridge on that new gear. The code in the git repository is copied to each new gear, but the data directory begins empty. When the new cartridge copy starts it will invoke your build hooks and then the HAProxy will begin routing web requests to it. If you push a code change to your web application all of the running gears will get that update.
+
+The first web gear in a scaling application has HAProxy installed, but also your web application. Once you scale to 3 gears, the web gear that is collocated with HAProxy is turned off, to allow HAProxy more resources to route traffic. Here's a http://docs.openshift.org/origin-m4/oo_system_architecture_guide.html#horizontal-scaling[diagram] of your scalable app. If you scale down back to 2 gears or less, the web cartridge on your first gear is started again.
+
+The algorithm for scaling up and scaling down is based on the number of concurrent requests to your application. OpenShift allocates 16 connections per gear - if HAProxy sees that you're sustaining 90% of your total connections, it adds another gear. If your demand falls to 50% of your total connections for several minutes, HAProxy removes that gear.
+
+Because each cartridge is 'shared-nothing', if you want to share data between cartridges you can use a database cartridge. Each of the gears created during scaling has access to the database and can read and write consistent data.
+
+The OpenShift web console shows you how many gears are currently being consumed by your application.
+
+[[supported-cartridges]]
+=== Supported Scaling Web Cartridges
+Most of the standard OpenShift link:/languages/index.html[web cartridges] are scalable using HAProxy, with the exception of the *Do-It-Yourself*, *Jenkins*, and *Zend* cartridges.
+
+link:#top[Back to Top]

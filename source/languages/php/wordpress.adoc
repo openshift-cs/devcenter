@@ -1,0 +1,62 @@
+---
+
+category:
+
+
+title: WordPress
+
+description: PHP developers - Deploying WordPress on OpenShift
+---
+
+
+[float]
+= Deploying WordPress on OpenShift
+
+link:http://wordpress.org[WordPress] is web software you can use to create a beautiful website or blog. We like to say that WordPress is both free and priceless at the same time.
+
+== Installation
+The easiest way to get WordPress up and running on OpenShift is to use the link:https://www.openshift.com/quickstarts/wordpress-4[Official OpenShift WordPress QuickStart].
+Just click the `Deploy Now` button and then enter a few details and you'll be up and running in no time.
+
+NOTE: If you need more control over your WordPress installation or want to manage all of the files through git, you can try using the link:https://github.com/openshift-quickstart/openshift-wordpress-developer-quickstart[OpenShift WordPress Developer QuickStart]
+
+== Managing your WordPress site on OpenShift
+
+=== Installing Themes and Plugins
+There are two ways that you can add Themes and Plugins to your WordPress application.
+
+* You can use the WordPress Admin section of your application (located at /wp-admin) and use the standard Theme and Plugin installation procedures.
+
+* You can download Themes and Plugins to your workstation and then copy them into your git repository in the `.openshift/themes` and `.openshift/plugins` directories.
+
+If you choose the second option, you will need to use the `git add`, `git commit, and `git push` commands to deploy the themes and plugins to your WordPress application.
+
+NOTE: If you are running a WordPress site on OpenShift as a link:/managing-your-applications/scaling.html[Scaled Application], you will need to use method two, or your Themes and Plugins will not be deployed to all of the gears.
+
+=== Enabling Multisite
+The OpenShift WordPress QuickStart is already setup for WordPress Multisite, all you have to do is enable it! +
+Once you have used the `git clone` command to copy the git repository to your workstation, you will need to edit the `.openshift/config/wp-config.php` file in your favorite editor and add the following text:
+[source,console]
+--
+/* Multisite */
+define( 'WP_ALLOW_MULTISITE', true );
+--
+Now save the file, do a `git commit` and a `git push` and then visit the admin section of your WordPress site and configure a network. +
+
+NOTE: For information on setting up and configuring a network, please visit the link:http://codex.wordpress.org/Create_A_Network[Official WordPress Documentation]
+
+IMPORTANT: WordPress Multisite may not be compatible with Scaling your WordPress application on OpenShift.  It has not been officially tested.
+
+=== Using a Custom .htaccess File
+If you need to add custom rules to your .htaccess file, such as for the W3 Total Cache plugin, you can do so by creating a file called `.htaccess` in the `.openshift/config` directory.
+
+Once you have created this file, you need to use the `git add`, `git commit`, and `git push` commands to deploy the file to your WordPress installation.  The file will automatically be copied to the correct location within your application.
+
+=== Scaling Your WordPress Application
+To use WordPress as a link:/managing-your-applications/scaling.html[Scaled Application] on OpenShift, you will need to complete a few additional steps.
+
+* We recommend that you first read this link:https://blog.openshift.com/how-to-automatically-scale-wordpress-on-openshift/[blog article] about scaling WordPress on OpenShift
+* You will need to make sure that your Themes, Plugins, custom .htaccess file, and wp-config.php files are all stored in your git repository
+* You will need to install a WordPress plugin that allows you to store all of your Media (such as images and videos) in a third party service such as Amazon S3 or Dropbox
+
+link:#top[Back to Top]

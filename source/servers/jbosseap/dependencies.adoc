@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Dependencies
+
+description: JBoss EAP Dependencies
+---
+
+
+[float]
+= JBoss EAP Dependencies
+
+include::_fragments/java-dependencies.adoc[]

@@ -1,0 +1,38 @@
+---
+
+
+
+
+title: Tomcat
+
+description: Tomcat Developers - OpenShift Resources to host your Java applications in the cloud.
+---
+
+
+[[top]]
+[float]
+= Tomcat Application Hosting
+[.lead]
+OpenShift Online currently supports `Tomcat 6` and `7` via `JBoss EWS` cartridges.
+
+TIP: Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. It powers numerous large-scale, mission-critical web applications across a diverse range of industries and organizations.
+
+Learn more at the link:http://tomcat.apache.org/[Tomcat homepage].
+
+image::tomcat.png[Powered by Tomcat]
+
+[[tomcat]]
+== The Tomcat (JBossEWS) Cartridge
+The `jbossews` cartridge provides Tomcat on OpenShift via the JBoss EWS package. This cartridge has special functionality to enable integration with OpenShift and with other cartridges. See *Cartridge Integrations* (below) and
+link:/servers/tomcat/environment-variables.html[Environment Variable Replacement Support] for details.
+
+[.lead]
+link:/servers/tomcat/getting-started.html[-> Get Started With Tomcat on OpenShift]
+
+[[tomcat-cartridge-integrations]]
+=== Cartridge Integrations
+The `jbossews` cart has out-of-the-box integration support with the RedHat `postgresql` and `mysql` cartridges. The default
+`context.xml` contains two basic JDBC `Resource` definitions, `jdbc/MySQLDS` and `jdbc/PostgreSQLDS`, which will be automatically
+configured to work with their respective cartridges if installed into your application.
+
+link:#top[Back to Top]

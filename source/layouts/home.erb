@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8"><![endif]-->
+<!--[if IE 9]><html class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="MCaLEYfZB8HfZSTyMQYZyBeRMXGoKt46uvrwEp-KN3M">
+    <meta name="msvalidate.01" content="AAA" />
+    <link rel="canonical" href="<%= "#{site_url}#{current_page.path}" %>">
+    <title><%= current_page.data.title || "OpenShift by Red Hat" %></title>
+    <meta name="description" content="<%= current_page.data.description || "" %>">
+    <%= favicon_tag "#{openshift_assets}/subdomain/favicon32x32.png", :rel => "apple-touch-icon-precomposed" %>
+    <%= favicon_tag "#{openshift_assets}/subdomain/favicon32x32.png" %>
+    <!--[if IE]><%= favicon_tag "#{openshift_assets}/subdomain/favicon.ico" %><![endif]-->
+    <%= stylesheet_link_tag "#{openshift_assets}/subdomain.css", :media => "screen, print" %>
+    <%= stylesheet_link_tag "discover", :media => "screen, print" %>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <%= javascript_include_tag "#{openshift_assets}/html5shiv.js" %>
+    <%= javascript_include_tag "#{openshift_assets}/respond.js" %>
+    <![endif]-->
+    <!-- IE8 requires jQuery and Bootstrap JS to load in head to prevent rendering bugs -->
+    <!-- IE8 requires jQuery v1.x -->
+    <%= javascript_include_tag "#{openshift_assets}/modernizr.js" %>
+    <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
+    <%= javascript_include_tag "//cdn.getsmartcontent.com/CJ6H4ZCB.js" %>
+</head>
+<body class="<%= page_classes %> online">
+    <%= partial "layouts/tracking" %>
+    <%= partial "layouts/navbar" %>
+    <%= yield %>
+    <%= partial "layouts/footer" %>
+    <script type="text/javascript">
+    <%= content_for?(:javascript) ? yield_content(:javascript) : '' %>
+    </script>
+</body>
+</html>

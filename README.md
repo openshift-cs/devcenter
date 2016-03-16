@@ -148,13 +148,13 @@ The page sources are human-readable `.adoc` files ([AsciiDoc](http://asciidoc.or
 At a minimum, the first several lines of a new .adoc document must follow this pattern:
 
     ---
-    layout: base <1>
-    category: 03_Languages <2>
-    breadcrumb: Languages <3>
-    parent_url: <4>
-    nav_title: JBossAS/Wildfly <5>
-    nav_priority: 2 <6>
-    meta_desc: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud. <7>
+    
+    
+    
+    
+    title: JBossAS/Wildfly <5>
+    
+    description: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud. <7>
     ---
     = JBossAS Overview <8>
 

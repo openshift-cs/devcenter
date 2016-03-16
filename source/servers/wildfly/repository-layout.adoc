@@ -1,0 +1,26 @@
+---
+
+category:
+
+
+title: Repository Layout
+
+description: WildFly Developers - OpenShift Cartridge Repository Layout
+---
+
+
+[float]
+= WildFly Repository Layout
+
+[source]
+--
+deployments/       Location for built WARs (details below)
+src/               Example Maven source structure
+pom.xml            Example Maven build file
+.openshift/        Location for OpenShift specific files
+  config/          location for configuration files such as standalone.xml
+  action_hooks/    See the Action Hooks documentation <1>
+  markers/         See the Markers documentation <2>
+--
+<1> link:/managing-your-applications/action-hooks.html[Action Hooks] documentation
+<2> link:/servers/wildfly/markers.html[Markers] documentation

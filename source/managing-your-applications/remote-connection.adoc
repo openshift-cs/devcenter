@@ -1,0 +1,112 @@
+---
+
+
+
+
+title: Remote Connection (SSH)
+
+description: Connect to your OpenShift application remotely using SSH. This page shows you how with Windows and other platforms.
+---
+
+[[top]]
+[[using-ssh-on-windows]]
+[float]
+= Remote Connection (SSH)
+[.lead]
+OpenShift Online uses the Secure Shell (SSH) network protocol to authenticate account credentials to the OpenShift Online servers for secure communication, and supports both RSA and DSA keys for SSH authentication.
+
+OpenShift uses SSH for performing Git operations and to provide remote access to your application gear.
+
+== In this Guide
+link:#setting-up-ssh-keys[Setting up SSH Keys] +
+link:#connecting-to-your-application[Connecting to an Application] +
+link:#common-commands[Common Commands] +
+link:#download-the-putty-installer[Using PuTTY on Windows (Optional)] +
+
+[[setting-up-ssh-keys]]
+== Setting up SSH Keys
+When the link:/managing-your-applications/client-tools.html[client tools are installed] and the `rhc setup` command is initially run to configure the client tools, the setup wizard generates a new pair of SSH keys in the default `.ssh` folder of your home directory.
+
+IMPORTANT: For Windows users, `rhc setup` will only upload your public key if you've already installed Ruby and  link:http://msysgit.github.io/[Git for Windows]. Alternatively, you can use link:#download-the-putty-installer[PuTTY] to connect to your application with SSH.
+
+As part of the initial configuration, you have the option of automatically uploading the public key to the remote server. Your account can have one or more public SSH keys associated with it, and you can access your account from any workstation that has the private SSH key on it.
+
+TIP: Red Hat recommends that you use the interactive setup wizard to create and configure SSH keys so that your workstation can authenticate and communicate with the remote server. Run the interactive setup wizard with the `rhc setup` command.
+
+Once `rhc setup` is run, you can log into your applications remotely from your computer, or connect and download the application source code via Git. If you have multiple computers, repeat the `rhc setup` procedure so that each computer has access to the application.
+
+If you would prefer to manually create and upload an SSH key, you can follow this link:https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/Generating_Keys_Manually4.html[guide]. SSH keys can be uploaded using the `rhc sshkey add` command or through the web console.
+
+link:#top[Back to Top]
+
+[[connecting-to-your-application]]
+=== Connecting to an Application
+Once you have created an application and set up your SSH keys (either by `rhc setup` or manual upload), you can SSH into the remote server using the `rhc ssh` command.
+
+To SSH into a specific application:
+[source]
+----
+$ rhc ssh <app_name>
+----
+
+You should then connect to your application's primary gear:
+[source]
+----
+    *********************************************************************
+
+    You are accessing a service that is for use only by authorized users.
+    If you do not have authorization, discontinue use at once.
+    Any use of the services is subject to the applicable terms of the
+    agreement which can be found at:
+    https://www.openshift.com/legal
+
+    *********************************************************************
+
+    Welcome to OpenShift shell
+
+    This shell will assist you in managing OpenShift applications.
+
+    !!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+    Shell access is quite powerful and it is possible for you to
+    accidentally damage your application.  Proceed with care!
+    If worse comes to worst, destroy your application with "rhc app delete"
+    and recreate it
+    !!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+
+    Type "help" for more info.
+----
+
+Now that you're connected, you can use the OpenShift shell to explore and modify your application.
+
+link:#top[Back to Top]
+
+[[common-commands]]
+== Common Commands
+Once you have SSHed into your application, you can use many link:/managing-your-applications/linux-commands.html[common Linux Commands].
+
+In addition to Linux commands, the following commands are available to help control your OpenShift application and environment:
+
+[source]
+----
+gear            control your application (start, stop, restart, etc)
+                or deps with --cart      (gear start --cart mysql-5.1)
+tail_all        tail all log files
+export          list available environment variables <1>
+rm              remove files / directories
+ls              list files / directories
+ps              list running applications
+kill            kill running applications
+mysql           interactive MySQL shell
+mongo           interactive MongoDB shell
+psql            interactive PostgreSQL shell
+quota           list disk usage
+
+Deprecated:
+ctl_app         control your application (start, stop, restart, etc)
+ctl_all         control application and deps like mysql in one command
+----
+<1> Find more information on using link:/managing-your-applications/environment-variables.html[Environment Variables]
+
+link:#top[Back to Top]
+
+include::_fragments/overview-ssh-putty.adoc[]

@@ -1,0 +1,10 @@
+---
+jbosseap  : "JBoss EAP"
+jbossas   : "JBoss AS"
+wildfly   : "WildFly"
+"jboss-xpaas" : "JBoss xPaas"
+faq       : "FAQ"
+nodejs    : "Node.js"
+php       : "PHP"
+python    : "Python"
+ruby      : "Ruby"

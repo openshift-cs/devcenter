@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Dependencies
+
+description: JBoss AS Dependencies
+---
+
+
+[float]
+= JBoss AS Dependencies
+
+include::_fragments/java-dependencies.adoc[]

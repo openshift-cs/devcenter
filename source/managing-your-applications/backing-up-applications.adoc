@@ -1,0 +1,72 @@
+---
+
+
+
+
+title: Backup and Restore
+
+---
+
+
+[[top]]
+[float]
+= Application Backup and Restore
+[.lead]
+Application snapshots are used to back up and restore applications. Snapshots are stored in *tar.gz* files, which contain the application and all local files, including log files.
+
+== Creating an Application Snapshot
+Create an application snapshot with the following command:
+
+[source]
+--
+$ rhc snapshot save <app_name>
+--
+
+=== Example:
+[source]
+--
+$ rhc snapshot save myapp
+Pulling down a snapshot to myapp.tar.gz...
+Creating and sending tar.gz
+
+RESULT:
+Success
+--
+
+The command prompts for any required information. The default filename for the snapshot is *<app_name>.tar.gz* and is created in your current directory. Choose a different filename or file path by using the `--filepath` option to override the defaults.
+
+== Restoring from an Application Snapshot
+
+Restoring from an application snapshot restores the Git repository, the application data directories, and the log files found in the specified archive. When the restoration is complete, the deployment script is run on the restored repository as though `git push` was run.
+
+WARNING: The `rhc snapshot` restore command overwrites the remote Git repository. Therefore, any changes made since taking the snapshot are lost. Importing snapshot data into a local environment can delete local content, for example a user table in a database. If you are unsure of the effect a snapshot import could have on local data, use SSH to access an application and create the backup directly.
+
+Restore an application from an application snapshot with the following command, specifying the name of the application:
+
+[source]
+--
+$ rhc snapshot restore <app_name>
+--
+
+=== Example:
+[source]
+--
+$ rhc snapshot restore myapp
+Restoring from snapshot myapp.tar.gz...
+Removing old git repo: ~/git/myapp.git/
+Removing old data dir: ~/app-root/data/*
+Restoring ~/git/<app_name>.git and ~/app-root/data
+Activation status: success
+
+RESULT:
+Success
+--
+
+If the override process was used to save an application under a different filename, as described above, you can restore this snapshot version of an application with the following command:
+
+[source]
+--
+$ rhc snapshot restore <app_name> --filepath <renamed_path>
+--
+
+where <app_name> is the name of the application, and <renamed_path> is the file path where it was saved.

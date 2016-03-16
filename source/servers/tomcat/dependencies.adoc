@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Dependencies
+
+description: Tomcat developers - Dependencies
+---
+
+
+[float]
+= Tomcat Dependencies
+
+include::_fragments/java-dependencies.adoc[]

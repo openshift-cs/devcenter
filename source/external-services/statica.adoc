@@ -1,0 +1,60 @@
+---
+
+
+
+
+title: Statica
+
+description: Using Statica as an external service for your OpenShift applications.
+---
+= Statica
+
+[float]
+
+
+[.lead]
+Statica allows you to route traffic from your OpenShift application via a Static IP allowing you to go through firewalls and access IP whitelisted services.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The Statica dashboard can be accessed by visiting: link:https://www.statica.io/users/sign_in[www.statica.io/users/sign_in]
+
+image::external-services/statica_dashboard.png[Statica Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== Statica Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|STATICA_STATICA_URL|http://statica124:d3daz61r04bd37db@us-east-1-static-brooks.quotaguard.com:9293
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set STATICA_STATICA_URL=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:/external-services/index.html#code-examples[code examples] to see how to use environment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://support.statica.io/support/home[http://support.statica.io/support/home].
+
+[[support]]
+== Support
+Phone support during 9am - 5pm GMT. Email support 7am - 10pm GMT.
+
+Phone Support::	+441273915125
+Email:: link:mailto:support@statica.io[support@statica.io]
+Knowledgebase:: link:http://support.statica.io/[http://support.statica.io/]

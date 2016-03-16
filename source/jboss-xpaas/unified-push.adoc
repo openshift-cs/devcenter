@@ -1,0 +1,159 @@
+---
+
+
+
+
+title: JBoss Unified Push
+
+description: An overview of the JBoss Unified Push runtime available on OpenShift.
+---
+
+
+[[top]]
+[float]
+= JBoss Unified Push
+[.lead]
+The Unified Push Server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage the push related aspects of their applications for any mobile development environment. Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library.
+
+link:#product-highlights[Product Highlights] +
+link:#support[Support] +
+link:#getting-started[Getting Started] +
+link:#video-walkthrough[Video Walkthrough]
+
+== Overview
+This cartridge provides the Red Hat JBoss Unified Push Server for easy deployment to OpenShift. The Red Hat JBoss Unified Push Server is a cloud based service that allows for sending native push notifications to different mobile platforms. The initial version of the server supports link:https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9[Apple's APNs] and link:http://developer.android.com/google/gcm/index.html[Google Cloud Messaging].
+
+[[product-highlights]]
+== Product Highlights
+Native Push notifications for mobile devices can be an extremely complex and challenging aspect of any mobile application. You need to handle multiple platforms, device registrations, message filtering, cleaning up of device references, just to name a few. However the use-cases that it solves can be handled no other way.
+
+This is where the Red Hat JBoss Unified Push Server comes in. With its unified API across the most popular mobile platforms, language agnostic RESTful interfaces, secured administrative console, and more, enabling native push in mobile applications has never been easier
+
+=== Application and Language Agnostic
+The backend integration based on a completely RESTful architecture. This means any application backend, from Java EE, Node.js, or PHP can easily interact with, and trigger push notifications.
+There are however, easy to use language specific libraries available to make interacting with the server even easier.
+
+* Java Sender, 1.0.0
+* Node.js Sender, 0.7.0
+
+The link:http://www.jboss.org/unifiedpush[API docs] discuss how to send a push notification, using curl.
+
+=== Simplified Unified API
+link:http://www.jboss.org/unifiedpush[Client side SDKs] which help to register the device from within your application with the Unified Push Server. Below is a list of supported platforms
+
+* Apache Cordova Push Plugin 1.0.2
+* Android Push 1.0.0
+* iOS Push 1.0.0
+
+=== Get Pushing Faster
+To get started using the JBoss Unified Push Server there are a series of quickstarts, from the basics, to business logic integration. Each quickstart comes with multiple client options (Android, iOS, and Apache Cordova (jQuery Mobile & Angular/Ionic).
+
+*Helloworld Push*
+
+The HelloWorld is a set of simple clients that show how to register a device with the Unified Push Server. On the Admin UI of the server you can use the "Send Push" menu to send a message to the different applications, running on your phone.
+
+*Mobile Contacts Push*
+
+The Mobile Contacts Quickstart is a Push-enabled CRUD example, containing several client applications (Android, Apache Corodva and iOS) and a JavaEE-based backend. The backend app is a secured (Picketlink) JAX-RS application which sends out push messages when a new contact has been created. Sometimes the backend (for a mobile application) has to run behind the firewall. For that the quickstart contains a Fabric8 based Proxy server as well.
+
+link:#top[Back to Top]
+
+[[support]]
+== Support
+JBoss Unified Push on OpenShift is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift. This preview does not come with guaranteed support. It can and likely will change as we make updates based on your use and feedback. Think of it in traditional product terms as an Alpha or Beta release.
+
+We are making this technology available under the link:http://www.jboss.org/developer-program/termsandconditions[terms and conditions] of our JBoss Developer Program. By loading the cartridge you accept these terms, which generally state that you can use this cartridge for development purposes and not for production or to access updates without an active Red Hat subscription.
+
+For general help on OpenShift, please visit the link:/help.html[Help Center].
+
+You can provide feedback, requests or contributions for the JBoss Unified Push cartridge on jboss.org at: link:https://developer.jboss.org/en/products/unifiedpush[https://developer.jboss.org/en/products/unifiedpush]
+
+Also check out the Quickstarts on link:http://www.jboss.org/unifiedpush[jboss.org]
+
+[[getting-started]]
+== Getting Started
+You first need to create an OpenShift account before being able to create applications with the Red Hat JBoss Unified Push Server cartridge. For information on how to create and setup your OpenShift account, please refer to  link:/getting-started/index.html[Getting Started with OpenShift Online].
+
+=== Installation
+You have different options to create your application.
+
+**Approach 1: use the OpenShift create application page**
+
+Go to the link:https://openshift.redhat.com/app/console/application_types[OpenShift create application page] and select the "JBoss Unified Push" cartridge from the "xPaaS" category. Configure the application in the following pages (you need to specify at least the Public URL. If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them in the Gears field).
+
+**Approach 2: use the rhc command line**
+
+If you want to use the rhc command line type:
+
+[source]
+--
+rhc app create --no-git <APP_NAME> jboss-unified-push-2
+--
+If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them running i.e. :
+[source]
+--
+rhc app create -g medium --no-git <APP_NAME> jboss-unified-push-2
+--
+
+When the installation completes, you will be presented with a list of generated users and passwords similar to the screencap below. Make sure you save them!
+
+image::push_creds.png[The Red Hat JBoss Unified Push Server cartridge defaults to using MySQL.]
+
+=== Administration
+Once the server is running access it via _\https://{APP_NAME}-{NAMESPACE}.rhcloud.com/ag-push_. For more information on using the console, see the link:http://docs.jboss.org/unifiedpush/[JBoss Unified Push documentation].
+
+The default username and password are `admin` and `123`, respectively. For security, on first login you are immediately prompted to change the password.
+
+**Access into the application shell**
+
+To access into the application shell:
+[source]
+--
+rhc ssh {APP_NAME}
+--
+
+**Manage JBoss EAP configuration**
+
+You should not need to configure the underlying JBoss EAP server, as this is a cloud service, not a runtime. However, if required the main configuration file for JBoss EAP is standalone.xml
+This file is available in your cartridge repository at location ./unified-push/standalone/configuration/standalone.xml.
+This is useful for changing container configurations such as root logger level and so on.
+
+
+=== Template Repository Layout
+
+* `./unified-push/usr/template/.openshift/` -- Location for OpenShift specific files
+* `action_hooks/` -- See the link:/managing-your-applications/action-hooks.html[Action Hooks documentation]
+* `markers/` -- See the Markers section below
+
+
+=== Environment Variables
+The unified-push cartridge provides several environment variables to reference for ease of use:
+
+* `OPENSHIFT_UNIFIED_PUSH_IP` -- The IP address used to bind JBoss EAP
+* `OPENSHIFT_UNIFIED_PUSH_HTTP_PORT` -- The JBoss EAP listening port
+* `OPENSHIFT_UNIFIED_PUSH_CLUSTER_PORT`
+* `OPENSHIFT_UNIFIED_PUSH_MESSAGING_PORT`
+* `OPENSHIFT_UNIFIED_PUSH_MESSAGING_THROUGHPUT_PORT`
+* `OPENSHIFT_UNIFIED_PUSH_REMOTING_PORT`
+* `JAVA_OPTS_EXT` -- Appended to JAVA_OPTS prior to invoking the Java VM
+
+
+For more information about environment variables, consult the link:http://docs.openshift.org/origin-m4/oo_user_guide.html[OpenShift Application Author Guide].
+
+=== Markers
+You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code.
+
+The `enable_jpda` marker file will enable the JPDA socket based transport on the java virtual machine running the JBoss EAP 6. This enables you to remotely debug code running inside the JBoss EAP 6.
+
+[source]
+--
+cd ./unified-push/usr/template/.openshift/markers/
+touch enable_jpda
+--
+
+[[video-walkthrough]]
+== Video Walkthrough
+video::ZFZlphKlGqM[youtube, width=640, height=400]
+
+
+link:#top[Back to Top]

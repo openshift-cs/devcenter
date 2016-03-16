@@ -1,0 +1,96 @@
+---
+
+
+
+
+title: Background Jobs
+
+description: Step-by-step how to build and run cron jobs for your application.
+---
+
+
+[float]
+= Background Jobs (Cron Overview)
+[.lead]
+This cartridge adds periodic job execution functionality to your OpenShift application.
+
+== Installation
+To add this cartridge to your application, you can either add it when you create your application:
+
+[source]
+----
+$ rhc app create <APP> ruby-1.9 cron
+----
+
+Or add it to your existing application:
+
+[source]
+----
+$ rhc cartridge add cron -a <APP>
+----
+
+=== Creating a job
+The jobs are organized in `.openshift/cron` directory of your application's source. Depending on how often you would like to execute the job, you place them in `minutely`, `hourly`, `daily`, `monthly`, `monthly`.
+
+The jobs are executed directly. If it is a script, use the "shebang" line to specify the interpreter to execute it.
+
+[source]
+----
+#! /bin/bash
+date > $OPENSHIFT_RUBY_LOG_DIR/last_date_cron_ran
+----
+
+[NOTE]
+====
+The jobs need to be executable:
+
+[source]
+----
+$ chmod +x .openshift/cron/minutely/awesome_job
+----
+====
+
+=== Installing the job
+Once you have created the job, add it to your application repository, commit and push.
+
+[source]
+----
+$ git add .openshift/cron/minutely/awesome_job
+$ git commit -m 'Execute bit set for cron job'
+$ git push
+----
+
+=== Execution timing
+The jobs are run by the node's `cron` at a specified frequency, however the exact timing is not guaranteed.
+If this unpredictability is not desirable, you can instrument your job to inspect the date and/or time when your job runs.
+
+For example, the following `minutely` job would do anything useful only at 12 minutes after the hour.
+
+[source]
+----
+#!/bin/bash
+minute=$(date '+%M')
+if [ $minute != 12 ]; then
+    exit
+fi
+# rest of the script
+----
+
+Another useful example would be running a job every 5 minutes, as seen here.
+
+You would place this code snippet in an executable file in the `minutely` cron job folder.
+
+[source]
+----
+#!/bin/bash
+if [ ! -f $OPENSHIFT_DATA_DIR/last_run ]; then
+  touch $OPENSHIFT_DATA_DIR/last_run
+fi
+if [[ $(find $OPENSHIFT_DATA_DIR/last_run -mmin +4) ]]; then #run every 5 mins
+  rm -f $OPENSHIFT_DATA_DIR/last_run
+  touch $OPENSHIFT_DATA_DIR/last_run
+  # The command(s) that you want to run every 5 minutes
+fi
+----
+=== See also
+https://blog.openshift.com/getting-started-with-cron-jobs-on-openshift[Getting Started with Cron Jobs on OpenShift]

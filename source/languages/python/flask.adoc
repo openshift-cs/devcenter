@@ -1,0 +1,157 @@
+---
+
+category:
+
+
+title: Flask Microframework
+
+description: Python developers - Flask microframework on OpenShift Online
+---
+
+
+[[top]]
+[float]
+= Getting Started with the Flask Microframework
+
+link:http://flask.pocoo.org[Flask] is a popular open-source microframework for Python. This tutorial steps through the process of creating a Python application on OpenShift and adding the Flask microframework.
+
+To create an OpenShift application based on a Flask QuickStart template instead, use the following terminal command:
+
+[source, console]
+----
+$ rhc app create myflaskapp python-2.7 --from-code=https://github.com/openshift-quickstart/flask-base.git
+----
+
+link:#step1[Step 1: Create Python Application] +
+link:#step2[Step 2: Add Flask Dependency] +
+link:#step3[Step 3: Create Basic Flask App] +
+link:#step4[Step 4: Update Entry Point] +
+link:#step5[Step 5: Deploy to OpenShift] +
+link:#next[Next Steps]
+
+[[step1]]
+== Step 1: Create Python Application
+
+Create a Python 2.7 application on OpenShift with the following terminal command. You will need link:https://www.openshift.com/app/account[an OpenShift account] and link:/managing-your-applications/client-tools.html[RHC]. More details about this process are covered in the link:/languages/python/getting-started.html[Getting Started with Python tutorial].
+
+[source, console]
+----
+$ rhc app create myflaskapp python-2.7
+----
+
+link:http://flask.pocoo.org/docs/0.10/python3/[Flask can be used with Python 3] and this works on OpenShift, but the framework authors recommend using Python 2.
+
+Once the RHC command has completed, a Git repository will have been cloned to your local machine in a directory called *myflaskapp*.
+
+link:#top[Back to Top]
+
+[[step2]]
+== Step 2: Add Flask Dependency
+
+Dependencies can be added to your Python application via link:/languages/python/repository-layout.html[*requirements.txt* or *setup.py*].
+
+Open *myflaskapp/requirements.txt* in an editor and add a line so it looks like the following:
+
+[source, python]
+----
+Flask==0.10.1
+----
+
+Flask will be available to your application on OpenShift when this change is pushed to the platform.
+
+link:#top[Back to Top]
+
+[[step3]]
+== Step 3: Create Basic Flask App
+
+Create a new file *flaskapp.py* in the Git repository, and add the following contents of the Flask 'Hello World' app:
+
+[source, python]
+----
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+----
+
+link:#top[Back to Top]
+
+[[step4]]
+== Step 4: Update Entry Point
+
+The default entry point for the Python application is *wsgi.py*. The next step is to alter this file so that it serves the new Flask application.
+
+Open *wsgi.py* in an editor, and delete the entire method *def application(environ, start_response)* (it is quite long). Replace the method with a line to import your Flask application, as shown below:
+
+[source, python]
+----
+#
+# IMPORTANT: Put any additional includes below this line.  If placed above this
+# line, it's possible required libraries won't be in your searchable path
+#
+
+from flaskapp import app as application
+
+#
+# Below for testing only
+#
+----
+
+If you want to be able to test your Flask app locally, there are a couple of other changes you should make to *wsgi.py*. Firstly, change the line defining *virtenv* to the following:
+
+[source, python]
+----
+virtenv = os.path.join(os.environ.get('OPENSHIFT_PYTHON_DIR','.'), 'virtenv')
+----
+
+This code caters for cases when the *OPENSHIFT_PYTHON_DIR* link:/managing-your-applications/environment-variables.html[environment variable] is not available, such as on your local machine.
+
+Next, update the line *httpd.handle_request()* to instead serve forever.
+
+[source, python]
+----
+httpd.serve_forever()
+----
+
+With these changes in place and link:http://flask.pocoo.org/docs/0.10/installation/[Flask installed on your local machine], you should be able to run your app locally with the following command:
+
+[source, console]
+----
+$ python wsgi.py
+----
+
+The application will be available at link:http://localhost:8051/[http://localhost:8051]. Use Control+C or a similar command to terminate the local server.
+
+link:#top[Back to Top]
+
+[[step5]]
+== Step 5: Deploy to OpenShift
+
+Deploy the Flask application to OpenShift using the standard Git process:
+
+[source, console]
+----
+$ git add --all
+$ git commit -m "Adding Flask application"
+$ git push
+----
+
+Once the Git push has completed, you should see the 'Hello World!' message when you navigate to your application at _\http://myflaskapp-<yourdomain>.rhcloud.com_.
+
+link:#top[Back to Top]
+
+[[next]]
+== Next Steps
+
+You now have a Flask application running on OpenShift. To learn more about Flask, dive into the link:http://flask.pocoo.org/docs/0.10/quickstart/[documentation].
+
+This link:http://github.com/openshift-quickstart/flask-base[OpenShift Flask QuickStart] gives an example of serving static files and a possible application layout. The QuickStart can be used as a template for link:https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=python-2.7&initial_git_url=https%3A%2F%2Fgithub.com%2Fopenshift-quickstart%2Fflask-base.git[quickly and easily creating Flask apps on OpenShift].
+
+To learn how to add a database to your application, see link:/managing-your-applications/adding-a-database.html[the OpenShift database tutorial]. link:http://pythonhosted.org/Flask-SQLAlchemy/[Flask-SQLAlchemy] is a popular Flask extension for working with databases using the link:http://www.sqlalchemy.org/[SQLAlchemy] Object Relational Mapper.
+
+link:#top[Back to Top]

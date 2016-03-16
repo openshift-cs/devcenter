@@ -1,0 +1,94 @@
+---
+
+
+
+
+title: ClearDB
+
+description: Using ClearDB MySQL Database as an external service for your OpenShift applications.
+---
+= ClearDB 
+[float]
+
+
+[.lead]
+ClearDB is a reliable, fault tolerant database-as-a-service for your MySQL powered applications.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#code-examples[Code Examples] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The ClearDB dashboard can be accessed by visiting: link:https://www.cleardb.com/login.view#accounts[www.cleardb.com/login.view]
+
+image::external-services/cleardb_dashboard.png[ClearDB Dashboard]
+
+The ClearDB dashboard allows you to manage your database, monitor performance, access backups, and view your credentials. You can also manage your support cases, among other things.
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== ClearDB Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|CLEARDB_JDBCURL|jdbc:mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6
+|CLEARDB_NAME|ad_e2530aa1edi1ae6
+|CLEARDB_PASSWORD|a107a37e
+|CLEARDB_PORT|3306
+|CLEARDB_URI|mysql://a6bc2e19e4di54:a107a37e@us-cdbr-iron-east-01.cleardb.net:3306/ad_e2530aa1edi1ae6?reconnect=true
+|CLEARDB_USERNAME|a6bc2e19e4di54
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set CLEARDB_JDBCURL=VALUE -a App_Name
+$ rhc env set CLEARDB_NAME=VALUE -a App_Name
+$ rhc env set CLEARDB_PASSWORD=VALUE -a App_Name
+$ rhc env set CLEARDB_PORT=VALUE -a App_Name
+$ rhc env set CLEARDB_URI=VALUE -a App_Name
+$ rhc env set CLEARDB_USERNAME=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:/external-services/index.html#code-examples[code examples] to see how to use environment variables within your application.
+
+[[code-examples]]
+== Code Examples
+The following code example shows how to easily configure your application to connect to a MySQL database provided by ClearDB.
+
+=== PHP
+Connecting to ClearDB from PHP merely requires the parsing of the `cleardb_*` environment variable and passing the extracted connection information to your MySQL library of choice, e.g. MySQLi:
+
+[source, php]
+----
+<?php
+$CLEARDB_URL = parse_url(getenv("CLEARDB_URI"));
+
+$conn = new mysqli(
+ $CLEARDB_URL['host'],
+ getenv('CLEARDB_USERNAME'),
+ getenv('CLEARDB_PASSWORD'),
+ getenv('CLEARDB_NAME'),
+ getenv('CLEARDB_PORT')
+);
+?>
+----
+
+You can then issue queries against the database using `$conn->query()`.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://www.cleardb.com/developers[https://www.cleardb.com/developers].
+
+[[support]]
+== Support
+Need help with your ClearDB database? Having trouble doing something that ordinarily "just works"? We're here to help. If you've already link:http://www.cleardb.com/developers/help/faq[checked out our FAQ] and our link:https://getsatisfaction.com/cleardb[support community] doesn't have a resolution to the issue, please link:https://www.cleardb.com/cases/new[create a new support case] so our team can assist in resolving the issue you're experiencing.
+
+Once we receive your support request, we will verify your account and begin to diagnose and identify the problem that you're experiencing. If we need more information, one of our team members will contact you. Once we have resolved the issue, we'll send you an email asking for you to verify that the problem has been rectified. Upon conformation that the problem has been resolved, we'll close the issue. 

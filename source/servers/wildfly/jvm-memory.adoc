@@ -1,0 +1,13 @@
+---
+
+category:
+
+
+title: JVM Memory
+
+description: WildFly JVM Memory
+---
+
+
+include::_fragments/java-jvm-memory.adoc[]
+

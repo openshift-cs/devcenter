@@ -1,0 +1,58 @@
+---
+
+
+
+
+title: Overview
+
+description: A list of fully-supported languages on OpenShift Online
+---
+
+
+[float]
+= OpenShift Online Cartridge Overview
+[.lead]
+OpenShift provides a wide range of languages and services, deployed in applications through a cartridge. Cartridges can be web frameworks, databases, monitoring services, or connectors to external backends.
+
+For a full list of currently supported cartridge technologies, please visit the link:https://www.openshift.com/products/technologies[Technologies] page.
+
+== OpenShift Runtime Environments
+OpenShift Online supports a variety of programming languages and runtimes.
+
+=== Java
+OpenShift allows extreme flexibility in working with your preferred runtime and framework, with support for *JBoss AS*, *Wildfly*, *JBoss EAP*, *Apache Tomcat*, and *Spring*. You can also extend your applications with a number of JBoss xPaaS services, such as *Fuse*, *Data Virtualization*, *BPM Suite*, or *Aerogear Push*. +
+link:/languages/java.html[-> Learn More]
+
+=== PHP
+OpenShift provides many options for PHP developers. Along with support for many popular PHP frameworks such as *CodeIgniter*, *CakePHP* and *Yii*, OpenShift Online has a vast selection of PHP quickstarts that can get you up and running with applications like *Wordpress*, *Drupal* and *Magento* in just a few minutes. +
+link:/languages/php/index.html[-> Learn More]
+
+=== Node.js
+A platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. +
+link:/languages/nodejs/index.html[-> Learn More]
+
+=== Python
+Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. With OpenShift you can easily deploy and run Python applications using your favorite frameworks and databases. +
+link:/languages/python/index.html[-> Learn More]
+
+=== Ruby
+With OpenShift, you can create robust Ruby applications without the need for application changes or proprietary APIs. You can also use one of our quickstarts for hassle-free deployment that is extensible and secure. +
+link:/languages/ruby/index.html[-> Learn More]
+
+=== Perl
+Want a Dancer application backed by MySQL? Or maybe you're looking for Mojolicious and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift. +
+link:/languages/perl.html[-> Learn More]
+
+=== Ceylon
+OpenShift allows flexibility in working with your preferred runtime and framework, with support for *Wildfly*, bare-bones and *Vert.x*.
+link:/languages/ceylon.html[-> Learn More]
+
+=== DIY
+The diy cartridge provides a minimal, free-form scaffolding which leaves all details of the cartridge to the application developer. +
+link:/languages/diy.html[-> Learn More]
+
+=== Custom
+Using a downloadable cartridge, you can easily bring your own frameworks and technologies to OpenShift, reducing the need to set up a DIY cart. link:/get-involved/extend-openshift.html[Read our guides] on creating and using your own cartridges. +
+link:/get-involved/extend-openshift.html[-> Learn More]
+
+

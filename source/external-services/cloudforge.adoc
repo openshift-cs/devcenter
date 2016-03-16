@@ -1,0 +1,44 @@
+---
+
+
+
+
+title: CloudForge
+
+description: Using CloudForge as an external service for your OpenShift applications.
+---
+= CloudForge
+
+[float]
+
+
+[.lead]
+CloudForge allows you to instantly provision the tools you need for your development team (Source Code Management, Issue/Defect Trackers, Agile Planning, Wikis, Discussions, Deployment & more).
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The CloudForge dashboard can be accessed by visiting: link:https://app.cloudforge.com/[app.cloudforge.com/]
+
+image::external-services/cloudforge_dashboard.png[CloudForge Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+There is no need to set environment variables within your application to use this service. 
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://help.cloudforge.com/[https://help.cloudforge.com/].
+
+[[support]]
+== Support
+Our #1 priority is keeping your team up and running at all times. With over a decade of delivering and supporting cloud services and applications, we will solve your problems expertly, promptly and with a personal touch.
+
+Support levels vary from plan to plan - visit link:http://cloudforge.com/support[http://cloudforge.com/support].
+
+Email:: support@cloudforge.com
+Knowledgebase:: http://help.cloudforge.com

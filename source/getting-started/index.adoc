@@ -1,0 +1,37 @@
+---
+
+
+
+
+title: Overview
+
+description: Get started at the web console or by installing the rhc command line tools for your operating system - Windows, Mac OS X, or Linux.
+---
+
+
+[[top]]
+[float]
+= Getting Started with OpenShift Online
+[.lead]
+It's easy to get up and running on OpenShift, but you have a lot of choice when it comes to your preferred environment. Below you'll find the information you need to get started creating and managing applications on OpenShift.
+
+OpenShift allows a choice of environments (UI, command line, IDE), but in order to get the most out of your applications, you'll want to at least use the OpenShift client tools (*rhc*). RHC is a ruby gem, and requires *Ruby* and *Git*.
+
+If you just want to log in and create your first application, you can simply log into the link:https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole[web console (requires login)]. However, you won't be able to make changes to your application until you've followed the instructions below.
+
+== By Operating System
+[.lead]
+link:/getting-started/windows.html[Windows] +
+link:/getting-started/osx.html[Mac/OS X] +
+link:/getting-started/fedora.html[Fedora] +
+link:/getting-started/rhel-centos.html[RHEL/CentOS] +
+link:/getting-started/debian-ubuntu.html[Debian/Ubuntu]
+
+[[tutorials]]
+== By Language/Technology
+
+Access one of our more specific tutorials or learn more about specific cartridges on OpenShift.
+
+include::_fragments/getting-started-tutorial-list.adoc[]
+
+link:#top[Back to Top]

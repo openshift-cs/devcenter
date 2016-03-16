@@ -1,0 +1,25 @@
+---
+
+
+
+
+title: WildFly
+
+description: WildFly Developers - OpenShift Resources to host your Java applications in the cloud.
+---
+
+
+[[top]]
+[[java]]
+[float]
+= WildFly Application Hosting
+
+[[jbossas]]
+== The WildFly Cartridge
+[.lead]
+Provides `WildFly 8.2 Final` application server on OpenShift.
+
+image::wildfly-logo.png[JBoss logo]
+
+[.lead]
+link:/servers/wildfly/getting-started.html[-> Get Started With WildFly on OpenShift]
