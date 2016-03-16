@@ -15,4 +15,6 @@ meta_desc: How OpenShift routes HTTP/HTTPS/WS/WSS requests to your application a
 [.lead]
 image::port-binding-routing.png[Port Binding and Routing]
 
-If you are building a cartridge and trying to bind to internal ports, please see the link:https://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#endpoints[Cartridge Developers Guide].
+TIP: If you are building a cartridge and trying to bind to internal ports, please see the link:https://docs.openshift.org/origin-m4/oo_cartridge_developers_guide.html#endpoints[Cartridge Developers Guide].
+
+NOTE: link:managing-domains-ssl.html#using-a-custom-ssl-certificate[Custom SSL certificates] are not available for wss. Use the default **.rhcloud.com* certificate with secure web sockets.
