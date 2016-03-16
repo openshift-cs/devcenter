@@ -91,6 +91,6 @@ http://MyApp-MyDomain.rhcloud.com/
 
 [[phpmyadmin]]
 === phpMyAdmin
-The `phpmyadmin` cartridge provides http://www.phpmyadmin.net[phpMyAdmin] on OpenShift. In order to add this cartridge to an application, the link:#top[MySQL] cartridge must already be present. Once installed, phpMyAdmin can be used by navigating to http://_app_-_domain_.rhcloud.com/phpmyadmin with the MySQL login credentials.
+The link:addons-phpmyadmin.html[*phpmyadmin* cartridge] provides http://www.phpmyadmin.net[phpMyAdmin] on OpenShift. In order to add this cartridge to an application, the link:#top[MySQL] cartridge must already be present. Once installed, phpMyAdmin can be used by navigating to http://_app_-_domain_.rhcloud.com/phpmyadmin with the MySQL login credentials.
 
 link:#top[Back to Top]

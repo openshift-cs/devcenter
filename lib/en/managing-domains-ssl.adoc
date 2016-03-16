@@ -120,9 +120,9 @@ link:#top[Back to Top]
 === Using a Custom SSL Certificate
 OpenShift includes support for link:http://en.wikipedia.org/wiki/Server_Name_Indication[Server Name Identification], which improves support for link:http://en.wikipedia.org/wiki/Server_Name_Indication#How_SNI_fixes_the_problem[TLS] by sending your OpenShift-configured domain alias as a part of the handshake.
 
-You can always take advantage of our **.rhcloud.com* wildcard certificate in order to securely connect to any application via it's original, OpenShift-provided hostname URL.
-
 Support for enabling *HTTPS* connections to custom, aliased hostnames is available for users of https://www.openshift.com/products/pricing[OpenShift Online's premium plans].
+
+If you are not using one of the premium plans, or if you are connecting to your app using link:managing-port-binding-routing.html[secure web sockets], you can always take advantage of our **.rhcloud.com* wildcard certificate in order to securely connect to any application via it's original, OpenShift-provided hostname URL.
 
 If you are still getting by on the link:https://www.openshift.com/products/pricing[Free Plan], you'll see a warning message at the top of your application's SSL configuration area. Upgrading to the Bronze or Silver plan adds support for providing your own SSL cert.
 

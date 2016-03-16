@@ -17,14 +17,14 @@ phpMyAdmin is a free software tool written in PHP, intended to handle the admini
 
 
 == Installation
-phpMyAdmin can be installed using the following command:
+The phpMyAdmin add-on can be installed using the following command:
 [source,console]
 --
 $rhc cartridge add phpmyadmin -a <appname>
 --
 NOTE: You must have one of the MySQL cartridges installed for this add-on to be installed.
 
-NOTE: You can not install this add-on into a scaled application.
+TIP: You can not install this add-on into a *scalable* application. Consider link:managing-port-forwarding.html[port forwarding] in order to use a local database management software of your choice.
 
 [source,console]
 --
