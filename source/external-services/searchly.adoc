@@ -1,0 +1,60 @@
+---
+
+
+
+
+title: Searchly
+
+description: Using Searchly as an external service for your OpenShift applications.
+---
+= Searchly
+
+[float]
+
+
+[.lead]
+Searchly is a hosted search solution powered by ElasticSearch.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The Searchly dashboard can be accessed by visiting: link:https://dashboard.searchly.com/users/sign_in[dashboard.searchly.com/users/sign_in]
+
+image::external-services/searchly_dashboard.png[Searchly Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== Searchly Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|SEARCHLY_SSLURI|https://gopivotal:932274a12ed3453867dcc0cfcab57480@fili-us-east-1.searchly.com
+|SEARCHLY_URI|http://gopivotal:932274a94ed1653827dcc0cfcab57680@fili-us-east-1.searchly.com
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set SEARCHLY_SSLURI=VALUE -a App_Name
+$ rhc env set SEARCHLY_URI=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:/external-services/index.html#code-examples[code examples] to see how to use environment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://www.searchly.com/documentation/[http://www.searchly.com/documentation/].
+
+[[support]]
+== Support
+
+Email::	link:mailto:support@searchly.com[support@searchly.com]
+Knowledgebase::	link:http://support.searchly.com/[http://support.searchly.com/]

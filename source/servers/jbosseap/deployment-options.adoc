@@ -1,0 +1,31 @@
+---
+
+category:
+
+
+title: Deployment Options
+
+description: JBoss EAP OpenShift deployment options
+---
+
+
+[float]
+= JBoss EAP Deployment Options
+There are two options for deploying content to the JBoss Application Server within OpenShift. Both options
+can be used together (i.e. build one archive from source and others pre-built)
+
+If you need to add *JBoss Modules* to your application you will need to place the files in your git repository under `.openshift/config/modules`.
+
+NOTE: Under most circumstances the `.dodeploy` file markers should not be added to the deployments directory. These lifecycle files will be created in the runtime deployments directory (can be seen by SSHing into the application), but should not be added to the git repo.
+
+== Git Push Source Files
+You can upload your content in a Maven src structure and on git push have the application built and deployed.  For this to work you'll need your `pom.xml` at the root of your repository and a *maven-war-plugin* to move the output from the build to the deployments directory.  By default the `warName` is *ROOT* within `pom.xml`.  This will cause the `webapp` contents to be rendered at _\http://app_name-namespace.rhcloud.com/_.  If you change the warName in `pom.xml` to *app_name*, your base url would then become _\http://app_name-namespace.rhcloud.com/app_name_.
+
+NOTE: If you are building locally you'll also want to add any output WARs/EARs under deployments from the build to your `.gitignore` file.
+
+NOTE: If you are running scaled JBoss EAP then you need an application deployed to the root context (i.e. _\http://app_name-namespace.rhcloud.com/_) for the HAProxy load-balancer to recognize that the JBoss EAP instance is active.
+
+include::_fragments/java-jboss-deploy-precompiled.adoc[]
+
+Whether you choose Method 1 or 2 the end result will be the application deployed into the deployments directory. The deployments directory in the JBoss Application Server distribution is the location end users can place their deployment content (e.g. WAR, EAR, JAR, SAR files) to have it automatically deployed into the server runtime.
+

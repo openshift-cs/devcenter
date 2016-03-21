@@ -1,0 +1,338 @@
+---
+
+
+
+
+title: For Windows
+
+description: Get started on Windows by installing the rhc command line tools for the Windows operating system.
+---
+
+
+[[top]]
+[float]
+= OpenShift Online for Windows
+[.lead]
+This tutorial is designed to help you get the most out of OpenShift Online on a Windows machine. In addition to the link:https://openshift.redhat.com/app/console[web interface], OpenShift provides client tools (rhc) to help you create and manage your applications.
+
+OpenShift allows a choice of environments (UI, command line, IDE), but in order to get the most out of your applications, you'll want to at least use the OpenShift client tools (*rhc*). On a Windows machine, this requires you to also install *Ruby* and *Git*.
+
+If you just want to log in and create your first application, you can simply log into the link:https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole[web console (requires login)]. However, you won't be able to make changes to your application until you've followed the instructions below.
+
+== In this Tutorial
+link:#client-tools[Installing the Client Tools] +
+link:#rhc-setup[Setting up Your Machine] +
+link:#creating-app[Creating an Application] +
+link:#making-first-change[Making Your First Change] +
+link:#remote-access[Remote Access] +
+link:#next-steps[Next Steps] +
+
+[[client-tools]]
+== Installing the Client Tools on Windows
+Installing the client tools (rhc) on Windows requires three steps:
+
+*Step 1*: Install *Ruby* with RubyInstaller +
+*Step 2*: Install *Git* version control +
+*Step 3*: Install the *rhc* Ruby gem
+
+IMPORTANT: Before you can install the rhc client tools, you must download and install Ruby and Git on your system.
+
+NOTE: Sufficient privileges are required to install software on Windows systems. Depending on specific user permissions, disabling the User Account Control (UAC) on Windows Vista or Windows 7 operating systems may be necessary.
+
+=== Step 1 - Install Ruby
+link:http://rubyinstaller.org[RubyInstaller] provides the best experience for installing Ruby on Windows. link:http://rubyinstaller.org/downloads/[Download the latest 1.9.3 version] and launch the installer.
+
+IMPORTANT: During the installation you can accept all of the defaults, but it is mandatory that you select the *Add Ruby executables to your PATH* check box in order to run Ruby from the command line (see image below).
+
+image::getting-started/windows-rubyinstaller.png[RubyInstaller on Windows]
+
+After the installation is completed, to verify that the installation is working open a Command Prompt and run:
+[source]
+----
+C:\> ruby -v
+----
+
+You should get a response with your installed Ruby verion:
+[source]
+----
+ruby 1.9.3p550 (2014-10-27) [i386-mingw32]
+----
+
+If the Ruby version message does not display, the Ruby executable may not have been added to the path. Restart the installation process and ensure the *Add Ruby executables to your PATH* check box is selected as in the image above.
+
+[[installing-git]]
+=== Step 2 - Install Git
+The next step is to install link:http://msysgit.github.com/[Git for Windows] so that you can synchronise your local application source and your OpenShift application.
+
+Using Git for Windows will greatly simplify the setup and management of SSH keys using basic rhc commands. It will also allow you to SSH into your applications without the need for additional tools.
+
+Download and install the link:http://msysgit.github.io/[latest version of Git for Windows].
+
+IMPORTANT: During the installation process, select the *Run Git from the Windows Command Link Prompt* checkbox so that Git can be run from the command line. Also, select *Checkout Windows-style, commit Unix-style line endings*, which is the recommended setting.  Finally, in order to set up rhc from Git Bash, select *Use Windows' default console window* to configure the terminal emulator for Git Bash.  You can set up rhc from the Windows Powershell or Ruby Command Prompt if you prefer the MinTTY terminal emulator.    
+
+After the installation is completed, to verify that Git is correctly configured run:
+
+[source]
+----
+C:\> git --version
+----
+
+If Git was installed correctly, you should see the installed version number:
+[source]
+----
+git version 1.9.4.msysgit.2
+----
+
+[[installing-the-openshift-gem]]
+=== Step 3: Install and Configure the OpenShift gem
+After Ruby and Git are correctly installed, use the RubyGems package manager (included in Ruby) to install the OpenShift client tools:
+[source]
+----
+C:\> gem install rhc
+----
+
+RubyGems downloads and installs the rhc gem from link:http://rubygems.org/gems/rhc[www.rubygems.org/gems/rhc].
+
+link:#top[Back to Top]
+
+=== Video Walkthrough for Installing Client Tools (rhc) on Windows
+video::0jj8fLiO1Bs[youtube]
+
+link:#top[Back to Top]
+
+[[rhc-setup]]
+== Setting up Your Machine
+After installation is complete, open the Command Prompt and run:
+[source]
+----
+C:\> rhc setup
+----
+The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process.
+
+You'll be prompted for your OpenShift username and password:
+
+[source]
+----
+Login to openshift.redhat.com: user@example.com
+Password: password
+----
+
+You are then prompted to generate an authorization token. Answering yes stores a token in your home directory to be used on subsequent requests. When it expires, you are prompted for your password again.
+
+[source]
+----
+OpenShift can create and store a token on disk which allows to you to access the server without using your password. The key is stored in your home directory and should be kept secret. You can delete the key at any time by running 'rhc logout'.
+Generate a token now? (yes|no) yes
+Generating an authorization token for this client ... lasts about 1 day
+----
+
+After creating a configuration file, setup will configure SSH keys so that your system can remotely connect to your applications, including deploying your applications using Git:
+
+[source]
+----
+No SSH keys were found. We will generate a pair of keys for you.
+Created: C:\Users\User1\.ssh\id_rsa.pub
+----
+
+After the new SSH keys are generated, the public key, id_rsa.pub, must be uploaded to the OpenShift server to authenticate your system to the remote server. Enter a name to use for your key, or leave it blank to use the default name. In the following example the default name is used.
+
+[source]
+----
+Your public ssh key must be uploaded to the OpenShift server to access code.
+Upload now? (yes|no) yes
+
+Since you do not have any keys associated with your OpenShift account, your new key will be uploaded as the 'default' key
+
+Uploading key 'default' from C:\Users\User1\.ssh\id_rsa.pub ... done
+----
+
+After verifying that link:#installing-git[Git is installed], you will be asked to set up your domain if you don't already have one:
+
+[source]
+----
+Checking for a domain ... none
+
+Your domain is unique to your account and is the suffix of the public URLs we assign to your applications. You may configure your domain here or leave it blank and use 'rhc domain create' to create a domain later. You will not be able to create applications without first creating a domain.
+
+Please enter a domain (letters and numbers only) |<none>|: MyDomain
+Your domain name 'MyDomain' has been successfully created
+----
+
+Finally, the setup wizard verifies whether any applications exist under your domain. Any applications created with the Management Console are displayed here. In the example below, no applications have been created. In this case the setup wizard shows the types of applications that can be created with the associated commands. The setup wizard then completes by displaying the current gear consumption along with the gear sizes available to the given user.
+
+[source]
+----
+Checking for applications ... none
+
+Run 'rhc app create' to create your first application.
+
+Do-It-Yourself                            rhc app create <app name> diy-0.1
+JBoss Application Server 7.1              rhc app create <app name> jbossas-7
+JBoss Enterprise Application Platform 6.0 rhc app create <app name> jbosseap-6.0
+Jenkins Server 1.4                        rhc app create <app name> jenkins-1.4
+Node.js 0.10                              rhc app create <app name> nodejs-0.10
+PHP 5.3                                   rhc app create <app name> php-5.3
+PHP 5.4                                   rhc app create <app name> php-5.4
+Perl 5.10                                 rhc app create <app name> perl-5.10
+Python 2.6                                rhc app create <app name> python-2.6
+Python 2.7 Community Cartridge            rhc app create <app name> python-2.7
+Python 3.3 Community Cartridge            rhc app create <app name> python-3.3
+Ruby 1.8                                  rhc app create <app name> ruby-1.8
+Ruby 1.9                                  rhc app create <app name> ruby-1.9
+Tomcat 6 (JBoss EWS 1.0)                  rhc app create <app name> jbossews-1.0
+Tomcat 7 (JBoss EWS 2.0)                  rhc app create <app name> jbossews-2.0
+Zend Server 5.6                           rhc app create <app name> zend-5.6
+
+You are using 0 of 3 total gears
+The following gear sizes are available to you: small
+
+Your client tools are now configured.
+----
+
+You are now ready to create and manage an application using OpenShift.
+
+If you cannot run OpenShift client tools at this point, please visit the link:/help.html[Help Center] for more assistance.
+
+link:#top[Back to Top]
+
+[[creating-app]]
+== Creating an Application
+Now that you have rhc installed and configured, you are ready to create an application.
+
+You can create a new application with either the management console or the client tools.
+
+=== Using the Web Console
+You can see the full list of application types and create a new application through the OpenShift web console:
+link:https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole%2Fapplication_types[Create an Application (requires login)]
+
+=== Using the Client tools (rhc)
+Alternatively, you can use rhc to create an application using the following command:
+
+[source]
+----
+C:\> rhc app create <app_name> <web_cartridge_name>
+----
+
+For example, to create a PHP 5.4 application named *myfirstphpapp*, use the following command:
+
+[source]
+----
+C:\> rhc app create myfirstphpapp php-5.4
+----
+
+There are a number of options available when creating a new application. To learn more about creating an application on OpenShift, see link:/managing-your-applications/creating-applications.html[Creating Applications].
+
+link:#top[Back to Top]
+
+== Making Your First Change
+OpenShift uses Git to manage application deployments on OpenShift. You make code changes on your local machine, check those changes in locally, and then push those changes to OpenShift.
+
+=== Using the Git Repository
+Every OpenShift application you create has its own Git repository that only you can access.
+
+==== Command Line (RHC)
+If you create your application from the command line, *rhc* will automatically download a copy of that repository (Git calls this 'cloning') to your local system.
+
+==== Web Console
+If you create an application from the web console, you'll need to tell Git to clone the repository. Find the Git URL from the application page, and then run:
+
+[source]
+----
+C:\> git clone <git_url> <directory to create>
+----
+
+=== Submitting Changes
+Once you make changes to your local repository, you need to *add* and *commit* those changes - `add` tells Git that a file or set of files will become part of a larger check in, and `commit` completes the check in. Git requires that each commit have a message to describe it.
+
+[source]
+----
+C:\> git add .
+C:\> git commit -m "A change to my application"
+----
+
+Finally, you're ready to send your changes to your application - you'll 'push' these changes with:
+
+[source]
+----
+C:\> git push
+----
+
+The output of the push command will contain information from OpenShift about your deployment.
+[.lead]
+link:http://git-scm.com/book[-> Learn more about using Git] +
+link:/managing-your-applications/modifying-applications.html[-> Learn More About Modifying Applications]
+
+link:#top[Back to Top]
+
+[[remote-access]]
+== Remote Access
+OpenShift allows you to remotely access your application's gears in order to perform various tasks such as troubleshooting, working with log files, and managing environment variables
+
+Once you have created an application and set up your SSH keys (either by `rhc setup` or manual upload), you can SSH into the remote server using the `rhc ssh` command.
+
+To SSH into a specific application:
+[source]
+----
+C:\> rhc ssh <app_name>
+----
+
+You should then connect to your application's primary gear:
+[source]
+----
+*********************************************************************
+
+You are accessing a service that is for use only by authorized users.
+If you do not have authorization, discontinue use at once.
+Any use of the services is subject to the applicable terms of the
+agreement which can be found at:
+https://www.openshift.com/legal
+
+*********************************************************************
+
+Welcome to OpenShift shell
+
+This shell will assist you in managing OpenShift applications.
+
+!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+Shell access is quite powerful and it is possible for you to
+accidentally damage your application.  Proceed with care!
+If worse comes to worst, destroy your application with "rhc app delete"
+and recreate it
+!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!!
+
+Type "help" for more info.
+----
+
+Now that you're connected, you can use the OpenShift shell to explore and modify your application.
+
+=== Common Commands
+Once you have SSHed into your application, you can use many link:/managing-your-applications/linux-commands.html[common Linux Commands].
+
+In addition to Linux commands, the following commands are available to help control your OpenShift application and environment:
+
+[source]
+----
+gear            control your application (start, stop, restart, etc)
+or deps with --cart      (gear start --cart mysql-5.1)
+tail_all        tail all log files
+export          list available environment variables <1>
+rm              remove files / directories
+ls              list files / directories
+ps              list running applications
+kill            kill running applications
+mysql           interactive MySQL shell
+mongo           interactive MongoDB shell
+psql            interactive PostgreSQL shell
+quota           list disk usage
+----
+<1> Find more information on using link:/managing-your-applications/environment-variables.html[Environment Variables]
+
+link:#top[Back to Top]
+
+[[next-steps]]
+== Next Steps
+This guide has just scratched the surface of what you can do with OpenShift Online. Feel free to explore other topics under link:/managing-your-applications/common-rhc-commands.html[Managing Your Applications] or visit one of the technology-specific tutorials below:
+
+include::_fragments/getting-started-tutorial-list.adoc[]
+
+link:#top[Back to Top]

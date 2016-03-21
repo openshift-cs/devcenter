@@ -1,0 +1,56 @@
+---
+
+category:
+
+
+title: Environment Variables
+
+description: Tomcat developers - OpenShift Online Tomcat / JBoss EWS environment variables
+---
+
+
+[float]
+= Tomcat Environment Variables
+
+The Tomcat cartridge provides several environment variables to reference for ease of use:
+
+[cols="1,2",options="header"]
+|===
+|Variable Name |Purpose
+
+|OPENSHIFT_JBOSSEWS_IP
+|The IP address used to bind EWS
+
+|OPENSHIFT_JBOSSEWS_HTTP_PORT
+|The EWS listening port
+
+|OPENSHIFT_JBOSSEWS_JPDA_PORT
+|The EWS JPDA listening port
+
+|JAVA_OPTS_EXT
+|Appended to JAVA_OPTS prior to invoking the Java VM
+|===
+
+For more information, consult the link:/managing-your-applications/environment-variables.html[Environment Variables] guide.
+
+[[tomcat-environment-variable-replacement-support]]
+*Environment Variable Replacement Support*
+
+The `jbossews` cart provides special environment variable replacement functionality for some of the Tomcat configuration files. For the following configuration files:
+
+* `.openshift/config/server.xml`
+* `.openshift/config/context.xml`
+
+Ant-style environment replacements are supported for all `OPENSHIFT_`-prefixed environment variables in the application. For example, the following replacements are valid in `server.xml`:
+
+[source, xml]
+--
+<Connector address="${OPENSHIFT_JBOSSEWS_IP}"
+           port="${OPENSHIFT_JBOSSEWS_HTTP_PORT}"
+           protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443" />
+--
+
+During server startup, the configuration files in the source repository are processed to replace `OPENSHIFT_*` values, and the resulting processed file is copied to the live Tomcat configuration directory.
+

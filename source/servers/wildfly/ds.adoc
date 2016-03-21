@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Datasources
+
+description: WildFly Datasources
+---
+
+
+[float]
+= WildFly Datasources
+
+include::_fragments/java-jboss-datasources.adoc[]

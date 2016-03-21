@@ -1,0 +1,37 @@
+---
+
+category:
+
+
+title: Markers
+
+description: Node.js - OpenShift Online PHP marker files
+---
+= Node.js Markers
+
+[float]
+= Node.js Markers
+Marker files can be used to customize various aspects of the Nodejs build and deployment process.
+
+Adding the following empty files to your project's `.openshift/markers` folder allows you to customize the runtime experience:
+
+[cols="1,3",options="header"]
+|===
+|Marker File | Effect
+
+|force_clean_build
+|Will remove all previous dependencies and start installing required dependencies from scratch.
+
+|use_npm
+|Initialize your application or service using `npm start` instead of `supervisor servername.js` (where `servername.js` is based on the value of your `package.json`'s `main` attribute).
+
+|NODEJS_VERSION
+|File with a version number will force that specific version to be run. E.g.: for running Node version 0.9.1, simply put `0.9.1` into this marker file.
+
+|hot_deploy
+|Push code updates without waiting for a full application restart. link:/managing-your-applications/modifying-applications.html#_hot_deployment_build_details[This feature] is not available when the `use_npm` marker is enabled.
+
+|disable_auto_scaling
+|Will prevent scalable applications from scaling up or down, according to application load.
+
+|===

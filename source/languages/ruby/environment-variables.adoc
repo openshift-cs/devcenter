@@ -1,0 +1,31 @@
+---
+
+category:
+
+
+title: Environment Variables
+
+description: Ruby Developers - Environment Variables
+---
+
+
+[float]
+= Ruby Environment Variables
+
+The Ruby cartridge provides several environment variables to reference for ease of use:
+
+[cols="1,3",options="header"]
+|===
+|Variable Name |Purpose
+
+|OPENSHIFT_RUBY_LOG_DIR
+|Location of log files
+
+|OPENSHIFT_RUBY_VERSION
+|The Ruby language version
+
+|BUNDLE_WITHOUT
+|Prevents Bundler from installing certain groups specified in the Gemfile
+|===
+
+See the other link:/managing-your-applications/environment-variables.html[Environment Variables] that are available on OpenShift.

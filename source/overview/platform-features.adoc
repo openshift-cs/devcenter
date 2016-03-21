@@ -1,0 +1,85 @@
+---
+
+
+
+
+title: OpenShift Features
+
+description: OpenShift Online offers many powerful application management options some of which are only available on the premium Bronze and Silver plans.
+---
+
+
+[[top]]
+[float]
+= OpenShift Features
+[.lead]
+OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features.
+
+IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). link:https://www.openshift.com/dedicatednode[Dedicated Node Services] are available for purchase worldwide.
+
+If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
+
+== Feature List
+link:#regions-and-zones[Region and Zone Management] +
+link:#resource-management[Resource Management] +
+link:#scaling[Scaling] +
+link:#domain-management[Domain Management and SSL Certificates] +
+link:#collaboration[Collaboration] +
+link:#external-services[External Services] +
+link:#support[Support] +
+
+[[regions-and-zones]]
+== Region and Zone Management
+All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region. *Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region. link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer the ability to host applications in any Amazon EC2 region.
+
+link:/managing-your-applications/regions-and-zones.html[-> Learn More about Region and Zone Management]
+
+link:#top[Back to Top]
+
+[[resource-management]]
+== Resource Management
+All OpenShift Online plans offer 3 free small gears (512MB RAM and 1GB disk space each). Larger gears and additional storage are available on both the Bronze and Silver plans. The premium plans also allow access to additional gears beyond the 3 free small gears provided to all users.
+
+link:/managing-your-applications/resource-management.html[-> Learn More about Resource Management]
+
+link:#top[Back to Top]
+
+[[scaling]]
+== Scaling
+Application scaling enables your application to react to changes in traffic and automatically allocate the necessary resources to handle your current demand. The OpenShift Online infrastructure monitors incoming web traffic and can automatically add or remove application gears to handle changes in request volume.
+
+link:/managing-your-applications/scaling.html[-> Learn More about Application Scaling]
+
+link:#top[Back to Top]
+
+[[domain-management]]
+== Domain Management and SSL Certificates
+All OpenShift Online plans allow you to create and use a custom _rhcloud.com_ subdomain, along with the ability to use your own custom domain name. All applications can also utilize a shared SSL certificate. Premium plans allow the creation and management of more than one domain and the ability to use a custom SSL certificate.
+
+link:/managing-your-applications/domains-ssl.html[-> Learn More about Managing Domains and Custom SSL]
+
+link:#top[Back to Top]
+
+[[collaboration]]
+== Collaboration
+All OpenShift Online plans allow you to mange users that have access to one or more of your OpenShift domains. Premium plans extend this functionality by allowing for additional domains and management of teams.
+
+link:/managing-your-applications/collaboration.html[-> Learm More about Managing Teams and Users]
+
+link:#top[Back to Top]
+
+[[external-services]]
+== External Services
+OpenShift makes it easy to connect external services to your applications.
+
+link:/external-services/index.html[-> Learn More about Integrating External Services]
+
+link:#top[Back to Top]
+
+[[support]]
+== Support
+There are several support options available to all users of OpenShift Online, however the Silver Plan includes access to award-winning Red Hat support through a dedicated ticketing system.
+
+link:/help.html[-> Learn More about OpenShift Support Options]
+
+link:#top[Back to Top]

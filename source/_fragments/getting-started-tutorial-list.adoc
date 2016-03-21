@@ -1,0 +1,36 @@
+[cols="1a,2a", width='100%']
+|===
+|Language | More Specific Tutorials
+
+|link:/languages/java.html[Java]
+|link:/servers/wildfly/getting-started.html[Wildfly] +
+link:/servers/jbossas/getting-started.html[JBoss AS] +
+link:/servers/jbosseap/getting-started.html[JBoss EAP] +
+link:/servers/tomcat/getting-started.html[Tomcat] +
+link:/servers/vertx.html[Vert.x]
+
+|link:/languages/php/getting-started.html[PHP]
+|link:/servers/zend/index.html[Zend Server] +
+link:/languages/php/framework-laravel.html[Laravel] +
+link:/languages/php/framework-symfony.html[Symfony] +
+link:/languages/php/wordpress.html[WordPress]
+
+|link:/languages/nodejs/getting-started.html[Node.js]
+|link:/languages/nodejs/example-meanstack.html[MEAN Stack]
+
+|link:/languages/python/getting-started.html[Python]
+|link:/languages/python/flask.html[Flask]
+
+|link:/languages/ruby/getting-started.html[Ruby]
+|link:/languages/ruby/deploying-rails.html[Rails]
+
+|link:/languages/perl.html[Perl]
+|
+
+|link:/languages/ceylon.html[Ceylon]
+|
+
+|Other Technologies
+|link:/managing-your-applications/continuous-integration.html[Jenkins] +
+link:/managing-your-applications/background-jobs.html[Cron]
+|===

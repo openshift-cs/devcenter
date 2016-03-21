@@ -1,0 +1,41 @@
+---
+
+
+
+
+title: Load Impact
+
+description: Using Load Impact as an external service for your OpenShift applications.
+---
+= Load Impact
+
+[float]
+
+
+[.lead]
+Load Impact allows you to load test your website, web app, mobile app or API instantly with up to 1.2 million concurrent users.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The Load Impact dashboard can be accessed by visiting: link:https://app.loadimpact.com/account/login[app.loadimpact.com/account/login]
+
+image::external-services/loadimpact_dashboard.png[Load Impact Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+There is no need to set environment variables within your application to use this service. 
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://support.loadimpact.com/[http://support.loadimpact.com/].
+
+[[support]]
+== Support
+
+Email:: link:mailto:support@loadimpact.com[support@loadimpact.com]
+Knowledgebase:: link:http://support.loadimpact.com[http://support.loadimpact.com]

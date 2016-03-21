@@ -1,0 +1,54 @@
+---
+
+
+
+
+title: Overview
+
+description: An overview of server guides on OpenShift.
+---
+
+
+[[top]]
+[float]
+= Overview of Server Guides
+[.lead]
+OpenShift Online offers a numbers of server options to help you get your applications up and running quickly.
+
+== Servers
+link:#jbossas[JBoss AS] +
+link:#jbosseap[JBoss EAP] +
+link:#wildfly[WildFly] +
+link:#tomcat[Tomcat] +
+link:#zendserver[Zend Server] +
+link:#vertx[Vert.x] +
+
+[[jbossas]]
+=== JBoss AS
+JBoss Application Server (or JBoss AS) is a free software/open-source Java EE-based application server. An important distinction for this class of software is that it not only implements a server that runs on Java, but it actually implements the Java EE part of Java. +
+link:/servers/jbossas/index.html[-> Learn More]
+
+[[jbosseap]]
+=== JBoss EAP
+JBoss Enterprise Application Platform (EAP) is the productized version of JBoss Application Server (AS).  It's the culmination of thousands of hours of QE, bug-fixes and co-ordination to make sure you can be as productive as possible building your apps. +
+link:/servers/jbosseap/index.html[-> Learn More]
+
+[[wildfly]]
+=== WildFly
+WildFly, formerly known as JBoss AS, or simply JBoss, is an application server authored by JBoss, now developed by Red Hat. WildFly is written in Java, and implements the Java Platform, Enterprise Edition (Java EE) specification. It runs on multiple platforms. +
+link:/servers/wildfly/index.html[-> Learn More]
+
+[[tomcat]]
+=== Tomcat
+Apache Tomcat is an open-source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket, and provides a "pure Java" HTTP web server environment for Java code to run in. +
+link:/servers/tomcat/index.html[-> Learn More]
+
+[[zendserver]]
+=== Zend Server
+Zend Server is the #1 professional PHP stack. It is the most complete PHP distribution with a continuously updated set of advanced value-add features designed to optimize productivity, performance, scalability and reliability. +
+link:/servers/zend/index.html[-> Learn More]
+
+[[vertx]]
+=== Vert.x
+Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications. +
+link:/servers/vertx.html[-> Learn More]

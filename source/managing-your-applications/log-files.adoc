@@ -1,0 +1,160 @@
+---
+
+
+
+
+title: Log Files
+
+description: Access log files on OpenShift Online
+---
+
+
+[[top]]
+[float]
+= Log Files
+[.lead]
+Log files are an important tool for assessing application health and troubleshooting. This section explains how to access OpenShift log files on your local machine or the relevant gear, as well as how to configure logging behavior.
+
+link:#log-location[Log Location] +
+link:#tailing-logs[Tailing Logs] +
+link:#accessing-logs-via-ssh[Accessing Logs on the Gear] +
+link:#configuring-logging[Configuring Logging]
+
+[[log-location]]
+== Log Location
+By default, all OpenShift log files for a particular gear are written to the directory referenced by the link:/managing-your-applications/environment-variables.html#logging-variables[environment variable] `OPENSHIFT_LOG_DIR`.
+
+If your application generates custom log files, they should be written to this location.
+
+link:#top[Back to Top]
+
+[[tailing-logs]]
+== Tailing Logs
+The simplest way to view OpenShift log files is to use the link:/managing-your-applications/client-tools.html[*RHC* command line] tools.
+
+=== Using RHC Tail
+The command `rhc tail -a *appname*` will tail all application log files in the *OPENSHIFT_LOG_DIR* directory for the primary web gear of the application.
+
+[source, console]
+----
+$ rhc tail -a myapp
+----
+
+To stop tailing the logs, press *Ctrl + c*.
+
+=== Tailing Specific Files
+The `-f` option can be appended to the `tail` command to specify a particular file to tail. The wild card (*) character can be used to specify multiple files. The path given should be relative to the OpenShift application user's home directory on the gear.
+
+The following example tails all files in the OpenShift log directory with a name starting with *php.log*, which includes files with a time stamp appended to their name.
+
+[source, console]
+----
+$ rhc tail -f app-root/logs/php.log* -a myapp
+----
+
+=== Custom Tail Options
+To set other options for the `tail` command, add `-o` and pass a string of parameters. For example, the following command outputs the last 20 lines of each log file, rather than the default of 10.
+
+[source, console]
+----
+$ rhc tail -o "-n 20" -a myapp
+----
+
+More information about the Linux `tail` command and its options is available on the link:http://linux.die.net/man/1/tail[man page].
+
+=== Specifying the Gear
+The `rhc tail` command views log files on the application's primary web gear by default. However, it can also be used to view the log files on other gears in the application. This is particularly relevant if your application is auto-scaling, in which case your database will be on a separate gear from your main web cartridge and therefore its logs will not be included in `rhc tail` by default.
+
+To specify the gear on which to tail logs, add the `g` argument with a gear ID. You can find the IDs for your application's gears by using the `rhc app show --gears` command.
+
+The following example tails logs on the gear in *myapp* containing the MySQL cartridge.
+
+[source, console]
+----
+$ rhc app show --gears -a myapp
+
+ID                       State   Cartridges          Size  Region        Zone           SSH URL
+------------------------ ------- ------------------- ----- ------------- -------------- -------------------------------------------------------------------------
+5473d56fecb8d46a1900005d started php-5.4 haproxy-1.4 small aws-us-east-1 aws-us-east-1e 5473d56fecb8d46a1900005d@myapp-mydomain.rhcloud.com
+5473dd54ecb8d47e9f0000c2 started php-5.4             small aws-us-east-1 aws-us-east-1b 5473dd54ecb8d47e9f0000c2@5473dd54ecb8d47e9f0000c2-mydomain.rhcloud.com
+5473dfa05973ca69980001ee started mysql-5.5           small aws-us-east-1 aws-us-east-1b 5473dfa05973ca69980001ee@5473dfa05973ca69980001ee-mydomain.rhcloud.com
+
+$ rhc tail -g 5473dfa05973ca69980001ee -a myapp
+----
+
+The example shown includes two gears with PHP, as the application is scalable and has scaled up to serve content from two web gears. The same process detailed above can be used to view the logs on the non-primary web cartridge.
+
+[source, console]
+----
+$ rhc tail -g 5473dd54ecb8d47e9f0000c2 -a myapp
+----
+
+link:#top[Back to Top]
+
+[[accessing-logs-via-ssh]]
+== Accessing Logs on the Gear
+To access log files directly, you can connect to an OpenShift gear via SSH and view the files in the `OPENSHIFT_LOG_DIR` directory.
+
+To do this for your application's primary web gear, use commands such as the following:
+
+[source, console]
+----
+$ rhc ssh -a myapp
+Connecting to 5473d56fecb8d46a1900005d@myapp-mydomain.rhcloud.com ...
+...
+[myapp-mydomain.rhcloud.com 5473d56fecb8d46a1900005d]\> cd $OPENSHIFT_LOG_DIR
+[myapp-mydomain.rhcloud.com logs]\> ls
+haproxy_ctld.log  haproxy.log  php.log
+[myapp-mydomain.rhcloud.com logs]\> vim php.log
+----
+
+This example uses `vim` to open the log file *php.log*; other common tools such as `cat`, `nano`, and `emacs` are also available.
+
+To view the log files on other gears connect to them using their SSH URLs, which are available through the `rhc app show --gears` command.
+
+[source, console]
+----
+$ rhc app show --gears -a myapp
+
+ID                       State   Cartridges          Size  Region        Zone           SSH URL
+------------------------ ------- ------------------- ----- ------------- -------------- -------------------------------------------------------------------------
+5473d56fecb8d46a1900005d started php-5.4 haproxy-1.4 small aws-us-east-1 aws-us-east-1e 5473d56fecb8d46a1900005d@myapp-mydomain.rhcloud.com
+5473dd54ecb8d47e9f0000c2 started php-5.4             small aws-us-east-1 aws-us-east-1b 5473dd54ecb8d47e9f0000c2@5473dd54ecb8d47e9f0000c2-mydomain.rhcloud.com
+5473dfa05973ca69980001ee started mysql-5.5           small aws-us-east-1 aws-us-east-1b 5473dfa05973ca69980001ee@5473dfa05973ca69980001ee-mydomain.rhcloud.com
+
+$ ssh 5473dfa05973ca69980001ee@5473dfa05973ca69980001ee-mydomain.rhcloud.com
+----
+
+The above example uses `rhc app show` to find the SSH URL for the application gear hosting MySQL, and then a standard `ssh` command to connect to the gear. Once on the gear, navigate to the log file directory the same way as shown in the previous example.
+
+link:#top[Back to Top]
+
+[[configuring-logging]]
+== Configuring Logging
+OpenShift cartridge logging behavior can be configured with link:/managing-your-applications/environment-variables.html#logging-variables[environment variables].
+
+When the log file for a particular OpenShift cartridge reaches the maximum size allowed, 10MB by default, a new log file is created. When the number of log files for that cartridge reaches the maximum allowed, which is 10 by default, the oldest file is removed before the next log file is created.
+
+The maximum file size and maximum number of files can be configured with the `LOGSHIFTER_<cart-name>_MAX_FILESIZE` and `LOGSHIFTER_<cart-name>_MAX_FILES` environment variables.
+
+For example, the following commands could be used to configure application *myapp*'s PHP cartridge to roll logs when they reach 5MB and keep only 5 PHP log files.
+
+[source, console]
+----
+$ rhc env set LOGSHIFTER_PHP_MAX_FILESIZE=5M LOGSHIFTER_PHP_MAX_FILES=5 -a myapp
+Setting environment variable(s) ... done
+$ rhc app stop
+RESULT:
+myapp stopped
+$ rhc app start
+RESULT:
+myapp started
+----
+
+The environment changes are only detected when Apache is restarted, which is why the OpenShift application has been restarted in this example.
+
+Similar commands could be used for other cartridges.
+
+To use Logshifter for log rotation for custom cartridges or logging, make sure the STDOUT and STDERR streams are redirected to */usr/bin/logshifter*, as link:https://access.redhat.com/documentation/en-US/OpenShift_Enterprise/2/html/Cartridge_Specification_Guide/chap-Enabling_Logshifter.html[documented here].
+
+link:#top[Back to Top]

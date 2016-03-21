@@ -1,0 +1,35 @@
+---
+
+category:
+
+
+title: Markers
+
+description: PHP developers - OpenShift Online PHP marker files
+---
+
+
+[float]
+= PHP Markers
+Adding marker files to `.openshift/markers` will have the following effects:
+
+[cols="1,3",options="header"]
+|===
+|Marker |Effect
+
+|force_clean_build
+|Will remove all previous dependencies and start installing required dependencies from scratch.
+
+|hot_deploy
+|Will prevent the apache process from being restarted during build/deployment.
+
+|disable_auto_scaling
+|Will prevent scalable applications from scaling up or down, according to application load.
+
+|use_composer
+|Will enable running `composer install` on each build automatically. See the link:https://getcomposer.org/[Composer].
+
+|enable_public_server_status
+|Will enable server-status application path to be publicly available.
+
+|===

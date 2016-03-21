@@ -1,0 +1,56 @@
+---
+
+category:
+
+
+title: Repository Layout
+
+description: PHP developers - OpenShift Online PHP cartridge repository layout
+---
+
+
+[float]
+= PHP Template Repository Layout
+[source]
+----
+index.php              Template PHP index page
+.openshift/            Location for OpenShift specific files
+    action_hooks/      See the Action Hooks documentation <1>
+    markers/           See the Markers section below
+    pear.txt           List of pears to install <2>
+----
+<1> link:/managing-your-applications/action-hooks.html[Action Hooks] documentation
+<2> A list of pears to install, line by line on the server. This will happen when the user does a `git push`.
+
+[[document_root]]
+== Document root
+http://httpd.apache.org/docs/current/mod/core.html#documentroot[Apache DocumentRoot],
+the directory that forms the main document tree visible from the web, is selected based
+on the existence of a common directory in the repository code in the following order:
+[source]
+----
+1. php/          # for backward compatibility with OpenShift Origin v1/v2
+2. public/       # Zend Framework v1/v2, Laravel, FuelPHP, Surebert etc.
+3. public_html/  # Apache per-user web directories, Slim Framework etc.
+4. web/          # Symfony etc.
+5. www/          # Nette etc.
+6. ./            # Drupal, Wordpress, CakePHP, CodeIgniter, Joomla, Kohana, PIP etc.
+----
+
+[[include_path]]
+== PHP `include_path`
+The following application directories, that might exist in the repository code, are added
+to the http://php.net/manual/en/ini.core.php#ini.include-path[PHP include_path] and thus
+automatically searched when calling `require()`, `include()` and other file I/O functions:
+[source]
+----
+- lib/
+- libs/
+- libraries/
+- src/
+- misc/
+- vendor/
+- vendors/
+----
+
+link:#top[Back to Top]

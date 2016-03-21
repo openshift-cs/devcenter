@@ -1,0 +1,64 @@
+---
+
+
+
+
+title: Memcached Cloud
+
+description: Using Memcached as an external service for your OpenShift applications.
+---
+= Memcached
+
+[float]
+
+
+[.lead]
+Memcached Cloud is a fully-managed cloud service for hosting and running your Memcached in a reliable and fail-safe manner.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The Memcached Cloud dashboard can be accessed by visiting: link:https://redislabs.com/memcached-cloud[redislabs.com/memcached-cloud]
+
+image::external-services/memcachedcloud_dashboard.png[Memcached Cloud Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== Memcached Cloud Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|MEMCACHEDCLOUD_PASSWORD|XODc1qyLz4K02EBA
+|MEMCACHEDCLOUD_SERVERS|pub-memcache-18043.us-east-1-1.1.ec2.garantiadata.com:18043
+|MEMCACHEDCLOUD_USERNAME|memcachedcloud
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set MEMCACHEDCLOUD_PASSWORD=VALUE -a App_Name
+$ rhc env set MEMCACHEDCLOUD_SERVERS=VALUE -a App_Name
+$ rhc env set MEMCACHEDCLOUD_USERNAME=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:/external-services/index.html#code-examples[code examples] to see how to use environment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:https://redislabs.com/developers[https://redislabs.com/developers].
+
+[[support]]
+== Support
+
+Service Status:: link:https://status.redislabs.com/[status.redislabs.com]
+Helpdesk Portal:: link:https://support.redislabs.com/access[support.redislabs.com]
+Email:: link:mailto:support@redislabs.com[support@redislabs.com]
+Support Hotline:: 24/7 Toll-Free Support Hotline for paying customers

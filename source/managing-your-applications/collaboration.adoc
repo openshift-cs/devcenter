@@ -1,0 +1,130 @@
+---
+
+
+
+
+title: Collaboration
+
+description: How to manage domain members, users, and teams on OpenShift Online. There are many options for managing collaboration on OpenShift.
+---
+
+
+[[top]]
+[float]
+= Collaboration on OpenShift
+[.lead]
+All OpenShift Online plans allow you to manage users that have access to one or more of your OpenShift domains. Premium plans extend this functionality by allowing for additional domains and management of teams.
+
+== In This Guide
+link:#managing-domain-membership[Managing Domain Membership] +
+link:#team-management[Team Management] +
+
+[[managing-domain-membership]]
+=== Managing Domain Membership
+All OpenShift Online users have the ability to add collaborators at the domain level. Other OpenShift users can be given access to either View, Edit, or Administer applications associated with a shared domain. The default role for additional members is `edit`.
+
+==== Web Console
+After logging into the web console, you will see a list of your current domains and applications. Click on the domain you would like to share. You can also select the domain from the *Settings* tab in the top navigation. In the below example, the domain *exampledomainone* is selected from the *Applications* list:
+
+image::overview-platform-features-16.png[Managing domain membership step 1]
+
+Next, you will see the details of the domain you've selected. All current OpenShift users that have access to this domain will be listed under the *Members* section. If there are no members, as in the example below, you can click on *Add members...*
+
+image::overview-platform-features-17.png[Managing domain membership step 2]
+
+You can then add new users to the domain, granting either *view*, *edit*, or *administer* access for the user. The user will have access to all applications associated with this domain. Bronze and Silver users will also have the option of adding a team to the domain (see below).
+
+image::overview-platform-features-18.png[Managing domain membership step 3]
+
+Once the new user is added, they will be able to access applications in the shared domain by logging into their own individual OpenShift Online account.
+
+==== Command Line (rhc)
+Add a user to a domain with the following command, specifying the user login and domain name.
+
+TIP: The user login must be a registered OpenShift Online user.
+
+[source]
+----
+$ rhc member add <openshift_username> -n <domain_name>
+----
+
+When a member is added to a domain, they receive the default role of edit. Use the --role option when adding a member to specify a different role:
+
+[source]
+----
+$ rhc member add <openshift_username> -n <domain_name> --role <member_role>
+----
+
+TIP: The three roles available are +view+, +edit+, and +administer+.
+
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Domain_Membership.html[-> Learn more about managing domain membership]
+
+link:#top[Back to Top]
+
+[[team-management]]
+=== Team Management
+After logging into the web console, you will see a list of your current domains and applications. Click on the *Settings* tab in the top navigation:
+
+image::overview-platform-features-19.png[Team Management Step 1]
+
+If you have any existing domains or teams, you will see them listed here. If not, select *Create a new team*:
+
+image::overview-platform-features-20.png[Team Management Step 2]
+
+Enter the name of the team you would like to create:
+
+NOTE: A team name must be a unique name between 2 and 250 characters, and cannot be modified once created.
+
+image::overview-platform-features-21.png[Team Management Step 3]
+
+Once the team is created, you can add members to the team:
+
+image::overview-platform-features-22.png[Team Management Step 4]
+
+You can then add or remove existing OpenShift Online users to the new team:
+
+image::overview-platform-features-23.png[Team Management Step 5]
+
+Once the team is created, you can then give the team access to one or more of your existing domains. First from either the *Applications* list (shown below), or the *Settings* tab, select the domain you wish to share:
+
+image::overview-platform-features-24.png[Team Management Step 6]
+
+On the domain settings screen, you can choose to add members to the domain. A member can be either an individual user or a team that you've created:
+
+image::overview-platform-features-25.png[Team Management Step 7]
+
+Select *Add a team...*:
+
+image::overview-platform-features-26.png[Team Management Step 8]
+
+Select a team you've created from the dropdown:
+
+image::overview-platform-features-27.png[Team Management Step 9]
+
+==== Command Line (rhc)
+You can create a team with the following command:
+
+[source]
+----
+$ rhc team create <team_name>
+----
+
+NOTE: A team name must be a unique name between 2 and 250 characters, and cannot be modified once created.
+
+You can add a member to a team by using the following command:
+
+[source]
+----
+$ rhc member add <user_name> -t <team_name>
+----
+
+When adding a team to a domain, use the `--type` option with team specified:
+
+[source]
+----
+$ rhc member add <team_name> -n <domain_name> --type team  --role <member_role>
+----
+
+link:https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/chap-Teams.html#Introduction_to_Teams[-> Learn more about creating and managing teams]
+
+link:#top[Back to Top]

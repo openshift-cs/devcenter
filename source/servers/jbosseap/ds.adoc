@@ -1,0 +1,15 @@
+---
+
+category:
+
+
+title: Datasources
+
+description: JBoss EAP Datasources
+---
+
+
+[float]
+= JBoss EAP Datasources
+
+include::_fragments/java-jboss-datasources.adoc[]

@@ -1,0 +1,58 @@
+---
+
+
+
+
+title: MongoLab
+
+description: Using MongoLab as an external service for your OpenShift applications.
+---
+= MongoLab
+
+[float]
+
+
+[.lead]
+MongoLab is a fully-managed cloud database service featuring highly-available MongoDB databases, automated backups, web-based tools, 24/7 monitoring, and expert support. By hosting MongoDB on MongoLab's Database-as-a-Service (DBaaS) platform, developers and IT professionals are free to focus their attention on product development instead of operations.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The MongoLab dashboard can be accessed by visiting: link:https://mongolab.com/login/[mongolab.com/login/]
+
+image::external-services/mongolab_dashboard.png[MongoLab Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== MongoLab Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|MONGOLAB_URI|mongodb://openshift_i9ae1kej_r5sqcp89_jutnauic:fPQDqehF7iM1HeQpih_xNk8sNKqsZEtK@ds051110.mongolab.com:51740/openshift_i9ae1kej_r5sqcp89
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set MONGOLAB_URI=VALUE -a App_Name
+----
+
+NOTE: Check out the general link:/external-services/index.html#code-examples[code examples] to see how to use envirpnment variables within your application.
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://docs.mongolab.com/[http://docs.mongolab.com/].
+
+[[support]]
+== Support
+
+Email:: link:mailto:support@mongolab.com[support@mongolab.com]
+Knowledgebase:: link:http://docs.mongolab.com/[http://docs.mongolab.com/]

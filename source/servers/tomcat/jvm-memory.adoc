@@ -1,0 +1,13 @@
+---
+
+category:
+
+
+title: JVM Memory
+
+description: Tomcat developers - OpenShift Online Tomcat / JBoss EWS JVM Memory
+---
+
+
+include::_fragments/java-jvm-memory.adoc[]
+

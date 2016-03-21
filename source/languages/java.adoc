@@ -1,0 +1,43 @@
+---
+
+
+
+
+title: Java
+
+description: Java Developers - OpenShift Resources to get your Java applications hosted in the cloud.
+---
+
+
+[[top]]
+[[java]]
+[float]
+= Java Application Hosting
+[.lead]
+With OpenShift you can easily deploy and run Java applications using your favorite application servers and frameworks. Want a JBoss server running Spring backed by MySQL? Or maybe you're looking for GlassFish with Scala and MongoDB? If it can run on Red Hat Enterprise Linux 64bit, then it can run on OpenShift.
+
+Java is a general-purpose, concurrent, class-based, object-oriented computer programming language that is specifically designed to have as few implementation dependencies as possible.
+
+Visit the official Java documentation to link:https://java.com[learn more].
+
+== Supported Technologies
+OpenShift provides several ways to deploy Java applications, including the following environments:
+
+=== link:/servers/jbossas/index.html[JBoss AS]
+OpenShift Online currently supports `JBoss AS 7`. + link:/servers/jbossas/index.html[-> Learn More]
+
+=== link:/servers/wildfly/index.html[Wildfly]
+OpenShift Online currently supports `Wildfly 8.2 Final`. + link:/servers/wildfly/index.html[-> Learn More]
+
+=== link:/servers/tomcat/index.html[Apache Tomcat (JBossEWS)]
+OpenShift Online currently supports `Tomcat 6` and `7`. + link:/servers/tomcat/index.html[-> Learn More]
+
+=== link:/servers/jbosseap/index.html[JBoss EAP]
+OpenShift Online currently supports `JBoss EAP 6.4`, which supports Java 8, as one of our link:/jboss-xpaas/index.html[JBoss xPaaS Services].  + link:/servers/jbosseap/index.html[-> Learn More]
+
+=== link:/servers/vertx.html[Vert.x]
+link:http://vertx.io/[Vert.x] is a lightweight, high performance polyglot application platform for the JVM that's designed for modern mobile, web, and enterprise applications. OpenShift Online currently supports `Vert.x 2.1`. + link:/servers/vertx.html[-> Learn More]
+
+=== link:/jboss-xpaas/index.html[JBoss xPaaS Services]
+JBoss xPaaS services provide the powerful capabilities of JBoss Middleware as cloud based services on OpenShift. Developers can build applications, integrate with other systems, orchestrate using rules and processes, and then deploy across hybrid environments. +
+link:/jboss-xpaas/index.html[-> Learn More]

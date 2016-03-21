@@ -1,0 +1,38 @@
+---
+
+
+
+
+title: Node.js
+
+description: Node.js application hosting
+---
+= Node.js Application Hosting
+
+[float]
+= Node.js Application Hosting
+[.lead]
+OpenShift's link:https://www.openshift.com/products/technologies[`nodejs-0.10`] cartridge provides a trusted platform for building, hosting, and scaling Javascript applications using proven, open source technologies.
+
+TIP: Node.js uses on Chrome's V8 javascript engine for a fast and reliable runtime environment.  It's event-driven, non-blocking I/O model is lightweight and efficient - a perfect choice for link:https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app[highly-concurrent, real-time applications].
+
+Learn more about link:http://tomcat.apache.org/[Nodejs] and the link:https://www.npmjs.org/[NPM package manager].
+
+[float]
+image::nodejs-logo.png[Node.js logo]
+image::npm-logo.png[NPM logo]
+
+[[nodejs]]
+== The Node.js (nodejs) Cartridge
+The `nodejs` cartridge provides Node.js on OpenShift via the Nodejs runtime. This cartridge has special functionality to enable integration with OpenShift and with other cartridges. See link:#_cartridge_integrations[*Cartridge Integrations* (below)] for details.
+
+[.lead]
+link:/languages/nodejs/getting-started.html[-> Get Started With Nodejs on OpenShift] +
+link:/languages/nodejs/getting-started.html#launch[-> Create your first Node.js application] +
+link:/languages/nodejs/project-structure.html[-> Learn about basic Node.js project structure] +
+link:/languages/nodejs/dependency-management.html[-> Manage Javascript dependencies with NPM] +
+link:/languages/nodejs/environment-variables.html[-> Configure your application using Environment Variables] +
+link:https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps/[-> Find out how to adapt existing Nodejs applications to run on OpenShift]
+
+=== Cartridge Integrations
+The `nodejs` cart has out-of-the-box integration support with RedHat add-on cartridges.

@@ -1,0 +1,44 @@
+---
+
+
+
+
+title: PubNub
+
+description: Using PubNub as an external service for your OpenShift applications.
+---
+= PubNub
+
+[float]
+
+
+[.lead]
+PubNub's Data Stream Network provides the cloud infrastructure and key building blocks for realtime apps that scale globally to any device. PubNub enables realtime experiences such as group chat, live dashboards and streams, presence, collaboration, second-screen synchronization, Internet of Things/machine-to-machine signaling, and more. PubNub's simple API delivers scalable, reliable realtime interactivity across mobile, browser, desktop and server, and supports over 60 environments including iOS, Android and JavaScript.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The PubNub dashboard can be accessed by visiting: link:https://admin.pubnub.com/#/login[admin.pubnub.com/#/login]
+
+image::external-services/pubnub_dashboard.png[PubNub Dashboard]
+
+[[integration]]
+== Integrating the Service With Your App
+There is no need to set environment variables within your application to use this service. 
+
+[[resources]]
+== Additional Resources
+Additional documentation is available at link:http://www.pubnub.com/documentation/[http://www.pubnub.com/developers/].
+
+[[support]]
+== Support
+Contact us anytime! link:http://www.pubnub.com/company/contact-us/[www.pubnub.com/company/contact-us/]
+
+Developer Community:: Join, contribute and browse our link:http://www.pubnub.com/community/[Developer Community] page. This Developer Community is monitored by our engineers, customer success resources and our community developer experts. 
+Knowledge Base:: Our link:http://www.pubnub.com/knowledge-base/[Knowledge Base] has hundreds of articles that have answers to questions that have been asked many times before. Maybe the answer to your question lies within.
+Client SDK Tutorials, Documentation, API References & and Github Repos:: Our link:http://www.pubnub.com/developers/[developer docs] center has extensive documentation, tutorials, examples and source code for our client SDKs and we continue to add more SDKs and content.
+Contact the Customer Support Team:: If you can't find the answer in the above channels, you can link:http://support.pubnub.com/customer/portal/emails/new[submit a new support case] to the Customer Success Team. 

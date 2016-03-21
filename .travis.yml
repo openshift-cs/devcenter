@@ -7,8 +7,7 @@ branches:
   - master
 script:
 # Create our _site/ dir
-- mkdir lib/_site
-- cd lib
+- mkdir build
 # Set up git stuff if we are going to deploy
 - |
   if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
@@ -18,33 +17,17 @@ script:
     eval "$(ssh-agent -s)";
     ssh-add id_rsa_deploy;
     # Start the git repo
-    cd _site/
-    git init;
-    # Do the git configs
-    git config --global user.email $USERMAIL;
-    git config --global user.name $USERNAME;
-    # And fetch the production state
-    git remote add production $REMOTE;
-    git pull production master;
+    cd build
+    git init
+    git config --global user.email $USERMAIL
+    git config --global user.name $USERNAME
+    git remote add production $REMOTE
+    git pull production master
     cd ..
   fi
 # Build
-- bundle exec awestruct -u https://developers.openshift.com
-# Push changes to production, if this isn't a PR
-- |
-  if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-    cd _site/
-    # Add all changes
-    git add .
-    # Create a readable commit message
-    MSG=$'Auto commit from Travis ('$TRAVIS_COMMIT$')\n\nGithub url: https://github.com/openshift/devcenter/commit/'$TRAVIS_COMMIT$'\nTravis Build number: '$TRAVIS_BUILD_NUMBER
-    git commit -m "$MSG"
-    # Push it to production
-    git push production master
-    echo "Deployed"
-  else
-    echo "Not deploying Pull Requests";
-  fi
+- bundle exec middleman build
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then bundle exec middleman deploy; fi
 env:
   global:
   - secure: gegnXkeH7IBirXATgGEo3mhTznexNiLThd/ShR8IH9608rftbFhWundVdywQ5H+6by51pGIkkZSTCmLo15E2qeRavJoDDlxFQQawWs4Cb/vGIu9kgymjZxlY259dlCV8nt3IVeX65mvgq5ejUIBBy+rdkHp/PMe81EHV8bKHus0=

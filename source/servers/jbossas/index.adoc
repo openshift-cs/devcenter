@@ -1,0 +1,24 @@
+---
+
+
+
+
+title: JBoss AS
+
+description: JBoss AS Developers - OpenShift Resources to host your Java applications in the cloud.
+---
+
+
+
+[[top]]
+[[java]]
+[float]
+= JBoss AS Application Hosting
+
+[[jbossas]]
+== The JBoss AS Cartridge
+[.lead]
+Provides the JBoss AS application server on OpenShift. OpenShift Online currently supports `JBoss AS 7.1`.
+
+[.lead]
+link:/servers/jbossas/getting-started.html[-> Get Started With JBoss AS on OpenShift]

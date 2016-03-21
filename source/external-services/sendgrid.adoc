@@ -1,0 +1,525 @@
+---
+
+
+
+
+title: SendGrid
+
+description: Using SendGrid as an external service for your OpenShift applications.
+---
+= SendGrid
+
+[float]
+
+
+[.lead]
+SendGrid's cloud-based email infrastructure relieves businesses of the cost and complexity of maintaining custom email systems. SendGrid provides reliable delivery, scalability and real-time analytics along with flexible APIs that make custom integration a breeze.
+
+link:#dashboard[Dashboard] +
+link:#integration[Integrating the Service With Your App] +
+link:#code-examples[Code Examples] +
+link:#resources[Additional Resources] +
+link:#support[Support]
+
+[[dashboard]]
+== Dashboard
+The SendGrid dashboard can be accessed by visiting: link:https://sendgrid.com/login[sendgrid.com/login]
+
+image::external-services/sendgrid_dashboard.png[SendGrid Dashboard]
+
+SendGrid offers statistics on a number of different metrics to report on what is happening with your messages including:
+
+- *Alerts*: SendGrid will trigger an alert to send you based on triggers you set within SendGrid.
+- *Categories*: SendGrid will allow you to filter email statistics based on specific categories you add to your emails.
+- *Email Activity*: A page within your account that allows you to see recent stats on your sent emails.
+- *Email Error Messages*: All of the Error messages that you can expect from SendGrid.
+- *Email Reports*: View and export reports about your email activity.
+
+[[integration]]
+== Integrating the Service With Your App
+Once you have link:/external-services/index.html#subscribe-service[subscribed to this service] and link:/external-services/index.html#locate-credentials[located your credentials], you will need to configure your application to use the credentials for your service.
+
+=== SendGrid Environment Variables
+We recommend setting the following environment variables within your application runtime to connect the service to your app:
+
+|===
+|Variable Name|Example Value
+|SENDGRID_HOSTNAME|smtp.sendgrid.net
+|SENDGRID_PASSWORD|adsRvqPZra
+|SENDGRID_USERNAME|DM12KPNLIq
+|===
+
+Use the link:/managing-your-applications/client-tools.html[OpenShift client tools] to set environment variables to make your credentials available within your application runtime:
+
+[source,console]
+----
+$ rhc env set SENDGRID_HOSTNAME=VALUE -a App_Name
+$ rhc env set SENDGRID_PASSWORD=VALUE -a App_Name
+$ rhc env set SENDGRID_USERNAME=VALUE -a App_Name
+----
+
+[[code-examples]]
+== Code Examples
+The following code examples show how to easily configure your application to send email with SendGrid.
+
+link:#java[Java] +
+link:#nodejs[Node.js] +
+link:#perl[Perl] +
+link:#php[PHP] +
+link:#php-composer[PHP: Using Composer] +
+link:#php-codeigniter[PHP: CodeIgniter] +
+link:#php-laravel[PHP: Laravel] +
+link:#php-wordpress[PHP: WordPress] +
+link:#python[Python] +
+link:#python-django[Python: Django] +
+link:#ruby[Ruby] +
+link:#ruby-mail[Ruby: Using the Mail Gem]
+
+[[java]]
+=== Java
+Add the following dependencies to your `pom.xml` file:
+
+[source]
+----
+...
+<dependencies>
+  ...
+  <dependency>
+    <groupId>com.sendgrid</groupId>
+    <artifactId>sendgrid-java</artifactId>
+    <version>2.1.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20141113</version>
+  </dependency>
+</dependencies>
+...
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, java]
+----
+// using SendGrid's Java Library - https://github.com/sendgrid/sendgrid-java
+import com.sendgrid.*;
+
+public class SendGridExample {
+  public static void main(String[] args) {
+    SendGrid sendgrid = new SendGrid(System.getenv('SENDGRID_USERNAME'), System.getenv('SENDGRID_PASSWORD'));
+
+    SendGrid.Email email = new SendGrid.Email();
+
+    email.addTo("test@sendgrid.com");
+    email.setFrom("you@youremail.com");
+    email.setSubject("Sending with SendGrid is Fun");
+    email.setHtml("and easy to do anywhere, even with Java");
+
+    SendGrid.Response response = sendgrid.send(email);
+  }
+}
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-java[SendGrid Java] client library on GitHub.
+
+[[nodejs]]
+=== Node.js
+Add the following dependency to your `package.json` file:
+
+[source]
+----
+{
+  ...
+  "dependencies": {
+    ...
+    "sendgrid": "1.6.0"
+  }
+}
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, javascript]
+----
+// using SendGrid's Node.js Library - https://github.com/sendgrid/sendgrid-nodejs
+var sendgrid = require("sendgrid")(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
+var email = new sendgrid.Email();
+
+email.addTo("test@sendgrid.com");
+email.setFrom("you@youremail.com");
+email.setSubject("Sending with SendGrid is Fun");
+email.setHtml("and easy to do anywhere, even with Node.js");
+
+sendgrid.send(email);
+----
+
+[[perl]]
+=== Perl
+Add the following to your `.openshift/cpan.txt` file:
+
+[source]
+----
+git://github.com/sendgrid/sendgrid-perl.git
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, perl]
+----
+# using SendGrid's Perl Library - https://github.com/sendgrid/sendgrid-perl
+use Mail::SendGrid;
+use Mail::SendGrid::Transport::REST;
+
+my $sendgrid = Mail::SendGrid->new(
+  from => "test@sendgrid.com",
+  to => "you@youreamil.com",
+  subject => "Sending with SendGrid is Fun",
+  html => "and easy to do anywhere, even with Perl"
+);
+
+Mail::SendGrid::Transport::REST->new( username => $ENV{'SENDGRID_USERNAME'}, password => $ENV{'SENDGRID_PASSWORD'}} );
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-perl[SendGrid Perl] client library on GitHub.
+
+[[php]]
+=== PHP
+Download and unpack the link:https://sendgrid-open-source.s3.amazonaws.com/sendgrid-php/sendgrid-php.zip[latest packaged release of SendGrid PHP].
+
+Then require the library from package:
+
+[source, php]
+----
+require("path/to/sendgrid-php/sendgrid-php.php");
+----
+
+TIP: Learn more about the link:/languages/php/repository-layout.html#include_path[default include path] for OpenShift PHP applications.
+
+Now you're ready to use SendGrid within your application:
+
+[source, php]
+----
+$sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'), getenv('SENDGRID_PASSWORD'));
+$email    = new SendGrid\Email();
+
+$email->addTo("test@sendgrid.com")
+      ->setFrom("you@youremail.com")
+      ->setSubject("Sending with SendGrid is Fun")
+      ->setHtml("and easy to do anywhere, even with PHP");
+
+$sendgrid->send($email);
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-php[SendGrid PHP] client library on GitHub.
+
+[[php-composer]]
+=== PHP: Using Composer
+Create an empty file named *use_composer* in `.openshift/markers`:
+
+[source]
+----
+$ touch .openshift/markers/use_composer
+----
+
+TIP: Adding the *use_composer* marker file to `.openshift/markers` will enable running composer install on each build automatically. link:/languages/php/markers.html[Learn more about PHP markers] on OpenShift.
+
+Add SendGrid to your `composer.json` file in your application's root directory:
+
+[source, php]
+----
+{
+  "require": {
+    "sendgrid/sendgrid": "2.2.1"
+  }
+}
+----
+
+Then at the top of your PHP script require the autoloader:
+
+[source, php]
+----
+require 'vendor/autoload.php';
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, php]
+----
+// get account info from OpenShift environment variable
+$sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'), getenv('SENDGRID_PASSWORD'));
+$email    = new SendGrid\Email();
+
+$email->addTo("test@sendgrid.com")
+      ->setFrom("you@youremail.com")
+      ->setSubject("Sending with SendGrid is Fun")
+      ->setHtml("and easy to do anywhere, even with PHP");
+
+$sendgrid->send($email);
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-php[SendGrid PHP] client library on GitHub.
+
+[[php-codeigniter]]
+=== PHP: CodeIgniter
+The following code example shows how to use SendGrid with CodeIgniter's built-in email library:
+
+[source, php]
+----
+$this->load->library('email');
+
+$this->email->initialize(array(
+  'protocol' => 'smtp',
+  'smtp_host' => getenv('SENDGRID_HOSTNAME'),
+  'smtp_user' => getenv('SENDGRID_USERNAME'),
+  'smtp_pass' => getenv('SENDGRID_PASSWORD'),
+  'smtp_port' => 587,
+  'crlf' => "\r\n",
+  'newline' => "\r\n"
+));
+
+$this->email->from('your@example.com', 'Your Name');
+$this->email->to('someone@example.com');
+$this->email->cc('another@another-example.com');
+$this->email->bcc('them@their-example.com');
+$this->email->subject('Email Test');
+$this->email->message('Testing the email class.');
+$this->email->send();
+
+echo $this->email->print_debugger();
+----
+
+TIP: It is important to use the correct end of lines using "crlf" => "\r\n" and "newline" => "\r\n".
+
+See more information on how to link:http://ellislab.com/codeigniter/user-guide/libraries/email.html[use CodeIgniter with SendGrid].
+
+[[php-laravel]]
+=== PHP: Laravel
+Laravel comes with an email sending library built in, so we just need to set it to use SendGrid over SMTP.
+
+In `app/config/mail.php` you need to configure these settings:
+
+[source, php]
+----
+<?php
+return array(
+  'driver' => 'smtp',
+  'host' => getenv('SENDGRID_HOSTNAME'),
+  'port' => 587,
+  'from' => array('address' => 'from@example.com', 'name' => 'John Smith'),
+  'encryption' => 'tls',
+  'username' => getenv('SENDGRID_USERNAME'),
+  'password' => getenv('SENDGRID_PASSWORD')
+);
+
+?>
+----
+
+You can use Laravel's Mail class just like you normally would, but all email will be sent through SendGrid!
+
+[source, php]
+----
+Mail::send('emails.demo', $data, function($message)
+{
+    $message->to('jane@example.com', 'Jane Doe')->subject('This is a demo!');
+});
+----
+
+Check out the docs for link:http://laravel.com/docs/mail[Laravel's mailer] for details.
+
+[[php-wordpress]]
+=== PHP: WordPress
+Download the link:https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip[Official SendGrid WordPress Plugin].
+
+Extract the zip archive file and move the Plugin folder to the `.openshift/plugins` directory of your repository (or to your `wp-content/plugins` folder if you're not using the default OpenShift WordPress installation).
+
+Add the following code to `.openshift/config/wp-config.php` in your local repo:
+
+[source, php]
+----
+// set credentials
+define('SENDGRID_USERNAME', getenv('SENDGRID_USERNAME');
+define('SENDGRID_PASSWORD', getenv('SENDGRID_PASSWORD');
+
+// set email related settings
+define('SENDGRID_SEND_METHOD', 'api');
+----
+
+Next, add and commit your changes link:/managing-your-applications/modifying-applications.html[using git]:
+
+[source]
+----
+$ git add .
+$ git commit -m "Adds fully configured SendGrid WordPress Plugin"
+----
+
+Deploy your changes to your live WordPress application with git:
+
+[source]
+----
+$ git push
+----
+
+Next, you'll need to *activate the plugin* from the "Plugins" menu in the WordPress admin panel.
+
+Finally, on the SendGrid plugin settings page you can set default values for the "Name", "Sending Address" and the "Reply Address", so that you don't need to set these headers every time you want to send an email from your application.
+
+image::external-services/sendgrid_dashboard.png[configure the SendGrid WordPress plugin settings]
+
+That's it! WordPress emails will now be sent through SendGrid. For more information check out the link:https://wordpress.org/plugins/sendgrid-email-delivery-simplified/[official plugin page].
+
+[[python]]
+=== Python
+Add the following to your link:http://www.pip-installer.org/en/latest/cookbook.html#requirements-files[pip] `requirements.txt` file located at the root of your repository:
+
+[source]
+----
+sendgrid>=1.2
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, python]
+----
+import sendgrid, os
+
+sg = sendgrid.SendGridClient(os.getenv('SENDGRID_USERNAME'), os.getenv('SENDGRID_PASSWORD'))
+
+message = sendgrid.Mail()
+message.add_to('John Doe ')
+message.set_subject('Example')
+message.set_text('Body')
+message.set_from('Doe John ')
+status, msg = sg.send(message)
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-python[SendGrid Python] client library on GitHub.
+
+[[python-django]]
+=== Python: Django
+Start by adding the following to `settings.py`:
+
+[source, python]
+----
+import os
+
+EMAIL_HOST = os.getenv('SENDGRID_HOSTNAME')
+EMAIL_HOST_USER = os.getenv('SENDGRID_USERNAME')
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+----
+
+Then to send email you can do the following:
+
+[source, python]
+----
+from django.core.mail import send_mail
+send_mail('Subject here', 'Here is the message.', 'from@example.com', ['to@example.com'], fail_silently=False)
+----
+
+There is more detailed information about sending email over SMTP with Django on the link:https://docs.djangoproject.com/en/dev/topics/email/[Django project website].
+
+TIP: You may also send emails with Django by using the link:https://github.com/elbuo8/sendgrid-django[sendgrid-django] library, which utilizes the link:https://sendgrid.com/docs/API_Reference/Web_API/index.html[Web API] instead of SMTP as the transport mechanism. 
+
+[[ruby]]
+=== Ruby
+Add a link:http://bundler.io/gemfile.html[Gemfile] file named `Gemfile` to the root of your repository:
+
+[source]
+----
+source 'http://mirror.ops.rhcloud.com/mirror/ruby/'
+gem 'sendgrid-ruby'
+----
+
+TIP: Use link:/languages/ruby/getting-started.html#_ruby_mirror[OpenShift's mirror of rubygems.org] as shown above to speed up your deployments.
+
+Next, run `bundle install` (using link:http://bundler.io/[Bundler]) to create a Gemfile.lock file:
+
+[source]
+----
+$ bundle install
+----
+
+Now you're ready to use SendGrid within your application:
+
+[source, ruby]
+----
+require 'sendgrid-ruby'
+
+client = SendGrid::Client.new(api_user: ENV['SENDGRID_USERNAME'], api_key: ENV['SENDGRID_PASSWORD'])
+
+email = SendGrid::Mail.new do |m|
+  m.to      = 'test@sendgrid.com'
+  m.from    = 'you@youremail.com'
+  m.subject = 'Sending with SendGrid is Fun'
+  m.html    = 'and easy to do anywhere, even with Ruby'
+end
+
+client.send(email)
+----
+
+For more information see the link:https://github.com/sendgrid/sendgrid-python[SendGrid Python] client library on GitHub.
+
+[[ruby-mail]]
+=== Ruby: Using the Mail Gem
+
+The example below shows how to send email plain text and HTML email using Ruby using the link:https://github.com/mikel/mail[Mail] gem.
+
+First, add a link:http://bundler.io/gemfile.html[Gemfile] file named `Gemfile` to the root of your repository:
+
+[source]
+----
+source 'http://mirror.ops.rhcloud.com/mirror/ruby/'
+gem 'mail'
+----
+
+Next, run `bundle install` (using link:http://bundler.io/[Bundler]) to create a Gemfile.lock file:
+
+[source]
+----
+$ bundle install
+----
+
+TIP: Use link:/languages/ruby/getting-started.html#_ruby_mirror[OpenShift's mirror of rubygems.org] as shown above to speed up your deployments.
+
+Now you're ready to use SendGrid with Mail in your application:
+
+[source, ruby]
+----
+require 'mail'
+
+Mail.defaults do
+  delivery_method :smtp, { :address   => ENV['SENDGRID_HOSTNAME'],
+                           :port      => 587,
+                           :domain    => "yourdomain.com",
+                           :user_name => ENV['SENDGRID_USERNAME'],
+                           :password  => ENV['SENDGRID_PASSWORD'],
+                           :authentication => 'plain',
+                           :enable_starttls_auto => true }
+end
+
+mail = Mail.deliver do
+  to 'yourRecipient@domain.com'
+  from 'Your Name <name@domain.com>'
+  subject 'This is the subject of your email'
+  text_part do
+    body 'Hello world in text'
+  end
+  html_part do
+    content_type 'text/html; charset=UTF-8'
+    body '<b>Hello world in HTML</b>'
+  end
+end
+----
+
+[[resources]]
+== Additional Resources
+Additional documentation and examples are available at link:https://sendgrid.com/docs/[https://sendgrid.com/docs/].
+
+[[support]]
+== Support
+
+Phone Support::	+ 1 303 552 0653
+Email:: link:mailto:support@sendgrid.com[support@sendgrid.com]
+Support Portal:: link:https://support.sendgrid.com/[https://support.sendgrid.com/]
