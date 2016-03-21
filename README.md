@@ -1,5 +1,5 @@
 # OpenShift Online Developer Center
-[![Build Status](https://build-shifter.rhcloud.com/buildStatus/icon?job=devcenter-build)](https://build-shifter.rhcloud.com/job/devcenter-build/)
+[![Build Status](https://travis-ci.org/openshift/devcenter.svg?branch=master)](https://travis-ci.org/openshift/devcenter)
 
 This repo contains the AsciiDoc sources for the [OpenShift Online Developer Center](https://developers.openshift.com/).
 
@@ -25,40 +25,29 @@ As a precaution, disable merge commits to your master branch
     $ git config branch.master.mergeoptions --ff-only
 
 
-### Building w/Awestruct
-Awestruct is a framework for creating static HTML sites, inspired by the [Jekyll](http://github.com/mojombo/jekyll) utility in the same genre. It requires at least Ruby 1.9.3 (see [known issues](#known-issues)).
+### Building w/Middleman
+Middleman is a framework for creating static HTML sites.
 
-First, install the `awestruct` and `bundler` gems and resolve any dependencies.
+First, install the  `bundler` gem and then install Middleman and it's dependencies.
 ```bash
-$ gem install awestruct bundler
+$ gem install bundler
+$ bundle install
 ```
 
-### Live Previews with Rake
+### Live Previews with Middleman
 
 This project uses Rake to assist with various development tasks. Run `rake setup` inside the project's `lib` folder to get started:
 
 ```bash
-$ cd lib
-$ rake setup
+$ bundle exec middleman
 ```
 
-To generate the files, regenerate pages on changes, and start a server to preview the site in your browser at [http://localhost:4242](http://localhost:4242), run:
+You can now view the site at http://localhost:4567
 
-```bash
-$ rake
-```
-
-This is a shortcut for `rake preview`.
-
-If you need to clear out the generated site from a previous run (recommended), simply run
-```bash
-$ rake clean preview
-```
 
 Content on the live site will look exactly as it does in your development environment. Please verify each of your changes *before* submitting a pull request.
 
 ### Contributing
-You can preview your changes at [devcenter-shifter.rhcloud.com](https://devcenter-shifter.rhcloud.com/) once your Pull Request has been merged.
 
 It's usually a good idea to start by [submitting an issue describing your feedback or planned changes](https://github.com/openshift/devcenter/issues).
 
@@ -96,7 +85,7 @@ Rebase your branch against the latest master (applies your patches on top of mas
 The -i triggers an interactive update which also allows you to combine commits, alter commit messages etc. It's a good idea to make the commit log very nice for external consumption. Note that this alters history, which while great for making a clean patch, is unfriendly to anyone who has forked your branch. Therefore you want to make sure that you either work in a branch that you don't share, or if you do share it, tell them you are about to revise the branch history (and thus, they will then need to rebase on top of your branch once you push it out).
 
 
-After completing your changes, [test and review them locally](https://github.com/openshift/devcenter#building-wawestruct).
+After completing your changes, test and review them locally.
 
 
 Finally, [send us a `Pull Request`](https://github.com/openshift/devcenter/compare) comparing your new branch with `openshift/devcenter:master`.
@@ -104,72 +93,8 @@ Finally, [send us a `Pull Request`](https://github.com/openshift/devcenter/compa
 When you're done, reset your development environment by repeating the steps in this section: switch back to master, update your repo, and cut a new feature branch (from `master`).
 
 ## Deployment
-A hosted copy of these docs can be launched using the `rhc` command line tool.
 
-Firstly, create an app on the rhcloud.
-
-    $ APP_NAME=staticdocs
-    $ NEW_GIT_REMOTE_URL=$(rhc app create $APP_NAME php-5.4 --no-git --no-dns | grep "Git remote:" | sed -e 's/.*Git remote: *\([^ ]*\)/\1/')
-    $ echo $NEW_GIT_REMOTE_URL
-    $ rhc app show $APP_NAME
-
-Then, `cd` into your local `devcenter/lib` project folder, then run `awestruct -u APP_BASE_URL` to update it to your `site.base_url`:
-
-    $ cd devcenter/lib
-    # You should replace APP_BASE_URL with your own rhcloud app domain.
-    # e.g. https://devcenterdocs-mycustomdomain.rhcloud.com (note the https)
-    $ APP_BASE_URL=https://developers.openshift.com
-    # The awestruct command is necessary to correctly generate the static files' url
-    $ awestruct -u $APP_BASE_URL
-
-Then, create a new git repository in the `lib/_site` folder and add your app's remote url.
-
-    $ cd devcenter/lib/_site/
-    # Note that there is a symbolic link for this folder (devcenter/public)
-    $ git init
-    $ git remote add $APP_NAME $NEW_GIT_REMOTE_URL
-    $ git add .
-    $ git commit -m "Add static doc files"
-    $ git push $APP_NAME master
-
-Optionally, you can create a new directory outside of the `devcenter` scope and copy your files every time you recompile the site. This is cleaner but requires an additional step.
-
-Rerun with different `APP_NAME` values to set up additional deployment targets. Subsequent deployments can be made with `git push APP_NAME master`.
-
-By default, OpenShift will build your site using the `master` branch. To deploy an alternate branch, use `rhc app configure`:
-
-```bash
-rhc app configure -a APP_NAME --deployment-branch BRANCH_NAME
-```
-
-## Adding New Sections ##
-The page sources are human-readable `.adoc` files ([AsciiDoc](http://asciidoc.org/)), which are intended to be published in various formats, usually HTML.
-
-At a minimum, the first several lines of a new .adoc document must follow this pattern:
-
-    ---
-    
-    
-    
-    
-    title: JBossAS/Wildfly <5>
-    
-    description: JBossAS Developers - OpenShift Resources to host your Java applications in the cloud. <7>
-    ---
-    = JBossAS Overview <8>
-
-    Start writing your content here.
-
-    <1> .haml layout used by page (defined in _layouts - in general use base)
-    <2> Used for left-nav categorization/display. Number is priority level, String is leftnav display string
-    <3> Used for breadcrumbs - should be same as category without numbers or underscore
-    <4> Used for breadcrumbs - url of parent
-    <5> Used in leftnav - Link text for this specific page
-    <6> Used in leftnav - sort order for the page in this specific category
-    <7> Meta description - for SEO
-    <8> Title of page (only set once)
-
-For the rest of the document, make sure that you are following proper [AsciiDoc syntax](http://asciidoctor.org/docs/asciidoc-writers-guide/) and preview your document before submitting a pull request. There's no magic in how the documentation is built, so if it doesn't look right in your sandbox, it won't look right on the documentation site.
+Once your pull request is merged into the official repository, it will automatically be built and deployed by Travis CI.
 
 ### Review Process (for Administrators)
 Pull Requests should be able to be automatically merged using GitHub's web-based tools.
@@ -206,9 +131,6 @@ To check out a particular pull request:
     Switched to a new branch 'pr/999'
 
 
-
-In addition to local testing, the feature branch can also be [deployed to OpenShift](#deployment) for review.
-
 If everything looks good, use the merge button on the pull request to merge in the changes.
 
 Mentioning PR numbers in commit messages will automatically generate links:
@@ -222,7 +144,3 @@ If the Pull Request requires additional work, add a comment on GitHub describing
 ```bash
 git checkout master
 ```
-
-#### Known Issues
-
-* For help troubleshooting Nokigiri errors - install an updated version of Nokogiri using the [Nokogiri installation guide](http://www.nokogiri.org/tutorials/installing_nokogiri.html).
