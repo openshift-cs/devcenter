@@ -596,6 +596,7 @@ Redirect 301 /en/xpaas-unified-push.html  https://developers.openshift.com/jboss
 Redirect 301 /en/xpaas.html  https://developers.openshift.com/jboss-xpaas/index.html
 Redirect 301 /en/zend-getting-started.html  https://developers.openshift.com/servers/zend/getting-started.html
 Redirect 301 /en/zend-overview.html  https://developers.openshift.com/servers/zend/index.html
-Redirect 301 /en/	/index.html
-Redirect 301 /overview  https://developers.openshift.com/overview/basic-terminology.html
-Redirect 301 /faq  https://developers.openshift.com/faq/account.html
+Redirect 301 /en/$	/index.html
+Redirect 301 /en$	/index.html
+Redirect 301 /overview$  https://developers.openshift.com/overview/basic-terminology.html
+Redirect 301 /faq$  https://developers.openshift.com/faq/account.html
