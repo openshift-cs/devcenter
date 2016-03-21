@@ -599,4 +599,6 @@ Redirect 301 /en/zend-overview.html  https://developers.openshift.com/servers/ze
 Redirect 301 /en/$	/index.html
 Redirect 301 /en$	/index.html
 Redirect 301 /overview$  https://developers.openshift.com/overview/basic-terminology.html
+Redirect 301 /overview/$  https://developers.openshift.com/overview/basic-terminology.html
 Redirect 301 /faq$  https://developers.openshift.com/faq/account.html
+Redirect 301 /faq/$  https://developers.openshift.com/faq/account.html
