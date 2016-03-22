@@ -180,7 +180,7 @@ If generating the CSR from an SSH session to your gear, ensure that the `random 
 
 [source]
 ----
-$ RANDFILE=$OPENSHIFT_DATA_DIR/.rnd
+$ export RANDFILE=$OPENSHIFT_DATA_DIR/.rnd
 $ openssl genrsa -des3 -out $OPENSHIFT_DATA_DIR/example.com.key 2048
 Generating RSA private key, 2048 bit long modulus
 ..................+++
