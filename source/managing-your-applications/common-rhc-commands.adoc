@@ -18,6 +18,7 @@ Most of the commands understand that if you are in the git repository created by
 
 This document is organized by the task you are trying to accomplish, such as creating an application or determining how much disk space your application is using.
 
+[[account-commands]]
 == Commands About your OpenShift Account and Namespace/Domain
 
 |===
@@ -29,6 +30,7 @@ This document is organized by the task you are trying to accomplish, such as cre
 
 link:#top[Back to Top]
 
+[[application-commands]]
 == Commands for Creating an OpenShift Application
 
 |===
@@ -44,6 +46,7 @@ link:#top[Back to Top]
 
 link:#top[Back to Top]
 
+[[managing-commands]]
 == Commands for Managing an OpenShift Application
 
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
@@ -63,6 +66,7 @@ All of the following commands you are in the local git repository for the applic
 
 link:#top[Back to Top]
 
+[[cartridge-commands]]
 == Commands for Cartridges
 
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
@@ -77,7 +81,7 @@ All of the following commands you are in the local git repository for the applic
 |===
 link:#top[Back to Top]
 
-
+[[backup-commands]]
 == Commands for Backup and Network
 
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
@@ -93,6 +97,7 @@ All of the following commands you are in the local git repository for the applic
 |===
 link:#top[Back to Top]
 
+[[env-var-commands]]
 == Commands for Managing Environment Variables
 
 All of the following commands you are in the local git repository for the application you want to work with. If you are not in the repository, then each command needs an `-a {application name}` added to it.
