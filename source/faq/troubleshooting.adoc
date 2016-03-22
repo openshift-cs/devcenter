@@ -28,7 +28,7 @@ link:#_how_can_i_disable_https[How can I disable HTTPS?] +
 link:#_why_am_i_getting_a_resource_temporarily_unavailable_error_when_using_rhc[Why am I getting a 'resource temporarily unavailable' error when using rhc?] +
 link:#_why_is_my_jboss_application_timing_out[Why is my JBoss application timing out?] +
 link:#_why_is_my_jboss_application_having_java_net_bindexceptions_to_8080[Why is my JBoss application having java.net.BindExceptions to 8080?] +
-link:#_how_can_i_report_a_potential_security_problem[How can I report a potential security problem?]
+link:#_how_can_i_report_a_potential_security_problem[How can I report a potential security problem?] +
 link:#sync-a-new-git-repo-with-an-existing-git-repo[Sync a new git repo with an existing git repo] +
 link:#can-i-use-dsa-keys-with-my-openshift-online-account[Can I use DSA keys with my OpenShift Online account?] +
 link:#does-openshift-online-support-outgoing-email[Does OpenShift Online support outgoing email?] +
@@ -456,10 +456,14 @@ One way to do this is by using link:https://hub.openshift.com/quickstarts/3-piwi
 You can also use:
 [source, console]
 --
-$ rhc app snapshot save -a <app_name>
+$ rhc snapshot-save <app_name>
 --
 
-to get the logfiles from your running app, which you can run through a logfile analyzer like link:http://awstats.sourceforge.net/[AWStats].
+...to get the logfiles from your running app, which you can run through a logfile analyzer like link:http://awstats.sourceforge.net/[AWStats].
+
+TIP: Another way of getting the application log files is to use the `rhc scp` command. See the link:../managing-your-applications/common-rhc-commands.html#backup-commands[Common RHC commands] for details.
+
+NOTE: Only some cartridges do provide HTTP requests logging suitable for traffic estimates.
 
 link:#top[Back to Top]
 
