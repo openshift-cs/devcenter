@@ -40,7 +40,11 @@ IMPORTANT: Before you can install the rhc client tools, you must download and in
 NOTE: Sufficient privileges are required to install software on Windows systems. Depending on specific user permissions, disabling the User Account Control (UAC) on Windows Vista or Windows 7 operating systems may be necessary.
 
 === Step 1 - Install Ruby
-link:http://rubyinstaller.org[RubyInstaller] provides the best experience for installing Ruby on Windows. link:http://rubyinstaller.org/downloads/[Download the latest 1.9.3 version] and launch the installer.
+link:http://rubyinstaller.org[RubyInstaller] provides the best experience for installing Ruby on Windows.
+
+NOTE: The Client Tools are known to work well with Ruby versions *1.9.3* and *2.0.0* on Windows, based on the community feedback. We recommend downloading and installing one of those versions.
+
+Download one of the preferred versions from the link:http://rubyinstaller.org/downloads/archives/[RubyInstaller archives] and launch it.
 
 IMPORTANT: During the installation you can accept all of the defaults, but it is mandatory that you select the *Add Ruby executables to your PATH* check box in order to run Ruby from the command line (see image below).
 
@@ -68,7 +72,7 @@ Using Git for Windows will greatly simplify the setup and management of SSH keys
 
 Download and install the link:http://msysgit.github.io/[latest version of Git for Windows].
 
-IMPORTANT: During the installation process, select the *Run Git from the Windows Command Link Prompt* checkbox so that Git can be run from the command line. Also, select *Checkout Windows-style, commit Unix-style line endings*, which is the recommended setting.  Finally, in order to set up rhc from Git Bash, select *Use Windows' default console window* to configure the terminal emulator for Git Bash.  You can set up rhc from the Windows Powershell or Ruby Command Prompt if you prefer the MinTTY terminal emulator.    
+IMPORTANT: During the installation process, select the *Run Git from the Windows Command Link Prompt* checkbox so that Git can be run from the command line. Also, select *Checkout Windows-style, commit Unix-style line endings*, which is the recommended setting.  Finally, in order to set up rhc from Git Bash, select *Use Windows' default console window* to configure the terminal emulator for Git Bash.  You can set up rhc from the Windows Powershell or Ruby Command Prompt if you prefer the MinTTY terminal emulator.
 
 After the installation is completed, to verify that Git is correctly configured run:
 
