@@ -72,7 +72,7 @@ Clicking this link will open up the new hostname configuration page:
 
 image::overview-platform-features-12.png[Adding a domain alias part 2]
 
-Here you can enter the domain name that you would like to associate with your application. The above example uses _\http://parks.ryanjarvinen.com/_.
+Here you can enter a link:https://tools.ietf.org/html/rfc1123#page-13[valid] domain name that you would like to associate with your application. The above example uses _\http://parks.ryanjarvinen.com/_.
 
 Configuring your application to be available on a subdomain is generally easier.
 
