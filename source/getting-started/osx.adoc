@@ -57,11 +57,18 @@ With Ruby and Git installed, use the RubyGems library system to install and run 
 $ sudo gem install rhc
 ----
 
+If you get the "Operation not permitted" (EPERM) error, run instead:
+[source]
+----
+$ sudo gem install -n /usr/local/bin rhc
+----
+
 If you encounter any dependency issues, you may need to run:
 [source]
 ----
 $ sudo gem update
 ----
+
 
 link:#top[Back to Top]
 
