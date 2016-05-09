@@ -18,7 +18,7 @@ Gears are secure containers for your applications. From the perspective of the f
 link:#filesystem_layout[Filesystem Layout] +
 link:#tmp[/tmp] +
 link:#env[.env] +
-link:#app_root[app-root] +
+link:#app-root[app-root] +
 link:#app-deployments[app-deployments] +
 link:#git[git] +
 link:#disk-space[Determining Used Disk Space] +

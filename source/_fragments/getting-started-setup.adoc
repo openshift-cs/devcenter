@@ -126,6 +126,7 @@ There are a number of options available when creating a new application. To lear
 
 link:#top[Back to Top]
 
+[[making-first-change]]
 == Making Your First Change
 OpenShift uses Git to manage application deployments on OpenShift. You make code changes on your local machine, check those changes in locally, and then push those changes to OpenShift.
 
