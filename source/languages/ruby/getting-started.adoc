@@ -23,7 +23,7 @@ link:#step3[Step 3: Managing dependencies through Bundler] +
 link:#other[Other Tips] +
 link:#next[Next Steps]
 
-[[create]]
+[[step1]]
 == Step 1: Create a Ruby Application
 
 This tutorial walks through the creation of an application titled *myapp* under the domain *mydomain*. Before going through the rest of the tutorial, make sure to have link:https://www.openshift.com/app/account[created an OpenShift account] and link:/managing-your-applications/client-tools.html[installed the RHC command line tools].

@@ -23,6 +23,7 @@ link:#perl[The Perl Cartridge]
 
 image::perl-logo.png[Perl logo]
 
+[[simplify]]
 == Simplify Your Perl Deployments
 
 Getting a Perl app with a MySQL backend deployed onto OpenShift is as easy as executing two commands:

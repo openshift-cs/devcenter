@@ -59,7 +59,7 @@ If you are a new user, you can sign up for the plan you want directly from the l
 
 link:#top[Back to Top]
 
-=== Can I pay for my Bronze Plan or Silver Plan with Paypal?
+=== Can I pay for my Bronze or Silver Plan with Paypal?
 Currently OpenShift Online only accepts credit card payments from the US, Canada, and Europe. Please see the link:https://www.openshift.com/pricing[Pricing Page] for more details.
 
 link:#top[Back to Top]
