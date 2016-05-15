@@ -19,24 +19,12 @@ OpenShift allows a choice of environments (UI, command line, IDE), but in order 
 If you just want to log in and create your first application, you can simply log into the link:https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole[web console (requires login)]. However, you won't be able to make changes to your application until you've followed the instructions below.
 
 == In this Tutorial
-Install the client tools link:#client-tools-dpkg[via Debian package] or link:#client-tools-gem[via Ruby gem] +
+Install the client tools link:#client-tools-gem[via Ruby gem] +
 link:#rhc-setup[Setting up Your Machine] +
 link:#creating-app[Creating an Application] +
 link:#making-first-change[Making Your First Change] +
 link:#remote-access[Remote Access] +
 link:#next-steps[Next Steps] +
-
-[[client-tools-dpkg]]
-== Installing the Client Tools via dpkg
-The quickest way of installing the tools is using the Debian package. It is available in link:https://packages.debian.org/source/stable/rhc[Debian stable] and link:http://packages.ubuntu.com/vivid/rhc[Ubuntu vivid] or later. If you use a previous version of Ubuntu, refer to the  link:#client-tools-gem[Ruby gem] method.
-
-From terminal, run the following command (requires sudoer or root access):
-[source]
-----
-$ sudo apt-get install rhc
-----
-
-NOTE: The `sudo` command only works if the particular user is listed in the _sudoers_ file. As an alternative to sudo access, you can activate a root terminal with the +su+ command and the root password. If you activate a root terminal, omit `sudo` from the commands shown in the examples. Be sure to close the root terminal after the installation completes.
 
 [[client-tools-gem]]
 == Installing the Client Tools via Ruby gem
