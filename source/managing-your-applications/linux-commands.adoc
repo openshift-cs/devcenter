@@ -15,6 +15,10 @@ description: Some basic Linux commands for developers unfamiliar with Linux comm
 [.lead]
 Here is a short introduction to some Linux commands you might use when you SSH into your OpenShift Application. One shortcut you should know right away is that the tilde character (`~`) is an alias for your home directory. The operating system will expand that symbol to the path to your home directory.
 
+NOTE: Users do not have root privileges on their gears.
+
+WARNING: The secure shell access is quite powerful and it is possible for you to accidentally damage your application. Proceed with care and make sure you have a current link:/managing-your-applications/backing-up-applications.html[backup snapshot] of your application.
+
 == Listing Directory Contents
 To list the contents of a folder, you can execute the `ls` command. This will show the contents of the directory, but will not display any information about permissions or which items are directories. To view the permissions for items, use the command `ls -l`. Use `ls -lh` for human-readable file sizes, or `ls -lha` to list all files, including hidden files. The output should look something like this:
 
