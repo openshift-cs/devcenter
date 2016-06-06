@@ -1,0 +1,51 @@
+---
+title: RockMongo
+description: RockMongo - OpenShift Resources to help you get started with RockMongo.
+---
+
+[[top]]
+[float]
+
+[.lead]
+link:http://rockmongo.com/[RockMongo] is an open source MongoDB administration tool written in PHP, similarly to the phpMyAdmin, intended to handle administration of your MongoDB databases, collections and documents via a web user interface. RockMongo can be used for common database tasks, e.g. creating databases and collections, inserting, updating and deleting documents, querying the data and managing user roles.
+
+
+== Installation
+The RockMongo add-on can be installed using the following command:
+[source,console]
+--
+$rhc cartridge add rockmongo -a <appname>
+--
+NOTE: You must have link:/databases/mongodb.html[the MongoDB cartridge] already installed in order to add this cartridge.
+
+TIP: You can not install this add-on into a *scalable* application. Consider link:managing-port-forwarding.html[port forwarding] in order to use a local database management software of your choice as an alternative.
+
+[source,console]
+--
+$rhc cartridge add rockmongo -a myapp
+Using rockmongo-1.1 (RockMongo 1.1) for 'rockmongo'
+Adding rockmongo-1.1 to application 'myapp' ... done
+
+rockmongo-1.1 (RockMongo 1.1)
+-----------------------------
+  Gears:          Located with nodejs-0.10, mongodb-2.4
+  Connection URL: https://myapp-mydomain.rhcloud.com/rockmongo/
+
+Please make note of these MongoDB credentials:
+  RockMongo User: admin
+  RockMongo Password: YeHmAjVLhnTg
+URL: https://myapp-mydomain.rhcloud.com/rockmongo/
+--
+=== Usage
+Once you have installed the cartridge, make note of the `URL`, `RockMongo User`, and `RockMongo Password` information that is displayed in your console.
+You will need this information to access the RockMongo web application.
+
+You can now paste the `URL` into your web browser and it will ask for your UserName and Password. +
+Enter the credentials that you made note of before and then click the **Login and Rock** button.
+
+Find a tutorial video and example tasks managing a MongoDB database on OpenShift via RockMongo in link:https://blog.openshift.com/how-to-manage-mongodb-on-openshift-with-rockmongo/[this blog post].
+
+=== Documentation
+For further information about RockMongo, you can visit their link:http://rockmongo.com/[homepage].
+
+link:#top[Back to Top]
