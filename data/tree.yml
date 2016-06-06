@@ -144,6 +144,7 @@ jboss-xpaas:
 core-addons:
   index.adoc: "/core-addons/index.adoc"
   phpmyadmin.adoc: "/core-addons/phpmyadmin.adoc"
+  rockmongo.adoc: "/core-addons/rockmongo.adoc"
 external-services:
   index.adoc: "/external-services/index.adoc"
   3scale.adoc: "/external-services/3scale.adoc"

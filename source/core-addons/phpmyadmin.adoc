@@ -16,7 +16,7 @@ The phpMyAdmin add-on can be installed using the following command:
 --
 $rhc cartridge add phpmyadmin -a <appname>
 --
-NOTE: You must have one of the MySQL cartridges installed for this add-on to be installed.
+NOTE: You must have one of the link:/databases/mysql.html[MySQL cartridges] installed for this add-on to be installed.
 
 TIP: You can not install this add-on into a *scalable* application. Consider link:managing-port-forwarding.html[port forwarding] in order to use a local database management software of your choice.
 
