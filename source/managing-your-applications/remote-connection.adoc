@@ -43,6 +43,10 @@ link:#top[Back to Top]
 === Connecting to an Application
 Once you have created an application and set up your SSH keys (either by `rhc setup` or manual upload), you can SSH into the remote server using the `rhc ssh` command.
 
+NOTE: Users do not have root privileges on their gears.
+
+WARNING: The secure shell access is quite powerful and it is possible for you to accidentally damage your application. Proceed with care and make sure you have a current link:/managing-your-applications/backing-up-applications.html[backup snapshot] of your application.
+
 To SSH into a specific application:
 [source]
 ----
