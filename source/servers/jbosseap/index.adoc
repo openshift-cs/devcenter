@@ -11,7 +11,7 @@ description: JBoss EAP Developers - OpenShift Resources to host your Java applic
 
 [[top]]
 [float]
-= Red Hat JBoss Enteprise Application Platform Hosting
+= Red Hat JBoss Enterprise Application Platform Hosting
 [.lead]
 Accelerate to market without compromise. Develop and deploy your Java EE applications quickly with the simplicity of PaaS.
 
