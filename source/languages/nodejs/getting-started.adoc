@@ -13,7 +13,7 @@ description: Getting Started with Node.js hosting on OpenShift
 
 In addition to the usual `git` and the `rhc` command-line tools, you'll need to install Nodejs as a local development dependency.  The `npm` package manager comes bundled with all recent releases of Nodejs.
 
-The link:/managing-your-applications/client-tools.html[`rhc` command-line tool] makes it easy to /managing-creating-applications.html[provision new hosted application environments] - complete with DNS, ssh, and git services.
+The link:/managing-your-applications/client-tools.html[`rhc` command-line tool] makes it easy to link:/managing-your-applications/creating-applications.html[provision new hosted application environments] - complete with DNS, ssh, and git services.
 
 [[launch]]
 == Step1: Create a Nodejs Application
