@@ -44,7 +44,7 @@ link:http://rubyinstaller.org[RubyInstaller] provides the best experience for in
 
 NOTE: The Client Tools are known to work well with Ruby versions *1.9.3* and *2.0.0* on Windows, based on the community feedback. We recommend downloading and installing one of those versions.
 
-Download one of the preferred versions from the link:http://rubyinstaller.org/downloads/archives/[RubyInstaller archives] and launch it.
+Download one of the preferred versions from the link:http://rubyinstaller.org/downloads/[RubyInstaller downloads] and launch it.
 
 IMPORTANT: During the installation you can accept all of the defaults, but it is mandatory that you select the *Add Ruby executables to your PATH* check box in order to run Ruby from the command line (see image below).
 
