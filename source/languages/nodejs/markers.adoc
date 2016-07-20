@@ -7,7 +7,6 @@ title: Markers
 
 description: Node.js - OpenShift Online PHP marker files
 ---
-= Node.js Markers
 
 [float]
 = Node.js Markers
