@@ -15,12 +15,7 @@ description: Python developers - Flask microframework on OpenShift Online
 
 link:http://flask.pocoo.org[Flask] is a popular open-source microframework for Python. This tutorial steps through the process of creating a Python application on OpenShift and adding the Flask microframework.
 
-To create an OpenShift application based on a Flask QuickStart template instead, use the following terminal command:
-
-[source, console]
-----
-$ rhc app create myflaskapp python-2.7 --from-code=https://github.com/openshift-quickstart/flask-base.git
-----
+NOTE: If you prefer not to follow the tutorial below, you can deploy link:https://hub.openshift.com/quickstarts/116-flask[this Flask QuickStart template] instead, producing a slightly different Flask application.
 
 link:#step1[Step 1: Create Python Application] +
 link:#step2[Step 2: Add Flask Dependency] +
