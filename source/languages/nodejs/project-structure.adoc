@@ -58,7 +58,7 @@ Make sure that the link:https://www.npmjs.org/doc/misc/npm-scripts.html#DEFAULT-
 "main": "server.js"
 ----
 
-Check the link:#markers[Markers] section for specifics on how OpenShift uses this information to manage your server.
+Check the link:/languages/nodejs/markers.html[Markers] section for specifics on how OpenShift uses this information to manage your server.
 
 [[node_modules]]
 == `node_modules`
