@@ -111,6 +111,6 @@ Finally, you'll need your DNS provider to manage geoIP or load balancing between
 
 image::overview-multiregion-app-graphic1.png[Multiregion Application Hosting Flowchart]
 
-If you'd like to see this be more tightly integrated into OpenShift Online, please link:https://ideas.openshift.com[add or vote on features].
+If you'd like to see this be more tightly integrated into OpenShift Online, please link:https://openshift.uservoice.com/[add or vote on features].
 
 link:#top[Back to Top]
