@@ -9,5 +9,5 @@ description: Contact - Ask us something
 [float]
 
 ++++
-<script src="https://contact-osdevelopers.rhcloud.com/form/zendesk"></script>
+<script src="https://contact-osdevelopers.rhcloud.com/form/anonymous"></script>
 ++++
