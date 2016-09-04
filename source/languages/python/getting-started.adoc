@@ -75,7 +75,7 @@ A developer on OpenShift can make code changes on a local machine, check those c
 
 === Using the Git Repository
 
-To make the first change, edit `wsgi.py` in the base of the local git repository. Go to the file in the terminal and edit with a comand line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. The beginning of this file starts a basic WSGI application with some URL routing. Strip out everything between the two `<body>` tags and change the content to look like this:
+To make the first change, edit `wsgi.py` in the base of the local git repository. Go to the file in the terminal and edit with a command line editor like *VIM* or *EMacs*. Alternatively, edit the file using any text editor or IDE. The beginning of this file starts a basic WSGI application with some URL routing. Strip out everything between the two `<body>` tags and change the content to look like this:
 
 [source, html]
 ----
@@ -118,9 +118,9 @@ link:#top[Back to Top]
 [[step3]]
 == Step 3: Managing Application Package Dependencies
 
-When you look in the git repository you will notice there is both a *setup.py* and a *requirements.txt*. Just as in a standard Python application, both of these files can be used to manage package dependencies. We recommend that you use *setup.py* to hold the metadata for your application, such as name and author, and *requirements.txt* for the specific versions of packages your application needs. This follows the documentation for link:https://docs.python.org/2/distutils/setupscript.html[setup scripts] and an excellent link:https://caremad.io/blog/setup-vs-requirement/[blog piece] by one of the main pip maintainers. Here is the link:https://pip.readthedocs.org/en/1.1/requirements.html[documentation] for *requirements.txt*.
+When you look in the git repository you will notice there is both a *setup.py* and a *requirements.txt*. Just as in a standard Python application, both of these files can be used to manage package dependencies. We recommend that you use *setup.py* to hold the metadata for your application, such as name and author, and *requirements.txt* for the specific versions of packages your application needs. This follows the documentation for link:https://docs.python.org/2/distutils/setupscript.html[setup scripts] and an excellent link:https://caremad.io/2013/07/setup-vs-requirement/[blog piece] by one of the main pip maintainers. Here is the link:https://pip.readthedocs.org/en/1.1/requirements.html[documentation] for *requirements.txt*.
 
-OpenShift runs **pip install -r requirements.txt** on build and adds the packages to the applications virtualenv. If you are unfamiliar with virtualenv you should read some of the link:http://virtualenv.readthedocs.org/en/latest/virtualenv.html[documentation].  For Python 3.3 applications the proper way to load the virtualenv should look like this:
+OpenShift runs **pip install -r requirements.txt** on build and adds the packages to the applications virtualenv. If you are unfamiliar with virtualenv you should read some of the link:http://virtualenv.readthedocs.io/en/stable/[documentation].  For Python 3.3 applications the proper way to load the virtualenv should look like this:
 
 [source, python]
 ----
