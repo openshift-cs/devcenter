@@ -5,14 +5,11 @@ description: An overview of database guides on OpenShift.
 
 [[top]]
 [float]
+= Database Services
 
 [.lead]
 OpenShift Online offers a numbers of database options to help you get your applications up and running quickly.
 
-
-
-
-== Database Services
 link:#mysql[MySQL] +
 link:#mongodb[MongoDB] +
 link:#postgresql[PostgreSQL] +
@@ -43,4 +40,3 @@ link:/databases/sqlite.html[-> Learn More]
 === Amazon RDS
 Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database management tasks, freeing you up to focus on your applications and business. +
 link:/databases/amazon-rds.html[-> Learn More]
-

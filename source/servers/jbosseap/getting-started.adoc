@@ -7,7 +7,6 @@ title: Getting Started
 
 description: Get started with JBoss EAP 6 on OpenShift
 ---
-= Getting Started with JBoss EAP 6
 
 [[top]]
 [float]

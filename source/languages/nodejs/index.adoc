@@ -9,8 +9,6 @@ description: Node.js application hosting
 ---
 = Node.js Application Hosting
 
-[float]
-= Node.js Application Hosting
 [.lead]
 OpenShift's link:https://www.openshift.com/products/technologies[`nodejs-0.10`] cartridge provides a trusted platform for building, hosting, and scaling Javascript applications using proven, open source technologies.
 

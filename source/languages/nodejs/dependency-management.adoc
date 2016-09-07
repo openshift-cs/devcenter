@@ -10,7 +10,6 @@ description: Manage Javascript dependencies with NPM
 = Node.js Dependency Management with NPM
 
 [float]
-
 In addition to the usual `git` and the `rhc` command-line tools, you'll need to install Nodejs as a local development dependency.  The `npm` package manager comes bundled with all recent releases of Nodejs.
 
 [[dependencies]]
