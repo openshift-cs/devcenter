@@ -7,7 +7,6 @@ title: Repository Layout
 
 description: Node.js Project Structure Repository Layout
 ---
-= Node.js Repository Layout
 
 [float]
 = Node.js Repository Layout

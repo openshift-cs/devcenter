@@ -7,11 +7,9 @@ title: "Example: MEAN Stack"
 
 description: An Example of how to use MEAN Stack on OpenShift for javascript applications
 ---
-
-
-[float]
 = link:https://www.openshift.com/meanstack[image:https://www.openshift.com/sites/default/files/mean_logo.png[float="right", width="100px", title="MEAN Stack"]] The MEAN Stack on OpenShift
 
+[float]
 The MEAN stack is a potent new concoction of javascript-flavored tooling, services, and frameworks that make modern, single-page application design a breeze:
 
 [cols="1,3"]

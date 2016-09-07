@@ -7,7 +7,6 @@ title: Vert.x
 
 description: Vert.x Developers - OpenShift Resources to host your Vert.x applications in the cloud.
 ---
-= Vert.x Application Hosting
 
 [[top]]
 [float]

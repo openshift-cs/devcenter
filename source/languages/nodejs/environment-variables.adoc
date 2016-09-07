@@ -10,7 +10,6 @@ description: Node.js Runtime Environment on OpenShift
 = Node.js Environment Variables
 
 [float]
-
 OpenShift's Nodejs cartridge uses the following system environment variables to publish router connection details, and to customize the application's build, hosting, and scaling routines:
 
 [cols="1,3",options="header"]

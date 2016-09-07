@@ -5,6 +5,7 @@ description: RockMongo - OpenShift Resources to help you get started with RockMo
 
 [[top]]
 [float]
+= RockMongo
 
 [.lead]
 link:http://rockmongo.com/[RockMongo] is an open source MongoDB administration tool written in PHP, similarly to the phpMyAdmin, intended to handle administration of your MongoDB databases, collections and documents via a web user interface. RockMongo can be used for common database tasks, e.g. creating databases and collections, inserting, updating and deleting documents, querying the data and managing user roles.
