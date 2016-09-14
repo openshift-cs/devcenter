@@ -191,7 +191,9 @@ RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 For Python, the `.htaccess` file must be placed inside of the `wsgi` folder.
 
 ==== For Node.js Express applications
-Create a function like this in your application:
+NOTE: This tip is created based on default code that comes with the link:https://hub.openshift.com/quickstarts/99-node-js-0-10[Node.js 0.10 quick start].
+
+Create a function like this in your application `server.js`:
 
 [source, javascript]
 ----
