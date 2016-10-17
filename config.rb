@@ -5,7 +5,7 @@ require 'yaml'
 set :site_title, "OpenShift Developer Portal"
 set :site_url, 'https://developers.openshift.com/'
 set :openshift_assets, 'https://assets.openshift.net/content'
-
+set :dtm_url, '//www.redhat.com/dtm.js'
 
 set :asciidoc_attributes, %w(icons=font source-highlighter=coderay coderay-css=style)
 set :haml, { :ugly => true, :format => :html5 }
@@ -119,6 +119,13 @@ helpers do
       return name.titlecase
     end
   end
+end
+
+# Development configuration
+configure :development do
+  set :site_url, 'https://developers-openshift.c9users.io/'
+  set :dtm_url, 'http://dpal-itmarketing.itos.redhat.com/www.openshift.com'
+  #set :openshift_assets, 'https://assets-openshift.c9.io/content'
 end
 
 # Build-specific configuration

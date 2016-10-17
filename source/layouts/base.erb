@@ -27,6 +27,7 @@
   <!-- IE8 requires jQuery v1.x -->
   <%= javascript_include_tag "#{openshift_assets}/modernizr.js" %>
   <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
+  <%= javascript_include_tag dtm_url %>
 </head>
 <body class="<%= page_classes %> online">
 <%= partial "layouts/tracking" %>
@@ -72,6 +73,11 @@
 <%= partial "layouts/footer" %>
 <script type="text/javascript">
   <%= content_for?(:javascript) ? yield_content(:javascript) : '' %>
+</script>
+<script type="text/javascript">
+if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+   _satellite.pageBottom();
+}
 </script>
 </body>
 </html>

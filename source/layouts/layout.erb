@@ -29,6 +29,7 @@
   <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
   <%= javascript_include_tag "navtree.js" %>
   <%= javascript_include_tag "fixheight.js" %>
+  <%= javascript_include_tag dtm_url %>
 </head>
 <body class=" online">
 <%= partial "layouts/tracking" %>
@@ -93,6 +94,11 @@ function googleTranslateElementInit() {
 <%= partial "layouts/footer" %>
 <script type="text/javascript">
   <%= content_for?(:javascript) ? yield_content(:javascript) : '' %>
+</script>
+<script type="text/javascript">
+if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+   _satellite.pageBottom();
+}
 </script>
 </body>
 </html>
