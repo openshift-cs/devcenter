@@ -17,8 +17,6 @@ Application scaling enables your application to react to changes in traffic and 
 
 All plans allow the creation and management of scalable applications on OpenShift, but the Free Plan is limited to three small gears. Premium plans and link:https://www.openshift.com/dedicatednode[Dedicated Node Services] allow applications to be scaled from 1 to 16 gears (and beyond), and offer you full control over the minimum and maximum gears available to an application.
 
-NOTE: Applications on premium plans will never idle.
-
 == In this section
 link:#creating-a-scalable-application[Creating a Scalable Application] +
 link:#managing-application-scaling[Managing Application Scaling] +
