@@ -1250,3 +1250,20 @@ h3 {
 #cse-search-form-body {
   margin-bottom:15px;
 }
+
+.v2-warning {
+    background-color: #0275d8;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    padding: 15px 20px;
+    text-align: center;
+}
+.v2-warning a {
+  color:#fff;
+}
+.v2-warning:hover {
+    background-color: #0269c2;
+    color: #fff;
+    text-decoration: none;
+}
