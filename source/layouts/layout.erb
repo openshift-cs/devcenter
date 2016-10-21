@@ -5,6 +5,7 @@
 <html>
 <!--<![endif]-->
 <head>
+  <%= javascript_include_tag dtm_url %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,9 +30,20 @@
   <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
   <%= javascript_include_tag "navtree.js" %>
   <%= javascript_include_tag "fixheight.js" %>
-  <%= javascript_include_tag dtm_url %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      if (localStorage.getItem('v2warning') !== 'true') {
+        $('.v2-warning').show();
+      }
+      $('#v2-warning-dismiss').on('click',function(e){
+        e.preventDefault();
+        localStorage.setItem('v2warning','true');
+        $('.v2-warning').hide();
+      });
+    });
+  </script>
 </head>
-<body class=" online">
+<body class="online">
 <%= partial "layouts/tracking" %>
 <%= partial "layouts/navbar" %>
 
