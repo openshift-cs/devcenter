@@ -70,7 +70,10 @@ You can see current usage on the link:https://openshift.redhat.com/app/account[M
 link:#top[Back to Top]
 
 === Why can't I downgrade to the Free Plan?
-In order to downgrade from the Silver Plan or Bronze Plan to the Free Plan, you will need to reduce your account's resource usage to be within the Free plan's resource limits (3 small gears with no additional storage).
+In order to downgrade from the Silver Plan or Bronze Plan to the Free Plan, you will need to reduce your account's resource usage to be within the Free plan's resource limits.
+Make sure your apps are consuming only up to link:/managing-your-applications/resource-management.html[3 small gears with no additional storage], and remove any link:/managing-your-applications/collaboration.html#team-management[teams] that are set up.
+
+NOTE: Note that it is not possible to modify gear sizes of already deployed applications; if any app is deployed on _medium_ or _large_ gear(s), it needs to be deleted (you may want to download its link:/managing-your-applications/backing-up-applications.html[backup snapshot] first).
 
 link:#top[Back to Top]
 
