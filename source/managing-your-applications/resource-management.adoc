@@ -13,7 +13,7 @@ description: How to manage gear sizes and additional storage for OpenShift Onlin
 [float]
 = Resource Management
 [.lead]
-All OpenShift Online plans offer 3 free small gears (512MB RAM and 1GB disk space each). Larger gears and additional storage are available on both the *Bronze* and *Silver* plans. The premium plans also allow access to additional gears beyond the 3 free small gears provided to all users. link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer the ability to have custom gear sizes and additional storage as needed.
+All OpenShift Online plans offer 3 free small gears (512MB RAM and 1GB disk space each). Larger gears and additional storage are available on both the *Bronze* and *Silver* plans. The premium plans also allow access to additional gears beyond the 3 free small gears provided to all users.
 
 == In This Guide
 link:#additional-gear-sizes[Additional Gear Sizes] +
@@ -34,8 +34,6 @@ The following gear prices are in USD. For CAD or EUR pricing, please refer to th
 | *Large* | $0.10/hr | 2GB RAM
 
 |===
-
-NOTE: Custom gear sizes are avaiable through link:https://www.openshift.com/dedicatednode[Dedicated Node Services].
 
 You can define the gear size of an application during creation through either the web console or the command line tools.
 
