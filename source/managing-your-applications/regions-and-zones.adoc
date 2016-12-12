@@ -13,11 +13,11 @@ description: How to manage which Amazon EC2 regions and zones your applications 
 [float]
 = Region and Zone Management
 [.lead]
-All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region. *Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region. link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer the ability to host applications in any Amazon EC2 region.
+All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region. *Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region.
 
 NOTE: Only applications using *Small.highcpu*, *Medium*, or *Large* gears can use additional regions. Small gears can only be created within the `us-east-1` AWS EC2 region.
 
-IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). link:https://www.openshift.com/dedicatednode[Dedicated Node Services] are available for purchase worldwide.
+IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). link:https://www.openshift.com/dedicated[OpenShift Dedicated] is available for purchase worldwide.
 
 == In This Guide
 link:#_listing_available_regions_and_zones[Listing Available Regions and Zones] +

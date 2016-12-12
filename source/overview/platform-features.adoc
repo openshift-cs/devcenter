@@ -15,7 +15,7 @@ description: OpenShift Online offers many powerful application management option
 [.lead]
 OpenShift Online offers many powerful application management options, some of which are only available on the premium Bronze and Silver plans. The following series of quick guides is intended to help you become familiar with these features.
 
-IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). link:https://www.openshift.com/dedicatednode[Dedicated Node Services] are available for purchase worldwide.
+IMPORTANT: OpenShift Online premium plan support is currently available to customers with a billing address in the *United States*, *Canada*, *Russia*, *Israel*, or *Europe* (*EU member states*, *Iceland*, *Norway*, and *Switzerland*). link:https://www.openshift.com/dedicated[OpenShift Dedicated] is available for purchase worldwide.
 
 If you would like to see the OpenShift Online premium plans extended to your country, please let us know by filling out the request form https://www.openshift.com/products/pricing/geo-request-form[here].
 
@@ -30,7 +30,7 @@ link:#support[Support] +
 
 [[regions-and-zones]]
 == Region and Zone Management
-All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region. *Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region. link:https://www.openshift.com/dedicatednode[*Dedicated Node Services*] offer the ability to host applications in any Amazon EC2 region.
+All applications on the *Free Plan* are created on gears within the `us-east-1` Amazon EC2 region. *Bronze* and *Silver* plans also allow the hosting of applications in the `eu-west-1` Amazon EC2 region.
 
 link:/managing-your-applications/regions-and-zones.html[-> Learn More about Region and Zone Management]
 
