@@ -79,7 +79,7 @@ link:#top[Back to Top]
 `app-root` is the only directory that you interact with directly (although not with all of it). There are two important directories that you should know about.
 
 === `repo`
-When your application is deployed and its build built (//managing-your-applications/action-hooks.html[action hooks] are being run, etc.), the code is checked out into this directory and all the required steps are run in this directory as well. For most cartridges this directory is also a working directory once the application is spun up.
+When your application is deployed and its build built (link:/managing-your-applications/action-hooks.html[action hooks] are being run, etc.), the code is checked out into this directory and all the required steps are run in this directory as well. For most cartridges this directory is also a working directory once the application is spun up.
 
 === `data`
 If you create a *non-scalable application*, this directory can be used for persistent storage.
