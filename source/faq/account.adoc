@@ -12,8 +12,6 @@ Find answers to some common account-related questions about OpenShift.
 NOTE: Troubleshooting a **technical issue**? Browse the link:/faq/troubleshooting.html[Technical FAQs].
 
 == In This Guide
-link:#_i_m_an_existing_red_hat_customer_do_i_need_to_sign_up_again[I'm an existing Red Hat customer, do I need to sign up again?] +
-link:#_why_can_t_i_see_the_captcha_image_on_the_sign_up_page[Why can't I see the Captcha image on the sign up page?] +
 link:#_why_didn_t_i_receive_an_account_verification_or_password_reset_email[Why didn't I receive an account verification or password reset email?] +
 link:#_how_can_i_upgrade_my_account[How can I upgrade my account?] +
 link:#_can_i_pay_for_my_bronze_or_silver_plan_with_paypal[Can I pay for my Bronze or Silver Plan with Paypal?] +
@@ -23,21 +21,8 @@ link:#_can_i_change_my_login_id[Can I change my login ID?] +
 link:#_can_i_change_my_email_address[Can I change my email address?] +
 link:#_how_can_i_transfer_application_ownership_from_one_user_to_another[How can I transfer application ownership from one user to another?] +
 link:#_how_can_i_get_more_resources[How can I get more resources?] +
-link:#_how_can_i_request_resources_as_a_non_profit_educational_institution_or_open_source_initiative[How can I request resources as a Non-Profit, Educational Institution, or Open Source Initiative?] +
 link:#_how_do_i_indicate_that_i_am_exempt_from_taxes[How do I indicate that I am exempt from taxes?] +
 link:#_how_do_i_delete_my_account[How do I delete my account?] +
-
-=== I'm an existing Red Hat customer, do I need to sign up again?
-Existing Red Hat customers who have active Red Hat Network (RHN) accounts can sign up for OpenShift Online using the same account information.
-
-link:#top[Back to Top]
-
-=== Why can't I see the Captcha image on the sign up page?
-Check the ad-blocker and/or site-blocker extensions and settings in your browser.
-
-For Safari users using link:http://orbicule.com/incognito/[Incognito], go to  *Safari*  > *Preferences* > *Extensions* and select the *Incognito* extension. Uncheck *Google APIs*, then refresh the sign up page - the image should appear.
-
-link:#top[Back to Top]
 
 === Why didn't I receive an account verification or password reset email?
 The most common reasons for this:
@@ -80,32 +65,10 @@ link:#top[Back to Top]
 === Can I change my login ID?
 Your email address/RHN username serves as the username for your OpenShift account. Currently, our system does not allow username changes.
 
-To work around this limitation as a free user, you can create a new account with the email address you prefer and move your applications to this new account.
-
-This can be accomplished in three easy steps:
-
-*Step 1: Back up your application:*
-[source]
---
-$ rhc snapshot save <appname>
---
-*Step 2: Create a new OpenShift account and run:*
-[source]
---
-$ rhc setup
---
-*Step 3: Restore the backed up application to the new account:*
-[source]
---
-$ rhc snapshot restore /path/to/snapshot
---
-
 link:#top[Back to Top]
 
 === Can I change my email address?
-If you created an OpenShift Online account with your email address as the username, then you cannot change your email address at this time.
-
-If you created an OpenShift Online account with a Red Hat Network account (RHN), then you can link:https://idp.redhat.com/idp/[log in] and update the email address associated with this account.
+Yes, you can link:https://sso.redhat.com/[log in] and update the email address associated with this account. If you have not signed up using a Red Hat account when creating the OpenShift Online account, you will be asked to complete the Red Hat Account registration process.
 
 link:#top[Back to Top]
 
@@ -142,15 +105,6 @@ link:#top[Back to Top]
 
 === How can I get more resources?
 If you are using the OpenShift Online Free Plan and need larger gears, more gears, or additional storage, you can link:#_how_can_i_upgrade_my_account[upgrade your account] to purchase more resources.
-
-If you are a non-profit or educational institution, see below.
-
-link:#top[Back to Top]
-
-=== How can I request resources as a Non-Profit, Educational Institution, or Open Source Initiative?
-OpenShift Online resources for Non-Profit, Open Source, and Educational Institutions are reviewed and granted on a case-by-case basis using the information gathered via the application form.
-
-To learn more about this program, pleaes visit the link:https://www.openshift.com/resource-grants[OpenShift Resource Grants Program] page.
 
 link:#top[Back to Top]
 
