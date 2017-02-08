@@ -5,7 +5,7 @@
 
 title: Books
 
-description: The latest books to help you hit the ground running with your OpenShift applications. 
+description: The latest books to help you hit the ground running with your OpenShift applications.
 ---
 
 
@@ -19,13 +19,13 @@ Hit the ground running with the creation and deployment of your OpenShift applic
 <section id="openshift_books">
 <div class="row">
     <div class="col-md-4">
-        <a href="http://www.amazon.com/Learning-OpenShift-Grant-Shipley/dp/1783980966/" class="thumbnail" title="View on Amazon" target="_blank"><img src="/images/books/for-developers.png" alt="OpenShift for Developers by Grant Shipley and Graham Dumpleton"></a>
+        <a href="https://www.openshift.com/promotions/for-developers.html" class="thumbnail" title="View on Amazon" target="_blank"><img src="/images/books/for-developers.png" alt="OpenShift for Developers by Grant Shipley and Graham Dumpleton"></a>
     </div>
     <div class="col-md-8">
         <div class="caption">
             <h3>OpenShift for Developers</h3>
             <p class="small">June 2016<br>by Grant Shipley and Graham Dumpleton</p>
-            <p>OpenShift enables you to use Docker application containers and the Kubernetes cluster manager to automate the way you create, ship, and run applications. Through the course of the book, you’ll learn how to use OpenShift and the Wildfly application server to build and then immediately deploy a Java application online</p>
+            <p>OpenShift Next Gen (v3) enables you to use Docker application containers and the Kubernetes cluster manager to automate the way you create, ship, and run applications. Through the course of the book, you’ll learn how to use OpenShift and the Wildfly application server to build and then immediately deploy a Java application online.</p>
             <p><a href="https://www.openshift.com/promotions/for-developers.html" class="btn btn-primary" role="button" target="_blank">Free Download - PDF/ePub/Mobi</a></p>
         </div>
     </div>
