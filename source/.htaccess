@@ -17,7 +17,7 @@ RewriteEngine on
 
 # Rewrite help.openshift.com to developers.openshift.com
 RewriteCond %{HTTP_HOST} ^help.openshift.com$
-RewriteRule (.*)$ https://developers.openshift.com/$1 [R,L]
+RewriteRule (.*)$ https://developers.openshift.com/help.html [R,L]
 
 # Rewrite http to https
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
