@@ -129,11 +129,11 @@ Or, in the OpenShift web console:
 
 image:https://www.openshift.com/sites/default/files/scaling_web.png[OpenShift web console scaling]
 
-OpenShift Online's link:https://www.openshift.com/products/pricing[free plan includes support for running up to three containers concurrently].  You can increase your account's capacity by link:https://www.openshift.com/products/pricing[upgrading to OpenShift Online's Silver or Bronze plans], or by setting up link:http://openshift.com/[your own open source cloud].
+OpenShift Online's free plan includes support for running up to three containers concurrently. You can increase your account's capacity by link:https://openshift.redhat.com/app/account/plan[upgrading to OpenShift Online's Silver or Bronze plans].
 
 [[next-steps]]
 === Next Steps
 1. link:http://twitter.com/OpenShift[Tell us] about your experiences with MEANStack on OpenShift
 2. Find out how easy it is to link:https://www.openshift.com/blogs/domain-names-and-ssl-in-the-openshift-web-console[assign a custom domain name to your applications]
-3. Upgrade to OpenShift Online's link:https://www.openshift.com/products/pricing[Bronze plan] to access link:https://www.openshift.com/products/pricing[additional scaling capacity, and the ability to add your own custom SSL certificates]
+3. Upgrade to OpenShift Online's link:https://openshift.redhat.com/app/account/plan[Bronze plan] to access additional scaling capacity, and the ability to add your own custom SSL certificates
 4. Help us find your questions on StackOverflow by using the link:http://stackoverflow.com/questions/tagged/openshift[OpenShift] and link:http://stackoverflow.com/questions/tagged/mean-stack[MEAN Stack] tags

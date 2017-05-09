@@ -37,11 +37,6 @@ JBoss Developer Studio, with its Eclipse Based integrated development environmen
 
 link:/getting-started/installing-jboss-studio.html[-> Install and Use JBoss Developer Studio]
 
-== Pricing and Premium Features
-OpenShift Online currently offers several options to developers, including a pretty generous free tier. Please visit our link:https://www.openshift.com/products/pricing[pricing page] for more information.
-
-Interested in learning more about OpenShift's premium features? Visit our link:/overview/platform-features.html[features guide] for more information.
-
 == Get Started with OpenShift Online
 Ready to launch your big idea on OpenShift? link:/getting-started/index.html[Get started] now!
 
