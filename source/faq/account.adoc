@@ -40,12 +40,10 @@ If you are an existing user, the easiest way to upgrade your account is to go li
 
 You can also manage your plan by going to your link:https://openshift.redhat.com/app/console/settings[Account Settings] page and clicking the *Upgrade your account* link at the top of the page.
 
-If you are a new user, you can sign up for the plan you want directly from the link:https://www.openshift.com/pricing[Pricing Page].
-
 link:#top[Back to Top]
 
 === Can I pay for my Bronze or Silver Plan with Paypal?
-Currently OpenShift Online only accepts credit card payments from the US, Canada, and Europe. Please see the link:https://www.openshift.com/pricing[Pricing Page] for more details.
+Currently OpenShift Online only accepts credit card payments from the US, Canada, and Europe.
 
 link:#top[Back to Top]
 
@@ -111,7 +109,7 @@ link:#top[Back to Top]
 === How do I indicate that I am exempt from taxes?
 To qualify for tax exempt status you must submit a certificate to Red Hat. Upon receipt of your certificate we will refund all previously paid taxes to your credit card.
 
-To begin the process, please email customerservice@redhat.com.
+To begin the process, please link:https://access.redhat.com/support/contact/customerService/[contact Customer Service].
 
 link:#top[Back to Top]
 

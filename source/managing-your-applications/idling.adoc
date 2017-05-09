@@ -26,7 +26,7 @@ No, we do not currently have a mechanism to send out notifications when your app
 == How do I keep my application from idling?
 There are two ways to keep your applications from idling:
 
-* Upgrade to a premium plan.  Applications running on premium plans are idled after prolonged period of no requests flowing in.  See the link:https://www.openshift.com/products/pricing/plan-comparison[Plan Comparison] page for more information.
+* link:https://openshift.redhat.com/app/account/plan[Upgrade to a premium plan].  Applications running on premium plans are idled after prolonged period of no requests flowing in.
 * Make a popular application that gets lots of traffic.  Make sure that your application uses standard SEO practices and provides unique and useful content.
 
 link:#top[Back to Top]
