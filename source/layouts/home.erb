@@ -28,18 +28,6 @@
     <!-- IE8 requires jQuery v1.x -->
     <%= javascript_include_tag "#{openshift_assets}/modernizr.js" %>
     <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        if (localStorage.getItem('v2warning') !== 'true') {
-          $('.v2-warning').show();
-        }
-        $('#v2-warning-dismiss').on('click',function(e){
-          e.preventDefault();
-          localStorage.setItem('v2warning','true');
-          $('.v2-warning').hide();
-        });
-      });
-    </script>
 </head>
 <body class="<%= page_classes %> online">
     <%= partial "layouts/tracking" %>

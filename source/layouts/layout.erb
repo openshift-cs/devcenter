@@ -30,18 +30,6 @@
   <%= javascript_include_tag "#{openshift_assets}/subdomain.js" %>
   <%= javascript_include_tag "navtree.js" %>
   <%= javascript_include_tag "fixheight.js" %>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      if (localStorage.getItem('v2warning') !== 'true') {
-        $('.v2-warning').show();
-      }
-      $('#v2-warning-dismiss').on('click',function(e){
-        e.preventDefault();
-        localStorage.setItem('v2warning','true');
-        $('.v2-warning').hide();
-      });
-    });
-  </script>
 </head>
 <body class="online">
 <%= partial "layouts/tracking" %>
@@ -77,7 +65,7 @@
         <input type="text" autofocus="" autocomplete="off" tabindex="1" placeholder="Search" class="navbar-search-query form-control" id="cse-search-input" name="query">
         <button value="Search" class="btn btn-default fa fa-search" type="submit"></button>
       </form>
-      
+
       <% if current_page.path.split(File::SEPARATOR).count == 1 %>
         <ul class="nav nav-sidebar">
           <%= build_navtree() %>
@@ -91,7 +79,7 @@
           <li><a href='/help.html'>Get Help <span class="fa fa-question-circle small"></span></a></li>
         </ul>
       <% end %>
-      
+
       <div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');

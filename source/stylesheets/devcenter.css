@@ -1259,11 +1259,22 @@ h3 {
     padding: 15px 20px;
     text-align: center;
 }
+.v2-warning > div {
+  display: inline-block;
+  margin-left: 15px;
+}
+@media screen and (max-width: 520px) {
+  /* make the warning shorter for smaller viewports */
+  .v2-warning .longer-v2-notice {
+    display: none;
+  }
+}
 .v2-warning a {
   color:#fff;
 }
 .v2-warning:hover {
     background-color: #0269c2;
     color: #fff;
+    cursor: pointer;
     text-decoration: none;
 }
