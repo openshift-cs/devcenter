@@ -1278,3 +1278,9 @@ h3 {
     cursor: pointer;
     text-decoration: none;
 }
+
+#search-iframe {
+  border: none;
+  height: 70vh;
+  width: 100%;
+}
