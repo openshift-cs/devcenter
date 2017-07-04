@@ -1,72 +1,15 @@
---- 
+---
 
 title: Search Results
 
 ---
-
-<script src='https://www.google.com/jsapi' type='text/javascript'></script>
-<script type='text/javascript'>
-  google.load('search', '1',{language: 'en', style: google.loader.themes.V2_DEFAULT});
+<script>
+  // create iframe
+  // only works with the expected style of request, i.e. a single query parameter in the URI
+  var query = window.location.search.substring(1);
+  if (query.startsWith("query=")) {
+    query = query.replace("query=", "");
+    var urlquery = "https://help.openshift.com/customsearch.html?q=" + encodeURI(query) + "&l=devcenter";
+    document.write('<iframe src="' + urlquery + '" id="search-iframe">');
+  }
 </script>
-<script type='text/javascript'>
-// google site search
-  google.setOnLoadCallback(function() {
-    function parseParamsFromUrl() {
-      var params = {};
-      var parts = window.location.search.substr(1).split('&');
-      for (var i = 0; i < parts.length; i++) {
-        var keyValuePair = parts[i].split('=');
-        var key = decodeURIComponent(keyValuePair[0]);
-        params[key] = keyValuePair[1] ?
-            decodeURIComponent(keyValuePair[1].replace(/\+/g, ' ')) :
-            keyValuePair[1];
-      }
-      return params;
-    }
-    var urlParams = parseParamsFromUrl();
-    $("#cse-search-input-body").val(urlParams['query']);
-    var queryParamName = 'query';
-    var refinementName = 'refinement';
-    var refinements = ["blog","documentation","help_center","ideas","stackoverflow"];
-    var customSearchOptions = {};
-    var orderByOptions = {};
-    orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-    customSearchOptions['enableOrderBy'] = true;
-    customSearchOptions['orderByOptions'] = orderByOptions;
-    var googleAnalyticsOptions = {};
-    googleAnalyticsOptions['queryParameter'] = 'query';
-    googleAnalyticsOptions['categoryParameter'] = 'refinement';
-    customSearchOptions['googleAnalyticsOptions'] = googleAnalyticsOptions;
-    if (urlParams[refinementName] && refinements.indexOf(urlParams[refinementName]) != -1) {
-      customSearchOptions['defaultToRefinement'] = urlParams[refinementName];
-    }
-    var customSearchControl = new google.search.CustomSearchControl('013769182564158614814:lt-zcblgpx4', customSearchOptions);
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    var options = new google.search.DrawOptions();
-    options.enableSearchResultsOnly();
-    customSearchControl.draw('cse-search-results', options);
-    if (urlParams[queryParamName]) {
-      customSearchControl.execute(urlParams[queryParamName]);
-    }
-  }, true);
-  
-</script>
-<div style="float:left;padding-top:25px;" class="col-sm-12">
-    <div class="search-form">
-      <form role="form" method="get" id="cse-search-form-body" class="search has-button" action="/search.html">
-        <input type="hidden" value="documentation" name="refinement">
-        <div class="form-group">
-          <div class="search-pf-input-group">
-            <input type="search" style="outline: none;" spellcheck="false" placeholder="Search the Developer Portal" name="query" id="cse-search-input-body" dir="ltr" class="form-control" autocomplete="off">
-          </div>
-        </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-default">
-            <span class="fa fa-search"></span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-<div id="cse-search-results" class="search-results clearfix">
-</div>
