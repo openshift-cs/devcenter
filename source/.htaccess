@@ -605,3 +605,5 @@ RewriteRule ^overview/$ /overview/basic-terminology.html [L,R=301,NC]
 
 RewriteRule ^faq$ /faq/account.html [L,R=301,NC]
 RewriteRule ^faq/$ /faq/account.html [L,R=301,NC]
+
+Redirect 301 /contact.html https://help.openshift.com/forms/community-contact.html
