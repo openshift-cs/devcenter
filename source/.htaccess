@@ -19,10 +19,6 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^help.openshift.com$
 RewriteRule (.*)$ https://developers.openshift.com/help.html [R,L]
 
-# Rewrite http to https
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
-
 # Redirect marketplace to external services
 RewriteRule ^en/marketplace-(.*?)\.html /en/external-services-$1.html [L,R=301,NC]
 RewriteRule ^en/images/marketplace/(.*?) /en/images/external-services/$1 [L,R=301,NC]
